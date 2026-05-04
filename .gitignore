@@ -10,11 +10,11 @@
 *~
 .cache/
 
-# user / device drops
-pics/*.jpg
-pics/*.jpeg
-pics/*.png
-pics/*.heic
+# user / device drops — committed: the curated 8 waypoint images
+# (downloaded once from Wikimedia, resized to 1280px). Drop in your own
+# JPGs over them anytime — they'll be tracked as overrides.
+# pics/*.jpg                # un-gitignored so the gallery works offline
+pics/*.heic                 # phone-import format we don't ship
 !pics/.gitkeep
 
 # trip-side work code (use repos/ as a gitignore'd scratchpad if needed)
