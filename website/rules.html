@@ -1,53 +1,116 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nepal Rules 2026 — Indian Vehicles &amp; Travellers</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Rules · Nepal 2026 · NEP-26</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="css/rugged.css">
+  <link rel="stylesheet" href="css/legacy-rendered.css">
+  <style>
+    .topnav { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; gap: 16px;
+      padding: 10px 22px; background: rgba(10, 20, 36, 0.82); border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+    .topnav .brand-tag { display: inline-flex; align-items: center; gap: 8px; color: var(--cream); letter-spacing: 0.22em; font-weight: 600; }
+    .topnav .brand-tag .dot { width: 7px; height: 7px; background: var(--rust); border-radius: 50%; box-shadow: 0 0 0 3px rgba(200,85,42,0.18); }
+    .topnav nav { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-left: auto; align-items: center; }
+    .topnav nav a { color: var(--cream-dim); text-decoration: none; padding: 6px 4px; transition: color 160ms ease-out; position: relative; }
+    .topnav nav a:hover { color: var(--cream); }
+    .topnav nav a.is-current { color: var(--dust); }
+    .topnav nav a.is-current::after { content: ''; position: absolute; left: 4px; right: 4px; bottom: 2px; height: 1px; background: var(--dust); }
+    .topnav nav .group-sep { width: 1px; align-self: stretch; background: var(--line); opacity: 0.6; margin: 4px 4px; }
+    @media (max-width: 880px) { .topnav { padding: 10px 14px; font-size: 10px; letter-spacing: 0.12em; } .topnav nav { gap: 4px 12px; } .topnav nav .group-sep { display: none; } }
+  </style>
 </head>
 <body>
-<header class="site">
-  <div class="inner">
-    <div class="brand">
-      <span class="title">Nepal Workation 2026</span>
-      <span class="sub">Bikaner → Pokhara → Muktinath · 9–23 May</span>
-    </div>
-    <nav>
+
+  <header class="topnav" role="banner">
+    <span class="brand-tag"><span class="dot"></span><span>NEP-26 · Dossier</span></span>
+    <nav aria-label="Site sections">
       <a href="index.html">Overview</a>
+      <a href="agent.html">Comms</a>
+      <a href="map.html">Atlas</a>
+      <a href="gallery.html">Plates</a>
+      <span class="group-sep" aria-hidden="true"></span>
       <a href="itinerary.html">Itinerary</a>
       <a href="checklist.html">Checklist</a>
-      <a href="rules.html">Rules</a>
+      <a href="rules.html" class="is-current">Rules</a>
       <a href="route.html">Route</a>
+      <span class="group-sep" aria-hidden="true"></span>
       <a href="viewer.html">Docs</a>
       <a href="folders.html">Files</a>
     </nav>
-  </div>
-</header>
+  </header>
 
-<main class="shell">
-  <h1 style="margin-bottom:6px">Nepal Rules 2026</h1>
-  <p class="muted" style="margin-top:0">Re-verify the line items below on 8 May at the official sources before crossing.</p>
+  <main class="shell">
+    <svg class="hero-mtn" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
+      <defs><linearGradient id="sky-r" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#0a1424" stop-opacity="0"/><stop offset="100%" stop-color="#0a1424" stop-opacity="0.9"/></linearGradient></defs>
+      <path d="M0,220 L0,140 L100,90 L200,110 L300,60 L400,90 L500,40 L600,70 L700,30 L800,80 L900,50 L1000,90 L1100,60 L1200,80 L1200,220 Z" fill="#162338" opacity="0.85"/>
+      <path d="M0,220 L0,160 L80,130 L180,150 L260,110 L360,135 L460,100 L540,130 L640,95 L740,135 L840,110 L920,140 L1020,115 L1120,150 L1200,130 L1200,220 Z" fill="#1b2a44" opacity="0.95"/>
+      <path d="M0,220 L0,180 L60,160 L160,180 L240,150 L340,180 L440,160 L540,185 L640,165 L740,190 L840,170 L940,195 L1040,180 L1140,200 L1200,185 L1200,220 Z" fill="#243044"/>
+      <path d="M500,40 L494,52 L506,52 Z M700,30 L692,44 L708,44 Z" fill="#ece5d3" opacity="0.55"/>
+      <rect x="0" y="0" width="1200" height="220" fill="url(#sky-r)"/>
+    </svg>
 
-  <div class="callout" style="margin: 18px 0 24px">
-    <b>Official sources:</b>
-    <a href="https://www.dotm.gov.np/" target="_blank">dotm.gov.np</a> (Transport / Yatayat),
-    <a href="https://www.customs.gov.np/" target="_blank">customs.gov.np</a> (Bhansar),
-    <a href="https://immigration.gov.np/" target="_blank">immigration.gov.np</a>,
-    <a href="https://www.welcomenepal.com/" target="_blank">welcomenepal.com</a> (ACAP / NTB).
-  </div>
+    <header class="trail-header">
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M32,8 L52,18 L52,34 C52,46 32,56 32,56 C32,56 12,46 12,34 L12,18 Z"/>
+          <path d="M22,32 L30,40 L42,24" stroke-width="3"/>
+        </svg>
+      </div>
+      <div class="wordmark">
+        <span class="eyebrow">Section 03 · Border + permits + emergencies</span>
+        <h1>Nepal&nbsp;<span class="accent">rules</span></h1>
+        <div class="sub">
+          <span><b>19</b> rules</span><span class="sep">//</span>
+          <span><b>8</b> emergencies</span><span class="sep">//</span>
+          <span>Re-verify <b>2026-05-08</b></span>
+        </div>
+      </div>
+      <a class="back" href="index.html"><i data-lucide="chevron-left" class="icon"></i><span>Base</span></a>
+    </header>
 
-  <h2 class="section-title">Rules &amp; protocol</h2>
-  <div class="grid cols-3" id="rules"></div>
+    <section class="stat-strip" aria-label="Trip vitals" data-aos="fade-up">
+      <div class="stat accent"><div class="k">T-minus</div><div class="v"><span data-countdown>—</span><span class="u">d</span></div></div>
+      <div class="stat"><div class="k">Bhansar SUV</div><div class="v">600<span class="u">NPR/d</span></div></div>
+      <div class="stat"><div class="k">Cap</div><div class="v">30<span class="u">d/yr</span></div></div>
+      <div class="stat"><div class="k">ACAP SAARC</div><div class="v">1,000<span class="u">NPR</span></div></div>
+      <div class="stat"><div class="k">Embassy 24×7</div><div class="v"><a href="tel:+9779851316807" style="color:inherit;font-size:14px">+977-9851316807</a></div></div>
+    </section>
 
-  <h2 class="section-title">Emergency contacts</h2>
-  <div class="grid cols-3" id="emerg"></div>
-</main>
+    <p class="muted" style="margin: 6px 0 0">Re-verify the line items below on 8 May at the official sources before crossing.</p>
 
-<footer class="site">Generated 2026-05-04 · Source: <code>data/rules.json</code></footer>
+    <div class="callout" data-aos="fade-up" style="margin: 18px 0 24px">
+      <b>Official sources:</b>
+      <a href="https://www.dotm.gov.np/" target="_blank" rel="noopener">dotm.gov.np</a> (Transport / Yatayat) ·
+      <a href="https://www.customs.gov.np/" target="_blank" rel="noopener">customs.gov.np</a> (Bhansar) ·
+      <a href="https://www.immigration.gov.np/" target="_blank" rel="noopener">immigration.gov.np</a> ·
+      <a href="https://epermit.ntnc.org.np/" target="_blank" rel="noopener">epermit.ntnc.org.np</a> (ACAP) ·
+      <a href="https://ntb.gov.np/" target="_blank" rel="noopener">ntb.gov.np</a> (NTB) ·
+      <a href="https://www.indembkathmandu.gov.in/" target="_blank" rel="noopener">indembkathmandu.gov.in</a>.
+      Full diff: <a href="../docs/RULES_CHANGE_REPORT.md">docs/RULES_CHANGE_REPORT.md</a>.
+    </div>
 
-<script src="js/data.js"></script>
-<script src="js/app.js"></script>
-<script>renderRules("rules", "emerg");</script>
+    <h2 class="section-title">Rules &amp; protocol</h2>
+    <div class="grid cols-3" id="rules" data-aos="fade-up"></div>
+
+    <h2 class="section-title">Emergency contacts</h2>
+    <div class="grid cols-3" id="emerg" data-aos="fade-up"></div>
+
+    <p class="footnote">Source: <code>data/rules.json</code> (19 rules, 8 emergencies — refreshed 2026-05-04). Confidence flags &amp; per-rule sourcing live in the JSON; full audit at <code>data/rules.fetch_log.json</code> (83 entries with sha256). Narrative form: <a href="../docs/NEPAL_RULES_2026.md">docs/NEPAL_RULES_2026.md</a>.</p>
+  </main>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/data.js"></script>
+  <script src="js/route-data.js"></script>
+  <script src="js/enhance.js"></script>
+  <script src="js/app.js"></script>
+  <script>renderRules("rules", "emerg");</script>
 </body>
 </html>

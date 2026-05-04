@@ -1,50 +1,109 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Master Checklist — Nepal Workation 2026</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Checklist · Master · NEP-26</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="css/rugged.css">
+  <link rel="stylesheet" href="css/legacy-rendered.css">
+  <style>
+    .topnav { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; gap: 16px;
+      padding: 10px 22px; background: rgba(10, 20, 36, 0.82); border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+    .topnav .brand-tag { display: inline-flex; align-items: center; gap: 8px; color: var(--cream); letter-spacing: 0.22em; font-weight: 600; }
+    .topnav .brand-tag .dot { width: 7px; height: 7px; background: var(--rust); border-radius: 50%; box-shadow: 0 0 0 3px rgba(200,85,42,0.18); }
+    .topnav nav { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-left: auto; align-items: center; }
+    .topnav nav a { color: var(--cream-dim); text-decoration: none; padding: 6px 4px; transition: color 160ms ease-out; position: relative; }
+    .topnav nav a:hover { color: var(--cream); }
+    .topnav nav a.is-current { color: var(--dust); }
+    .topnav nav a.is-current::after { content: ''; position: absolute; left: 4px; right: 4px; bottom: 2px; height: 1px; background: var(--dust); }
+    .topnav nav .group-sep { width: 1px; align-self: stretch; background: var(--line); opacity: 0.6; margin: 4px 4px; }
+    @media (max-width: 880px) { .topnav { padding: 10px 14px; font-size: 10px; letter-spacing: 0.12em; } .topnav nav { gap: 4px 12px; } .topnav nav .group-sep { display: none; } }
+  </style>
 </head>
 <body>
-<header class="site">
-  <div class="inner">
-    <div class="brand">
-      <span class="title">Nepal Workation 2026</span>
-      <span class="sub">Bikaner → Pokhara → Muktinath · 9–23 May</span>
-    </div>
-    <nav>
+
+  <header class="topnav" role="banner">
+    <span class="brand-tag"><span class="dot"></span><span>NEP-26 · Dossier</span></span>
+    <nav aria-label="Site sections">
       <a href="index.html">Overview</a>
+      <a href="agent.html">Comms</a>
+      <a href="map.html">Atlas</a>
+      <a href="gallery.html">Plates</a>
+      <span class="group-sep" aria-hidden="true"></span>
       <a href="itinerary.html">Itinerary</a>
-      <a href="checklist.html">Checklist</a>
+      <a href="checklist.html" class="is-current">Checklist</a>
       <a href="rules.html">Rules</a>
       <a href="route.html">Route</a>
+      <span class="group-sep" aria-hidden="true"></span>
       <a href="viewer.html">Docs</a>
       <a href="folders.html">Files</a>
     </nav>
-  </div>
-</header>
+  </header>
 
-<main class="shell">
-  <h1 style="margin-bottom:6px">Master Checklist</h1>
-  <p class="muted" style="margin-top:0">Tap an item to tick it. Progress saves to this browser only.</p>
+  <main class="shell">
+    <svg class="hero-mtn" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
+      <defs><linearGradient id="sky-c" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#0a1424" stop-opacity="0"/><stop offset="100%" stop-color="#0a1424" stop-opacity="0.9"/></linearGradient></defs>
+      <path d="M0,220 L0,140 L100,90 L200,110 L300,60 L400,90 L500,40 L600,70 L700,30 L800,80 L900,50 L1000,90 L1100,60 L1200,80 L1200,220 Z" fill="#162338" opacity="0.85"/>
+      <path d="M0,220 L0,160 L80,130 L180,150 L260,110 L360,135 L460,100 L540,130 L640,95 L740,135 L840,110 L920,140 L1020,115 L1120,150 L1200,130 L1200,220 Z" fill="#1b2a44" opacity="0.95"/>
+      <path d="M0,220 L0,180 L60,160 L160,180 L240,150 L340,180 L440,160 L540,185 L640,165 L740,190 L840,170 L940,195 L1040,180 L1140,200 L1200,185 L1200,220 Z" fill="#243044"/>
+      <path d="M500,40 L494,52 L506,52 Z M700,30 L692,44 L708,44 Z" fill="#ece5d3" opacity="0.55"/>
+      <rect x="0" y="0" width="1200" height="220" fill="url(#sky-c)"/>
+    </svg>
 
-  <div class="global-progress">
-    <div>
-      <div class="num" id="pt">0 / 0 (0%)</div>
-      <div class="bar" style="width: 240px"><span id="pb" style="width:0%"></span></div>
+    <header class="trail-header">
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14,32 L26,44 L50,18" stroke-width="3"/>
+          <rect x="6" y="6" width="52" height="52" rx="2" stroke-opacity="0.4"/>
+        </svg>
+      </div>
+      <div class="wordmark">
+        <span class="eyebrow">Section 04 · Pre-flight checklist</span>
+        <h1>Master&nbsp;<span class="accent">checklist</span></h1>
+        <div class="sub">
+          <span><b>11</b> categories</span><span class="sep">//</span>
+          <span><b>~98</b> items</span><span class="sep">//</span>
+          <span>Saves to this device</span>
+        </div>
+      </div>
+      <a class="back" href="index.html"><i data-lucide="chevron-left" class="icon"></i><span>Base</span></a>
+    </header>
+
+    <section class="stat-strip" aria-label="Trip vitals" data-aos="fade-up">
+      <div class="stat accent"><div class="k">T-minus</div><div class="v"><span data-countdown>—</span><span class="u">d</span></div></div>
+      <div class="stat"><div class="k">Categories</div><div class="v">11</div></div>
+      <div class="stat"><div class="k">Storage</div><div class="v">localStorage</div></div>
+      <div class="stat"><div class="k">Doc</div><div class="v"><a href="../docs/MASTER_CHECKLIST.md" style="color:inherit;border-bottom:1px dashed var(--dust)">.md</a></div></div>
+    </section>
+
+    <p class="muted" style="margin: 6px 0 0">Tap an item to tick it. Progress saves to this browser only — no cloud, no account, no telemetry.</p>
+
+    <div class="global-progress" data-aos="fade-up">
+      <div>
+        <div class="num" id="pt">0 / 0 (0%)</div>
+        <div class="bar"><span id="pb" style="width:0%"></span></div>
+      </div>
+      <div style="flex:1"></div>
+      <button id="reset-checklist">Reset progress</button>
     </div>
-    <div style="flex:1"></div>
-    <button id="reset-checklist">Reset progress</button>
-  </div>
 
-  <div id="checklist"></div>
-</main>
+    <div id="checklist" data-aos="fade-up" data-aos-delay="80"></div>
 
-<footer class="site">Generated 2026-05-04 · Source: <code>data/checklist.json</code></footer>
+    <p class="footnote">Source: <code>data/checklist.json</code> · rendered by <code>js/app.js</code> · narrative form lives in <a href="../docs/MASTER_CHECKLIST.md">docs/MASTER_CHECKLIST.md</a>.</p>
+  </main>
 
-<script src="js/data.js"></script>
-<script src="js/app.js"></script>
-<script>renderChecklist("checklist", "pb", "pt");</script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/data.js"></script>
+  <script src="js/route-data.js"></script>
+  <script src="js/enhance.js"></script>
+  <script src="js/app.js"></script>
+  <script>renderChecklist("checklist", "pb", "pt");</script>
 </body>
 </html>
