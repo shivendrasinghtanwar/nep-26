@@ -678,6 +678,16 @@ const AGENT_CSS = `
     }
     .rack-strip .freq { display: none; }
   }
+  @media (max-width: 480px) {
+    /* drop the uptime readout too — at 375px the channel label needs the space */
+    .rack-strip {
+      grid-template-columns: auto 1fr;
+      padding: 9px 22px 9px 22px;
+      letter-spacing: 0.14em;
+    }
+    .rack-strip .uptime { display: none; }
+    .rack-strip .ch { font-size: 9px; }
+  }
 
   .rack .panel {
     border-radius: 0 0 11px 11px;
@@ -821,6 +831,16 @@ const AGENT_CSS = `
       rgba(10,19,34,1) 70%);
     border-top: 1px dashed rgba(232,177,58,0.18);
     z-index: 2;
+  }
+  @media (max-width: 640px) {
+    .kp-composer-wrap { padding: 14px 10px 12px; }
+    .bubble { max-width: 100%; padding: 10px 12px; }
+    .kp-stream { font-size: 12.5px; }
+    /* assistant body content — keep code blocks from forcing horizontal scroll on the page */
+    .kp-rich pre { font-size: 11.5px; padding: 10px 12px; }
+    /* status band — single-row 2x2 grid already; ensure values don't crowd */
+    .status-band .tile { padding: 9px 10px; }
+    .status-band .tile .tv { font-size: 12px; gap: 4px; }
   }
   .kp-composer-wrap::before {
     content: '';

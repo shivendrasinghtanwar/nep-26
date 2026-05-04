@@ -773,10 +773,29 @@ export default function Gallery() {
         @media (max-width: 760px) {
           .lb-frame { grid-template-columns: 1fr; max-height: 96vh; }
           .lb-img-wrap { max-height: 55vh; min-height: 240px; }
-          .lb-meta { border-left: 0; border-top: 1px solid var(--line-soft); }
+          .lb-meta { border-left: 0; border-top: 1px solid var(--line-soft); padding: 18px 16px; gap: 10px; }
           .lb-prev { left: 6px; }
           .lb-next { right: 6px; }
           .hero-plate .hp-meta { padding: 16px 18px; }
+        }
+        @media (max-width: 640px) {
+          /* lightbox padding gets in the way at narrow widths — let the frame
+             fill the viewport modulo a small inset, and ensure the close
+             button stays inside that inset. */
+          .lightbox { padding: 12px; }
+          .lb-frame { max-height: 94vh; }
+          .lb-close { top: 18px; right: 18px; width: 44px; height: 44px; }
+          .lb-nav { width: 44px; height: 44px; }
+          .lb-prev { left: 14px; }
+          .lb-next { right: 14px; }
+          .lb-img-wrap { max-height: 48vh; min-height: 200px; }
+          .lb-meta { font-size: 13px; }
+          .lb-actions { flex-wrap: wrap; gap: 8px; }
+          .hero-plate .hp-title { font-size: clamp(28px, 9vw, 48px); }
+          .hero-plate .hp-eyebrow { font-size: 9.5px; letter-spacing: 0.2em; }
+          .hero-plate .hp-caption { font-size: 10.5px; letter-spacing: 0.12em; }
+          .hero-plate .hp-corners::before,
+          .hero-plate .hp-corners::after { width: 16px; height: 16px; }
         }
 
         #hint {
