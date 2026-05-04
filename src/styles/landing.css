@@ -47,8 +47,9 @@
   object-position: center 50%;
   opacity: 0;
   transition: opacity 900ms ease-out;
-  /* darker filter so the rust-toned headline stays readable */
-  filter: saturate(0.85) contrast(1.06) brightness(0.62);
+  /* leave the photo more visible — readability comes from the gradient
+     overlay below the headline stack, not from globally dimming the image */
+  filter: saturate(0.92) contrast(1.05) brightness(0.84);
 }
 .hero-bg img.loaded { opacity: 1; }
 .hero-bg img.broken { display: none; }
@@ -60,13 +61,14 @@
   inset: 0;
   z-index: -1;
   background:
-    /* extra darkening behind the headline / sub / CTA stack */
-    radial-gradient(ellipse 70% 55% at 50% 75%, rgba(10,20,36,0.55) 0%, transparent 70%),
+    /* localised darkening only behind the headline / sub / CTA stack —
+       leaves the upper / mid mountains visible */
+    radial-gradient(ellipse 70% 50% at 50% 80%, rgba(10,20,36,0.62) 0%, transparent 75%),
     linear-gradient(180deg,
-      rgba(10,20,36,0.30) 0%,
-      rgba(10,20,36,0.45) 30%,
-      rgba(10,20,36,0.85) 65%,
-      rgba(10,20,36,0.97) 100%),
+      rgba(10,20,36,0.10) 0%,
+      rgba(10,20,36,0.18) 30%,
+      rgba(10,20,36,0.65) 70%,
+      rgba(10,20,36,0.95) 100%),
     radial-gradient(ellipse 80% 50% at 50% 100%, rgba(200,85,42,.14), transparent 60%);
 }
 
@@ -90,20 +92,29 @@
 
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.32em;
+  font-size: 10px;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--dust);
+  color: var(--cream-dim);
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  /* boxed plate to match the .hero-bezel on the right side */
+  border: 1px solid rgba(212,165,116,.35);
+  padding: 6px 10px;
+  border-radius: 2px;
+  background: rgba(10,20,36,.4);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 .eyebrow::before {
   content: '';
-  width: 28px;
-  height: 1px;
-  background: var(--dust);
-  opacity: .6;
+  width: 6px;
+  height: 6px;
+  background: var(--rust);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(200,85,42,0.18);
+  opacity: 1;
 }
 
 .hero-bezel {
