@@ -244,18 +244,20 @@ function ElevationProfile() {
   const PAD_L = 64, PAD_R = 28, PAD_T = 36, PAD_B = 56
   const innerW = W - PAD_L - PAD_R
   const innerH = H - PAD_T - PAD_B
-  const maxKm = ELEV_NODES[ELEV_NODES.length - 1].km
+  const N = ELEV_NODES.length
   const maxM = 4200
   const minM = 0
-  const xFor = (km) => PAD_L + (km / maxKm) * innerW
-  const yFor = (m)  => PAD_T + innerH - ((m - minM) / (maxM - minM)) * innerH
+  // Index-based x — each waypoint gets equal horizontal space, so the
+  // 200 km Mustang climb (where elevation actually changes) reads as
+  // visible peaks instead of a slim spike between long flat shoulders.
+  const xFor = (idx) => PAD_L + (idx / (N - 1)) * innerW
+  const yFor = (m)   => PAD_T + innerH - ((m - minM) / (maxM - minM)) * innerH
 
-  const pts = ELEV_NODES.map((n) => [xFor(n.km), yFor(n.m)])
+  const pts = ELEV_NODES.map((n, i) => [xFor(i), yFor(n.m)])
   const linePath = pts.map((p, i) => `${i === 0 ? 'M' : 'L'}${p[0].toFixed(2)},${p[1].toFixed(2)}`).join(' ')
   const fillPath = `${linePath} L${pts[pts.length-1][0].toFixed(2)},${(PAD_T + innerH).toFixed(2)} L${pts[0][0].toFixed(2)},${(PAD_T + innerH).toFixed(2)} Z`
 
   const yTicks = [0, 1000, 2000, 3000, 4000]
-  const xTickKm = [0, 500, 1000, 1500, 2000, 2500, 3000, 3500].filter((k) => k <= maxKm)
 
   // Altitude bands — shaded by terrain category
   const bands = [
@@ -265,30 +267,40 @@ function ElevationProfile() {
     { from: 3500, to: maxM, color: PAL.flagRed, label: 'EXTREME',  opacity: 0.12 },
   ]
 
-  // Named waypoints along the curve (de-duplicated outbound positions)
-  const named = ELEV_NODES.filter((n, i) => KEY_WAYPOINTS.has(n.name) &&
-    ELEV_NODES.findIndex((m) => m.name === n.name) === i)
+  // Named waypoints along the curve (de-duplicated outbound positions);
+  // carry the index so we can position by slot, not by km.
+  const named = ELEV_NODES
+    .map((n, i) => ({ ...n, idx: i }))
+    .filter((n, _, all) => KEY_WAYPOINTS.has(n.name) &&
+      all.findIndex((m) => m.name === n.name) === n.idx
+        ? false
+        : true) // placeholder so the linter sees something
+  // simpler: keep the first occurrence of each named waypoint (outbound)
+  const _seen = new Set()
+  const namedFirst = ELEV_NODES
+    .map((n, i) => ({ ...n, idx: i }))
+    .filter((n) => {
+      if (!KEY_WAYPOINTS.has(n.name)) return false
+      if (_seen.has(n.name)) return false
+      _seen.add(n.name)
+      return true
+    })
 
-  const peak = ELEV_NODES.find((n) => n.name === 'Muktinath')
-  const px = xFor(peak.km), py = yFor(peak.m)
+  const peakIdx = ELEV_NODES.findIndex((n) => n.name === 'Muktinath')
+  const px = xFor(peakIdx), py = yFor(ELEV_NODES[peakIdx].m)
 
-  function elevAtKm(km) {
-    for (let i = 1; i < ELEV_NODES.length; i++) {
-      const a = ELEV_NODES[i - 1], b = ELEV_NODES[i]
-      if (km >= a.km && km <= b.km) {
-        const t = (km - a.km) / (b.km - a.km || 1)
-        return a.m + (b.m - a.m) * t
-      }
+  // Hover: continuous index between nodes; lerp elevation + km from
+  // the two adjacent nodes.
+  function sampleAtIdx(idxF) {
+    const i0 = Math.max(0, Math.min(N - 2, Math.floor(idxF)))
+    const i1 = i0 + 1
+    const t = Math.max(0, Math.min(1, idxF - i0))
+    const a = ELEV_NODES[i0], b = ELEV_NODES[i1]
+    return {
+      m: a.m + (b.m - a.m) * t,
+      km: a.km + (b.km - a.km) * t,
+      nearest: t < 0.5 ? a : b,
     }
-    return ELEV_NODES[0].m
-  }
-  function nearestNode(km) {
-    let best = ELEV_NODES[0], bestD = Infinity
-    for (const n of ELEV_NODES) {
-      const d = Math.abs(n.km - km)
-      if (d < bestD) { bestD = d; best = n }
-    }
-    return best
   }
 
   function onMove(e) {
@@ -298,12 +310,11 @@ function ElevationProfile() {
     const xPx = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left
     const xVB = (xPx / rect.width) * W
     if (xVB < PAD_L || xVB > W - PAD_R) return
-    const km = ((xVB - PAD_L) / innerW) * maxKm
-    const m = elevAtKm(km)
-    const yVB = yFor(m)
+    const idxF = ((xVB - PAD_L) / innerW) * (N - 1)
+    const s = sampleAtIdx(idxF)
+    const yVB = yFor(s.m)
     setHover({ x: xVB, y: yVB })
-    const nn = nearestNode(km)
-    setReadout({ m: Math.round(m), km: Math.round(km), nearest: nn })
+    setReadout({ m: Math.round(s.m), km: Math.round(s.km), nearest: s.nearest })
   }
   function onLeave() {
     setHover(null)
@@ -384,22 +395,31 @@ function ElevationProfile() {
           fill={PAL.dust} fontFamily="JetBrains Mono, monospace" fontSize="10"
           letterSpacing="0.18em" textTransform="uppercase">METRES</text>
 
-        {/* x-axis km ticks */}
-        {xTickKm.map((k) => {
-          const x = xFor(k)
+        {/* x-axis: every waypoint gets a tiny tick; only the named ones
+            get their km label so the bottom doesn't get crowded. */}
+        {ELEV_NODES.map((n, i) => {
+          const x = xFor(i)
+          const isNamed = KEY_WAYPOINTS.has(n.name)
           return (
-            <g key={`x${k}`}>
-              <line x1={x.toFixed(1)} y1={(PAD_T + innerH).toFixed(1)} x2={x.toFixed(1)} y2={(PAD_T + innerH + 4).toFixed(1)}
-                stroke={PAL.creamDim} strokeOpacity="0.45"/>
-              <text x={x.toFixed(1)} y={(PAD_T + innerH + 18).toFixed(1)} textAnchor="middle"
-                fill={PAL.creamDim} fontFamily="JetBrains Mono, monospace" fontSize="11"
-                letterSpacing="0.04em">{k.toLocaleString()}</text>
-            </g>
+            <line key={`xtick${i}`}
+              x1={x.toFixed(1)} y1={(PAD_T + innerH).toFixed(1)}
+              x2={x.toFixed(1)} y2={(PAD_T + innerH + (isNamed ? 6 : 3)).toFixed(1)}
+              stroke={isNamed ? PAL.dust : PAL.creamDim}
+              strokeOpacity={isNamed ? 0.7 : 0.4}/>
           )
         })}
-        <text x={W / 2} y={(PAD_T + innerH + 38).toFixed(1)} textAnchor="middle"
+        {namedFirst.map((n) => {
+          const x = xFor(n.idx)
+          return (
+            <text key={`xkmlabel${n.idx}`} x={x.toFixed(1)} y={(PAD_T + innerH + 20).toFixed(1)}
+              textAnchor="middle"
+              fill={PAL.creamDim} fontFamily="JetBrains Mono, monospace" fontSize="10"
+              letterSpacing="0.04em">{n.km.toLocaleString()} km</text>
+          )
+        })}
+        <text x={W / 2} y={(PAD_T + innerH + 40).toFixed(1)} textAnchor="middle"
           fill={PAL.dust} fontFamily="JetBrains Mono, monospace" fontSize="10"
-          letterSpacing="0.22em">CUMULATIVE KM</text>
+          letterSpacing="0.22em">WAYPOINTS · NOT TO SCALE</text>
 
         {/* the curve — fill + stroke with dasharray reveal */}
         <path d={fillPath} fill="url(#elev-fill)"
@@ -421,8 +441,8 @@ function ElevationProfile() {
 
         {/* named waypoint markers — rendered after the line draws */}
         <g style={{ opacity: revealed ? 1 : 0, transition: 'opacity 500ms ease-out 1300ms' }}>
-          {named.map((n) => {
-            const x = xFor(n.km)
+          {namedFirst.map((n) => {
+            const x = xFor(n.idx)
             const y = yFor(n.m)
             const isPeak = n.name === 'Muktinath'
             return (
