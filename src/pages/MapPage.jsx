@@ -505,9 +505,9 @@ export default function MapPage() {
       )}
 
       <div className="plate" data-aos="fade-up" data-aos-delay="100">
-        <div id="map" style={{ width: '100%', minHeight: 480 }}>
+        <div id="map" style={{ width: '100%', height: 540 }}>
           <MapContainer
-            style={{ width: '100%', height: '100%', minHeight: 480 }}
+            style={{ width: '100%', height: '100%' }}
             scrollWheelZoom
             center={[28.2, 83.99]}
             zoom={7}
