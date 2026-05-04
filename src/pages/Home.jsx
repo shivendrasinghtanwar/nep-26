@@ -8,7 +8,7 @@ import {
 import { useTMinus } from '../lib/useTMinus.js'
 import { ITINERARY, RULES } from '../lib/data.js'
 
-const HERO_IMG = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Muktinath_Temple_Mustang_Nepal.jpg/1280px-Muktinath_Temple_Mustang_Nepal.jpg'
+const HERO_IMG = `${import.meta.env.BASE_URL}pics/muktinath.jpg`
 
 function fmtDate(iso) {
   if (!iso) return ''

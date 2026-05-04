@@ -337,7 +337,7 @@ export default function Gallery() {
 
       <section className="hero-plate" data-aos="fade-up" data-aos-delay="80" aria-label="Hero plate: Muktinath darshan">
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Muktinath_Temple_Mustang_Nepal.jpg/1280px-Muktinath_Temple_Mustang_Nepal.jpg"
+          src={`${import.meta.env.BASE_URL}pics/muktinath.jpg`}
           alt="Muktinath temple, Lower Mustang"
           loading="eager"
           decoding="async"
