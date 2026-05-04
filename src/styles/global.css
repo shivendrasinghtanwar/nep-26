@@ -1,0 +1,84 @@
+/* ──────────────────────────────────────────────────────────────────────────
+   Global · React-app additions to the rugged token system.
+   Loaded after rugged.css / landing.css / legacy-rendered.css.
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* sticky dossier top-nav (shared across every page) */
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 22px;
+  background: rgba(10, 20, 36, 0.82);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.topnav .brand-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--cream);
+  letter-spacing: 0.22em;
+  font-weight: 600;
+}
+.topnav .brand-tag .dot {
+  width: 7px; height: 7px;
+  background: var(--rust);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(200, 85, 42, 0.18);
+}
+.topnav nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  margin-left: auto;
+  align-items: center;
+}
+.topnav nav a {
+  color: var(--cream-dim);
+  text-decoration: none;
+  padding: 6px 4px;
+  transition: color 160ms ease-out;
+  position: relative;
+}
+.topnav nav a:hover { color: var(--cream); }
+.topnav nav a.is-current { color: var(--dust); }
+.topnav nav a.is-current::after {
+  content: '';
+  position: absolute;
+  left: 4px; right: 4px; bottom: 2px;
+  height: 1px;
+  background: var(--dust);
+}
+.topnav nav .group-sep {
+  width: 1px;
+  align-self: stretch;
+  background: var(--line);
+  opacity: 0.6;
+  margin: 4px 4px;
+}
+@media (max-width: 880px) {
+  .topnav {
+    padding: 10px 14px;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+  }
+  .topnav nav { gap: 4px 12px; }
+  .topnav nav .group-sep { display: none; }
+}
+
+/* Lucide icons in React inherit the parent text colour by default; tighten size */
+.lucide { vertical-align: -2px; }
+
+/* small spacing utilities used by ported pages */
+.spacer-sm { height: 12px; }
+.spacer-md { height: 24px; }
+.spacer-lg { height: 40px; }

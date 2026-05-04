@@ -32,3 +32,9 @@ claude-code/outputs/*
 # Claude Code session-local state (user-specific, not part of project)
 .claude/
 
+
+# Node / Vite
+node_modules/
+dist/
+.vite/
+*.tsbuildinfo

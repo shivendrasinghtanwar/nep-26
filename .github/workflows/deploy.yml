@@ -1,11 +1,20 @@
-name: Deploy website to GitHub Pages
+name: Deploy NEP-26 to GitHub Pages
 
 on:
   push:
     branches: [main, release]
     paths:
-      - 'website/**'
+      - 'src/**'
       - 'data/**'
+      - 'docs/**'
+      - 'plans/**'
+      - 'claude-code/**'
+      - 'README.md'
+      - 'index.html'
+      - 'vite.config.js'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'website/**'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
 
@@ -25,44 +34,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Set up Node
+        uses: actions/setup-node@v4
         with:
-          python-version: '3.12'
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
 
       - name: Validate JSON
         run: |
-          python3 -c "import json; [json.load(open(f)) for f in ['data/rules.json','data/itinerary.json','data/checklist.json']]; print('JSON OK')"
+          node -e "['data/rules.json','data/itinerary.json','data/checklist.json','data/route.json','data/hotels.json'].forEach(f => JSON.parse(require('fs').readFileSync(f,'utf8'))); console.log('JSON OK')"
 
-      - name: Regenerate website/js/data.js from data/*.json
-        run: |
-          python3 - <<'PY'
-          import json, pathlib
-          root = pathlib.Path('.')
-          rules     = json.load(open(root/'data/rules.json'))
-          itinerary = json.load(open(root/'data/itinerary.json'))
-          checklist = json.load(open(root/'data/checklist.json'))
-          trip = {
-            "name": "Nepal Workation 2026",
-            "depart": "2026-05-09",
-            "return": "2026-05-23",
-            "nights": 14,
-            "travellers": 2,
-            "vehicle": "Mahindra Thar Roxx (Thar Digital Services)",
-            "capDays": 30,
-            "permitDaysUsed": 18,
-            "totalKm": 4410,
-          }
-          out = (
-            "/* auto-generated from /data/*.json — do not hand-edit */\n"
-            "window.TRIP = "      + json.dumps(trip, indent=2) + ";\n"
-            "window.ITINERARY = " + json.dumps(itinerary['days'], indent=2) + ";\n"
-            "window.RULES = "     + json.dumps(rules, indent=2) + ";\n"
-            "window.CHECKLIST = " + json.dumps(checklist, indent=2) + ";\n"
-          )
-          (root/'website/js/data.js').write_text(out)
-          print('data.js regenerated')
-          PY
+      - name: Build (Vite)
+        run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -70,7 +56,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: website
+          path: dist
 
   deploy:
     needs: build
