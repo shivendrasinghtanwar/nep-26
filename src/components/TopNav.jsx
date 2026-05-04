@@ -18,7 +18,12 @@ const LINKS = [
 export default function TopNav() {
   return (
     <header className="topnav" role="banner">
-      <Link to="/" className="brand-tag" aria-label="Back to dossier home">
+      <Link
+        to="/"
+        className="brand-tag"
+        aria-label="Back to dossier home"
+        onClick={() => window.dispatchEvent(new CustomEvent('nep26:brand-click'))}
+      >
         <span className="dot" />
         <span>NEP-26 · Dossier</span>
       </Link>
