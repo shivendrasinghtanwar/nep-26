@@ -135,14 +135,20 @@ html { -webkit-text-size-adjust: 100%; }
   /* checklist categories full-width, less padding */
   #checklist { grid-template-columns: 1fr; gap: 12px; }
   #checklist .cat { padding: 14px 16px; }
+  /* checklist tap targets — bump li hit area to ≥44px so a finger can land cleanly */
+  #checklist li { padding: 10px 8px; min-height: 38px; }
+  #checklist li input[type=checkbox] { width: 18px; height: 18px; }
   /* rules / emerg cards full-width */
   #rules, #emerg { grid-template-columns: 1fr !important; }
   /* day cards stack to 2-column then full-width */
   .day { grid-template-columns: 80px 1fr; gap: 10px; padding: 10px 14px; }
   .day .stats-mini { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; gap: 6px; align-items: center; justify-content: flex-start; }
+  .day .when .d { font-size: 26px; }
+  .day .leg { font-size: 16px; }
   /* trail-header collapses */
   .trail-header { grid-template-columns: 1fr auto; gap: 10px; }
   .trail-header .mark { display: none; }
+  .trail-header .back { padding: 8px 10px; font-size: 10px; }
   .wordmark .sub { font-size: 10px; gap: 6px; letter-spacing: 0.12em; }
   .wordmark h1 { font-size: clamp(24px, 8vw, 32px) !important; }
   /* stat strip — 2 columns on phone */
@@ -161,22 +167,71 @@ html { -webkit-text-size-adjust: 100%; }
   /* checklist global progress: stack */
   .global-progress { flex-wrap: wrap; gap: 12px; padding: 10px 12px; }
   .global-progress .bar { width: 100%; }
+  #reset-checklist { padding: 10px 14px; }
   /* composer (agent page) */
   .composer { flex-direction: column; gap: 8px; }
   #send { width: 100%; padding: 12px; }
+  /* chips: bump hit area to ~38–40px so a thumb can land */
+  .chip { padding: 8px 12px; font-size: 11px; }
   /* gallery hero plate shorter on phone */
   .hero-plate { height: clamp(220px, 60vw, 320px) !important; }
-  /* viewer sidebar becomes a top scrollable bar */
+  /* viewer sidebar becomes a top collapsible card; the page-scoped CSS in
+     Viewer.jsx handles the open / collapsed states with a toggle button. */
   .vw-shell { grid-template-columns: 1fr !important; gap: 12px; }
-  .vw-sidebar {
-    position: static !important;
-    max-height: 200px !important;
-    flex-direction: row;
-  }
   .md-rendered { padding: 18px 16px !important; font-size: 14px !important; }
   .md-rendered h1 { font-size: 26px !important; }
   .md-rendered h2 { font-size: 20px !important; }
   .md-rendered h3 { font-size: 17px !important; }
+
+  /* ── Landing hero (home) — clamp the headline so it fits on a 375 phone ── */
+  .hero { padding: 28px 16px clamp(40px, 7vh, 64px); min-height: 92svh; }
+  .hero-top {
+    position: relative;       /* lift out of absolute so it can't overlap the headline */
+    top: auto; left: auto; right: auto;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 4px 0 18px;
+  }
+  .hero .eyebrow { font-size: 10px; letter-spacing: 0.18em; }
+  .hero .eyebrow::before { width: 16px; }
+  .hero-bezel { font-size: 9px; letter-spacing: 0.18em; padding: 5px 8px; }
+  .hero-headline { font-size: clamp(32px, 9vw, 56px) !important; margin: 8px 0 14px; line-height: 0.95; }
+  .hero-sub { font-size: 11px !important; gap: 8px; margin-bottom: 14px; }
+  .hero-toc { font-size: 10px !important; letter-spacing: 0.16em !important; }
+  .hero-tminus .num { font-size: clamp(40px, 14vw, 64px) !important; }
+  .hero-tminus .lbl { font-size: 10px; letter-spacing: 0.18em; max-width: none; }
+  /* stack the CTAs full-width so each is a clean 44+px tap target */
+  .ctas { grid-template-columns: 1fr; gap: 10px; }
+  .cta { padding: 14px 16px; font-size: 11px; }
+
+  /* Stat band — 2 cols on phone, smaller numerals */
+  .stat-band { grid-template-columns: repeat(2, 1fr); }
+  .stat-band > div { padding: 14px 12px; }
+
+  /* Section heading + body padding */
+  .section { padding: clamp(40px, 7vh, 70px) 16px; }
+  .section-h { gap: 10px; margin-bottom: 22px; }
+  .section-h h2 { font-size: clamp(26px, 7vw, 36px); }
+
+  /* Dossier cards — single column with generous padding */
+  .dossier { gap: 14px; }
+  .dossier-card { padding: 18px; }
+  .dossier-card h3 { font-size: 22px; }
+
+  /* Timeline rows */
+  .tl-leg { font-size: 18px; }
+
+  /* Emergency strip */
+  .emerg-strip { padding: clamp(32px, 5vh, 50px) 16px; }
+  .emerg-list { grid-template-columns: 1fr; gap: 10px; }
+  .emerg-list a, .emerg-list .num { font-size: 18px; }
+
+  /* Landing footer */
+  .landing-footer { padding: 28px 16px 36px; font-size: 10.5px; }
+
+  /* ── Filter / control chip-rows: keep them 1-line scrollable on phones ── */
+  .chip-row { padding: 8px 10px; gap: 6px; }
+  .chip-row .chip { padding: 8px 12px; font-size: 10.5px; }
 }
 
 /* Ultra-narrow (≤380px) — keep things from spilling out */
@@ -185,4 +240,138 @@ html { -webkit-text-size-adjust: 100%; }
   .stat-strip { grid-template-columns: 1fr 1fr; }
   .stat .k { font-size: 8.5px; }
   .stat .v { font-size: 16px; }
+  .hero-headline { font-size: clamp(28px, 9.4vw, 44px) !important; }
+  .stat-band .v { font-size: clamp(22px, 7vw, 32px); }
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Page transitions · 2-finger swipe cue · cycle pagination dots.
+   Applies to the 4-route cycle (/, /agent, /map, /gallery) only.
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* The animated stage: keep transforms cheap by using opacity+translateX. */
+.page-stage { position: relative; }
+.page-anim {
+  /* default state — no animation on first mount */
+  will-change: transform, opacity;
+}
+.page-anim.slide-in-r { animation: nep26-slide-in-r 320ms cubic-bezier(0.22, 0.61, 0.36, 1) both; }
+.page-anim.slide-in-l { animation: nep26-slide-in-l 320ms cubic-bezier(0.22, 0.61, 0.36, 1) both; }
+.page-anim.fade-in    { animation: nep26-page-fade 220ms ease-out both; }
+
+@keyframes nep26-slide-in-r {
+  0%   { transform: translate3d(36px, 0, 0); opacity: 0; }
+  100% { transform: translate3d(0, 0, 0);    opacity: 1; }
+}
+@keyframes nep26-slide-in-l {
+  0%   { transform: translate3d(-36px, 0, 0); opacity: 0; }
+  100% { transform: translate3d(0, 0, 0);     opacity: 1; }
+}
+@keyframes nep26-page-fade {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-anim.slide-in-r,
+  .page-anim.slide-in-l,
+  .page-anim.fade-in {
+    animation: nep26-page-fade 120ms ease-out both;
+  }
+}
+
+/* ── Two-finger swipe cue (one-time toast, bottom-centre) ── */
+.swipe-cue {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  z-index: 9000;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 16px 8px;
+  background: rgba(10, 20, 36, 0.92);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--cream);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  pointer-events: none;
+  animation: nep26-cue-in 260ms ease-out both;
+}
+.swipe-cue .cue-label {
+  font-family: var(--font-display);
+  letter-spacing: 0.22em;
+  font-size: 13px;
+  color: var(--dust);
+}
+.swipe-cue .cue-arrow {
+  color: var(--dust-soft);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1;
+}
+.swipe-cue .lucide {
+  color: var(--dust);
+  vertical-align: middle;
+}
+@keyframes nep26-cue-in {
+  0%   { opacity: 0; transform: translate(-50%, 12px); }
+  100% { opacity: 1; transform: translate(-50%, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .swipe-cue { animation: none; }
+}
+
+/* ── Cycle pagination dots (lives in topnav, top-right) ── */
+.cycle-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 14px;
+  padding-left: 12px;
+  border-left: 1px solid var(--line);
+}
+.cycle-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+.cycle-dot .cd-pip {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cream-dim);
+  opacity: 0.55;
+  transition: transform 160ms ease-out, background 160ms ease-out, opacity 160ms ease-out;
+}
+.cycle-dot:hover .cd-pip { opacity: 0.9; }
+.cycle-dot.is-active .cd-pip {
+  background: var(--dust);
+  opacity: 1;
+  transform: scale(1.5);
+  box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.18);
+}
+
+@media (max-width: 600px) {
+  /* on phone, the topnav already wraps; let the dots ride along */
+  .cycle-dots {
+    margin-left: 0;
+    padding-left: 10px;
+  }
 }

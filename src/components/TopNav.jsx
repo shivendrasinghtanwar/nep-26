@@ -1,4 +1,5 @@
 import { Link, NavLink } from 'react-router-dom'
+import CycleDots from './CycleDots.jsx'
 
 const LINKS = [
   { to: '/',          label: 'Overview' },
@@ -42,6 +43,7 @@ export default function TopNav() {
               </NavLink>
             )
         ))}
+        <CycleDots />
       </nav>
     </header>
   )
