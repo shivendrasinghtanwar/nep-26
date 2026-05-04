@@ -1,126 +1,205 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Route &amp; Driving — Nepal Workation 2026</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Route &amp; Driving · NEP-26</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="css/rugged.css">
+  <link rel="stylesheet" href="css/legacy-rendered.css">
+  <style>
+    .topnav { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; gap: 16px;
+      padding: 10px 22px; background: rgba(10, 20, 36, 0.82); border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+    .topnav .brand-tag { display: inline-flex; align-items: center; gap: 8px; color: var(--cream); letter-spacing: 0.22em; font-weight: 600; }
+    .topnav .brand-tag .dot { width: 7px; height: 7px; background: var(--rust); border-radius: 50%; box-shadow: 0 0 0 3px rgba(200,85,42,0.18); }
+    .topnav nav { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-left: auto; align-items: center; }
+    .topnav nav a { color: var(--cream-dim); text-decoration: none; padding: 6px 4px; transition: color 160ms ease-out; position: relative; }
+    .topnav nav a:hover { color: var(--cream); }
+    .topnav nav a.is-current { color: var(--dust); }
+    .topnav nav a.is-current::after { content: ''; position: absolute; left: 4px; right: 4px; bottom: 2px; height: 1px; background: var(--dust); }
+    .topnav nav .group-sep { width: 1px; align-self: stretch; background: var(--line); opacity: 0.6; margin: 4px 4px; }
+    @media (max-width: 880px) { .topnav { padding: 10px 14px; font-size: 10px; letter-spacing: 0.12em; } .topnav nav { gap: 4px 12px; } .topnav nav .group-sep { display: none; } }
+    .phase-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dust);
+      margin-top: 24px;
+      margin-bottom: -4px;
+    }
+    .phase-banner .ph-num { color: var(--rust); font-weight: 700; }
+  </style>
 </head>
 <body>
-<header class="site">
-  <div class="inner">
-    <div class="brand">
-      <span class="title">Nepal Workation 2026</span>
-      <span class="sub">Bikaner → Pokhara → Muktinath · 9–23 May</span>
-    </div>
-    <nav>
+
+  <header class="topnav" role="banner">
+    <span class="brand-tag"><span class="dot"></span><span>NEP-26 · Dossier</span></span>
+    <nav aria-label="Site sections">
       <a href="index.html">Overview</a>
+      <a href="agent.html">Comms</a>
+      <a href="map.html">Atlas</a>
+      <a href="gallery.html">Plates</a>
+      <span class="group-sep" aria-hidden="true"></span>
       <a href="itinerary.html">Itinerary</a>
       <a href="checklist.html">Checklist</a>
       <a href="rules.html">Rules</a>
-      <a href="route.html">Route</a>
+      <a href="route.html" class="is-current">Route</a>
+      <span class="group-sep" aria-hidden="true"></span>
       <a href="viewer.html">Docs</a>
       <a href="folders.html">Files</a>
     </nav>
-  </div>
-</header>
+  </header>
 
-<main class="shell">
-  <h1 style="margin-bottom:6px">Route &amp; Driving</h1>
-  <p class="muted" style="margin-top:0">Three terrains, three driving modes — the expressway chain, the Mahendra Highway, the Mustang 4×4.</p>
+  <main class="shell">
+    <svg class="hero-mtn" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
+      <defs><linearGradient id="sky-rt" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#0a1424" stop-opacity="0"/><stop offset="100%" stop-color="#0a1424" stop-opacity="0.9"/></linearGradient></defs>
+      <path d="M0,220 L0,140 L100,90 L200,110 L300,60 L400,90 L500,40 L600,70 L700,30 L800,80 L900,50 L1000,90 L1100,60 L1200,80 L1200,220 Z" fill="#162338" opacity="0.85"/>
+      <path d="M0,220 L0,160 L80,130 L180,150 L260,110 L360,135 L460,100 L540,130 L640,95 L740,135 L840,110 L920,140 L1020,115 L1120,150 L1200,130 L1200,220 Z" fill="#1b2a44" opacity="0.95"/>
+      <path d="M0,220 L0,180 L60,160 L160,180 L240,150 L340,180 L440,160 L540,185 L640,165 L740,190 L840,170 L940,195 L1040,180 L1140,200 L1200,185 L1200,220 Z" fill="#243044"/>
+      <path d="M500,40 L494,52 L506,52 Z M700,30 L692,44 L708,44 Z" fill="#ece5d3" opacity="0.55"/>
+      <rect x="0" y="0" width="1200" height="220" fill="url(#sky-rt)"/>
+    </svg>
 
-  <h2 class="section-title">Phase 1 — The Expressway Chain (India)</h2>
-  <div class="grid cols-2">
-    <div class="card">
-      <span class="pill">Day 1</span>
-      <h2 style="margin-top:8px">Bikaner → Noida — ~610 km, 9–10 h</h2>
-      <p>NH11 to Sikar/Behror, then Western Peripheral Expressway around Delhi to Noida. Heavy on tolls. Plan two long fuel stops, no more.</p>
-    </div>
-    <div class="card">
-      <span class="pill">Day 2</span>
-      <h2 style="margin-top:8px">Noida → Gorakhpur — ~720 km, 10–11 h</h2>
-      <p>Yamuna Expressway → Agra–Lucknow Expressway → Purvanchal Expressway → Gorakhpur Link. Almost continuous expressway. Aim Gorakhpur by 7 PM.</p>
-    </div>
-  </div>
+    <header class="trail-header">
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8,52 L20,40 L28,46 L40,28 L48,34 L56,18" stroke-width="2.5"/>
+          <circle cx="20" cy="40" r="2.5" fill="currentColor"/>
+          <circle cx="40" cy="28" r="2.5" fill="currentColor"/>
+          <circle cx="56" cy="18" r="2.5" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="wordmark">
+        <span class="eyebrow">Section 05 · Three terrains, three driving modes</span>
+        <h1>Route &amp; <span class="accent">driving</span></h1>
+        <div class="sub">
+          <span>Expressway</span><span class="sep">→</span>
+          <span>Mahendra Hwy</span><span class="sep">→</span>
+          <span><b>Mustang 4×4</b></span><span class="sep">→</span>
+          <span>RTB</span>
+        </div>
+      </div>
+      <a class="back" href="index.html"><i data-lucide="chevron-left" class="icon"></i><span>Base</span></a>
+    </header>
 
-  <h2 class="section-title">Phase 2 — Border &amp; Mahendra Highway (Nepal)</h2>
-  <div class="grid cols-2">
-    <div class="card">
-      <span class="pill">Day 3</span>
-      <h2 style="margin-top:8px">Gorakhpur → Sunauli → Bhairahawa — ~120 km</h2>
-      <p>Reach Sunauli around mid-morning. Process: Indian customs exit → walk-distance to Nepal side → Bhansar (customs) → Yatayat (transport) → tourist SIM → exchange counter. Allow 3 hours minimum at the border.</p>
-    </div>
-    <div class="card">
-      <span class="pill">Day 4</span>
-      <h2 style="margin-top:8px">Bhairahawa → Pokhara — ~190 km, 6–7 h</h2>
-      <p>Mahendra Highway via Butwal → Mugling → Pokhara. Smooth tar, scenic. Buy ACAP next day at the NTB office in Pokhara.</p>
-    </div>
-  </div>
+    <section class="stat-strip" aria-label="Driving vitals" data-aos="fade-up">
+      <div class="stat accent"><div class="k">T-minus</div><div class="v"><span data-countdown>—</span><span class="u">d</span></div></div>
+      <div class="stat"><div class="k">Total</div><div class="v">4,410<span class="u">km</span></div></div>
+      <div class="stat"><div class="k">4×4 leg</div><div class="v">~75<span class="u">km</span></div></div>
+      <div class="stat"><div class="k">Recommendation</div><div class="v" style="color:var(--flag-green)">DRIVE</div></div>
+      <div class="stat"><div class="k">Live atlas</div><div class="v"><a href="map.html" style="color:inherit;border-bottom:1px dashed var(--dust)">map.html</a></div></div>
+    </section>
 
-  <h2 class="section-title">Phase 3 — The Mustang 4×4 leg</h2>
-  <div class="grid cols-2">
-    <div class="card">
-      <span class="pill">Day 6 — Acclimatise</span>
-      <h2 style="margin-top:8px">Pokhara → Beni / Tatopani — ~85 km</h2>
-      <p>Tar road via Naya Pul. Tatopani hot springs are the reward. Sleep at ~1,200 m to start the altitude curve.</p>
-    </div>
-    <div class="card">
-      <span class="pill">Day 7 — 4WD</span>
-      <h2 style="margin-top:8px">Beni → Jomsom — ~75 km, 5–6 h</h2>
-      <p>The road becomes gravel, narrow, with multiple river crossings. Engage 4WD-Low. Slow pace through Tatopani → Ghasa → Lete → Tukuche → Marpha → Jomsom (~2,700 m). Acclimatise overnight.</p>
-    </div>
-    <div class="card">
-      <span class="pill">Day 8 — Darshan</span>
-      <h2 style="margin-top:8px">Jomsom → Muktinath → Jomsom — ~40 km round</h2>
-      <p>Pre-dawn start. Climb past Kagbeni to Muktinath (~3,800 m). Allow 90 minutes for darshan + 108-spout bath. Back to Jomsom for lunch.</p>
-    </div>
-    <div class="card">
-      <span class="pill">Day 9 — Descend</span>
-      <h2 style="margin-top:8px">Jomsom → Pokhara — ~160 km, 7–8 h</h2>
-      <p>Reverse the gravel descent. Easy pace. Pokhara recovery night with fibre + lakeside dinner.</p>
-    </div>
-  </div>
+    <p class="muted" style="margin: 6px 0 0">Three terrains, three driving modes — the expressway chain, the Mahendra Highway, the Mustang 4×4. Route condition recommendation: <strong style="color:var(--flag-green)">DRIVE</strong> (compiled 2026-05-04 · <a href="../docs/ROUTE_CONDITIONS.md">full report</a>).</p>
 
-  <h2 class="section-title">Fuel strategy</h2>
-  <div class="grid cols-3">
-    <div class="card">
-      <h3>India leg</h3>
-      <p>Tank-up at every state-border pump — toll plazas have HP/IOC nearby. Final India fill at Gorakhpur before border.</p>
+    <div class="phase-banner"><span class="ph-num">§ 01</span><span>Phase 1 · The Expressway Chain (India)</span></div>
+    <div class="grid cols-2">
+      <div class="card" data-aos="fade-up">
+        <span class="pill">Day 1 · drive</span>
+        <h2>Bikaner → Noida — ~610 km, 9–10 h</h2>
+        <p>NH11 to Sikar / Behror, then Western Peripheral Expressway around Delhi to Noida. Heavy on tolls. Plan two long fuel stops, no more.</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="80">
+        <span class="pill">Day 2 · drive</span>
+        <h2>Noida → Gorakhpur — ~720 km, 10–11 h</h2>
+        <p>Yamuna Expressway → Agra–Lucknow Expressway → Purvanchal Expressway → Gorakhpur Link. Almost continuous expressway. Aim Gorakhpur by 7 PM.</p>
+      </div>
     </div>
-    <div class="card">
-      <h3>Nepal lowland</h3>
-      <p>Bhairahawa, Butwal, Mugling, Pokhara — all have multi-pump stations. Quality is fine for Thar Roxx.</p>
-    </div>
-    <div class="card">
-      <h3>Mustang</h3>
-      <p><b>Reliable pumps only at Beni and Jomsom.</b> Top up at both. The 10 L jerrycan is your insurance — fill it at Beni, never carry full across the border.</p>
-    </div>
-  </div>
 
-  <h2 class="section-title">Where to slow down</h2>
-  <div class="grid cols-2">
-    <div class="card">
-      <h3>Mugling–Pokhara curves</h3>
-      <p>Frequent overtaking accidents. Stay behind buses; don't overtake into blind curves.</p>
+    <div class="phase-banner"><span class="ph-num">§ 02</span><span>Phase 2 · Border + Mahendra Highway (Nepal)</span></div>
+    <div class="grid cols-2">
+      <div class="card" data-aos="fade-up">
+        <span class="pill">Day 3 · border</span>
+        <h2>Gorakhpur → Sunauli → Bhairahawa — ~120 km</h2>
+        <p>Reach Sunauli around mid-morning. Process: Indian customs exit → walk-distance to Nepal side → Bhansar (customs) → Yatayat (transport) → tourist SIM → exchange counter. Allow 3 hours minimum at the border.</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="80">
+        <span class="pill">Day 4 · drive</span>
+        <h2>Bhairahawa → Pokhara — ~190 km, 6–7 h</h2>
+        <p>Mahendra Highway via Butwal → Mugling → Pokhara. Smooth tar, scenic. Buy ACAP next day at the NTB office in Pokhara — never at the Ghasa check-post (double fee).</p>
+      </div>
     </div>
-    <div class="card">
-      <h3>Tatopani–Ghasa landslide zones</h3>
-      <p>This stretch is geologically active. Fresh debris is common. Don't stop under loose slopes; move quickly past flagged zones.</p>
-    </div>
-    <div class="card">
-      <h3>Kagbeni → Muktinath switchbacks</h3>
-      <p>Hairpins at altitude. Engine power drops 25–30%. Use 2nd gear; don't lug.</p>
-    </div>
-    <div class="card">
-      <h3>Sunauli border vicinity</h3>
-      <p>Mixed traffic, no lane discipline, slow trucks. Crawl through the bazaar; respect the traffic constable.</p>
-    </div>
-  </div>
-</main>
 
-<footer class="site">Generated 2026-05-04</footer>
+    <div class="phase-banner"><span class="ph-num">§ 03</span><span>Phase 3 · The Mustang 4×4 leg</span></div>
+    <div class="grid cols-2">
+      <div class="card" data-aos="fade-up">
+        <span class="pill">Day 6 · acclimatise</span>
+        <h2>Pokhara → Beni / Tatopani — ~85 km</h2>
+        <p>Tar road via Naya Pul. Tatopani hot springs are the reward. Sleep at ~1,200 m to start the altitude curve.</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="80">
+        <span class="pill">Day 7 · 4WD</span>
+        <h2>Beni → Jomsom — ~75 km, 5–6 h</h2>
+        <p>The road becomes gravel, narrow, with multiple river crossings. Engage 4WD-Low. Slow pace through Tatopani → Ghasa → Lete → Tukuche → Marpha → Jomsom (~2,720 m). Acclimatise overnight.</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="160">
+        <span class="pill">Day 8 · darshan</span>
+        <h2>Jomsom → Muktinath → Jomsom — ~40 km round</h2>
+        <p>Pre-dawn start. Climb past Kagbeni to Muktinath (~3,800 m). Allow 90 minutes for darshan + 108-spout bath. Back to Jomsom for lunch.</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="240">
+        <span class="pill">Day 9 · descend</span>
+        <h2>Jomsom → Pokhara — ~160 km, 7–8 h</h2>
+        <p>Reverse the gravel descent. Easy pace. Pokhara recovery night with fibre + lakeside dinner.</p>
+      </div>
+    </div>
 
-<script src="js/data.js"></script>
-<script src="js/app.js"></script>
+    <h2 class="section-title">Fuel strategy</h2>
+    <div class="grid cols-3">
+      <div class="card" data-aos="fade-up">
+        <span class="pill">India leg</span>
+        <h3>Tank-up rhythm</h3>
+        <p>Every state-border pump — toll plazas have HP/IOC nearby. Final India fill at Gorakhpur before border.</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="80">
+        <span class="pill">Nepal lowland</span>
+        <h3>Reliable</h3>
+        <p>Bhairahawa, Butwal, Mugling, Pokhara — multi-pump stations. Quality fine for the Thar Roxx.</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="160">
+        <span class="pill">Mustang</span>
+        <h3>Two pumps only</h3>
+        <p><b>Reliable pumps only at Beni and Jomsom.</b> Top up at both. The 10 L jerrycan is your insurance — fill it at Beni, never carry full across the border.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">Where to slow down</h2>
+    <div class="grid cols-2">
+      <div class="card" data-aos="fade-up">
+        <h3>Mugling–Pokhara curves</h3>
+        <p>Frequent overtaking accidents. Stay behind buses; don't overtake into blind curves.</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="80">
+        <h3>Tatopani–Ghasa landslide zones</h3>
+        <p>Geologically active. Fresh debris is common. Don't stop under loose slopes; move quickly past flagged zones.</p>
+      </div>
+      <div class="card" data-aos="fade-up">
+        <h3>Kagbeni → Muktinath switchbacks</h3>
+        <p>Hairpins at altitude. Engine power drops 25–30%. Use 2nd gear; don't lug. Diamox 24 h prior.</p>
+      </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="80">
+        <h3>Sunauli border vicinity</h3>
+        <p>Mixed traffic, no lane discipline, slow trucks. Crawl through the bazaar; respect the traffic constable.</p>
+      </div>
+    </div>
+
+    <p class="footnote">Live route map &amp; elevation profile: <a href="map.html">Atlas</a> · waypoint photos: <a href="gallery.html">Plates</a> · narrative: <a href="../docs/ROUTE_CONDITIONS.md">docs/ROUTE_CONDITIONS.md</a>.</p>
+  </main>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/data.js"></script>
+  <script src="js/route-data.js"></script>
+  <script src="js/enhance.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
