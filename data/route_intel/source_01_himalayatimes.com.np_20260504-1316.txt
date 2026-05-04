@@ -1,0 +1,22 @@
+SOURCE 01
+URL: https://english.himalayatimes.com.np/2026/05/97974/
+Title: Landslide Blocks Major Highways And Road Sections
+Date published: 2026-05-03 (Sunday)
+Author: RSS Nepal (Rastriya Samachar Samiti, Nepal's national news agency)
+Fetched: 2026-05-04 (UA: Mozilla/5.0 (compatible; NepalTripPrep/1.0))
+
+KEY EXTRACT:
+"Various major highways and road sections across the country have been blocked
+for traffic due to landslides triggered by pre-monsoon rains for the past few
+days."
+
+"The Beni-Jomsom road section in Jalathale, Annapurna Rural Municipality-3,
+Myagdi, are operational for one-way traffic only."
+
+Other routes (Araniko Highway and sections in Bagmati, Lamjung, Pyuthan)
+remain completely blocked. The piece warns travellers about ongoing
+pre-monsoon landslide risk.
+
+ONE-LINE TAKEAWAY:
+As of 2026-05-03 the Beni–Jomsom artery is OPEN but restricted to one-way
+traffic at the Jalathale (Myagdi) pinch-point — passable, not closed.

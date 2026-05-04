@@ -1,0 +1,666 @@
+[
+  {
+    "url": "https://www.customs.gov.np/",
+    "fetchedAt": "2026-05-04T13:28:00+05:45",
+    "status": 200,
+    "bytes": 275481,
+    "sha256": "8a854ace7b7524f59e0fe54a6c179e159b58079e72129d4c0674262aa7a8cbe1",
+    "savedTo": "data/rules.raw/customs_gov_np_20260504-1328.html"
+  },
+  {
+    "url": "https://www.customs.gov.np/",
+    "fetchedAt": "2026-05-04T13:28:00+05:45",
+    "status": 200,
+    "bytes": 29618,
+    "sha256": "2147d5f307e0b0f99a3686a4902905935fbcf379614165ff69f2f741c7f5cc34",
+    "savedTo": "data/rules.raw/customs_gov_np_20260504-1328.txt"
+  },
+  {
+    "url": "https://www.customs.gov.np/",
+    "fetchedAt": "2026-05-04T13:30:11+05:45",
+    "status": 200,
+    "bytes": 154045,
+    "sha256": "50171a0b0d91d648f397099c1b1dec0fbe553de183f61b73ae7dd0cf25ebcbe0",
+    "savedTo": "data/rules.raw/customs_gov_np_c140_passenger_goods_20260504-133011.html"
+  },
+  {
+    "url": "https://www.customs.gov.np/",
+    "fetchedAt": "2026-05-04T13:30:11+05:45",
+    "status": 200,
+    "bytes": 15253,
+    "sha256": "62ffcfb9843d9cd50bbd00d924f6cb2ccd70f5ba9e47e07a5b1e9d24c8ddff86",
+    "savedTo": "data/rules.raw/customs_gov_np_c140_passenger_goods_20260504-133011.txt"
+  },
+  {
+    "url": "https://www.customs.gov.np/",
+    "fetchedAt": "2026-05-04T13:35:13+05:45",
+    "status": 200,
+    "bytes": 153860,
+    "sha256": "5bce807a43ea41315f78cc7e471b45b6b35a682767d39f20e5dd0cc9a4096a65",
+    "savedTo": "data/rules.raw/customs_gov_np_c161_personal_items_2082_20260504-133513.html"
+  },
+  {
+    "url": "https://www.customs.gov.np/",
+    "fetchedAt": "2026-05-04T13:35:13+05:45",
+    "status": 200,
+    "bytes": 15012,
+    "sha256": "73e80f196d71af6028d9ce7a7791473823135ac66e775ac86ec5e164496c4ae7",
+    "savedTo": "data/rules.raw/customs_gov_np_c161_personal_items_2082_20260504-133513.txt"
+  },
+  {
+    "url": "https://www.customs.gov.np/",
+    "fetchedAt": "2026-05-04T13:37:40+05:45",
+    "status": 200,
+    "bytes": 152529,
+    "sha256": "a59f2f1d6649362febef1f4186e3b6a28a219bcd370f6af14a6893c3031a0e57",
+    "savedTo": "data/rules.raw/customs_gov_np_c3_exim_notice_20260504-133740.html"
+  },
+  {
+    "url": "https://www.customs.gov.np/",
+    "fetchedAt": "2026-05-04T13:37:40+05:45",
+    "status": 200,
+    "bytes": 14613,
+    "sha256": "a7077df4b7c791ed7aca2239d0acab27db16cb0ee914a9e629cea30ff15b3b1c",
+    "savedTo": "data/rules.raw/customs_gov_np_c3_exim_notice_20260504-133740.txt"
+  },
+  {
+    "url": "https://www.customs.gov.np/",
+    "fetchedAt": "2026-05-04T13:30:57+05:45",
+    "status": 200,
+    "bytes": 153146,
+    "sha256": "7aeded5be58f94f0a1d62ed8bf8e6a23b5774cd90137274ac481975258dcc1f4",
+    "savedTo": "data/rules.raw/customs_gov_np_c575_press_2082_09_18_20260504-133057.html"
+  },
+  {
+    "url": "https://www.customs.gov.np/",
+    "fetchedAt": "2026-05-04T13:30:57+05:45",
+    "status": 200,
+    "bytes": 14794,
+    "sha256": "52f2371c1fc16767cadf91667520e6bb4e1d005ac0834dae07ac7aa7e0ec73c7",
+    "savedTo": "data/rules.raw/customs_gov_np_c575_press_2082_09_18_20260504-133057.txt"
+  },
+  {
+    "url": "https://www.customs.gov.np/",
+    "fetchedAt": "2026-05-04T13:32:13+05:45",
+    "status": 200,
+    "bytes": 154646,
+    "sha256": "29bd84534c42e3265b0bb60e3fe2e2e34a9b6fa270bea0d7790f5e95140956fa",
+    "savedTo": "data/rules.raw/customs_gov_np_c802_birgunj_vehicle_2083_01_08_20260504-133213.html"
+  },
+  {
+    "url": "https://www.customs.gov.np/",
+    "fetchedAt": "2026-05-04T13:32:13+05:45",
+    "status": 200,
+    "bytes": 15430,
+    "sha256": "6b1eab241f607b579af5afdcbc913fa23d56318bb4421dc3abb9435dacd88ffd",
+    "savedTo": "data/rules.raw/customs_gov_np_c802_birgunj_vehicle_2083_01_08_20260504-133213.txt"
+  },
+  {
+    "url": "https://www.customs.gov.np/",
+    "fetchedAt": "2026-05-04T13:32:54+05:45",
+    "status": 200,
+    "bytes": 132772,
+    "sha256": "3b3e1b86bda495c17ddd8f0e1551995cbcb365789439310a1ef042dde9c11092",
+    "savedTo": "data/rules.raw/customs_gov_np_cat_customs_tariff_rates_20260504-133254.html"
+  },
+  {
+    "url": "https://www.customs.gov.np/",
+    "fetchedAt": "2026-05-04T13:32:54+05:45",
+    "status": 200,
+    "bytes": 15041,
+    "sha256": "e8d5c6581b917d782af69ebbd98c905e4560ea876ed818c7457f21b159689e4f",
+    "savedTo": "data/rules.raw/customs_gov_np_cat_customs_tariff_rates_20260504-133254.txt"
+  },
+  {
+    "url": "https://www.customs.gov.np/",
+    "fetchedAt": "2026-05-04T13:37:02+05:45",
+    "status": 200,
+    "bytes": 151108,
+    "sha256": "a1306dad69577a957d27ee13852308b9dd122d8bb4f650b38649e7da58bdcacc",
+    "savedTo": "data/rules.raw/customs_gov_np_cat_directives_20260504-133702.html"
+  },
+  {
+    "url": "https://www.customs.gov.np/",
+    "fetchedAt": "2026-05-04T13:37:02+05:45",
+    "status": 200,
+    "bytes": 16939,
+    "sha256": "58d05b9ddcbf49ca8057f51a8437e8f334812089841679663ffeb09a3984ad9e",
+    "savedTo": "data/rules.raw/customs_gov_np_cat_directives_20260504-133702.txt"
+  },
+  {
+    "url": "https://www.customs.gov.np/",
+    "fetchedAt": "2026-05-04T13:35:54+05:45",
+    "status": 200,
+    "bytes": 132653,
+    "sha256": "f659e5321ba8392afeac85eefb9f738088c6050f52db7dc1a75f0952cfc22b1a",
+    "savedTo": "data/rules.raw/customs_gov_np_faq_20260504-133554.html"
+  },
+  {
+    "url": "https://www.customs.gov.np/",
+    "fetchedAt": "2026-05-04T13:35:54+05:45",
+    "status": 200,
+    "bytes": 18211,
+    "sha256": "a41b4cf2d2b1e591ce75b5d7304d92ce8fc7bbeec9f8269be2da21ec66a57fe1",
+    "savedTo": "data/rules.raw/customs_gov_np_faq_20260504-133554.txt"
+  },
+  {
+    "url": "https://www.dotm.gov.np/",
+    "fetchedAt": "2026-05-04T13:29:00+05:45",
+    "status": 200,
+    "bytes": 197214,
+    "sha256": "54c06537e6bb100a49038bd5ece4aa3425a708011f6022040c67d08c227da9f0",
+    "savedTo": "data/rules.raw/dotm_gov_np_20260504-1329.html"
+  },
+  {
+    "url": "https://www.dotm.gov.np/",
+    "fetchedAt": "2026-05-04T13:29:00+05:45",
+    "status": 200,
+    "bytes": 17071,
+    "sha256": "520c76fbf4dc297b50bf3e0a375d31a91f6c4581ab15e33af0c8c8482bc73ae7",
+    "savedTo": "data/rules.raw/dotm_gov_np_20260504-1329.txt"
+  },
+  {
+    "url": "https://www.dotm.gov.np/",
+    "fetchedAt": "2026-05-04T13:30:00+05:45",
+    "status": 200,
+    "bytes": 104393,
+    "sha256": "2d05545d7b9c328cefae6940619fc5ba01a6585e4e35df11a13dbfc08e2170d0",
+    "savedTo": "data/rules.raw/dotm_gov_np_20260504-1330_fare-rate-cat.html"
+  },
+  {
+    "url": "https://www.dotm.gov.np/",
+    "fetchedAt": "2026-05-04T13:30:00+05:45",
+    "status": 200,
+    "bytes": 7701,
+    "sha256": "9e3f8e9703bbf66c9e2fd3b49f31224a5392dfc34a51f75127dbb9b9af544df7",
+    "savedTo": "data/rules.raw/dotm_gov_np_20260504-1330_fare-rate-cat.txt"
+  },
+  {
+    "url": "https://www.dotm.gov.np/",
+    "fetchedAt": "2026-05-04T13:30:00+05:45",
+    "status": 200,
+    "bytes": 98849,
+    "sha256": "e7c13b7fa76090c19738332a4cae9f46e2c223d9bb5b2c3ccaf6f6d4e1d339c2",
+    "savedTo": "data/rules.raw/dotm_gov_np_20260504-1330_services-list.html"
+  },
+  {
+    "url": "https://www.dotm.gov.np/",
+    "fetchedAt": "2026-05-04T13:30:00+05:45",
+    "status": 200,
+    "bytes": 6859,
+    "sha256": "28a6f5a82e6a6fe55f50edc60e00dbe2de56dca5d55d72d6fdbde67a09062be8",
+    "savedTo": "data/rules.raw/dotm_gov_np_20260504-1330_services-list.txt"
+  },
+  {
+    "url": "https://www.dotm.gov.np/",
+    "fetchedAt": "2026-05-04T13:31:00+05:45",
+    "status": 200,
+    "bytes": 106867,
+    "sha256": "a9cc86e00465162871a9f41c12965910ec10e6c49b45cb6d97266784785cbfea",
+    "savedTo": "data/rules.raw/dotm_gov_np_20260504-1331_acts-laws.html"
+  },
+  {
+    "url": "https://www.dotm.gov.np/",
+    "fetchedAt": "2026-05-04T13:31:00+05:45",
+    "status": 200,
+    "bytes": 7791,
+    "sha256": "e488a3c58ceaa7f695701eb0a4cb1331082bd7f9c3d9c14f4fa3b210132540ed",
+    "savedTo": "data/rules.raw/dotm_gov_np_20260504-1331_acts-laws.txt"
+  },
+  {
+    "url": "https://www.dotm.gov.np/",
+    "fetchedAt": "2026-05-04T13:31:00+05:45",
+    "status": 200,
+    "bytes": 105870,
+    "sha256": "e08f1adab6c41ba8947a39087b75237eb9166e934a59864a2ffb463315a4ea2e",
+    "savedTo": "data/rules.raw/dotm_gov_np_20260504-1331_directives.html"
+  },
+  {
+    "url": "https://www.dotm.gov.np/",
+    "fetchedAt": "2026-05-04T13:31:00+05:45",
+    "status": 200,
+    "bytes": 7815,
+    "sha256": "a17f53ec9ee11c6fb5d49f372d903b43f1a749bc4197baa1adafd4d652a95ad2",
+    "savedTo": "data/rules.raw/dotm_gov_np_20260504-1331_directives.txt"
+  },
+  {
+    "url": "https://www.dotm.gov.np/",
+    "fetchedAt": "2026-05-04T13:32:00+05:45",
+    "status": 200,
+    "bytes": 128093,
+    "sha256": "cc51945b1665f5195edeffb0822bb55ab0b5f90216c86b448fa877faca74f4cb",
+    "savedTo": "data/rules.raw/dotm_gov_np_20260504-1332_content55-fares.html"
+  },
+  {
+    "url": "https://www.dotm.gov.np/",
+    "fetchedAt": "2026-05-04T13:32:00+05:45",
+    "status": 200,
+    "bytes": 7458,
+    "sha256": "8a793517b758514495c2c104831d03f025b730df974be94702fe9965bc29a846",
+    "savedTo": "data/rules.raw/dotm_gov_np_20260504-1332_content55-fares.txt"
+  },
+  {
+    "url": "https://www.dotm.gov.np/",
+    "fetchedAt": "2026-05-04T13:32:00+05:45",
+    "status": 200,
+    "bytes": 263953,
+    "sha256": "24c9e77f29e098b97583e97c06f4706f6fb13751c1245b132c97c7b72ded9baf",
+    "savedTo": "data/rules.raw/dotm_gov_np_20260504-1332_fares-notice.pdf"
+  },
+  {
+    "url": "https://www.dotm.gov.np/",
+    "fetchedAt": "2026-05-04T13:32:00+05:45",
+    "status": 200,
+    "bytes": 1120,
+    "sha256": "4f7066b383cc19d98b1fe2151c372ca40254cbda27ce629de463aab2f4d9c02a",
+    "savedTo": "data/rules.raw/dotm_gov_np_20260504-1332_fares-notice.txt"
+  },
+  {
+    "url": "https://www.dotm.gov.np/",
+    "fetchedAt": "2026-05-04T13:34:00+05:45",
+    "status": 200,
+    "bytes": 197235,
+    "sha256": "1028b79f653389f75a2b54c38374ab3a2a59313952a88f1044abfed440078c32",
+    "savedTo": "data/rules.raw/dotm_gov_np_20260504-1334_home-page2.html"
+  },
+  {
+    "url": "https://www.dotm.gov.np/",
+    "fetchedAt": "2026-05-04T13:34:00+05:45",
+    "status": 200,
+    "bytes": 16914,
+    "sha256": "39d960350c69e2f0025d6c036c878a6a040cb26b1b5f2b3ed42a7aa6aa1e4ddf",
+    "savedTo": "data/rules.raw/dotm_gov_np_20260504-1334_home-page2.txt"
+  },
+  {
+    "url": "https://www.dotm.gov.np/",
+    "fetchedAt": "2026-05-04T13:35:00+05:45",
+    "status": 200,
+    "bytes": 197298,
+    "sha256": "0676a01a020cd5522e6ed8c60eea9d932abbb134c047d9f5eef6a50afd2245f8",
+    "savedTo": "data/rules.raw/dotm_gov_np_20260504-1335_search-foreign.html"
+  },
+  {
+    "url": "https://www.dotm.gov.np/",
+    "fetchedAt": "2026-05-04T13:35:00+05:45",
+    "status": 200,
+    "bytes": 16914,
+    "sha256": "39d960350c69e2f0025d6c036c878a6a040cb26b1b5f2b3ed42a7aa6aa1e4ddf",
+    "savedTo": "data/rules.raw/dotm_gov_np_20260504-1335_search-foreign.txt"
+  },
+  {
+    "url": "unknown",
+    "fetchedAt": "2026-05-04T13:20:00+05:45",
+    "status": 200,
+    "bytes": 15013,
+    "sha256": "0d43a68220bf7bce785bcfb08f94fde359f2cd2a80a233b3f14137f5c0f9b4de",
+    "savedTo": "data/rules.raw/extract_20260504-1320.json"
+  },
+  {
+    "url": "https://www.immigration.gov.np/",
+    "fetchedAt": "2026-05-04T13:14:00+05:45",
+    "status": 200,
+    "bytes": 64220,
+    "sha256": "b9fed4da6db36ee75add6ae16cde30b8a607cb799d069a9179efe4b4be830fc7",
+    "savedTo": "data/rules.raw/immigration_gov_np_20260504-1314.html"
+  },
+  {
+    "url": "https://www.immigration.gov.np/",
+    "fetchedAt": "2026-05-04T13:14:00+05:45",
+    "status": 200,
+    "bytes": 8306,
+    "sha256": "737224c0df4fb0ec722e06fb73d4f5fa88ea3767544ac8058e25cca8dd750379",
+    "savedTo": "data/rules.raw/immigration_gov_np_20260504-1314.txt"
+  },
+  {
+    "url": "https://www.immigration.gov.np/",
+    "fetchedAt": "2026-05-04T13:15:00+05:45",
+    "status": 200,
+    "bytes": 64220,
+    "sha256": "66419cf3fd3ca88b69fec07ec247fb5ff8c271238f6fbda21d860ffda812cfa6",
+    "savedTo": "data/rules.raw/immigration_gov_np_contact_20260504-1315.html"
+  },
+  {
+    "url": "https://www.immigration.gov.np/",
+    "fetchedAt": "2026-05-04T13:15:00+05:45",
+    "status": 200,
+    "bytes": 29964,
+    "sha256": "07fd877208b866e03d2b247e1d0947abdf4aacff4bff7e2954cb7768b60c2be5",
+    "savedTo": "data/rules.raw/immigration_gov_np_contact_20260504-1315.txt"
+  },
+  {
+    "url": "https://www.immigration.gov.np/",
+    "fetchedAt": "2026-05-04T13:16:00+05:45",
+    "status": 200,
+    "bytes": 64220,
+    "sha256": "6a7a572ccf52d512f6eb5e8cde527c20f0a8b1ed13212d3ef0ed74e585a9a6d7",
+    "savedTo": "data/rules.raw/immigration_gov_np_indian-nationals_20260504-1316.html"
+  },
+  {
+    "url": "https://www.immigration.gov.np/",
+    "fetchedAt": "2026-05-04T13:16:00+05:45",
+    "status": 200,
+    "bytes": 34979,
+    "sha256": "3ebd595c48736d4fcffd8d53c58694f812746e297b77be54437a4cd79f7c0185",
+    "savedTo": "data/rules.raw/immigration_gov_np_indian-nationals_20260504-1316.txt"
+  },
+  {
+    "url": "https://www.immigration.gov.np/",
+    "fetchedAt": "2026-05-04T13:15:00+05:45",
+    "status": 200,
+    "bytes": 64124,
+    "sha256": "5f00cc5dcd928057290076920c2ac605b3941da4602b0b442e0266da23820ddc",
+    "savedTo": "data/rules.raw/immigration_gov_np_notices_20260504-1315.html"
+  },
+  {
+    "url": "https://www.immigration.gov.np/",
+    "fetchedAt": "2026-05-04T13:15:00+05:45",
+    "status": 200,
+    "bytes": 9036,
+    "sha256": "b9000fbd8c4f5b315005b0ea1790d7fe190693d40cacb997098b753c322820c7",
+    "savedTo": "data/rules.raw/immigration_gov_np_notices_20260504-1315.txt"
+  },
+  {
+    "url": "https://www.immigration.gov.np/",
+    "fetchedAt": "2026-05-04T13:15:00+05:45",
+    "status": 200,
+    "bytes": 64220,
+    "sha256": "88d0a70aed17e6ea96e57e4c7bb8131b5bc0af79a93daed986d2b9ffb7fb411b",
+    "savedTo": "data/rules.raw/immigration_gov_np_visa-exemption_20260504-1315.html"
+  },
+  {
+    "url": "https://www.immigration.gov.np/",
+    "fetchedAt": "2026-05-04T13:15:00+05:45",
+    "status": 200,
+    "bytes": 33421,
+    "sha256": "630d30de45a6ca2882bafcda1b736c18cc9164ff8621badfae5e54f9a51454cd",
+    "savedTo": "data/rules.raw/immigration_gov_np_visa-exemption_20260504-1315.txt"
+  },
+  {
+    "url": "https://www.immigration.gov.np/",
+    "fetchedAt": "2026-05-04T13:15:00+05:45",
+    "status": 200,
+    "bytes": 64124,
+    "sha256": "b8c6e1b9048a0f8c308165a03c65809fdfcb26578e1339b9b18b9e097c5c1ccc",
+    "savedTo": "data/rules.raw/immigration_gov_np_visa-fee_20260504-1315.html"
+  },
+  {
+    "url": "https://www.immigration.gov.np/",
+    "fetchedAt": "2026-05-04T13:15:00+05:45",
+    "status": 200,
+    "bytes": 30299,
+    "sha256": "485afd9f5fca45a802cc64a6d84635427cc28d3b484927989578c226b0d21dc9",
+    "savedTo": "data/rules.raw/immigration_gov_np_visa-fee_20260504-1315.txt"
+  },
+  {
+    "url": "https://www.immigration.gov.np/",
+    "fetchedAt": "2026-05-04T13:15:00+05:45",
+    "status": 200,
+    "bytes": 64220,
+    "sha256": "728c7308b960c033bc303db5824f39c7c9b6d691838568d9ef548d8654597500",
+    "savedTo": "data/rules.raw/immigration_gov_np_voa_20260504-1315.html"
+  },
+  {
+    "url": "https://www.immigration.gov.np/",
+    "fetchedAt": "2026-05-04T13:15:00+05:45",
+    "status": 200,
+    "bytes": 35304,
+    "sha256": "cf09ba7249ff17549029185afbd513eea31f63baff770075e249094b801ec5d6",
+    "savedTo": "data/rules.raw/immigration_gov_np_voa_20260504-1315.txt"
+  },
+  {
+    "url": "https://www.immigration.gov.np/page/trekking-route-and-permit-fee",
+    "fetchedAt": "2026-05-04T13:14:00+05:45",
+    "status": 200,
+    "bytes": 64220,
+    "sha256": "c00a55fa786a5b7637aa0bedeb720c3b5f1712dc99480aad3dd1343aa177142e",
+    "savedTo": "data/rules.raw/immigration_trekking_permit_fee_20260504-1314.html"
+  },
+  {
+    "url": "https://www.immigration.gov.np/page/trekking-route-and-permit-fee",
+    "fetchedAt": "2026-05-04T13:14:00+05:45",
+    "status": 200,
+    "bytes": 7328,
+    "sha256": "d777d027d37eed8b611f5d417c49961b866966c0446074e646262e0ffd429e23",
+    "savedTo": "data/rules.raw/immigration_trekking_permit_fee_20260504-1314.txt"
+  },
+  {
+    "url": "https://www.indembkathmandu.gov.in/",
+    "fetchedAt": "2026-05-04T13:17:00+05:45",
+    "status": 200,
+    "bytes": 258550,
+    "sha256": "d0dae63544f698c28da050325d1e387dc33295c9b0eba24a69f2d7fedfe3bab9",
+    "savedTo": "data/rules.raw/indembkathmandu_20260504-1317.html"
+  },
+  {
+    "url": "https://www.indembkathmandu.gov.in/",
+    "fetchedAt": "2026-05-04T13:17:00+05:45",
+    "status": 200,
+    "bytes": 13715,
+    "sha256": "cad4fd206211730129a382057e3bed2a030aa19fd075156967632e352503ab36",
+    "savedTo": "data/rules.raw/indembkathmandu_20260504-1317.txt"
+  },
+  {
+    "url": "https://www.indembkathmandu.gov.in/",
+    "fetchedAt": "2026-05-04T13:17:00+05:45",
+    "status": 200,
+    "bytes": 109095,
+    "sha256": "d1215f12b9d897563765a8bdf6e532cd4a21c5261137861f35efbe4e0876e744",
+    "savedTo": "data/rules.raw/indembkathmandu_advisory-list_20260504-1317.html"
+  },
+  {
+    "url": "https://www.indembkathmandu.gov.in/",
+    "fetchedAt": "2026-05-04T13:17:00+05:45",
+    "status": 200,
+    "bytes": 3862,
+    "sha256": "583fceea9e29182d1fc113a21d35c1160dbda93b0b8b09c972549b8126dc454b",
+    "savedTo": "data/rules.raw/indembkathmandu_advisory-list_20260504-1317.txt"
+  },
+  {
+    "url": "https://www.indembkathmandu.gov.in/",
+    "fetchedAt": "2026-05-04T13:19:00+05:45",
+    "status": 200,
+    "bytes": 212219,
+    "sha256": "f400261f980160acd3388a882791d6ae6cdb53417e8d4b94fde5fc88efafe038",
+    "savedTo": "data/rules.raw/indembkathmandu_contacts_20260504-1319.html"
+  },
+  {
+    "url": "https://www.indembkathmandu.gov.in/",
+    "fetchedAt": "2026-05-04T13:19:00+05:45",
+    "status": 200,
+    "bytes": 12404,
+    "sha256": "d6580f00166c4cfd9f318f728cbe9b9f1abd095d50a68e00d9bbbb5a96ca8772",
+    "savedTo": "data/rules.raw/indembkathmandu_contacts_20260504-1319.txt"
+  },
+  {
+    "url": "https://www.indembkathmandu.gov.in/",
+    "fetchedAt": "2026-05-04T13:17:00+05:45",
+    "status": 200,
+    "bytes": 110073,
+    "sha256": "4fc0a50597c1e36cd482396dbab385a19f2e61a187cba23b9971662dbcb71659",
+    "savedTo": "data/rules.raw/indembkathmandu_indian-vehicles_20260504-1317.html"
+  },
+  {
+    "url": "https://www.indembkathmandu.gov.in/",
+    "fetchedAt": "2026-05-04T13:17:00+05:45",
+    "status": 200,
+    "bytes": 6960,
+    "sha256": "ea55e476a0931d8957b61be0210e8baf8652c8ad96edaa6ea2e70db704c06ee7",
+    "savedTo": "data/rules.raw/indembkathmandu_indian-vehicles_20260504-1317.txt"
+  },
+  {
+    "url": "https://www.indembkathmandu.gov.in/",
+    "fetchedAt": "2026-05-04T13:19:00+05:45",
+    "status": 200,
+    "bytes": 131118,
+    "sha256": "069c738413c9c647a62c5f3a4b8cca66b784ddca453f7f0ce899f65ae3b8da45",
+    "savedTo": "data/rules.raw/indembkathmandu_registration_20260504-1319.html"
+  },
+  {
+    "url": "https://www.indembkathmandu.gov.in/",
+    "fetchedAt": "2026-05-04T13:19:00+05:45",
+    "status": 200,
+    "bytes": 5474,
+    "sha256": "891ecb67f9c664723e84d853ddf911f7bd5233e340e0da066709fa500eb1c412",
+    "savedTo": "data/rules.raw/indembkathmandu_registration_20260504-1319.txt"
+  },
+  {
+    "url": "https://www.indembkathmandu.gov.in/",
+    "fetchedAt": "2026-05-04T13:17:00+05:45",
+    "status": 200,
+    "bytes": 105389,
+    "sha256": "45c839cd8b8659713b5219095882ca3f04ce7a142fc27868f0d5c19b6ccb19ae",
+    "savedTo": "data/rules.raw/indembkathmandu_valid-travel-documents_20260504-1317.html"
+  },
+  {
+    "url": "https://www.indembkathmandu.gov.in/",
+    "fetchedAt": "2026-05-04T13:17:00+05:45",
+    "status": 200,
+    "bytes": 4093,
+    "sha256": "b27f603606b04b3acdc510e49a3f57288724372b229c9353de4ebcdd6856a17f",
+    "savedTo": "data/rules.raw/indembkathmandu_valid-travel-documents_20260504-1317.txt"
+  },
+  {
+    "url": "https://ntb.gov.np/plan-your-trip/before-you-come/tims-card",
+    "fetchedAt": "2026-05-04T13:14:00+05:45",
+    "status": 200,
+    "bytes": 220239,
+    "sha256": "29eb78c892d8c2898aa5d3520feafa16778066fa4abf1780e031e3dafedb8fe9",
+    "savedTo": "data/rules.raw/ntb_gov_np_tims_20260504-1314.html"
+  },
+  {
+    "url": "https://ntb.gov.np/plan-your-trip/before-you-come/tims-card",
+    "fetchedAt": "2026-05-04T13:14:00+05:45",
+    "status": 200,
+    "bytes": 6719,
+    "sha256": "870a394efcce8ab4c2e38485e00c48892a105401ce07ef33b993c6c98c51a557",
+    "savedTo": "data/rules.raw/ntb_gov_np_tims_20260504-1314.txt"
+  },
+  {
+    "url": "https://ntb.gov.np/plan-your-trip/before-you-come/trekking-permit",
+    "fetchedAt": "2026-05-04T13:14:00+05:45",
+    "status": 200,
+    "bytes": 233988,
+    "sha256": "523ace97d83b203d46c7d6b1fe875bb3f3930f88aeafcb612a6a65e7a0baa397",
+    "savedTo": "data/rules.raw/ntb_gov_np_trekking_permit_20260504-1314.html"
+  },
+  {
+    "url": "https://ntb.gov.np/plan-your-trip/before-you-come/trekking-permit",
+    "fetchedAt": "2026-05-04T13:14:00+05:45",
+    "status": 200,
+    "bytes": 8262,
+    "sha256": "3deb742467478581de3c2d5c1432dfb932fd049b17113780ab12642d13016930",
+    "savedTo": "data/rules.raw/ntb_gov_np_trekking_permit_20260504-1314.txt"
+  },
+  {
+    "url": "https://ntnc.org.np/",
+    "fetchedAt": "2026-05-04T13:14:00+05:45",
+    "status": 200,
+    "bytes": 67923,
+    "sha256": "6103e029139b55cd88f8e90889d43426e36d1617855c68703e95cb657c894313",
+    "savedTo": "data/rules.raw/ntnc_acap_20260504-1314.html"
+  },
+  {
+    "url": "https://ntnc.org.np/",
+    "fetchedAt": "2026-05-04T13:14:00+05:45",
+    "status": 200,
+    "bytes": 8470,
+    "sha256": "d5dd01696d09f88d7d4d78e95f52fa3d2d4f9c2ccdf1e99e6b1efb4a122b0834",
+    "savedTo": "data/rules.raw/ntnc_acap_20260504-1314.txt"
+  },
+  {
+    "url": "https://ntnc.org.np/project/annapurna-conservation-area-project-acap",
+    "fetchedAt": "2026-05-04T13:14:00+05:45",
+    "status": 200,
+    "bytes": 50279,
+    "sha256": "fae4d322149ad44409948c2db0f37f50146456c69555df4a361c1ab9feabf3fd",
+    "savedTo": "data/rules.raw/ntnc_acap_project_20260504-1314.html"
+  },
+  {
+    "url": "https://ntnc.org.np/project/annapurna-conservation-area-project-acap",
+    "fetchedAt": "2026-05-04T13:14:00+05:45",
+    "status": 200,
+    "bytes": 9884,
+    "sha256": "4dcb7a8a0e72f85a0214c9d22572539882b5f32945f06da000d60b9dd7401f79",
+    "savedTo": "data/rules.raw/ntnc_acap_project_20260504-1314.txt"
+  },
+  {
+    "url": "https://epermit.ntnc.org.np/",
+    "fetchedAt": "2026-05-04T13:14:00+05:45",
+    "status": 200,
+    "bytes": 22889,
+    "sha256": "8e78a3d0036159ef3d4d744aca3cd7cdd8ac0689fa1b373ce5c882c2ed2fdf2b",
+    "savedTo": "data/rules.raw/ntnc_epermit_20260504-1314.html"
+  },
+  {
+    "url": "https://epermit.ntnc.org.np/",
+    "fetchedAt": "2026-05-04T13:14:00+05:45",
+    "status": 200,
+    "bytes": 5215,
+    "sha256": "18d09e20519844d72e0fd432b85f5cbc2eecdb247010367b9d485e4f7f0492d8",
+    "savedTo": "data/rules.raw/ntnc_epermit_20260504-1314.txt"
+  },
+  {
+    "url": "https://epermit.ntnc.org.np/support",
+    "fetchedAt": "2026-05-04T13:14:00+05:45",
+    "status": 200,
+    "bytes": 42855,
+    "sha256": "a14e991e25072f9542ccf8472fa210adb238358af908545c61e4a158c7e4186d",
+    "savedTo": "data/rules.raw/ntnc_epermit_support_20260504-1314.html"
+  },
+  {
+    "url": "https://epermit.ntnc.org.np/support",
+    "fetchedAt": "2026-05-04T13:14:00+05:45",
+    "status": 200,
+    "bytes": 5599,
+    "sha256": "5293e2b6bf52d937d6121f7f6b095ffcd8ca885e1cdfa87ea34a586dc30d9656",
+    "savedTo": "data/rules.raw/ntnc_epermit_support_20260504-1314.txt"
+  },
+  {
+    "url": "https://www.welcomenepal.com/",
+    "fetchedAt": "2026-05-04T13:14:00+05:45",
+    "status": 301,
+    "bytes": 587,
+    "sha256": "cca1578badc6f2898d9f09c7a7b901d55454aca787ae984a98547fcd1b6038c9",
+    "savedTo": "data/rules.raw/welcomenepal_20260504-1314_HEADERS.txt"
+  },
+  {
+    "url": "https://www.welcomenepal.com/",
+    "fetchedAt": "2026-05-04T13:14:00+05:45",
+    "status": 301,
+    "bytes": 245740,
+    "sha256": "9a0961cef2f87d6d354543d84c45aa530e8478eadfa422273d6b7f75d2da8426",
+    "savedTo": "data/rules.raw/welcomenepal_20260504-1314_REDIRECTED_TO_openingparliament.html"
+  },
+  {
+    "url": "https://kathmandupost.com/province-no-2/2026/04/17/madhesh-crackdown-on-indian-registered-vehicles-rattles-political-parties",
+    "fetchedAt": "2026-05-04T13:16:00+05:45",
+    "status": 200,
+    "bytes": 63653,
+    "sha256": "e09a4681d3748f1a1e6833c3da38ba317e5da701187f6019b83ce91cafc999d7",
+    "savedTo": "data/rules.raw/xref_01_kathmandupost_com_20260504-1316.html"
+  },
+  {
+    "url": "https://kathmandupost.com/province-no-2/2026/04/17/madhesh-crackdown-on-indian-registered-vehicles-rattles-political-parties",
+    "fetchedAt": "2026-05-04T13:16:00+05:45",
+    "status": 200,
+    "bytes": 10034,
+    "sha256": "17878601150b425b721dce1f386d54ae20509ee266ec7998e16d4ba20073d4e9",
+    "savedTo": "data/rules.raw/xref_01_kathmandupost_com_20260504-1316.txt"
+  },
+  {
+    "url": "https://www.godigit.com/international-travel-insurance/visa/nepal-visa-for-indians",
+    "fetchedAt": "2026-05-04T13:16:00+05:45",
+    "status": 200,
+    "bytes": 338928,
+    "sha256": "472e84a040cc13ffd3c8aebdb3c68b80b4660fec917f8aeee53535c594cf6faa",
+    "savedTo": "data/rules.raw/xref_02_godigit_com_20260504-1316.html"
+  },
+  {
+    "url": "https://www.godigit.com/international-travel-insurance/visa/nepal-visa-for-indians",
+    "fetchedAt": "2026-05-04T13:16:00+05:45",
+    "status": 200,
+    "bytes": 30443,
+    "sha256": "4fc48dd0acb11c858f57d015d76b51dd76f6e411432dbb7cbf00e0d27c13dcc2",
+    "savedTo": "data/rules.raw/xref_02_godigit_com_20260504-1316.txt"
+  }
+]

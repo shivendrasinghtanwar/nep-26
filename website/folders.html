@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Files &amp; Folders — Nepal Workation 2026</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <div class="brand">
+      <span class="title">Nepal Workation 2026</span>
+      <span class="sub">Bikaner → Pokhara → Muktinath · 9–23 May</span>
+    </div>
+    <nav>
+      <a href="index.html">Overview</a>
+      <a href="itinerary.html">Itinerary</a>
+      <a href="checklist.html">Checklist</a>
+      <a href="rules.html">Rules</a>
+      <a href="route.html">Route</a>
+      <a href="viewer.html">Docs</a>
+      <a href="folders.html">Files</a>
+    </nav>
+  </div>
+</header>
+
+<main class="shell">
+  <h1 style="margin-bottom:6px">Files &amp; Folders</h1>
+  <p class="muted" style="margin-top:0">Each card has two links: <b>Read</b> opens the document formatted in the in-site viewer, and <b>raw</b> opens the source markdown.</p>
+
+  <h2 class="section-title">/docs &mdash; Human-readable references</h2>
+  <div class="grid cols-2">
+    <div class="folder">
+      <h3>Master Checklist</h3>
+      <p>The full 11-section list in markdown, ready for print or edit.</p>
+      <a href="viewer.html?file=docs/MASTER_CHECKLIST.md">Read MASTER_CHECKLIST.md</a> &nbsp;·&nbsp; <a href="../docs/MASTER_CHECKLIST.md">raw</a>
+    </div>
+    <div class="folder">
+      <h3>Nepal Rules 2026</h3>
+      <p>Detailed rules reference: Bhansar, Yatayat, customs, ACAP, altitude protocol.</p>
+      <a href="viewer.html?file=docs/NEPAL_RULES_2026.md">Read NEPAL_RULES_2026.md</a> &nbsp;·&nbsp; <a href="../docs/NEPAL_RULES_2026.md">raw</a>
+    </div>
+    <div class="folder">
+      <h3>Authorization Letter Template</h3>
+      <p>Print on Thar Digital Services letterhead, sign in blue, stamp with firm seal. Two copies.</p>
+      <a href="viewer.html?file=docs/AUTHORIZATION_LETTER_TEMPLATE.md">Read AUTHORIZATION_LETTER_TEMPLATE.md</a> &nbsp;·&nbsp; <a href="../docs/AUTHORIZATION_LETTER_TEMPLATE.md">raw</a>
+    </div>
+    <div class="folder">
+      <h3>Itinerary</h3>
+      <p>Day-by-day table with km, hours, halts, and a workation calendar summary.</p>
+      <a href="viewer.html?file=docs/ITINERARY.md">Read ITINERARY.md</a> &nbsp;·&nbsp; <a href="../docs/ITINERARY.md">raw</a>
+    </div>
+    <div class="folder">
+      <h3>Crawl Plan for Claude Code</h3>
+      <p>Detailed instructions for a higher-network-privilege agent to live-scrape Nepal government sites and refresh /data/.</p>
+      <a href="viewer.html?file=docs/CLAUDE_CODE_CRAWL_PLAN.md">Read CLAUDE_CODE_CRAWL_PLAN.md</a> &nbsp;·&nbsp; <a href="../docs/CLAUDE_CODE_CRAWL_PLAN.md">raw</a>
+    </div>
+  </div>
+
+  <h2 class="section-title">/plans &mdash; Your personal trip-plan space</h2>
+  <div class="grid cols-2">
+    <div class="folder">
+      <h3>Plans index</h3>
+      <p>Contingencies, work deliverables, budget, packing strategy, communication plan, wife preferences, post-trip todos.</p>
+      <a href="viewer.html?file=plans/README.md">Read plans index</a>
+    </div>
+    <div class="folder">
+      <h3>Browse all plans</h3>
+      <p>Open the in-site viewer and pick from the left-hand TOC under <i>Your trip-plan space</i>.</p>
+      <a href="viewer.html">Open viewer</a>
+    </div>
+  </div>
+
+  <h2 class="section-title">/claude-code &mdash; Tandem-agent briefing</h2>
+  <div class="grid cols-2">
+    <div class="folder">
+      <h3>HANDOFF.md</h3>
+      <p>Live status board between this session and Claude Code in your terminal.</p>
+      <a href="viewer.html?file=claude-code/HANDOFF.md">Read HANDOFF</a>
+    </div>
+    <div class="folder">
+      <h3>README + context + playbooks</h3>
+      <p>Open the viewer and pick from <i>Claude Code briefing</i> in the left TOC.</p>
+      <a href="viewer.html">Open viewer</a>
+    </div>
+  </div>
+
+  <h2 class="section-title">/data &mdash; Structured data (JSON)</h2>
+  <div class="grid cols-2">
+    <div class="folder">
+      <h3>checklist.json</h3>
+      <p>Machine-readable version of the master checklist, used by the website.</p>
+      <a href="../data/checklist.json">Open checklist.json</a>
+    </div>
+    <div class="folder">
+      <h3>itinerary.json</h3>
+      <p>Day-by-day data including type tags (work/drive/border/offroad/darshan/leisure).</p>
+      <a href="../data/itinerary.json">Open itinerary.json</a>
+    </div>
+    <div class="folder">
+      <h3>rules.json</h3>
+      <p>Rules &amp; emergency contacts. Replace this file after running the Claude Code crawl plan.</p>
+      <a href="../data/rules.json">Open rules.json</a>
+    </div>
+  </div>
+
+  <h2 class="section-title">/pics &mdash; Photos</h2>
+  <div class="folder">
+    <h3>Drop trip photos here</h3>
+    <p>Folder is empty for now. Suggested subfolders to create as you go: <code>route-day-1</code> ... <code>route-day-15</code>, <code>permits</code>, <code>vehicle</code>, <code>landscapes</code>.</p>
+  </div>
+
+  <h2 class="section-title">/repos &mdash; Work-related repositories</h2>
+  <div class="folder">
+    <h3>Pre-trip backup landing zone</h3>
+    <p>Clone the Kotlin/Spring/Vue.js repos here before 8 May, plus a copy on the encrypted SSD. Treat this folder as read-only working backup if your primary MacBook fails on the road.</p>
+  </div>
+
+  <h2 class="section-title">Folder map</h2>
+  <pre class="card" style="font-family: 'Menlo', 'Consolas', monospace; font-size: 13px; white-space: pre; overflow-x: auto;">
+NEPAL-2026/
+├── docs/
+│   ├── MASTER_CHECKLIST.md
+│   ├── NEPAL_RULES_2026.md
+│   ├── AUTHORIZATION_LETTER_TEMPLATE.md
+│   ├── ITINERARY.md
+│   └── CLAUDE_CODE_CRAWL_PLAN.md
+├── data/
+│   ├── checklist.json
+│   ├── itinerary.json
+│   └── rules.json
+├── pics/                 (empty — for trip photos)
+├── repos/                (empty — for work code backup)
+└── website/
+    ├── index.html
+    ├── itinerary.html
+    ├── checklist.html
+    ├── rules.html
+    ├── route.html
+    ├── folders.html
+    ├── css/style.css
+    └── js/{data.js, app.js}
+  </pre>
+</main>
+
+<footer class="site">Generated 2026-05-04</footer>
+</body>
+</html>

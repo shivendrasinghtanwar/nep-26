@@ -1,0 +1,34 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# editor / scratch
+.idea/
+.vscode/
+*.swp
+*~
+.cache/
+
+# user / device drops
+pics/*.jpg
+pics/*.jpeg
+pics/*.png
+pics/*.heic
+!pics/.gitkeep
+
+# trip-side work code (use repos/ as a gitignore'd scratchpad if needed)
+repos/*
+!repos/.gitkeep
+
+# python build artefacts (none expected, but defensive)
+__pycache__/
+*.pyc
+
+# claude-code outputs (scratchpad, not part of dossier)
+claude-code/outputs/*
+!claude-code/outputs/.gitkeep
+
+# Claude Code session-local state (user-specific, not part of project)
+.claude/
+

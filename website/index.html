@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Nepal Workation 2026 · Bikaner ↔ Muktinath — Expedition Dossier</title>
+  <meta name="description" content="A 14-night Himalayan workation: Bikaner to Muktinath in a Mahindra Thar Roxx. Trail Comms, Route Atlas, Waypoints, and the master checklist in one dossier.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="css/rugged.css">
+  <link rel="stylesheet" href="css/landing.css">
+  <style>
+    /* page-local: top dossier nav bar */
+    .topnav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 22px;
+      background: rgba(10, 20, 36, 0.82);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .topnav .brand-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--cream);
+      letter-spacing: 0.22em;
+      font-weight: 600;
+    }
+    .topnav .brand-tag .dot {
+      width: 7px; height: 7px;
+      background: var(--rust);
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(200,85,42,0.18);
+    }
+    .topnav nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 18px;
+      margin-left: auto;
+      align-items: center;
+    }
+    .topnav nav a {
+      color: var(--cream-dim);
+      text-decoration: none;
+      padding: 6px 4px;
+      transition: color 160ms ease-out;
+      position: relative;
+    }
+    .topnav nav a:hover { color: var(--cream); }
+    .topnav nav a.is-current { color: var(--dust); }
+    .topnav nav a.is-current::after {
+      content: '';
+      position: absolute;
+      left: 4px; right: 4px; bottom: 2px;
+      height: 1px;
+      background: var(--dust);
+    }
+    .topnav nav .group-sep {
+      width: 1px;
+      align-self: stretch;
+      background: var(--line);
+      opacity: 0.6;
+      margin: 4px 4px;
+    }
+    @media (max-width: 880px) {
+      .topnav {
+        padding: 10px 14px;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+      }
+      .topnav nav { gap: 4px 12px; }
+      .topnav nav .group-sep { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─────────── DOSSIER TOP NAV ─────────── -->
+  <header class="topnav" role="banner">
+    <span class="brand-tag"><span class="dot"></span><span>NEP-26 · Dossier</span></span>
+    <nav aria-label="Site sections">
+      <a href="index.html" class="is-current">Overview</a>
+      <a href="agent.html">Comms</a>
+      <a href="map.html">Atlas</a>
+      <a href="gallery.html">Plates</a>
+      <span class="group-sep" aria-hidden="true"></span>
+      <a href="itinerary.html">Itinerary</a>
+      <a href="checklist.html">Checklist</a>
+      <a href="rules.html">Rules</a>
+      <a href="route.html">Route</a>
+      <span class="group-sep" aria-hidden="true"></span>
+      <a href="viewer.html">Docs</a>
+      <a href="folders.html">Files</a>
+    </nav>
+  </header>
+
+  <main class="landing">
+
+    <!-- ─────────── HERO ─────────── -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true">
+        <img id="hero-img"
+             src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Muktinath_Temple_Mustang_Nepal.jpg/1280px-Muktinath_Temple_Mustang_Nepal.jpg"
+             alt=""
+             loading="lazy"
+             decoding="async"
+             fetchpriority="low">
+      </div>
+
+      <div class="hero-top">
+        <span class="eyebrow">An expedition dossier · Nepal · May 2026</span>
+        <span class="hero-bezel">DOSSIER · <b>NEP-26</b> · REV-04</span>
+      </div>
+
+      <div class="hero-body">
+        <h1 id="hero-title" class="hero-headline">
+          Bikaner to <span class="accent">Muktinath</span>
+        </h1>
+        <p class="hero-sub" style="font-family:var(--font-mono);font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--cream-dim);line-height:1.5">
+          4×4 Thar Roxx · 168 mm articulation · 230 N·m · 14 nights · 4,410 km · 3,800 m peak
+        </p>
+        <p class="hero-toc" style="font-family:var(--font-mono);font-size:11.5px;letter-spacing:0.22em;text-transform:uppercase;color:var(--dust);margin:10px 0 0;line-height:1.5">
+          Sunauli &nbsp;|&nbsp; Beni–Jomsom &nbsp;|&nbsp; Muktinath &nbsp;|&nbsp; Kagbeni &nbsp;|&nbsp; Pokhara
+        </p>
+
+        <div class="hero-tminus" aria-label="Days until departure">
+          <span class="num"><span data-countdown>—</span></span>
+          <span class="lbl">days to depart<br><span style="color:var(--cream)">2026-05-09</span></span>
+        </div>
+
+        <nav class="ctas" aria-label="Primary navigation">
+          <a class="cta primary" href="agent.html">
+            <i data-lucide="radio-tower" class="icon"></i>
+            <span>Trail Comms</span>
+            <i data-lucide="arrow-right" class="arrow"></i>
+          </a>
+          <a class="cta" href="map.html">
+            <i data-lucide="map" class="icon"></i>
+            <span>Route Atlas</span>
+            <i data-lucide="arrow-right" class="arrow"></i>
+          </a>
+          <a class="cta" href="gallery.html">
+            <i data-lucide="image" class="icon"></i>
+            <span>Waypoints</span>
+            <i data-lucide="arrow-right" class="arrow"></i>
+          </a>
+        </nav>
+      </div>
+
+      <a href="#stat-band" class="scroll-cue" aria-label="Scroll to dossier">
+        <span>Swipe to dossier</span>
+        <i data-lucide="chevron-down" class="icon"></i>
+      </a>
+    </section>
+
+    <!-- ─────────── STAT BAND ─────────── -->
+    <section id="stat-band" class="stat-band" aria-label="Trip vitals">
+      <div class="accent">
+        <div class="k">T-minus</div>
+        <div class="v"><span data-countdown>—</span><span class="u">d</span></div>
+      </div>
+      <div>
+        <div class="k">Total</div>
+        <div class="v">4,410<span class="u">km</span></div>
+      </div>
+      <div>
+        <div class="k">Permit</div>
+        <div class="v">18<span class="u">/30 d</span></div>
+      </div>
+      <div>
+        <div class="k">Borders</div>
+        <div class="v">2<span class="u">×</span></div>
+      </div>
+      <div>
+        <div class="k">High pass</div>
+        <div class="v">3,800<span class="u">m</span></div>
+      </div>
+    </section>
+
+    <!-- ─────────── DOSSIER STRIP ─────────── -->
+    <section class="section" aria-labelledby="dossier-h">
+      <header class="section-h">
+        <span class="badge">01 · Channels</span>
+        <h2 id="dossier-h">Three ways into the <span class="accent">dossier</span></h2>
+        <p>Pick a lane. Each one talks to the same source-of-truth — /data/rules.json, /data/route.json, /data/itinerary.json.</p>
+      </header>
+
+      <div class="dossier">
+        <a class="dossier-card" href="agent.html" data-aos="fade-up">
+          <div class="icon-box"><i data-lucide="radio-tower" class="icon"></i></div>
+          <h3>Trail Comms</h3>
+          <p>Ask anything — embassy phone, ACAP cost, Day-8 plan, INR-2000 rule. Offline-safe travel manager that quotes only sourced facts with confidence flags.</p>
+          <span class="open">Open channel <i data-lucide="arrow-right" class="icon icon-sm"></i></span>
+        </a>
+
+        <a class="dossier-card" href="map.html" data-aos="fade-up" data-aos-delay="80">
+          <div class="icon-box"><i data-lucide="map" class="icon"></i></div>
+          <h3>Route Atlas</h3>
+          <p>Topographic Leaflet sheet of the 4,410 km loop. Day-by-day waypoints, the 4×4 Beni–Jomsom leg, fuel stops, and the live DRIVE/HOLD/POSTPONE banner.</p>
+          <span class="open">Open atlas <i data-lucide="arrow-right" class="icon icon-sm"></i></span>
+        </a>
+
+        <a class="dossier-card" href="gallery.html" data-aos="fade-up" data-aos-delay="160">
+          <div class="icon-box"><i data-lucide="image" class="icon"></i></div>
+          <h3>Waypoints</h3>
+          <p>Field plates of every halt — Pokhara, Muktinath, Kagbeni, Lumbini. Public-domain Wikimedia stock now; your own /pics overrides them when dropped in.</p>
+          <span class="open">Open gallery <i data-lucide="arrow-right" class="icon icon-sm"></i></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ─────────── REFERENCE STRIP ─────────── -->
+    <section class="section" aria-labelledby="ref-h">
+      <header class="section-h">
+        <span class="badge">02 · Reference</span>
+        <h2 id="ref-h">The <span class="accent">paper</span> behind the trip</h2>
+        <p>Master checklist, day-by-day, rules and route — the same content, in tabular form.</p>
+      </header>
+      <div class="dossier">
+        <a class="dossier-card" href="itinerary.html" data-aos="fade-up">
+          <div class="icon-box"><i data-lucide="calendar-days" class="icon"></i></div>
+          <h3>Itinerary</h3>
+          <p>15 days · distances · drive times · halts · day-type (drive / work / acclimatise / darshan).</p>
+          <span class="open">Open itinerary <i data-lucide="arrow-right" class="icon icon-sm"></i></span>
+        </a>
+        <a class="dossier-card" href="checklist.html" data-aos="fade-up" data-aos-delay="80">
+          <div class="icon-box"><i data-lucide="list-checks" class="icon"></i></div>
+          <h3>Master Checklist</h3>
+          <p>11 categories — vehicle docs, IDs, permits, money, hardware, spares, medical, clothing, pre-depart, daily discipline, return.</p>
+          <span class="open">Open checklist <i data-lucide="arrow-right" class="icon icon-sm"></i></span>
+        </a>
+        <a class="dossier-card" href="rules.html" data-aos="fade-up" data-aos-delay="160">
+          <div class="icon-box"><i data-lucide="scroll-text" class="icon"></i></div>
+          <h3>Nepal Rules 2026</h3>
+          <p>Bhansar (NPR 600/d four-wheelers) · Yatayat · 30-day cap · ACAP NPR 1,000 SAARC · Mustang boundary · embassy.</p>
+          <span class="open">Open rules <i data-lucide="arrow-right" class="icon icon-sm"></i></span>
+        </a>
+        <a class="dossier-card" href="route.html" data-aos="fade-up" data-aos-delay="240">
+          <div class="icon-box"><i data-lucide="route" class="icon"></i></div>
+          <h3>Route &amp; Driving</h3>
+          <p>Expressway chain India-side · Mustang 4×4 leg · fuel strategy · where to slow down.</p>
+          <span class="open">Open route <i data-lucide="arrow-right" class="icon icon-sm"></i></span>
+        </a>
+        <a class="dossier-card" href="viewer.html" data-aos="fade-up">
+          <div class="icon-box"><i data-lucide="book-open" class="icon"></i></div>
+          <h3>Docs viewer</h3>
+          <p>Markdown viewer with TOC sidebar — every doc, plan, and HANDOFF rendered in-browser.</p>
+          <span class="open">Open docs <i data-lucide="arrow-right" class="icon icon-sm"></i></span>
+        </a>
+        <a class="dossier-card" href="folders.html" data-aos="fade-up" data-aos-delay="80">
+          <div class="icon-box"><i data-lucide="folder-tree" class="icon"></i></div>
+          <h3>Files index</h3>
+          <p>Direct links to <code>docs/</code>, <code>data/</code>, <code>pics/</code>, <code>repos/</code> — the underlying source files.</p>
+          <span class="open">Open files <i data-lucide="arrow-right" class="icon icon-sm"></i></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ─────────── TIMELINE ─────────── -->
+    <section class="section timeline-wrap" aria-labelledby="timeline-h">
+      <header class="section-h">
+        <span class="badge">03 · Day-by-day</span>
+        <h2 id="timeline-h">The <span class="accent">fifteen-day</span> trace</h2>
+        <p>Bikaner out · Sunauli in · Pokhara base · Jomsom up · Muktinath darshan · Sunauli out · Bikaner home.</p>
+      </header>
+      <ol id="timeline" class="timeline" aria-label="Day-by-day itinerary"></ol>
+    </section>
+
+    <!-- ─────────── RULES SNAPSHOT ─────────── -->
+    <section class="section" aria-labelledby="rules-h">
+      <header class="section-h">
+        <span class="badge">04 · Load-bearing rules</span>
+        <h2 id="rules-h">What's <span class="accent">verified</span></h2>
+        <p>Six official / corroborated rules pulled from the latest refresh. Re-verify on 2026-05-08.</p>
+      </header>
+      <div id="rules-grid" class="rules-grid"></div>
+    </section>
+
+    <!-- ─────────── EMERGENCY STRIP ─────────── -->
+    <section class="emerg-strip" aria-labelledby="emerg-h">
+      <div class="emerg-inner">
+        <div>
+          <h2 id="emerg-h">If it goes <span style="color:var(--cream)">sideways</span><small>Tap any number to call</small></h2>
+        </div>
+        <ul class="emerg-list">
+          <li>
+            <div class="lbl">Indian Embassy KTM · 24×7</div>
+            <a href="tel:+9779851316807"><i data-lucide="phone" class="icon"></i>+977 9851 316807</a>
+          </li>
+          <li>
+            <div class="lbl">Manipal Pokhara</div>
+            <span class="num"><i data-lucide="cross" class="icon"></i>Altitude care</span>
+            <div class="note">Large, English-speaking, altitude-aware.</div>
+          </li>
+          <li>
+            <div class="lbl">CIWEC Hospital</div>
+            <span class="num"><i data-lucide="stethoscope" class="icon"></i>Travel medicine</span>
+            <div class="note">Travel-med specialist; Pokhara branch.</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ─────────── FOOTER ─────────── -->
+    <footer class="landing-footer">
+      <div>
+        Sources: <a href="https://www.immigration.gov.np/">Dept. of Immigration</a> ·
+        <a href="https://www.customs.gov.np/">Dept. of Customs</a> ·
+        <a href="https://epermit.ntnc.org.np/">NTNC e-permit</a> ·
+        <a href="https://www.indembkathmandu.gov.in/">Indian Embassy KTM</a>.
+        Re-verify before <span class="verify">2026-05-08</span>.
+        <a href="../docs/RULES_CHANGE_REPORT.md">Change report</a> ·
+        <a href="../docs/ROUTE_CONDITIONS.md">Route report</a>.
+      </div>
+      <div class="credit">
+        Bikaner ↔ Muktinath · <strong>Nep-26</strong> · Cowork × Claude Code
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/route-data.js"></script>
+  <script src="js/enhance.js"></script>
+  <script src="js/landing.js"></script>
+</body>
+</html>

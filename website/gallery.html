@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Waypoints · Nepal 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="css/rugged.css">
+  <style>
+    /* ── hero plate ──────────────────────────────────────────────── */
+    .hero-plate {
+      position: relative;
+      margin: 18px 0 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      background: linear-gradient(180deg, var(--shadow), var(--ridge));
+      height: clamp(320px, 42vw, 400px);
+    }
+    .hero-plate img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: saturate(0.95) contrast(1.05);
+      display: block;
+      z-index: 0;
+    }
+    .hero-plate::after {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(180deg, rgba(10,20,36,0.05) 0%, rgba(10,20,36,0.55) 60%, rgba(10,20,36,0.92) 100%),
+        radial-gradient(ellipse 80% 40% at 50% 100%, rgba(200,85,42,0.18), transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-plate .hp-grain {
+      position: absolute; inset: 0;
+      background-image: repeating-linear-gradient(135deg, transparent 0 22px, rgba(212,165,116,0.05) 22px 23px);
+      pointer-events: none;
+      z-index: 2;
+    }
+    .hero-plate .hp-corners::before,
+    .hero-plate .hp-corners::after {
+      content: '';
+      position: absolute;
+      width: 22px; height: 22px;
+      border: 1px solid var(--dust);
+      opacity: .55;
+      z-index: 3;
+    }
+    .hero-plate .hp-corners::before { top: 14px; left: 14px; border-right: 0; border-bottom: 0; }
+    .hero-plate .hp-corners::after  { bottom: 14px; right: 14px; border-left: 0; border-top: 0; }
+    .hero-plate .hp-meta {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 22px 26px;
+      z-index: 4;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .hero-plate .hp-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .hero-plate .hp-eyebrow .dot {
+      width: 6px; height: 6px;
+      background: var(--rust);
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(200,85,42,0.18);
+    }
+    .hero-plate .hp-title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(40px, 7vw, 76px);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--cream);
+      line-height: 0.96;
+      margin: 0;
+      text-shadow: 0 2px 18px rgba(0,0,0,.55);
+    }
+    .hero-plate .hp-title .alt { color: var(--dust); }
+    .hero-plate .hp-caption {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      letter-spacing: 0.16em;
+      color: var(--cream);
+      text-transform: uppercase;
+      opacity: 0.92;
+    }
+    .hero-plate .hp-caption .sep { opacity: 0.4; margin: 0 8px; }
+
+    /* ── filter chips ────────────────────────────────────────────── */
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 8px 0 16px;
+      padding: 10px 12px;
+      border: 1px dashed rgba(212,165,116,0.22);
+      border-radius: var(--r-sm);
+      background: rgba(20,30,50,0.35);
+      align-items: center;
+    }
+    .chip-row .chip-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      margin-right: 4px;
+    }
+    .chip {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      background: transparent;
+      border: 1px solid var(--line);
+      padding: 6px 12px;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 160ms ease-out;
+    }
+    .chip:hover { color: var(--cream); border-color: var(--dust); }
+    .chip.active {
+      color: var(--night);
+      background: var(--dust);
+      border-color: var(--dust);
+      font-weight: 600;
+    }
+
+    /* ── masonry override (CSS columns) ──────────────────────────── */
+    #grid {
+      display: block;
+      column-count: 1;
+      column-gap: 16px;
+      margin-top: 6px;
+    }
+    @media (min-width: 640px)  { #grid { column-count: 2; } }
+    @media (min-width: 1024px) { #grid { column-count: 3; } }
+
+    #grid .card {
+      display: inline-block;
+      width: 100%;
+      margin: 0 0 16px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      -webkit-column-break-inside: avoid;
+    }
+    #grid .card.hidden { display: none; }
+
+    /* override default 4/3 from rugged.css — set per card via inline aspect-ratio */
+    #grid .img-wrap { aspect-ratio: auto; }
+
+    /* badge inside img-wrap */
+    .card-badge {
+      position: absolute;
+      top: 10px; left: 10px;
+      z-index: 3;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cream);
+      background: rgba(10,20,36,0.78);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(4px);
+      padding: 4px 8px;
+      border-radius: 3px;
+    }
+    .card-badge .icon-sm { color: var(--dust); }
+
+    /* extended card meta */
+    figcaption .card-sub {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: var(--cream-dim);
+      margin-top: 2px;
+      letter-spacing: 0.01em;
+    }
+    figcaption .card-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    figcaption .stat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      background: rgba(212,165,116,0.06);
+      border: 1px solid var(--line-soft);
+      padding: 3px 7px;
+      border-radius: 3px;
+    }
+    figcaption .stat-pill .icon-sm { color: var(--dust); width: 11px; height: 11px; }
+    figcaption .card-why {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 12.5px;
+      color: rgba(236,229,211,0.78);
+      margin-top: 10px;
+      line-height: 1.45;
+      font-style: italic;
+    }
+    .card { cursor: zoom-in; }
+    .card:focus-visible { outline: 2px solid var(--dust); outline-offset: 2px; }
+
+    /* ── lightbox ────────────────────────────────────────────────── */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(8, 14, 26, 0.78);
+      backdrop-filter: blur(14px) saturate(1.05);
+      -webkit-backdrop-filter: blur(14px) saturate(1.05);
+      padding: 28px;
+      animation: lb-fade 220ms ease-out;
+    }
+    .lightbox.open { display: flex; }
+    @keyframes lb-fade {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    .lb-frame {
+      position: relative;
+      max-width: 1100px;
+      width: 100%;
+      max-height: 92vh;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(280px, 1fr);
+      gap: 0;
+      background: linear-gradient(180deg, var(--shadow), var(--ridge));
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: 0 30px 90px rgba(0,0,0,0.7);
+      animation: lb-pop 260ms cubic-bezier(.2,.7,.3,1);
+      margin: 0;
+    }
+    @keyframes lb-pop {
+      from { transform: translateY(14px) scale(0.985); opacity: 0; }
+      to   { transform: translateY(0) scale(1); opacity: 1; }
+    }
+    .lb-img-wrap {
+      background: #06101e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 360px;
+      max-height: 90vh;
+      overflow: hidden;
+    }
+    .lb-img {
+      max-width: 100%;
+      max-height: 90vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .lb-meta {
+      padding: 24px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      border-left: 1px solid var(--line-soft);
+      overflow-y: auto;
+    }
+    .lb-head { display: flex; flex-direction: column; gap: 6px; }
+    .lb-name {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(24px, 2.4vw, 32px);
+      letter-spacing: 0.05em;
+      color: var(--cream);
+      margin: 0;
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+    .lb-day {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--dust);
+    }
+    .lb-why {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: rgba(236,229,211,0.85);
+      line-height: 1.55;
+      margin: 0;
+    }
+    .lb-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .lb-actions {
+      margin-top: auto;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px dashed rgba(212,165,116,0.2);
+    }
+    .lb-map-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--night);
+      background: var(--dust);
+      border: 1px solid var(--dust);
+      padding: 8px 14px;
+      border-radius: var(--r-sm);
+      transition: all 160ms ease-out;
+    }
+    .lb-map-btn:hover {
+      background: var(--cream);
+      border-color: var(--cream);
+      color: var(--night);
+    }
+    .lb-counter {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      color: var(--cream-dim);
+    }
+    .lb-close, .lb-nav {
+      position: absolute;
+      z-index: 2;
+      background: rgba(10,20,36,0.7);
+      color: var(--cream);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(6px);
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: all 160ms ease-out;
+    }
+    .lb-close:hover, .lb-nav:hover {
+      background: var(--rust);
+      border-color: var(--rust);
+      color: var(--cream);
+    }
+    .lb-close { top: 14px; right: 14px; }
+    .lb-prev { left: 14px; top: 50%; transform: translateY(-50%); }
+    .lb-next { right: 14px; top: 50%; transform: translateY(-50%); }
+
+    @media (max-width: 760px) {
+      .lb-frame { grid-template-columns: 1fr; max-height: 96vh; }
+      .lb-img-wrap { max-height: 55vh; min-height: 240px; }
+      .lb-meta { border-left: 0; border-top: 1px solid var(--line-soft); }
+      .lb-prev { left: 6px; }
+      .lb-next { right: 6px; }
+      .hero-plate .hp-meta { padding: 16px 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <svg class="hero-mtn" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="sky-fade-g" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#0a1424" stop-opacity="0"/>
+          <stop offset="100%" stop-color="#0a1424" stop-opacity="0.9"/>
+        </linearGradient>
+      </defs>
+      <path d="M0,220 L0,140 L100,90 L200,110 L300,60 L400,90 L500,40 L600,70 L700,30 L800,80 L900,50 L1000,90 L1100,60 L1200,80 L1200,220 Z" fill="#162338" opacity="0.85"/>
+      <path d="M0,220 L0,160 L80,130 L180,150 L260,110 L360,135 L460,100 L540,130 L640,95 L740,135 L840,110 L920,140 L1020,115 L1120,150 L1200,130 L1200,220 Z" fill="#1b2a44" opacity="0.95"/>
+      <path d="M0,220 L0,180 L60,160 L160,180 L240,150 L340,180 L440,160 L540,185 L640,165 L740,190 L840,170 L940,195 L1040,180 L1140,200 L1200,185 L1200,220 Z" fill="#243044"/>
+      <path d="M500,40 L494,52 L506,52 Z M700,30 L692,44 L708,44 Z" fill="#ece5d3" opacity="0.55"/>
+      <rect x="0" y="0" width="1200" height="220" fill="url(#sky-fade-g)"/>
+    </svg>
+
+    <header class="trail-header">
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3,42 L18,18 L26,30 L34,12 L46,32 L52,24 L61,42 Z"/>
+          <path d="M30,18 L34,12 L38,18" stroke-opacity="0.5" stroke-dasharray="2 2"/>
+        </svg>
+      </div>
+      <div class="wordmark">
+        <span class="eyebrow">Field plates · public domain</span>
+        <h1>Way&nbsp;<span class="accent">points</span></h1>
+        <div class="sub">
+          <span><b>8</b> stops</span><span class="sep">//</span>
+          <span>Pokhara</span><span class="sep">·</span>
+          <span>Muktinath</span><span class="sep">·</span>
+          <span>Kagbeni</span><span class="sep">·</span>
+          <span>Lumbini</span>
+        </div>
+      </div>
+      <a class="back" href="index.html"><i data-lucide="chevron-left" class="icon"></i><span>Base</span></a>
+    </header>
+
+    <section class="stat-strip" aria-label="Gallery vitals" data-aos="fade-up">
+      <div class="stat accent"><div class="k">T-minus</div><div class="v"><span data-countdown>—</span><span class="u">d</span></div></div>
+      <div class="stat"><div class="k">Plates</div><div class="v">8</div></div>
+      <div class="stat"><div class="k">Source</div><div class="v">Wikimedia</div></div>
+      <div class="stat"><div class="k">Override</div><div class="v">/pics/</div></div>
+    </section>
+
+    <!-- HERO PLATE — Muktinath full-bleed -->
+    <section class="hero-plate" data-aos="fade-up" data-aos-delay="80" aria-label="Hero plate: Muktinath darshan">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Muktinath_Temple_Mustang_Nepal.jpg/1280px-Muktinath_Temple_Mustang_Nepal.jpg"
+           alt="Muktinath temple, Lower Mustang"
+           loading="eager"
+           decoding="async">
+      <div class="hp-grain" aria-hidden="true"></div>
+      <div class="hp-corners" aria-hidden="true"></div>
+      <div class="hp-meta">
+        <div class="hp-eyebrow"><span class="dot" aria-hidden="true"></span><span>Hero plate · spiritual objective</span></div>
+        <h2 class="hp-title">Elevations <span class="alt">·</span> 3,800<span class="alt">m</span></h2>
+        <div class="hp-caption">
+          <span>08 of 14</span><span class="sep">·</span>
+          <span>Muktinath darshan</span><span class="sep">·</span>
+          <span>Lower Mustang</span>
+        </div>
+      </div>
+    </section>
+
+    <p style="font-family:var(--font-mono);font-size:11.5px;color:var(--cream-dim);letter-spacing:0.04em;margin:14px 0 4px" data-aos="fade-up" data-aos-delay="50">
+      Plates load from <code>/pics/&lt;id&gt;.jpg</code> when you drop them in;
+      otherwise rendered from public-domain Wikimedia field photography.
+      The grid is the same set of waypoints the map uses.
+    </p>
+
+    <!-- Filter chips -->
+    <div class="chip-row" id="chips" role="toolbar" aria-label="Filter waypoints" data-aos="fade-up" data-aos-delay="100">
+      <span class="chip-label">Filter //</span>
+    </div>
+
+    <div id="grid" data-aos="fade-up" data-aos-delay="120"></div>
+    <p id="hint">Loading…</p>
+
+    <p class="footnote">
+      <a href="agent.html">Trail comms</a> · <a href="map.html">Atlas</a> · <a href="../docs/ROUTE_CONDITIONS.md">Route report</a>.
+    </p>
+  </main>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/data.js"></script>
+  <script src="js/route-data.js"></script>
+  <script src="js/enhance.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>

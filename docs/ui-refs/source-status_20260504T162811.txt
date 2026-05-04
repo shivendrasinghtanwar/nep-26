@@ -1,0 +1,30 @@
+UI reference source status — 2026-05-04T16:28 IST
+Fetcher User-Agent: Mozilla/5.0 (compatible; NepalTripPrep/1.0)
+
+[OK]      landrover.com/vehicles/defender/index.html
+[OK]      ineosgrenadier.com/en
+[OK]      overlandjournal.com
+[OK]      bestmadeco.com
+[OK]      howlerbros.com
+[OK]      adventure-journal.com
+[OK]      fieldmag.com
+[OK]      intrepidtravel.com/us/nepal/everest-base-camp-trek-167245
+[OK]      muchbetteradventures.com
+[OK]      gestalten.com
+
+[DOWN]    patagonia.com/stories/                  — global maintenance/holding page (Sit tight). Not a useful reference today.
+[BLOCKED] outsideonline.com (any path)            — 302 to OIDC auth on every front-door URL.
+[BLOCKED] expeditionportal.com                    — 403, bot wall.
+[BLOCKED] mountainmadness.com                     — 403, bot wall.
+[HOLLOW]  rivian.com/r1t                          — SPA, server HTML carries only <title>. Useless for design read.
+[HOLLOW]  rivian.com/r1s                          — same.
+[FAIL]    rei.com/blog (multiple paths)           — timeouts and ECONNREFUSED on three retries; likely WAF on automated UA.
+
+Substitutions made (documented in UI_REFERENCE_BRIEF.md):
+  Patagonia stories  → Field Mag (closest tonal match for outdoor editorial)
+  Outside Online     → Adventure Journal (independent print quarterly)
+  Rivian R1T/R1S     → Ineos Grenadier (server-renders meaningful HTML)
+  REI Co-op Journal  → covered by Field Mag + Adventure Journal substitutes already
+
+The 8 sections in UI_REFERENCE_BRIEF.md preserve the original mission slot numbering (1–8)
+so they can be cross-referenced even where the underlying source was substituted.

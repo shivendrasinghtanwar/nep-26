@@ -1,0 +1,164 @@
+Contact 
+
+ सम्पर्क 
+ अध्यागमन कार्यालयहरू 
+ अभिलेखालय 
+
+ नेपाली 
+
+ English 
+
+ स्क्रिन रिडर 
+
+ न्यून व्यान्डविथ 
+ Invert Color 
+ A- 
+ A 
+ A+ 
+
+ नेपाल सरकार 
+ गृह मन्त्रालय 
+ अध्यागमन विभाग 
+
+ कालिकास्थान, काठमाडौँ 
+
+ नेपाल सरकार 
+ गृह मन्त्रालय 
+ अध्यागमन विभाग 
+
+ कालिकास्थान, काठमाडौँ 
+
+ EN 
+
+ न्यून व्यान्डविथ 
+ Invert Color 
+ A- 
+ A 
+ A+ 
+
+ अभिलेखालय 
+
+ हाम्रो बारेमा 
+
+ ध्येय तथा दीर्घकालिन सोच 
+
+ संगठन चार्ट 
+
+ पूर्व महानिर्देशकहरु 
+
+ कर्मचारी विवरण 
+
+ भिसा 
+
+ अनलाइन भिसा आवेदन 
+
+ भिसा शुल्क र कागजात 
+
+ भिषा छूट 
+
+ पद यात्रा 
+
+ पदयात्राको लागि अनलाइन आवेदन 
+
+ पदयात्रा अनुमति-पत्र 
+
+ एजेन्सी शाखामा कार्यरत कर्मचारी र सम्पर्क 
+
+ भिसा कानुन 
+
+ ऐन 
+
+ नियमावली 
+
+ निर्देशिका 
+
+ कार्यविधी 
+
+ परिपत्र 
+
+ प्रकाशनहरु 
+
+ रिपोर्ट 
+
+ आगमन/गमन तथ्यांक 
+
+ मासिक प्रगति रिपोर्ट 
+
+ बुलेटिन 
+
+ सूचनाको अधिकार 
+
+ अध्यागमनको प्रकाशन 
+
+ नागरिक बडापत्र 
+
+ धेरै सोधिने प्रश्नहरु 
+
+ सम्पर्क 
+
+ Apply VISA 
+
+ सम्पर्क 
+
+ सम्पर्क 
+
+ अध्यागमन विभाग 
+ ठेगाना : कालिकास्थान, काठमाडौँ 
+ फोन : 01-4529660 
+ इमेल : info@immigration.gov.np 
+ Facebook : https://www.facebook.com/profile.php?id=61579323450904 
+ Twitter : https://twitter.com/doinepal 
+
+ मातहतका कार्यालयहरु 
+
+ अध्यागमन कार्यालय, पशुपतिनगर अध्यागमन कार्यालय काँकरभिट्टा अध्यागमन कार्यालय, विराटनगर अध्यागमन कार्यालय रसुवागढी, रसुवा अध्यागमन कार्यालय कोदारी त्रिभुवन अन्तर्राष्ट्रिय विमानस्थल अध्यागमन कार्यालय अध्यागमन कार्यालय बीरगंज अध्यागमन कार्यालय बेलहिया अध्यागमन कार्यालय, भैरहवा अध्यागमन कार्यालय गौतमबुद्ध अन्तर्राष्ट्रिय विमानस्थल भैरहवा अध्यागमन कार्यालय, पोखरा अध्यागमन कार्यालय, पोखरा अन्तर्राष्ट्रिय विमानस्थल अध्यागमन कार्यालय जमुनाहाँ अध्यागमन कार्यालय मोहना अध्यागमन कार्यालय गड्डाचौकी 
+
+ सम्पर्क 
+
+ अध्यागमन विभाग 
+ कालिकास्थान, काठमाडौँ 
+
+ 01-4529660
+
+ info@immigration.gov.np
+
+ संगठन लिंकहरू 
+
+ प्रधानमन्त्री तथा मन्त्रिपरिषद्को कार्यालय 
+ गृह मन्त्रालय 
+ शिक्षा, विज्ञान तथा प्रविधि मन्त्रालय 
+ कन्सुलर सेवा विभाग 
+ वैदेशिक रोजगार विभाग 
+ पर्यटन विभाग 
+ राहदानी विभाग 
+ महालेखा नियन्त्रक कार्यालय 
+ नेपाल राष्ट्र बैंक 
+ नेपाली मिशन 
+
+ कार्यालय समय 
+
+ 09:00 AM - 05:00 PM (Normal Working Days, Monday to Friday) 
+
+ 11:00 AM - 1:00 PM (For Tourist Visa Only, Saturday, Sunday & Public Holidays) 
+ Application Submission Hour: 09:00 AM - 4:30 PM 
+
+ पछिल्लो अपडेट गरिएको : 2026-04-20 16:26:22 16:26:22 
+ © सर्वाधिकार सुरक्षित अध्यागमन विभाग 
+
+ साइट हेरिएको :
+
+ $('#languageSwitcher').on('change', function() {
+ location.href = 'https://immigration.gov.np/switch-language';
+ });
+ $(document).ready(function () {
+ jQuery('#main-navigation').stellarNav({
+ menuToggle: true, // Enable menu toggle
+ tapToToggle: true // Enable tap to toggle
+ });
+ $('#main-navigation .has-sub > a').on('tap click', function(){
+ event.preventDefault();
+ });
+
+ // $('#exampleModal').modal('show')
+ })
+ var searchSuggestions = [{"id":82,"label":"Relationship Visa (\u0928\u093e\u0924\u093e \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u0940 \u092d\u093f\u0937\u093e)","target":"https:\/\/immigration.gov.np\/en\/page\/relationship-visa"},{"id":2162,"label":"Trekking Route and Permit Fee (\u092a\u0926\u092f\u093e\u0924\u094d\u0930\u093e \u092e\u093e\u0930\u094d\u0917 \u0930 \u0905\u0928\u0941\u092e\u0924\u093f \u0926\u0938\u094d\u0924\u0941\u0930)","target":"https:\/\/www.immigration.gov.np\/page\/trekking-route-and-permit-fee"},{"id":39,"label":"Visa Check (\u092d\u093f\u0938\u093e \u091c\u093e\u0901\u091a)","target":"https:\/\/nepaliport.immigration.gov.np\/visa-check"},{"id":2307,"label":"Visa Fee and Documents (\u092d\u093f\u0938\u093e \u0936\u0941\u0932\u094d\u0915 \u0930 \u0915\u093e\u0917\u091c\u093e\u0924)","target":"https:\/\/www.immigration.gov.np\/post\/visa-fee-and-documents-1"},{"id":78,"label":"Tourist Visa (\u092a\u0930\u094d\u092f\u091f\u0915 \u092d\u093f\u0937\u093e)","target":"https:\/\/www.immigration.gov.np\/en\/page\/tourist-visa"},{"id":137,"label":"Visa On Arrival (\u0905\u0928 \u0905\u0930\u093e\u0907\u092d\u0932 \u092d\u093f\u0937\u093e)","target":"https:\/\/www.immigration.gov.np\/page\/visa-on-arrival"},{"id":2178,"label":"Department of Foreign Employment (\u0935\u0948\u0926\u0947\u0936\u093f\u0915 \u0930\u094b\u091c\u0917\u093e\u0930 \u0935\u093f\u092d\u093e\u0917)","target":"https:\/\/dofe.gov.np"},{"id":2180,"label":"Department of Passports (\u0930\u093e\u0939\u0926\u093e\u0928\u0940 \u0935\u093f\u092d\u093e\u0917)","target":"https:\/\/nepalpassport.gov.np"},{"id":2166,"label":"Directive (\u0928\u093f\u0930\u094d\u0926\u0947\u0936\u093f\u0915\u093e)","target":"https:\/\/www.immigration.gov.np\/page\/directive"},{"id":97,"label":"Arrival\/Departure Information (\u0906\u0917\u092e\u0928 \u0930 \u092a\u094d\u0930\u0938\u094d\u0925\u093e\u0928 \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u0940 \u091c\u093e\u0928\u0915\u093e\u0930\u0940)","target":"https:\/\/immigration.gov.np\/en\/page\/arrival-departure-information-1"},{"id":80,"label":"Marriage Visa (\u0935\u0948\u0935\u093e\u0939\u093f\u0915 \u0928\u093e\u0924\u093e \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u0940 \u092d\u093f\u0937\u093e)","target":"https:\/\/www.immigration.gov.np\/index.php\/page\/marriage-visa"},{"id":2752,"label":"\u0928\u092f\u093e\u0901 \u092d\u093f\u0938\u093e \u0936\u0941\u0932\u094d\u0915 \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u0940 \u0930\u093e\u091c\u092a\u0924\u094d\u0930 (\u0928\u092f\u093e\u0901 \u092d\u093f\u0938\u093e \u0936\u0941\u0932\u094d\u0915 \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u0940 \u0930\u093e\u091c\u092a\u0924\u094d\u0930)","target":"https:\/\/www.immigration.gov.np\/post\/naya-bha-sa-sha-l-ka-sama-bna-thha-ra-japata-ra"},{"id":2177,"label":"Department of Consular Services (\u0915\u0928\u094d\u0938\u0941\u0932\u0930 \u0938\u0947\u0935\u093e \u0935\u093f\u092d\u093e\u0917)","target":"https:\/\/nepalconsular.gov.np"},{"id":70,"label":"Introduction (\u092a\u0930\u093f\u091a\u092f)","target":"https:\/\/www.immigration.gov.np\/en\/page\/introduction"},{"id":2644,"label":"Arrival\/Departure Data 2023(annual) (\u0938\u0928\u094d \u0968\u0966\u0968\u0969 \u092e\u093e \u0915\u094b \u0915\u0941\u0932 \u0906\u0917\u092e\u0928 \u0930 \u092a\u094d\u0930\u0938\u094d\u0925\u093e\u0928 \u0935\u093f\u0935\u0930\u0923)","target":"https:\/\/immigration.gov.np\/post\/arrival-departure-data-2023-annual"},{"id":106,"label":"Visa Exemption (\u092d\u093f\u0937\u093e \u091b\u0942\u091f)","target":"https:\/\/immigration.gov.np\/page\/visa-exemption"},{"id":2655,"label":"Penalty amount on violation of immigration rules (\u0905\u0927\u094d\u092f\u093e\u0917\u092e\u0928 \u0915\u093e\u0928\u0941\u0928 \u0909\u0932\u094d\u0932\u0902\u0918\u0928\u092e\u093e \u091c\u0930\u093f\u0935\u093e\u0928\u093e \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u092e\u093e)","target":"https:\/\/www.immigration.gov.np\/en\/post\/penalty-amount-on-violation-of-immigration-rules"},{"id":1964,"label":"Information for Indian Nationals (\u092d\u093e\u0930\u0924\u0940\u092f \u0928\u093e\u0917\u0930\u093f\u0915\u0939\u0930\u0941\u0915\u094b \u0932\u093e\u0917\u093f \u0938\u0942\u091a\u0928\u093e)","target":"https:\/\/www.immigration.gov.np\/en\/page\/information-for-indian-nationals-11"},{"id":3059,"label":"Notice Regarding Visa Services During The General Election Period (Notice Regarding Visa Services During The General Election Period)","target":"https:\/\/www.immigration.gov.np\/post\/notice-regarding-visa-services-during-the-general-election-period"},{"id":2509,"label":"Arrival\/Departure Data April 2023 (\u0906\u0917\u092e\u0928\/\u092a\u094d\u0930\u0938\u094d\u0925\u093e\u0928 \u0924\u0925\u094d\u092f\u093e\u0902\u0915 \u0905\u092a\u094d\u0930\u093f\u0932 \u0968\u0966\u0968\u0969)","target":"https:\/\/www.immigration.gov.np\/en\/post\/arrival-departure-data-april-2023"},{"id":2156,"label":"Organization Chart (\u0938\u0902\u0917\u0920\u0928 \u091a\u093e\u0930\u094d\u091f)","target":"https:\/\/www.immigration.gov.np\/layout"},{"id":2163,"label":"Trekking Permit (\u092a\u0926\u092f\u093e\u0924\u094d\u0930\u093e \u0905\u0928\u0941\u092e\u0924\u093f-\u092a\u0924\u094d\u0930)","target":"https:\/\/www.immigration.gov.np\/en\/page\/trekking-permit"},{"id":2167,"label":"Paripatra \/Notification (\u092a\u0930\u093f\u092a\u0924\u094d\u0930)","target":"https:\/\/immigration.gov.np\/en\/page\/paripatra-notification"},{"id":3026,"label":"Urgent Notice Issued for Educational Institutions Teaching Foreign Nationals (\u0935\u093f\u0926\u0947\u0936\u0940 \u0928\u093e\u0917\u0930\u093f\u0915\u0932\u093e\u0908 \u0905\u0927\u094d\u092f\u092f\u0928 \u0917\u0930\u093e\u0909\u0928\u0947 \u0936\u0948\u0915\u094d\u0937\u093f\u0915 \u0938\u0902\u0938\u094d\u0925\u093e\u0939\u0930\u0941\u0915\u094b \u0932\u093e\u0917\u093f \u091c\u093e\u0930\u0940 \u0917\u0930\u093f\u090f\u0915\u094b \u0905\u0924\u094d\u092f\u0928\u094d\u0924 \u091c\u0930\u0941\u0930\u0940 \u0938\u0942\u091a\u0928\u093e)","target":"https:\/\/www.immigration.gov.np\/post\/urgent-notice-issued-for-educational-institutions-teaching-foreign-nationals"},{"id":3006,"label":"Invitation for the procurement of The Supply and Delivery of All in One Computer (AIO) Bids No: DOI\/G\/NCB-01\/2082-83 (Invitation for the procurement of The Supply and Delivery of All in One Computer (AIO) Bids No: DOI\/G\/NCB-01\/2082-83)","target":"https:\/\/www.immigration.gov.np\/en\/post\/invitation-for-the-procurement-of-the-supply-and-delivery-of-all-in-one-computer"},{"id":177,"label":"Non Tourist Visa (\u0917\u0948\u0930 \u092a\u0930\u094d\u092f\u091f\u0915 \u092d\u093f\u0938\u093e)","target":"https:\/\/www.immigration.gov.np\/page\/non-tourist-visa"},{"id":2150,"label":"NepaliPort System (\u0928\u0947\u092a\u093e\u0932\u0940\u092a\u094b\u0930\u094d\u091f \u092a\u094d\u0930\u0923\u093e\u0932\u0940)","target":"https:\/\/www.immigration.gov.np\/en\/page\/nepaliport-system"},{"id":68,"label":"Business Visa (\u0935\u094d\u092f\u0935\u0938\u093e\u092f\u093f\u0915 \u092d\u093f\u0938\u093e)","target":"https:\/\/www.immigration.gov.np\/en\/page\/business-visa"},{"id":90,"label":"FAQs related to Marriage Visa (\u0935\u0948\u0935\u093e\u0939\u093f\u0915 \u092d\u093f\u0937\u093e \u092c\u093e\u0930\u0947 \u0938\u094b\u0927\u093f\u0928\u0947 \u092a\u094d\u0930\u0936\u094d\u0928)","target":"https:\/\/immigration.gov.np\/en\/post\/faqs-related-to-marriage-visa"},{"id":84,"label":"Study Visa (\u0905\u0927\u094d\u092f\u092f\u0928 \u092d\u093f\u0937\u093e)","target":"https:\/\/immigration.gov.np\/en\/page\/study-visa"},{"id":87,"label":"Working Visa (\u0915\u093e\u0930\u094d\u092f \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u0940 \u092d\u093f\u0937\u093e)","target":"https:\/\/www.immigration.gov.np\/en\/page\/working-visa"},{"id":2282,"label":"Visa Fee and Documents (\u092d\u093f\u0938\u093e \u0936\u0941\u0932\u094d\u0915 \u0930 \u0915\u093e\u0917\u091c\u093e\u0924)","target":"https:\/\/immigration.gov.np\/page\/visa-fee-and-documents"},{"id":2064,"label":"Important Notice Regarding Online Application and Payment for Nepalese Visa (Important Notice Regarding Online Application and Payment for Nepalese Visa)","target":"https:\/\/www.immigration.gov.np\/en\/post\/important-notice-regarding-online-application-and-payment-for-nepalese-visa"},{"id":2989,"label":"Staffs In Agency Section and Contact (\u090f\u091c\u0947\u0928\u094d\u0938\u0940 \u0936\u093e\u0916\u093e\u092e\u093e \u0915\u093e\u0930\u094d\u092f\u0930\u0924 \u0915\u0930\u094d\u092e\u091a\u093e\u0930\u0940 \u0930 \u0938\u092e\u094d\u092a\u0930\u094d\u0915)","target":"https:\/\/www.immigration.gov.np\/en\/page\/staffs-in-agency-section-and-contact"},{"id":2497,"label":"monthly Progress Report Of Chaitra 2079 (\u0968\u0966\u096d\u096f \u091a\u0948\u0924\u094d\u0930 \u092e\u0939\u093f\u0928\u093e\u0915\u094b \u092e\u093e\u0938\u093f\u0915 \u092a\u094d\u0930\u0917\u0924\u093f \u0935\u093f\u0935\u0930\u0923)","target":"https:\/\/immigration.gov.np\/en\/post\/monthly-progress-report-of-chaitra-2079"},{"id":2186,"label":"Birgunj (\u0905\u0927\u094d\u092f\u093e\u0917\u092e\u0928 \u00a0\u0915\u093e\u0930\u094d\u092f\u093e\u0932\u092f \u092c\u0940\u0930\u0917\u0902\u091c)","target":"https:\/\/birgunj.immigration.gov.np\/"},{"id":2174,"label":"Office of the Prime Minister and Council of Ministers (\u092a\u094d\u0930\u0927\u093e\u0928\u092e\u0928\u094d\u0924\u094d\u0930\u0940 \u0924\u0925\u093e \u092e\u0928\u094d\u0924\u094d\u0930\u093f\u092a\u0930\u093f\u0937\u0926\u094d\u0915\u094b \u0915\u093e\u0930\u094d\u092f\u093e\u0932\u092f)","target":"https:\/\/www.opmcm.gov.np"},{"id":2169,"label":"Bulletin (\u092c\u0941\u0932\u0947\u091f\u093f\u0928)","target":"https:\/\/www.immigration.gov.np\/page\/bulletin-11"},{"id":2195,"label":"Directives (\u0915\u093e\u0930\u094d\u092f\u0935\u093f\u0927\u093f)","target":"https:\/\/www.immigration.gov.np\/page\/directives"},{"id":124,"label":"Appendix \u2013 3(a) (Relating to Sub-Rule 2 of Rule 10(a))-(Download Application form for Non-Residential Nepalese Visa) (Appendix \u2013 3(a) (Relating to Sub-Rule 2 of Rule 10(a))-(Download Application form for Non-Residential Nepalese Visa))","target":"https:\/\/www.immigration.gov.np\/en\/post\/appendix-3-a-relating-to-sub-rule-2-of-rule-10-a-download-application-form-for-n"},{"id":169,"label":"Arrival\/Departure Report (\u0906\u0917\u092e\u0928\/\u0917\u092e\u0928 \u0924\u0925\u094d\u092f\u093e\u0902\u0915)","target":"https:\/\/www.immigration.gov.np\/en\/page\/arrival-departure-report"},{"id":2154,"label":"Mission and Vision (\u0927\u094d\u092f\u0947\u092f \u0924\u0925\u093e \u0926\u0940\u0930\u094d\u0918\u0915\u093e\u0932\u093f\u0928 \u0938\u094b\u091a)","target":"https:\/\/www.immigration.gov.np\/page\/mission-and-vision"},{"id":81,"label":"Transit Visa (\u0905\u0928\u094d\u0924\u0930\u093f\u092e \u092d\u093f\u0937\u093e)","target":"https:\/\/www.immigration.gov.np\/page\/transit-visa"},{"id":83,"label":"Residential Visa (\u0906\u0935\u093e\u0938\u0940\u092f \u092d\u093f\u0938\u093e)","target":"https:\/\/www.immigration.gov.np\/en\/page\/residential-visa"},{"id":88,"label":"Non-residential Nepali Visa (\u0917\u0948\u0930-\u0906\u0935\u093e\u0938\u0940\u092f \u0928\u0947\u092a\u093e\u0932\u0940 \u092d\u093f\u0938\u093e)","target":"https:\/\/www.immigration.gov.np\/en\/page\/non-residential-nepali-visa"},{"id":2707,"label":"\u096b \u0926\u093f\u0928\u0947 \u0905\u092d\u093f\u092e\u0941\u0916\u0940\u0915\u0930\u0923 \u0924\u093e\u0932\u093f\u092e\u0915\u094b \u0938\u092e\u093e\u092a\u0928 \u0915\u093e\u0930\u094d\u092f\u0915\u094d\u0930\u092e (\u096b \u0926\u093f\u0928\u0947 \u0905\u092d\u093f\u092e\u0941\u0916\u0940\u0915\u0930\u0923 \u0924\u093e\u0932\u093f\u092e\u0915\u094b \u0938\u092e\u093e\u092a\u0928 \u0915\u093e\u0930\u094d\u092f\u0915\u094d\u0930\u092e)","target":"https:\/\/immigration.gov.np\/en\/post\/tha-na-abha-ma-kha-karanae-ta-l-maka-sama-pana-ka-ra-yaka-rama"},{"id":105,"label":"Act (\u0910\u0928)","target":"https:\/\/www.immigration.gov.np\/page\/act"},{"id":170,"label":"Bulletin (\u092c\u0941\u0932\u0947\u091f\u093f\u0928)","target":"https:\/\/www.immigration.gov.np\/page\/bulletin"},{"id":127,"label":"Appendix 4 (a) (Relating to Rule 11 (5))-(Download Residential Visa Application Form) (Appendix 4 (a) (Relating to Rule 11 (5))-(Download Residential Visa Application Form))","target":"https:\/\/www.immigration.gov.np\/post\/appendix-4-a-relating-to-rule-11-5-download-residential-visa-application-form"},{"id":2094,"label":"Previous DG (\u092a\u0942\u0930\u094d\u0935 \u092e\u0939\u093e\u0928\u093f\u0930\u094d\u0926\u0947\u0936\u0915\u0939\u0930\u0941)","target":"https:\/\/www.immigration.gov.np\/page\/previous-dg"},{"id":2170,"label":"Right to Information (\u0938\u0942\u091a\u0928\u093e\u0915\u094b \u0905\u0927\u093f\u0915\u093e\u0930)","target":"https:\/\/www.immigration.gov.np\/page\/right-to-information-1"},{"id":66,"label":"Visa (\u092d\u093f\u0938\u093e)","target":"https:\/\/www.immigration.gov.np\/page\/visa-on-arrival"},{"id":2168,"label":"Report (\u0930\u093f\u092a\u094b\u0930\u094d\u091f)","target":"https:\/\/www.immigration.gov.np\/page\/report"},{"id":3001,"label":"\u092a\u094d\u0930\u0947\u0938 \u0935\u093f\u091c\u094d\u091e\u092a\u094d\u0924\u093f \u0964 (\u092a\u094d\u0930\u0947\u0938 \u0935\u093f\u091c\u094d\u091e\u092a\u094d\u0924\u093f \u0964)","target":"https:\/\/www.immigration.gov.np\/en\/post\/pa-ra-sa-va-ja-niapa-ta-83"},{"id":2332,"label":"Arrival\/Departure Data of June 2021 (\u091c\u0941\u0928 \u0968\u0966\u0968\u0967 \u0915\u094b \u0906\u0917\u092e\u0928 \u0924\u0925\u093e \u092a\u094d\u0930\u0938\u094d\u0925\u093e\u0928 \u0924\u0925\u094d\u092f\u093e\u0919\u094d\u0915)","target":"https:\/\/immigration.gov.np\/en\/post\/arrival-departure-data-of-june-2021"},{"id":2845,"label":"Right to information Report Published by Department of Immigration for The First Trimester of Fiscal Year 2081\/82(Shrawan to Ashoj) (Right to information Report Published by Department of Immigration for The First Trimester of Fiscal Year 2081\/82(Shrawan to Ashoj))","target":"https:\/\/www.immigration.gov.np\/post\/right-to-information-report-published-by-department-of-immigration-for-the-first-5"},{"id":2103,"label":"Arrival\/Departure Data for June 2020 (\u091c\u0941\u0928-\u0968\u0966\u0968\u0966 \u0915\u094b \u0906\u0917\u092e\u0928 \u0924\u0925\u093e \u0917\u092e\u0928 \u0924\u0925\u094d\u092f\u093e\u0919\u094d\u0915)","target":"https:\/\/immigration.gov.np\/en\/post\/arrival-departure-data-for-june-2020"},{"id":2946,"label":"Arrival\/Departure Report June 2025 (\u0906\u0917\u092e\u0928\/\u092a\u094d\u0930\u0938\u094d\u0925\u093e\u0928 \u0924\u0925\u094d\u092f\u093e\u0902\u0915 \u091c\u0941\u0928 \u0968\u0966\u0968\u096b)","target":"https:\/\/www.immigration.gov.np\/en\/post\/arrival-departure-report-june-2025"},{"id":172,"label":"Working Procedures (\u0915\u093e\u0930\u094d\u092f\u0935\u093f\u0927\u0940)","target":"https:\/\/www.immigration.gov.np\/page\/working-procedures"},{"id":2086,"label":"Slider Photos (Slider Photos)","target":"https:\/\/www.immigration.gov.np\/post\/slider-photos"},{"id":2464,"label":"Right to Information Report Published by Department of Immigration for The First Trimester of Fiscal Year 079\/80(Shrawan to Asoj) ()","target":"https:\/\/immigration.gov.np\/post\/right-to-information-report-published-by-department-of-immigration-for-the-first-2"},{"id":2502,"label":"Right to information Report Published by Department of Immigration for The Third Trimester of Fiscal Year 2079\/80(Magh to Chaitra) ()","target":"https:\/\/www.immigration.gov.np\/post\/right-to-information-report-published-by-department-of-immigration-for-the-third-1"},{"id":2483,"label":"Right to Information Report Published by Department of Immigration for The Second Trimester of Fiscal Year 079\/80(Kartik to poush) ()","target":"https:\/\/www.immigration.gov.np\/en\/post\/right-to-information-report-published-by-department-of-immigration-for-the-4"},{"id":2704,"label":"Right to information Report Published by Department of Immigration for The Third Trimester of Fiscal Year 2080\/81(Magh To Chaitra) (Right to information Report Published by Department of Immigration for The Third Trimester of Fiscal Year 2080\/81(Magh To Chaitra))","target":"https:\/\/www.immigration.gov.np\/en\/post\/right-to-information-report-published-by-department-of-immigration-for-the-third-3"},{"id":2775,"label":"Right to information Report Published by Department of Immigration for The Fourth Trimester of Fiscal Year 2080\/81(Chaitra To Ashad) ()","target":"https:\/\/www.immigration.gov.np\/en\/post\/right-to-information-report-published-by-department-of-immigration-for-the-6"},{"id":2279,"label":"Monthly Progress Report (\u092e\u093e\u0938\u093f\u0915 \u092a\u094d\u0930\u0917\u0924\u093f \u0930\u093f\u092a\u094b\u0930\u094d\u091f)","target":"https:\/\/www.immigration.gov.np\/en\/page\/monthly-progress-report"},{"id":178,"label":"Children Act-2048 (\u092c\u093e\u0932\u092c\u093e\u0932\u093f\u0915\u093e-\u0938\u092e\u094d\u092c\u0928\u094d\u0927\u0940-\u0910\u0928-\u0968\u0966\u096a\u096e)","target":"https:\/\/www.immigration.gov.np\/post\/children-act-2048"},{"id":3038,"label":"Urgent Notice Regarding Temporary Suspension of Services (\u0938\u0947\u0935\u093e \u092a\u094d\u0930\u0935\u093e\u0939 \u0905\u0938\u094d\u0925\u093e\u092f\u0940 \u0930\u0942\u092a\u092e\u093e \u092c\u0928\u094d\u0926 \u0930\u0939\u0928\u0947 \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u0940 \u0905\u0924\u094d\u092f\u0928\u094d\u0924 \u091c\u0930\u0941\u0930\u0940 \u0938\u0942\u091a\u0928\u093e\u0964)","target":"https:\/\/www.immigration.gov.np\/en\/post\/urgent-notice-regarding-temporary-suspension-of-services-3"},{"id":171,"label":"Regulation (\u0928\u093f\u092f\u092e\u093e\u0935\u0932\u0940)","target":"https:\/\/www.immigration.gov.np\/en\/page\/regulation"},{"id":3091,"label":"Press Release (\u092a\u094d\u0930\u0947\u0938 \u0935\u093f\u091c\u094d\u091e\u092a\u094d\u0924\u093f)","target":"https:\/\/www.immigration.gov.np\/en\/post\/press-release-2083"},{"id":72,"label":"Online Visa Application (\u0905\u0928\u0932\u093e\u0907\u0928 \u092d\u093f\u0938\u093e \u0906\u0935\u0947\u0926\u0928)","target":"https:\/\/nepaliport.immigration.gov.np\/"},{"id":191,"label":"Nepal Immigration Act - 2049 (\u0928\u0947\u092a\u093e\u0932 \u0905\u0927\u094d\u092f\u093e\u0917\u092e\u0928 \u0910\u0928 - \u0968\u0966\u096a\u096f)","target":"https:\/\/www.immigration.gov.np\/post\/nepal-immigration-act-2049"},{"id":2980,"label":"Notice Regarding Suspension of Services (\u0938\u0947\u0935\u093e \u092c\u0928\u094d\u0926 \u0930\u0939\u0928\u0947 \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u0940 \u0938\u0942\u091a\u0928\u093e)","target":"https:\/\/immigration.gov.np\/post\/notice-regarding-suspension-of-services"},{"id":2185,"label":"Kakarvitta (\u0905\u0927\u094d\u092f\u093e\u0917\u092e\u0928 \u0915\u093e\u0930\u094d\u092f\u093e\u0932\u092f \u0915\u093e\u0901\u0915\u0930\u092d\u093f\u091f\u094d\u091f\u093e)","target":"https:\/\/kakarbhitta.immigration.gov.np\/"},{"id":131,"label":"Appendix 10 (Related to rule 32)-(Download Application form for Trekking Permit) (Appendix 10 (Related to rule 32)-(Download Application form for Trekking Permit))","target":"https:\/\/www.immigration.gov.np\/post\/appendix-10-related-to-rule-32-download-application-form-for-trekking-permit"},{"id":2108,"label":"Immigration Publication (\u0905\u0927\u094d\u092f\u093e\u0917\u092e\u0928\u0915\u094b \u092a\u094d\u0930\u0915\u093e\u0936\u0928)","target":"https:\/\/www.immigration.gov.np\/page\/immigration-publication"},{"id":2277,"label":"Nepalese Missions Abroad (\u0928\u0947\u092a\u093e\u0932\u0940 \u092e\u093f\u0936\u0928)","target":"https:\/\/mofa.gov.np\/departmentsmissions\/"},{"id":2062,"label":"Services (\u0938\u0947\u0935\u093e\u0939\u0930\u0941)","target":"https:\/\/www.immigration.gov.np\/en\/services"},{"id":2615,"label":"Right to information Report Published by Department of Immigration for The Fourth Trimester of Fiscal Year 2079\/80(Baisakh to Ashad) (Right to information Report Published by Department of Immigration for The Fourth Trimester of Fiscal Year 2079\/80(Baisakh to Ashad))","target":"https:\/\/immigration.gov.np\/en\/post\/right-to-information-report-published-by-department-of-immigration-for-the-third-2"},{"id":76,"label":"Diplomatic Visa (\u0915\u0942\u091f\u0928\u0948\u0924\u093f\u0915 \u092d\u093f\u0937\u093e)","target":"https:\/\/www.immigration.gov.np\/en\/page\/diplomatic-visa"},{"id":2412,"label":"Notice related to NOC of Indian nationals ()","target":"https:\/\/www.immigration.gov.np\/en\/post\/notice-related-to-noc-of-indian-nationals"},{"id":2460,"label":"Monthly Progress Report of Ashwin 2079 (\u0968\u0966\u096d\u096f \u0906\u0936\u094d\u0935\u093f\u0928 \u092e\u0939\u093f\u0928\u093e\u0915\u094b \u092e\u093e\u0938\u093f\u0915 \u092a\u094d\u0930\u0917\u0924\u093f \u0935\u093f\u0935\u0930\u0923)","target":"https:\/\/www.immigration.gov.np\/post\/monthly-progress-report-of-ashwin-2079"},{"id":2556,"label":"Monthly Progress Report Of Jestha 2080 ()","target":"https:\/\/www.immigration.gov.np\/en\/post\/monthly-progress-report-of-jestha-2080"},{"id":180,"label":"Non-Resident-Nepalese-Act-2064 (\u0917\u0948\u0930-\u0906\u0935\u093e\u0938\u0940\u092f-\u0928\u0947\u092a\u093e\u0932\u0940-\u0938\u092e\u094d\u092c\u0928\u094d\u0927\u0940 \u0910\u0928-\u0968\u0966\u096c\u096a)","target":"https:\/\/www.immigration.gov.np\/post\/non-resident-nepalese-act-2064"},{"id":139,"label":"Publication of Payment Bills (\u092d\u0941\u0915\u094d\u0924\u093e\u0928\u0940 \u092c\u093f\u0932\u0939\u0930\u0941\u0915\u094b \u0938\u093e\u0930\u094d\u092c\u091c\u0928\u093f\u0915\u0930\u0923)","target":"https:\/\/www.immigration.gov.np\/en\/page\/publication-of-payment-bills"},{"id":2793,"label":"Arrival\/Departure Report August 2024 (\u0906\u0917\u092e\u0928\/\u092a\u094d\u0930\u0938\u094d\u0925\u093e\u0928 \u0924\u0925\u094d\u092f\u093e\u0902\u0915 \u0905\u0917\u0938\u094d\u091f \u0968\u0966\u0968\u096a)","target":"https:\/\/immigration.gov.np\/post\/arrival-departure-report-august-2024"},{"id":98,"label":"Entry\/Exit Points (\u092a\u094d\u0930\u0935\u0947\u0936 \/ \u092a\u094d\u0930\u0938\u094d\u0925\u093e\u0928 \u0935\u093f\u0928\u094d\u0926\u0941)","target":"http:\/\/www.immigration.gov.np\/offices"},{"id":3036,"label":"Urgent Notice Regarding Temporary Suspension of Services (\u0938\u0947\u0935\u093e \u092a\u094d\u0930\u0935\u093e\u0939 \u0905\u0938\u094d\u0925\u093e\u092f\u0940 \u0930\u0942\u092a\u092e\u093e \u092c\u0928\u094d\u0926 \u0930\u0939\u0928\u0947 \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u0940 \u0905\u0924\u094d\u092f\u0928\u094d\u0924 \u091c\u0930\u0941\u0930\u0940 \u0938\u0942\u091a\u0928\u093e\u0964)","target":"https:\/\/www.immigration.gov.np\/en\/page\/urgent-notice-regarding-temporary-suspension-of-services"},{"id":2947,"label":"Arrival\/Departure Report July 2025 (\u0906\u0917\u092e\u0928\/\u092a\u094d\u0930\u0938\u094d\u0925\u093e\u0928 \u0924\u0925\u094d\u092f\u093e\u0902\u0915 \u091c\u0941\u0932\u093e\u0908 \u0968\u0966\u0968\u096b)","target":"https:\/\/www.immigration.gov.np\/en\/post\/arrival-departure-report-july-2025"},{"id":2160,"label":"Visa Extension, Conversion and Transfer (\u092d\u093f\u0938\u093e \u0928\u093f\u092f\u092e\u093f\u0924, \u0930\u0941\u092a\u093e\u0928\u094d\u0924\u0930\u0923 \u0930 \u0938\u094d\u0925\u093e\u0928\u093e\u0928\u094d\u0924\u0930\u0923)","target":"https:\/\/immigration.gov.np\/en\/page\/visa-extension-conversion-and-transfer"},{"id":182,"label":"Non-Resident-Nepalese-Rules-2066 (\u0917\u0948\u0930-\u0906\u0935\u093e\u0938\u0940\u092f-\u0928\u0947\u092a\u093e\u0932\u0940-\u0938\u092e\u094d\u092c\u0928\u094d\u0927\u0940 \u0928\u093f\u092f\u092e\u093e\u0935\u0932\u0940-\u0968\u0966\u096c\u096c)","target":"https:\/\/www.immigration.gov.np\/en\/post\/non-resident-nepalese-rules-2066"},{"id":3082,"label":"\u0906\u0917\u092e\u0928 \u092a\u094d\u0930\u0938\u094d\u0925\u093e\u0928 \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u0940 \u0935\u093f\u0935\u0930\u0923 \u092a\u094d\u0930\u093e\u092a\u094d\u0924 \u0917\u0930\u094d\u0928 \u0905\u0927\u094d\u092f\u093e\u0917\u092e\u0928 \u0935\u093f\u092d\u093e\u0917\u092e\u093e \u0926\u093f\u0928\u0947 \u0928\u093f\u0935\u0947\u0926\u0928\u0915\u094b \u0922\u093e\u0901
