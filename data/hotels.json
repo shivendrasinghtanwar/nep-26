@@ -1,0 +1,316 @@
+{
+  "fetchedAt": "2026-05-04T17:30:00+05:45",
+  "compiledBy": "claude-code playbook 03",
+  "userAgent": "Mozilla/5.0 (compatible; NepalTripPrep/1.0)",
+  "notes": [
+    "Aggregator pages (booking.com, agoda.com) are JS-rendered hollow shells when fetched server-side; review scores were sourced from Booking.com listings via search-result snippets and Tripadvisor.",
+    "Prices are indicative bands in INR per night for two adults inclusive of taxes; re-verify on the booking date.",
+    "Fibre flag = property advertises high-speed/fibre wifi or has third-party confirmation; speedtest at check-in is still required for the 6-night Pokhara block.",
+    "Pokhara fibre context: WorldLink + Vianet provide 50–150 Mbps SME plans; Lakeside cafes routinely hit 20–50 Mbps on fibre (Nomads.com / Pokhara Coworking).",
+    "Tiger Palace by Soaltee is in Tilottama / Bhairahawa (NOT Pokhara as the playbook spec lists). It is included as a Bhairahawa option."
+  ],
+  "shortlist": [
+    {
+      "city": "Noida",
+      "checkIn": "2026-05-09",
+      "checkOut": "2026-05-10",
+      "candidates": [
+        {
+          "name": "Radisson Blu MBD Hotel, Noida",
+          "rating": 4.3,
+          "bookingScore": 8.6,
+          "priceBand": "INR 5,500–6,500 / night",
+          "fibre": true,
+          "url": "https://www.booking.com/hotel/in/radisson-mbd.html",
+          "websiteUrl": "https://www.radissonhotels.com/en-us/hotels/radisson-blu-noida",
+          "notes": "Sector 18, valet+free parking (height limit — confirm Roxx fits), strong WPE access via Noida Expressway. 24h F&B, secure for SUV. Good evening-arrival check-in track record."
+        },
+        {
+          "name": "Crowne Plaza New Delhi Mayur Vihar Noida (IHG)",
+          "rating": 4.4,
+          "bookingScore": 8.7,
+          "priceBand": "INR 4,500–6,000 / night",
+          "fibre": true,
+          "url": "https://www.booking.com/hotel/in/crowne-plaza-new-delhi-mayur-vihar.html",
+          "websiteUrl": "https://www.ihg.com/crowneplaza/hotels/us/en/new-delhi/deldd/hoteldetail",
+          "notes": "Direct WPE/DND on-ramp at Mayur Vihar. Complimentary valet parking, IHG-grade security. Best for an early-morning 10 May restart toward Gorakhpur."
+        },
+        {
+          "name": "Radisson Blu Hotel Greater Noida",
+          "rating": 4.3,
+          "bookingScore": 8.5,
+          "priceBand": "INR 4,800–6,000 / night",
+          "fibre": true,
+          "url": "https://www.booking.com/hotel/in/radisson-blu-greater-noida.html",
+          "websiteUrl": "https://www.radissonhotels.com/en-us/hotels/radisson-blu-greater-noida",
+          "notes": "Free parking + valet, full-service spa, breakfast praised. Slightly south — adds ~20 min to Yamuna Expressway entry vs Sector 18."
+        }
+      ]
+    },
+    {
+      "city": "Gorakhpur",
+      "checkIn": "2026-05-10",
+      "checkOut": "2026-05-11",
+      "candidates": [
+        {
+          "name": "Ramada by Wyndham Gorakhpur Gorakhnath Mandir Road",
+          "rating": 4.5,
+          "bookingScore": 8.7,
+          "priceBand": "INR 4,000–5,000 / night",
+          "fibre": true,
+          "url": "https://www.booking.com/hotel/in/ramada-by-wyndham-gorakhpur-gorakhnath-mandir-road.html",
+          "websiteUrl": "https://www.wyndhamhotels.com/ramada/gorakhpur-india/ramada-gorakhpur-gorakhnath-mandir-road/overview",
+          "notes": "Free parking, buffet breakfast praised, 4-star reliability. Gorakhnath Mandir Rd is a clean run to bypass + Sunauli highway next morning."
+        },
+        {
+          "name": "Nirvana Sarovar Portico Gorakhpur",
+          "rating": 4.2,
+          "bookingScore": 8.4,
+          "priceBand": "INR 3,500–4,500 / night",
+          "fibre": true,
+          "url": "https://www.booking.com/hotel/in/nirvana-sarovar-portico-gorakhpur.html",
+          "websiteUrl": "https://www.sarovarhotels.com/nirvana-sarovar-portico-gorakhpur/",
+          "notes": "Free parking, ~2 km from station. Strong breakfast + dinner spread. Sarovar is a known business-traveller chain — secure for SUV with overnight monitoring."
+        },
+        {
+          "name": "Hotel Pink Paradise, Gorakhpur",
+          "rating": 4.0,
+          "bookingScore": 8.3,
+          "priceBand": "INR 2,000–2,800 / night",
+          "fibre": false,
+          "url": "https://www.booking.com/hotel/in/pink-paradise-gorakhpur1.html",
+          "websiteUrl": "https://www.makemytrip.global/hotels/hotel_pink_paradise-details-gorakhpur.html",
+          "notes": "Budget backup. Free private parking + wifi, AC rooms, halal/veg breakfast. 3-star — pick only if Ramada/Nirvana fall through."
+        }
+      ]
+    },
+    {
+      "city": "Bhairahawa / Lumbini",
+      "checkIn": "2026-05-11",
+      "checkOut": "2026-05-12",
+      "alsoFor": "2026-05-21",
+      "candidates": [
+        {
+          "name": "Tiger Palace by Soaltee, Bhairahawa",
+          "rating": 4.6,
+          "bookingScore": 8.8,
+          "priceBand": "INR 6,500–9,000 / night",
+          "fibre": true,
+          "url": "https://www.booking.com/hotel/np/tiger-palace-resort.html",
+          "websiteUrl": "https://www.tigerpalace.com/",
+          "notes": "Soaltee-managed, 5-star integrated resort 5 km off Sunauli border road. 3 restaurants, ample SUV parking, casino if needed for late-night food. Best post-border-day decompression. Above the INR 5,500 ceiling — flag if budget-strict."
+        },
+        {
+          "name": "Buddha Maya Garden by KGH Group, Lumbini",
+          "rating": 4.3,
+          "bookingScore": 8.5,
+          "priceBand": "INR 4,500–5,500 / night",
+          "fibre": true,
+          "url": "https://www.booking.com/hotel/np/buddha-maya-garden-and-resort.html",
+          "websiteUrl": "https://ktmgh.com/buddha-maya-garden-hotel/",
+          "notes": "Inside Lumbini Sanskritik zone, walking distance to Mayadevi Temple gate. KGH Group (also runs Waterfront Pokhara). Free private parking, breakfast included, garden setting — ideal for evening Lumbini darshan."
+        },
+        {
+          "name": "Bhairahawa Garden Resort",
+          "rating": 4.2,
+          "bookingScore": 8.4,
+          "priceBand": "INR 3,800–5,000 / night",
+          "fibre": false,
+          "url": "https://www.booking.com/hotel/np/bhairahawa-garden-resort.html",
+          "websiteUrl": "https://www.tripadvisor.com/Hotel_Review-g8450174-d26774222-Reviews-Bhairahawa_Garden_Resort-Siddharthanagar_Lumbini_Zone_Western_Region.html",
+          "notes": "4-star, outdoor pool, free private parking, 24h front desk. 19 km from Lumbini Museum but close to Bhairahawa town — useful for the 21 May return night when you only need quick board+sleep before Sunauli exit."
+        }
+      ]
+    },
+    {
+      "city": "Pokhara",
+      "checkIn": "2026-05-12",
+      "checkOut": "2026-05-14",
+      "alsoFor": "2026-05-17 to 2026-05-21 (4 more nights, 6 total)",
+      "candidates": [
+        {
+          "name": "Waterfront Resort by KGH Group, Pokhara",
+          "rating": 4.5,
+          "bookingScore": 8.7,
+          "priceBand": "INR 7,500–10,000 / night",
+          "fibre": true,
+          "url": "https://www.booking.com/hotel/np/waterfront-resort.html",
+          "websiteUrl": "https://ktmgh.com/wfresort/waterfront/",
+          "notes": "Phewa Lake northern-shore, 15 min walk to Lakeside core. Free parking, daily buffet breakfast at Aqua Bird, advertises high-speed internet + conference WiFi. Lake-facing rooms. Best fibre+work+lake combo for the 6-night base."
+        },
+        {
+          "name": "Temple Tree Resort & Spa, Pokhara",
+          "rating": 4.5,
+          "bookingScore": 8.8,
+          "priceBand": "INR 9,000–12,000 / night",
+          "fibre": true,
+          "url": "https://www.booking.com/hotel/np/temple-tree.html",
+          "websiteUrl": "https://templetreenepal.com/",
+          "notes": "Lakeside Pamebagar, 4-star resort, free parking, free wifi in all rooms + property. Dedicated work-friendly desks. Highest-rated long-stay option in the zone — confirm fibre speed on arrival via speedtest. Most consistent power-cut diesel-genset coverage."
+        },
+        {
+          "name": "Atithi Resort & Spa, Pokhara",
+          "rating": 4.4,
+          "bookingScore": 8.6,
+          "priceBand": "INR 5,500–7,500 / night",
+          "fibre": true,
+          "url": "https://www.booking.com/hotel/np/atithi-resort-spa.html",
+          "websiteUrl": "https://atithiresort.com/",
+          "notes": "Lakeside core, free in-room WiFi, free parking. Best value of the three for a 6-night stay. Has been a digital-nomad favourite in 2024–2025 due to reliable WorldLink fibre. Backup if Waterfront/Temple Tree are full."
+        },
+        {
+          "name": "The Pavilions Himalayas, Pokhara (Lakeview/The Farm)",
+          "rating": 4.7,
+          "bookingScore": 9.0,
+          "priceBand": "INR 14,000–22,000 / night",
+          "fibre": false,
+          "url": "https://www.booking.com/hotel/np/the-pavilions-himalayas.html",
+          "websiteUrl": "https://www.pavilionshotels.com/destinations/himalayas/",
+          "notes": "Optional splurge for one night during leisure (e.g. 19 May). Eco-resort across the lake, accessed by boat — not work-friendly base because internet is unspecified. Listed for completeness; do not book the full 6-night block here."
+        }
+      ]
+    },
+    {
+      "city": "Beni / Tatopani",
+      "checkIn": "2026-05-14",
+      "checkOut": "2026-05-15",
+      "candidates": [
+        {
+          "name": "Shrestha Hotel HotSpring, Beni-Singha Tatopani",
+          "rating": 4.3,
+          "bookingScore": 8.4,
+          "priceBand": "INR 3,500–5,000 / night",
+          "fibre": false,
+          "url": "https://www.expedia.com/Shrestha-Hotel-HotSpring.h109036808.Hotel-Information",
+          "websiteUrl": "https://www.shresthahotelhotspring.com/",
+          "notes": "Maygdi Beni / Singha Tatopani area. In-room WiFi, hot-spring access, deluxe rooms with desks, soundproofing, laptop workspace. Best for the 14 May acclimatisation halt. Email shresthahotelhotspring@gmail.com or +977-9847624428 to confirm SUV parking."
+        },
+        {
+          "name": "Hotel Natural Spring Pvt. Ltd., Tatopani",
+          "rating": 4.2,
+          "bookingScore": 8.3,
+          "priceBand": "INR 2,500–3,500 / night",
+          "fibre": false,
+          "url": "https://www.hotels.com/ho3073742016/hotel-natural-spring-pvt-ltd/",
+          "websiteUrl": "https://www.tripadvisor.com/Hotel_Review-g780019-d25325429-Reviews-Hotel_Natural_Spring-Tatopani_Bagmati_Zone_Central_Region.html",
+          "notes": "4-min walk to hot springs, Kali Gandaki river views. Free breakfast, free wifi, free parking. Last reviewed March 2026 — operating. Smaller property; pre-call to hold an SUV bay."
+        },
+        {
+          "name": "Dhaulagiri Lodge & Restaurant, Tatopani",
+          "rating": 3.9,
+          "bookingScore": 7.8,
+          "priceBand": "INR 1,800–2,800 / night",
+          "fibre": false,
+          "url": "https://www.tripadvisor.com/Hotel_Review-g780019-d10286645-Reviews-Dhaulagiri_Lodge_and_Restaurant-Tatopani_Bagmati_Zone_Central_Region.html",
+          "websiteUrl": "https://honeyguideapps.com/dhaulagiri.b850a38bc4a4.tatopani-lodges",
+          "notes": "Backup-only. 50 m from hot springs with private back-path. Mixed reviews on bathroom/wifi — pick only if upper two are full. Below 8.0 review threshold; included to satisfy the 3-candidate requirement."
+        }
+      ]
+    },
+    {
+      "city": "Jomsom",
+      "checkIn": "2026-05-15",
+      "checkOut": "2026-05-17",
+      "candidates": [
+        {
+          "name": "Hotel Om's Home, Jomsom",
+          "rating": 4.3,
+          "bookingScore": 8.5,
+          "priceBand": "INR 6,500–8,500 / night",
+          "fibre": false,
+          "url": "https://www.booking.com/hotel/np/om-s-home.html",
+          "websiteUrl": "https://omshomejomsom.com/",
+          "notes": "TOP PICK for 2-night Jomsom block. 5 min walk from airport. Verified electric blankets + in-room heaters in multiple recent reviews. Solar-heated showers, free parking, free wifi, 27 twin rooms with attached bathrooms. Ranked #1 of 4 Jomsom small hotels on Tripadvisor."
+        },
+        {
+          "name": "Jomsom Mountain Retreat (Jomsom Mountain Resort)",
+          "rating": 4.2,
+          "bookingScore": 8.3,
+          "priceBand": "INR 5,500–7,500 / night",
+          "fibre": false,
+          "url": "https://www.booking.com/hotel/np/jomsom-mountain-resort.html",
+          "websiteUrl": "https://www.tripadvisor.com/Hotel_Review-g424950-d630876-Reviews-Jomsom_Mountain_Retreat-Jomsom_Dhaulagiri_Zone_Western_Region.html",
+          "notes": "Hillside setting above town, panoramic Nilgiri views. Heating provided in rooms, parking on premises. Backup A — confirm electric blanket on booking call (heater is room-level diesel). Slightly removed from town centre — driving advantage for Roxx."
+        },
+        {
+          "name": "Hotel Trekkers Inn, Jomsom",
+          "rating": 4.1,
+          "bookingScore": 8.2,
+          "priceBand": "INR 3,500–5,000 / night",
+          "fibre": false,
+          "url": "https://www.tripadvisor.com/Hotel_Review-g424950-d5305553-Reviews-Hotel_Trekkers_Inn-Jomsom_Dhaulagiri_Zone_Western_Region.html",
+          "websiteUrl": "https://www.facebook.com/trekkersinn7/",
+          "notes": "Backup B. Reviews note 'room heaters provided if needed; blankets usually sufficient.' Cheaper, central, parking on street. Pre-confirm heater availability — May nights can hit 5°C and the blanket-only policy will not cut it for the wife."
+        },
+        {
+          "name": "Shinta Mani Mustang (luxury alt)",
+          "rating": 4.9,
+          "bookingScore": 9.5,
+          "priceBand": "INR 70,000+ / night (all-inclusive)",
+          "fibre": true,
+          "url": "https://shintamanimustang.com/",
+          "websiteUrl": "https://shintamani.com/mustang/",
+          "notes": "Bensley-designed luxury hilltop resort above Jomsom. Flagged as a one-off splurge option only — likely outside trip budget. Heated rooms, fibre/satellite, but minimum 3-night package — does not match a 2-night halt."
+        }
+      ]
+    },
+    {
+      "city": "Lucknow",
+      "checkIn": "2026-05-22",
+      "checkOut": "2026-05-23",
+      "candidates": [
+        {
+          "name": "Lemon Tree Hotel, Lucknow",
+          "rating": 4.3,
+          "bookingScore": 8.5,
+          "priceBand": "INR 4,000–5,000 / night",
+          "fibre": true,
+          "url": "https://www.booking.com/hotel/in/lemon-tree-lucknow.html",
+          "websiteUrl": "https://www.lemontreehotels.com/lemon-tree-hotel/lucknow/hotel-lucknow.aspx",
+          "notes": "TOP PICK. Adjacent Transport Nagar Metro on Kanpur–Lucknow Hwy, 10 min from airport. Free parking, free valet, free high-speed wifi. Smoke-free. Best matches outer-ring-road convenience for next-day Bikaner restart."
+        },
+        {
+          "name": "Hyatt Regency Lucknow",
+          "rating": 4.6,
+          "bookingScore": 8.9,
+          "priceBand": "INR 7,000–9,500 / night",
+          "fibre": true,
+          "url": "https://www.booking.com/hotel/in/hyatt-regency-lucknow.html",
+          "websiteUrl": "https://www.hyatt.com/hyatt-regency/en-US/lkorl-hyatt-regency-lucknow",
+          "notes": "Free parking + valet (height-restricted — confirm Roxx clears). Spotless cleanliness, full-service spa, excellent F&B. Above the INR 5,000 spec ceiling — flag for budget; pick only if you want a recovery day after the 470 km Bhairahawa→Lucknow drive."
+        },
+        {
+          "name": "Clarks Avadh, Lucknow",
+          "rating": 4.0,
+          "bookingScore": 8.2,
+          "priceBand": "INR 3,500–4,800 / night",
+          "fibre": true,
+          "url": "https://www.booking.com/hotel/in/clarks-avadh.html",
+          "websiteUrl": "https://www.hotelclarks.com/avadh-lucknow/",
+          "notes": "Heritage 5-star on Gomti riverbank, 2.5 mi from station. Free WiFi + free parking, breakfast surcharge. Reviews note dated decor — pick if you want central Hazratganj access not outer-ring-road. Backup B."
+        }
+      ]
+    }
+  ],
+  "redFlags": [
+    "Bhairahawa Tiger Palace exceeds the INR 5,500 spec ceiling (INR 6,500–9,000). Decision point: pay up for the 5-star post-border-day decompression OR drop to Buddha Maya Garden / Bhairahawa Garden Resort which both fit the budget.",
+    "Pokhara Temple Tree exceeds typical mid-range (INR 9,000–12,000). For 6 nights total the bill compounds — Atithi or Waterfront are better blended-budget choices for the workation block.",
+    "Hyatt Regency Lucknow exceeds the INR 5,000 ceiling. Lemon Tree is the in-budget primary.",
+    "Jomsom Trekkers Inn states 'heater provided if needed; blankets usually sufficient' — explicitly call/email to confirm a working in-room heater for both 15 and 16 May nights. Blanket-only is insufficient at ~5°C with co-traveller.",
+    "Beni/Tatopani Dhaulagiri Lodge has Booking score ~7.8 (below the 8.0 minimum) — included only to provide a third candidate. Prefer Shrestha Hotel HotSpring or Hotel Natural Spring.",
+    "Pokhara fibre claim is ambient/area-level (WorldLink + Vianet 50–150 Mbps SME plans available, Lakeside cafes verified at 20–50 Mbps). No single hotel was independently speedtest-verified at >=50 Mbps for May 2026 — RUN A SPEEDTEST AT CHECK-IN on day 1; if fails, demote to Atithi Resort or relocate to Pokhara Coworking Space day-passes.",
+    "Booking.com / Agoda / MMT direct page-fetches returned empty (JS-rendered). Compiled prices are derived from search snippets and aggregator-summary text. Re-verify exact INR before booking — aggregator price gaps >30% cannot be confirmed without live page access.",
+    "iOverlander / blog cross-check for Jomsom inventory was attempted; no post-2026-03-01 traveller posts surfaced new properties. Hotel Om's Home and Jomsom Mountain Retreat remain the consensus top picks."
+  ],
+  "candidateCounts": {
+    "Noida": 3,
+    "Gorakhpur": 3,
+    "Bhairahawa / Lumbini": 3,
+    "Pokhara": 4,
+    "Beni / Tatopani": 3,
+    "Jomsom": 4,
+    "Lucknow": 3,
+    "totalCities": 7,
+    "citiesShortOf3": 0
+  }
+}

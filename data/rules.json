@@ -1,0 +1,177 @@
+{
+  "lastUpdated": "2026-05-04",
+  "verifyBefore": "2026-05-08",
+  "officialSources": [
+    { "label": "Nepal Department of Customs",            "url": "https://www.customs.gov.np/" },
+    { "label": "Nepal Department of Transport Mgmt",     "url": "https://www.dotm.gov.np/" },
+    { "label": "Nepal Department of Immigration",        "url": "https://www.immigration.gov.np/" },
+    { "label": "NTNC / ACAP",                            "url": "https://ntnc.org.np/" },
+    { "label": "NTNC / ACAP e-permit",                   "url": "https://epermit.ntnc.org.np/" },
+    { "label": "Nepal Tourism Board",                    "url": "https://ntb.gov.np/" },
+    { "label": "Indian Embassy, Kathmandu",              "url": "https://www.indembkathmandu.gov.in/" }
+  ],
+  "rules": [
+    {
+      "category": "Identity",
+      "title": "Visa not required for Indians",
+      "detail": "Indians enter Nepal under the 1950 Treaty of Peace and Friendship — no visa required. Carry passport (preferred) OR original ECI Voter ID; downloads/photocopies not accepted by Indian Embassy. Aadhaar and PAN are NOT on either accepted-ID list at air entry; land borders historically also accept passport/Voter ID.",
+      "source": "https://www.immigration.gov.np/page/information-for-indian-nationals",
+      "fetchedAt": "2026-05-04T13:16:00+05:45",
+      "confidence": "official"
+    },
+    {
+      "category": "Vehicle",
+      "title": "Bhansar (Customs) daily fee",
+      "detail": "Pay daily at border. 2026 figures from Gaur Customs Office (Kathmandu Post 2026-04-17): NPR 600/day four-wheelers (SUV), NPR 400/day three-wheelers, NPR 200/day motorcycles. Older Indian-consulate range was NPR 250–500/day. Pay 2–3 buffer days beyond planned exit. Confirm at Sunauli/Belahiya counter on entry — figures vary by border post.",
+      "source": "https://kathmandupost.com/province-no-2/2026/04/17/madhesh-crackdown-on-indian-registered-vehicles-rattles-political-parties",
+      "fetchedAt": "2026-05-04T13:16:00+05:45",
+      "confidence": "corroborated"
+    },
+    {
+      "category": "Vehicle",
+      "title": "Yatayat (Transport) permit",
+      "detail": "Separate permit from Bhansar, issued at border. NPR figure not corroborated by any source dated after 2026-01-01 — DOTM site is silent on tourist-vehicle entry, customs site too. Order of magnitude similar to Bhansar based on prior baseline. Confirm exact figure at Sunauli on entry.",
+      "source": "https://www.dotm.gov.np/",
+      "fetchedAt": "2026-05-04T13:14:00+05:45",
+      "confidence": "inferred"
+    },
+    {
+      "category": "Vehicle",
+      "title": "30-day cumulative annual cap",
+      "detail": "Indian-registered vehicles capped at 30 cumulative days per calendar year in Nepal. Exceeding the cap (even with paid Bhansar) → vehicle seized/auctioned. Confirmed by Indian Embassy Indian-Vehicles page and Kathmandu Post 2026-04-17.",
+      "source": "https://www.indembkathmandu.gov.in/page/indian-vehicles/",
+      "fetchedAt": "2026-05-04T13:17:00+05:45",
+      "confidence": "official"
+    },
+    {
+      "category": "Vehicle",
+      "title": "Firm-registered SUV authorization letter",
+      "detail": "For a vehicle registered to a firm (Thar Digital Services), carry an authorization letter on firm letterhead stating personal-travel use and signed by the proprietor. Without it, customs may assess under commercial slabs. Source pages do not specify exact letter format — use /docs/AUTHORIZATION_LETTER_TEMPLATE.md.",
+      "source": "https://www.indembkathmandu.gov.in/page/indian-vehicles/",
+      "fetchedAt": "2026-05-04T13:17:00+05:45",
+      "confidence": "inferred"
+    },
+    {
+      "category": "Vehicle",
+      "title": "PUC (Pollution Under Control) certificate",
+      "detail": "Customs.gov.np publishes nothing about PUC certificates for Indian vehicles entering Nepal in server-rendered HTML; Indian Embassy Indian-Vehicles page does not list it as required. No 2026 circular found mandating PUC. Carry anyway as a defensive document — minimal cost.",
+      "source": "https://www.customs.gov.np/",
+      "fetchedAt": "2026-05-04T13:13:00+05:45",
+      "confidence": "inferred"
+    },
+    {
+      "category": "Customs",
+      "title": "Used personal electronics",
+      "detail": "Laptops, phones, cameras with prior-purchase invoices = exempt as personal effects. Carry both MacBook invoices in printed form. Customs.gov.np FAQ addresses only returning Nepali residents' personal effects — figure carried forward from prior baseline.",
+      "source": "https://www.customs.gov.np/faq/",
+      "fetchedAt": "2026-05-04T13:35:54+05:45",
+      "confidence": "inferred"
+    },
+    {
+      "category": "Customs",
+      "title": "New unboxed goods",
+      "detail": "New retail items in original packaging may be assessed for duty at the green/red channel. Avoid carrying unopened electronics or new gifts. No 2026 update — carry forward.",
+      "source": "https://www.customs.gov.np/",
+      "fetchedAt": "2026-05-04T13:13:00+05:45",
+      "confidence": "inferred"
+    },
+    {
+      "category": "Driving",
+      "title": "Left-hand drive, lights ON in mountains",
+      "detail": "Nepal drives on the left (same as India). Headlights mandatory in hill sections. Speed: 40 town / 60–80 highway / 30 switchbacks. Zero-tolerance on alcohol. DOTM site has only public-transport fare notices, no foreign-driver page — carried forward from prior baseline.",
+      "source": "https://www.dotm.gov.np/",
+      "fetchedAt": "2026-05-04T13:14:00+05:45",
+      "confidence": "inferred"
+    },
+    {
+      "category": "Fuel",
+      "title": "Mustang fuel scarcity",
+      "detail": "Beni and Jomsom are the only reliable pumps en route to Muktinath. Top up at both — Tatopani and Ghasa pumps are unreliable. No 2026 source contradicts — carried forward.",
+      "source": "https://www.indembkathmandu.gov.in/page/advisory-list/",
+      "fetchedAt": "2026-05-04T13:17:00+05:45",
+      "confidence": "inferred"
+    },
+    {
+      "category": "Money",
+      "title": "INR notes accepted",
+      "detail": "INR 100/200/500 widely accepted. INR 2000 notes NOT accepted (RBI withdrew them 2023; Nepal Rastra Bank ban remains). Prefer NPR for fuel and ACAP. ATMs reliable in Pokhara/Bhairahawa; spotty in Jomsom.",
+      "source": "https://www.indembkathmandu.gov.in/page/advisory-list/",
+      "fetchedAt": "2026-05-04T13:17:00+05:45",
+      "confidence": "inferred"
+    },
+    {
+      "category": "Connectivity",
+      "title": "NTC vs Ncell SIM",
+      "detail": "NTC = better Mustang/mountain coverage. Ncell = faster Pokhara speeds but spotty in Jomsom/Muktinath. Buy NTC at Sunauli/Bhairahawa with passport+photo. Tourist SIM rules unchanged in 2026 per advisory list.",
+      "source": "https://www.indembkathmandu.gov.in/page/advisory-list/",
+      "fetchedAt": "2026-05-04T13:17:00+05:45",
+      "confidence": "inferred"
+    },
+    {
+      "category": "Insurance",
+      "title": "Indian motor policy invalid in Nepal",
+      "detail": "Indian motor insurance is invalid in Nepal. Buy Nepal third-party at Sunauli border (≈NPR 1,000–1,500 for two weeks, SUV) OR confirm Nepal rider with Indian insurer in writing before departure.",
+      "source": "https://www.indembkathmandu.gov.in/page/indian-vehicles/",
+      "fetchedAt": "2026-05-04T13:17:00+05:45",
+      "confidence": "inferred"
+    },
+    {
+      "category": "Permits",
+      "title": "ACAP permit (Annapurna Conservation Area)",
+      "detail": "SAARC NPR 1,000/person, single entry, tax included. Foreigners NPR 3,000/person. Buy online at epermit.ntnc.org.np (Visa/MasterCard +2.9% gateway) or at counters in Kathmandu / Pokhara / Simpani / Ghasa. Issuing AT a check-post inside ACAP costs DOUBLE — always buy in Pokhara before driving up. Indian SAARC: Aadhaar OR Voter ID accepted in lieu of passport.",
+      "source": "https://epermit.ntnc.org.np/",
+      "fetchedAt": "2026-05-04T07:44:00+05:45",
+      "confidence": "official"
+    },
+    {
+      "category": "Permits",
+      "title": "Lower vs Upper Mustang boundary",
+      "detail": "Lower Mustang (open zone, ACAP only): Jomsom, Kagbeni, Muktinath. Kagbeni HAS NOT been reclassified into restricted area. Upper Mustang (restricted): Lomanthang Rural Municipality wards 1–5, Lo-Ghekar Damodarkunda RM wards 1–5, Baragung Muktichetra RM ward 3 + Satang village in ward 5. Restricted boundary begins NORTH of Kagbeni. For Muktinath darshan: ACAP only, no Upper Mustang permit needed.",
+      "source": "https://www.immigration.gov.np/page/trekking-route-and-permit-fee",
+      "fetchedAt": "2026-05-04T07:46:00+05:45",
+      "confidence": "official"
+    },
+    {
+      "category": "Permits",
+      "title": "Upper Mustang permit cost (NOT NEEDED)",
+      "detail": "USD 50 per person per day, flat. The pre-2025 'USD 500 first 10 days then USD 50/day' structure has been replaced. Issued by Department of Immigration Kalikasthan KTM (or Pokhara office) via licensed trekking agency. NOT needed for this trip — Jomsom/Muktinath are Lower Mustang.",
+      "source": "https://www.immigration.gov.np/page/trekking-route-and-permit-fee",
+      "fetchedAt": "2026-05-04T07:46:00+05:45",
+      "confidence": "official"
+    },
+    {
+      "category": "Permits",
+      "title": "TIMS card NOT required for road Jomsom-Muktinath",
+      "detail": "TIMS is mandatory only on listed trekking routes. For Mustang region, TIMS is required ONLY for 'Upper Mustang Trek' and 'Sarebung Pass Trek' per NTB Revised TIMS Provision (effective 31 Mar 2023). Lower Mustang road journey to Jomsom/Muktinath is NOT in the list. SAARC TIMS would be NPR 1,000/person if needed; sold only via licensed trekking agencies.",
+      "source": "https://ntb.gov.np/plan-your-trip/before-you-come/tims-card",
+      "fetchedAt": "2026-05-04T07:46:00+05:45",
+      "confidence": "official"
+    },
+    {
+      "category": "Altitude",
+      "title": "Muktinath at 3,800 m — AMS risk",
+      "detail": "Acclimatise at Jomsom (2,720 m) overnight before Muktinath darshan. Diamox prophylaxis 24h before ascent. Watch for ataxia, breathlessness, severe headache — descend immediately if seen. Manipal Pokhara is the nearest competent altitude care.",
+      "source": "https://www.indembkathmandu.gov.in/page/advisory-list/",
+      "fetchedAt": "2026-05-04T13:17:00+05:45",
+      "confidence": "inferred"
+    },
+    {
+      "category": "Restricted",
+      "title": "Drones and sat phones",
+      "detail": "Drones rarely permitted (require CAAN clearance + ACAP signoff for the conservation area). Sat phones banned without prior permit. Leave both at home. No 2026 update — carried forward.",
+      "source": "https://www.immigration.gov.np/",
+      "fetchedAt": "2026-05-04T13:14:00+05:45",
+      "confidence": "inferred"
+    }
+  ],
+  "emergencies": [
+    { "label": "Indian Embassy Kathmandu — General reception",  "phone": "+977-1-4423702" },
+    { "label": "Indian Embassy Kathmandu — 24×7 emergency",     "phone": "+977-9851316807" },
+    { "label": "Indian Embassy Kathmandu — Consular grievances","phone": "+977-1-4411466" },
+    { "label": "Indian Embassy Kathmandu — Email",              "email": "cons.kathmandu@mea.gov.in" },
+    { "label": "Nepal Police",                                  "phone": "100" },
+    { "label": "Nepal Ambulance",                               "phone": "102" },
+    { "label": "CIWEC Hospital, Kathmandu",                     "note":  "Travel medicine specialist; Pokhara branch too." },
+    { "label": "Manipal Teaching Hospital, Pokhara",            "note":  "Large, English-speaking, altitude-aware." }
+  ]
+}

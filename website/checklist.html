@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Master Checklist — Nepal Workation 2026</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <div class="brand">
+      <span class="title">Nepal Workation 2026</span>
+      <span class="sub">Bikaner → Pokhara → Muktinath · 9–23 May</span>
+    </div>
+    <nav>
+      <a href="index.html">Overview</a>
+      <a href="itinerary.html">Itinerary</a>
+      <a href="checklist.html">Checklist</a>
+      <a href="rules.html">Rules</a>
+      <a href="route.html">Route</a>
+      <a href="viewer.html">Docs</a>
+      <a href="folders.html">Files</a>
+    </nav>
+  </div>
+</header>
+
+<main class="shell">
+  <h1 style="margin-bottom:6px">Master Checklist</h1>
+  <p class="muted" style="margin-top:0">Tap an item to tick it. Progress saves to this browser only.</p>
+
+  <div class="global-progress">
+    <div>
+      <div class="num" id="pt">0 / 0 (0%)</div>
+      <div class="bar" style="width: 240px"><span id="pb" style="width:0%"></span></div>
+    </div>
+    <div style="flex:1"></div>
+    <button id="reset-checklist">Reset progress</button>
+  </div>
+
+  <div id="checklist"></div>
+</main>
+
+<footer class="site">Generated 2026-05-04 · Source: <code>data/checklist.json</code></footer>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script>renderChecklist("checklist", "pb", "pt");</script>
+</body>
+</html>

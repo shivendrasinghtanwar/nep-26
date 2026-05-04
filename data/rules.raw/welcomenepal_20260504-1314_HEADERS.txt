@@ -1,0 +1,10 @@
+HTTP/2 301 
+date: Mon, 04 May 2026 07:45:57 GMT
+location: https://openingparliament.org/organizations
+speculation-rules: "/cdn-cgi/speculation"
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=sSOkXvx56cr%2B7TRGjVJXWx%2FzGs4uB51L%2FQD3GFcwF%2FDId0PSTREQEL8eGGom6VHF%2FM4C73Hf63fdlnHtzv%2FdryQVtH7I6OT1fvxEw3HBm6YLHY7NQA9EZ6yT1EzOq9yis7f3tFDNH%2BeTDVNyZLd6Z0KEiA%3D%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: cloudflare
+cf-ray: 9f65e38e1f204dd6-MRS
+alt-svc: h3=":443"; ma=86400
+

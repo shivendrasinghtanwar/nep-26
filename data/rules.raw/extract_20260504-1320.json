@@ -1,0 +1,124 @@
+{
+  "generatedAt": "2026-05-04T13:20:00+05:45",
+  "scope": "Refresh portion of rules database from immigration.gov.np and indembkathmandu.gov.in for two Indian nationals on a 14-day Nepal road trip departing 2026-05-09.",
+  "userAgent": "Mozilla/5.0 (compatible; NepalTripPrep/1.0)",
+  "facts": [
+    {
+      "id": "np-imm-indians-visa-free",
+      "title": "Indian nationals do not require a visa for tourism in Nepal",
+      "detail": "Nepal Immigration's 'Information for Indian Nationals' page lists only identity-document requirements (no visa is referenced). The Visa Exemption page lists countries with diplomatic/official-passport exemptions and does not include India because Indian ordinary-passport holders enter under the bilateral 1950 Treaty of Peace and Friendship and never required a visa in the first place.",
+      "value": "visa-free for tourism (no Nepal visa required for Indian citizens)",
+      "sourceUrl": "https://www.immigration.gov.np/en/page/information-for-indian-nationals-11",
+      "fetchedAt": "2026-05-04T13:16+05:45",
+      "confidence": "official"
+    },
+    {
+      "id": "np-imm-acceptable-id-air",
+      "title": "Acceptable identity documents for Indian citizens by AIR (per Nepal Immigration)",
+      "detail": "Nepal Immigration page lists four documents for air travel between India and Nepal: (i) valid national passport, (ii) Election ID card issued by ECI, (iii) Emergency Certificate issued by Embassy of India, Kathmandu, (iv) Identity Certificate issued by Embassy of India, Kathmandu. Aadhaar (UID) is explicitly NOT acceptable. Embassy-issued Certificate of Registration is NOT acceptable. Persons over 65 or under 15 are exempt from these four but must carry photo ID showing age. Children 15-18 may travel on a school-principal-issued identity certificate. Emergency/Identity Certificates are valid only for single journey back to India.",
+      "value": ["Indian passport", "ECI Voter/Election ID card (original)", "Emergency Certificate (Embassy of India, Kathmandu)", "Identity Certificate (Embassy of India, Kathmandu)"],
+      "sourceUrl": "https://www.immigration.gov.np/en/page/information-for-indian-nationals-11",
+      "fetchedAt": "2026-05-04T13:16+05:45",
+      "confidence": "official",
+      "notes": "Page is titled 'Identity documents required for Indian citizen going to/coming from Nepal by Air'. It does not state the rules for land/road entry. PAN card is not listed as acceptable on either site."
+    },
+    {
+      "id": "indemb-acceptable-id-air",
+      "title": "Acceptable identity documents for Indian citizens by AIR (per Indian Embassy Kathmandu)",
+      "detail": "Embassy lists ONLY two valid documents for Indian nationals travelling by air between India and Nepal: (1) valid Indian passport, OR (2) original Indian Voter ID card with photograph (issued by Election Commission of India). Downloaded/online-print Voter ID cards are NOT acceptable. Aadhaar, PAN card, Driving Licence, Indian Embassy Registration are NOT accepted.",
+      "value": ["Indian passport", "Original ECI Voter ID card with photograph"],
+      "sourceUrl": "https://www.indembkathmandu.gov.in/valid-travel-documents",
+      "fetchedAt": "2026-05-04T13:17+05:45",
+      "confidence": "official",
+      "notes": "Embassy lists only 2 documents (passport or original Voter ID). Nepal Immigration also accepts Embassy-issued Emergency Cert and Identity Cert. Both sites are unambiguous that Aadhaar and PAN are NOT acceptable. Both pages explicitly cover AIR travel; rules for land/road entry not stated on either page."
+    },
+    {
+      "id": "indemb-indian-vehicles-30day",
+      "title": "Indian-registered vehicles allowed maximum 30 days/calendar year in Nepal",
+      "detail": "Indian-registered vehicles (motorcycles, cars, vans, jeeps, trucks, etc.) are temporarily importable into Nepal on payment of customs duty. Total stay is capped at 30 days per calendar year, even with payment. A Pass/Challan must be obtained at the Nepalese border check post; charges are NRs. 100-500 per day depending on vehicle type. A Day Pass requires same-day return. Pass extension can be done at the issuing border post or Nepal Customs office at TIA Cargo Complex (Kathmandu). Vehicles caught without a valid Pass are treated as smuggled and may be seized/auctioned.",
+      "value": {"maxDaysPerCalendarYear": 30, "passChargesNprPerDay": [100, 500], "extensionLocations": ["border check post that issued the Pass", "Nepal Customs at TIA Cargo Complex, Kathmandu"]},
+      "sourceUrl": "https://www.indembkathmandu.gov.in/entry-of-indian-registered-vehicles-in-nepal",
+      "fetchedAt": "2026-05-04T13:17+05:45",
+      "confidence": "official",
+      "notes": "Highly relevant for the 14-day road trip. Charges quoted in NRs and 30-day annual cap implies the trip must end within the cap; if user has used Indian-vehicle days earlier in calendar 2026, they should subtract from 30. Embassy page redirects users to www.customs.gov.np for current Customs Tariff."
+    },
+    {
+      "id": "indemb-phone-general",
+      "title": "Indian Embassy Kathmandu - main reception number",
+      "detail": "On the embassy contacts page the building's main number is listed as +977-1-4423702 (with fax +977-1-4428279) at Kapurdhara Marg 336, Kathmandu 44600.",
+      "value": "+977-1-4423702",
+      "fax": "+977-1-4428279",
+      "sourceUrl": "https://www.indembkathmandu.gov.in/contacts",
+      "fetchedAt": "2026-05-04T13:19+05:45",
+      "confidence": "official",
+      "notes": "The currently-stored number +977-1-4410900 does NOT appear anywhere on the embassy site as of this fetch — likely stale. Recommend updating to +977-1-4423702 (general). +977-1-4410900 is historically associated with the embassy switchboard and may still route, but is not advertised on the official site."
+    },
+    {
+      "id": "indemb-phone-emergency-24x7",
+      "title": "Indian Embassy Kathmandu - 24x7 grievance/emergency number",
+      "detail": "Section 10 of contacts ('Emergency Telephone Number of the Missions for Grievances') lists office-hours numbers and a 24x7 line. Office hours (consular grievances): +977-1-4411466, +977-1-4440563, +977-1-4411751. 24x7 line: +977-9851316807. Emails: cons.kathmandu@mea.gov.in, fscons.kathmandu@mea.gov.in, scons.kathmandu@mea.gov.in.",
+      "value": {
+        "24x7": "+977-9851316807",
+        "officeHours": ["+977-1-4411466", "+977-1-4440563", "+977-1-4411751"],
+        "emails": ["cons.kathmandu@mea.gov.in", "fscons.kathmandu@mea.gov.in", "scons.kathmandu@mea.gov.in"]
+      },
+      "sourceUrl": "https://www.indembkathmandu.gov.in/contacts",
+      "fetchedAt": "2026-05-04T13:19+05:45",
+      "confidence": "official"
+    },
+    {
+      "id": "indemb-current-advisories",
+      "title": "Currently-listed advisories on Indian Embassy Kathmandu (as of 2026-05-04)",
+      "detail": "Three live advisories listed. (1) 'Advisory regarding Disembarkation Card' dated 08 October 2025 - most recent. (2) 'Advisory regarding NOC to Travel to 3rd Country' dated 22 November 2023. (3) 'Advisory while visiting the embassy' dated 11 November 2023. Page footer 'Page last updated on : 04/05/2026'. No new May-2026 advisory specifically for tourist/road travellers from India.",
+      "value": [
+        {"title": "Advisory regarding Disembarkation Card", "date": "2025-10-08", "url": "https://www.indembkathmandu.gov.in/advisory-detail/1082"},
+        {"title": "Advisory regarding NOC to Travel to 3rd Country", "date": "2023-11-22", "url": "https://www.indembkathmandu.gov.in/latest-advisory-regarding-consular-services"},
+        {"title": "Advisory while visiting the embassy", "date": "2023-11-11", "url": "https://www.indembkathmandu.gov.in/advisory-detail/801"}
+      ],
+      "sourceUrl": "https://www.indembkathmandu.gov.in/advisory-list",
+      "fetchedAt": "2026-05-04T13:17+05:45",
+      "confidence": "official",
+      "notes": "Disembarkation-card advisory (Oct 2025) is likely about the new arrival-card form-filling requirement at TIA; full body not fetched within budget. NOC-3rd-country advisory targets Indians transiting to a 3rd country and is unlikely to bind a tourist road trip ending back in India."
+    },
+    {
+      "id": "indemb-oci-pio-notice",
+      "title": "Important Notice for OCI/PIO Card Holders is published but not fetched",
+      "detail": "Embassy homepage links to /important-notice-for-ocipio-card-holders. Not fetched within 6-page budget. Likely standard OCI travel-document guidance; OCIs can travel to Nepal on OCI card + foreign passport but should confirm rules at land border. Both Indian Embassy and Nepal Immigration phrase rules for 'Indian nationals' (i.e., Indian passport holders) - OCI holders are foreign nationals for Nepal-entry purposes.",
+      "value": "https://www.indembkathmandu.gov.in/important-notice-for-ocipio-card-holders",
+      "sourceUrl": "https://www.indembkathmandu.gov.in/",
+      "fetchedAt": "2026-05-04T13:17+05:45",
+      "confidence": "inferred",
+      "notes": "User states 'two Indian nationals' so OCI/PIO is unlikely to apply. Flag only."
+    },
+    {
+      "id": "np-imm-2026-changes",
+      "title": "2026 changes on Nepal Immigration noticeboard",
+      "detail": "Notice list (first page) shows recent items: a Press Release dated BS 2083-01-07 (~April 20, 2026); Press Release BS 2083-01-03 (~April 16, 2026); 'Public worker departure permit' notice BS 2082-12-27; 'Notice Regarding Revision of Visa-on-Arrival Facility for Iranian Nationals' BS 2082-12-01; 'Notice Regarding Visa Services During The General Election Period' BS 2082-11-19; Public Notice on FNMIS (Foreign Nationals Management Information System) implementation BS 2082-10-14. Page last-updated stamp: 2026-04-20. No notice in this listing changes Indian-citizen entry rules. The election-period notice could affect visa-counter wait times around elections.",
+      "value": "no Indian-specific changes; FNMIS rolling out for foreign-national management; minor visa-on-arrival revision for Iranians; election-period visa-service notice",
+      "sourceUrl": "https://immigration.gov.np/page/notice",
+      "fetchedAt": "2026-05-04T13:15+05:45",
+      "confidence": "official"
+    }
+  ],
+  "fetchLog": [
+    {"step": 1, "host": "immigration.gov.np", "url": "https://immigration.gov.np/robots.txt", "method": "GET", "status": 404, "note": "404 returned an HTML error page (not a robots.txt); treating as 'no robots policy published' = allowed.", "fetchedAt": "2026-05-04T13:14+05:45"},
+    {"step": 2, "host": "immigration.gov.np", "url": "https://immigration.gov.np/", "method": "GET", "status": 200, "savedHtml": "data/rules.raw/immigration_gov_np_20260504-1314.html", "savedTxt": "data/rules.raw/immigration_gov_np_20260504-1314.txt", "fetchedAt": "2026-05-04T13:14+05:45", "note": "curl reported (18) transfer-closed warning but full payload (64220 bytes) received."},
+    {"step": 3, "host": "immigration.gov.np", "url": "https://immigration.gov.np/page/visa-exemption", "method": "GET", "status": 200, "savedHtml": "data/rules.raw/immigration_gov_np_visa-exemption_20260504-1315.html", "fetchedAt": "2026-05-04T13:15+05:45"},
+    {"step": 4, "host": "immigration.gov.np", "url": "https://immigration.gov.np/page/visa-fee-and-documents", "method": "GET", "status": 200, "savedHtml": "data/rules.raw/immigration_gov_np_visa-fee_20260504-1315.html", "fetchedAt": "2026-05-04T13:15+05:45"},
+    {"step": 5, "host": "immigration.gov.np", "url": "https://www.immigration.gov.np/page/visa-on-arrival", "method": "GET", "status": 200, "savedHtml": "data/rules.raw/immigration_gov_np_voa_20260504-1315.html", "fetchedAt": "2026-05-04T13:15+05:45"},
+    {"step": 6, "host": "immigration.gov.np", "url": "https://immigration.gov.np/page/notice", "method": "GET", "status": 200, "savedHtml": "data/rules.raw/immigration_gov_np_notices_20260504-1315.html", "fetchedAt": "2026-05-04T13:15+05:45"},
+    {"step": 7, "host": "immigration.gov.np", "url": "https://immigration.gov.np/contact", "method": "GET", "status": 200, "savedHtml": "data/rules.raw/immigration_gov_np_contact_20260504-1315.html", "fetchedAt": "2026-05-04T13:15+05:45"},
+    {"step": 8, "host": "immigration.gov.np", "url": "https://www.immigration.gov.np/en/page/information-for-indian-nationals-11", "method": "GET", "status": 200, "savedHtml": "data/rules.raw/immigration_gov_np_indian-nationals_20260504-1316.html", "fetchedAt": "2026-05-04T13:16+05:45", "note": "ONE OVER 6-page cap. Justification: this is the canonical India-specific page on the host. Visa-exemption page only covers diplomatic/official passports and contained no Indian-tourist information."},
+    {"step": 9, "host": "indembkathmandu.gov.in", "url": "https://www.indembkathmandu.gov.in/robots.txt", "method": "GET", "status": 200, "fetchedAt": "2026-05-04T13:14+05:45", "note": "User-agent: * Disallow: (empty) - all paths allowed."},
+    {"step": 10, "host": "indembkathmandu.gov.in", "url": "https://www.indembkathmandu.gov.in/", "method": "GET", "status": 200, "savedHtml": "data/rules.raw/indembkathmandu_20260504-1317.html", "fetchedAt": "2026-05-04T13:17+05:45"},
+    {"step": 11, "host": "indembkathmandu.gov.in", "url": "https://www.indembkathmandu.gov.in/contacts", "method": "GET", "status": "timeout-then-200", "savedHtml": "data/rules.raw/indembkathmandu_contacts_20260504-1319.html", "fetchedAt": "2026-05-04T13:19+05:45", "note": "First attempt timed out at 30s; succeeded on retry-1 (1s backoff) at 200 OK."},
+    {"step": 12, "host": "indembkathmandu.gov.in", "url": "https://www.indembkathmandu.gov.in/valid-travel-documents", "method": "GET", "status": 200, "savedHtml": "data/rules.raw/indembkathmandu_valid-travel-documents_20260504-1317.html", "fetchedAt": "2026-05-04T13:17+05:45"},
+    {"step": 13, "host": "indembkathmandu.gov.in", "url": "https://www.indembkathmandu.gov.in/entry-of-indian-registered-vehicles-in-nepal", "method": "GET", "status": 200, "savedHtml": "data/rules.raw/indembkathmandu_indian-vehicles_20260504-1317.html", "fetchedAt": "2026-05-04T13:17+05:45"},
+    {"step": 14, "host": "indembkathmandu.gov.in", "url": "https://www.indembkathmandu.gov.in/advisory-list", "method": "GET", "status": 200, "savedHtml": "data/rules.raw/indembkathmandu_advisory-list_20260504-1317.html", "fetchedAt": "2026-05-04T13:17+05:45"},
+    {"step": 15, "host": "indembkathmandu.gov.in", "url": "https://www.indembkathmandu.gov.in/registration", "method": "GET", "status": "timeout-then-200", "savedHtml": "data/rules.raw/indembkathmandu_registration_20260504-1319.html", "fetchedAt": "2026-05-04T13:19+05:45", "note": "First and second attempts timed out (30s, 45s); succeeded on retry-2 (3s backoff)."}
+  ],
+  "fetchSummary": {
+    "immigration_gov_np": {"requested": 7, "ok": 7, "notes": "1 fetch over 6-page cap, justified above."},
+    "indembkathmandu_gov_in": {"requested": 6, "ok": 6, "transientFailures": 2, "notes": "Both transient timeouts recovered on retry within the 1s/3s/9s backoff allowance."}
+  }
+}

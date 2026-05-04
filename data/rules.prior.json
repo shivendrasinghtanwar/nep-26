@@ -1,0 +1,35 @@
+{
+  "lastUpdated": "2026-05-04",
+  "verifyBefore": "2026-05-08",
+  "officialSources": [
+    { "label": "Nepal Department of Transport Management", "url": "https://www.dotm.gov.np/" },
+    { "label": "Nepal Customs", "url": "https://www.customs.gov.np/" },
+    { "label": "Nepal Department of Immigration", "url": "https://immigration.gov.np/" },
+    { "label": "Nepal Tourism Board (ACAP)", "url": "https://www.welcomenepal.com/" }
+  ],
+  "rules": [
+    { "category": "Identity",       "title": "Visa not required for Indians",           "detail": "Carry passport (preferred), Voter ID, or PAN/Aadhaar. Aadhaar alone is weak — pair with Voter ID." },
+    { "category": "Vehicle",        "title": "Bhansar (Customs) permit",                "detail": "Daily fee at border. Pay 2–3 buffer days beyond planned exit." },
+    { "category": "Vehicle",        "title": "Yatayat (Transport) permit",              "detail": "Separate from Bhansar. Same buffer logic." },
+    { "category": "Vehicle",        "title": "30-day cumulative cap (2026)",            "detail": "Indian vehicles capped at 30 cumulative days/year. Overstay = vehicle impoundment." },
+    { "category": "Vehicle",        "title": "Firm-registered SUV authorization",       "detail": "Authorization letter on firm letterhead stating personal-travel use is critical to avoid commercial slabs." },
+    { "category": "Customs",        "title": "Used personal electronics",               "detail": "Laptops/phones/cameras with prior-purchase invoices = exempt. Carry both MacBook invoices." },
+    { "category": "Customs",        "title": "New unboxed goods (NPR 100 rule)",        "detail": "New retail items may be assessed. Avoid carrying unopened electronics." },
+    { "category": "Driving",        "title": "Left-hand drive, lights ON in mountains", "detail": "Speed: 40 town / 60–80 highway / 30 switchbacks. Zero-tolerance on alcohol." },
+    { "category": "Fuel",           "title": "Mustang fuel scarcity",                   "detail": "Beni and Jomsom are the only reliable pumps en route to Muktinath. Top up at both." },
+    { "category": "Money",          "title": "INR notes",                               "detail": "INR 100/200/500 widely accepted; INR 2000 notes NOT accepted." },
+    { "category": "Connectivity",   "title": "NTC vs Ncell",                            "detail": "NTC = better Mustang coverage. Ncell = faster Pokhara speeds." },
+    { "category": "Insurance",      "title": "Indian policy doesn't cover Nepal",       "detail": "Buy Nepal-only third-party at the border, OR confirm rider with insurer." },
+    { "category": "Permits",        "title": "ACAP for Mustang region",                 "detail": "SAARC NPR 1,000/person. Issued at Pokhara NTB. Required beyond Beni." },
+    { "category": "Permits",        "title": "Lower Mustang vs Upper",                  "detail": "Jomsom/Kagbeni/Muktinath = Lower (open zone, ACAP only). Upper (Lo Manthang) = restricted USD 500/10d." },
+    { "category": "Altitude",       "title": "Muktinath at 3,800 m",                    "detail": "Acclimatise at Jomsom overnight. Diamox prophylaxis. Watch for ataxia/breathlessness — descend immediately if seen." },
+    { "category": "Restricted",     "title": "Drones and sat phones",                   "detail": "Drones rarely permitted. Sat phones banned without prior permit. Leave at home." }
+  ],
+  "emergencies": [
+    { "label": "Indian Embassy, Kathmandu", "phone": "+977-1-4410900" },
+    { "label": "Nepal Police",              "phone": "100" },
+    { "label": "Nepal Ambulance",           "phone": "102" },
+    { "label": "CIWEC Hospital, Kathmandu", "note": "Travel medicine specialist; Pokhara branch too." },
+    { "label": "Manipal Teaching Hospital, Pokhara", "note": "Large, English-speaking." }
+  ]
+}

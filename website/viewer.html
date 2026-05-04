@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Docs viewer — Nepal Workation 2026</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* viewer-specific styles */
+  .viewer-shell { display: grid; grid-template-columns: 280px 1fr; gap: 28px; max-width: 1180px; margin: 0 auto; padding: 24px 28px 80px; }
+  aside.toc { position: sticky; top: 80px; align-self: start; max-height: calc(100vh - 100px); overflow: auto; padding-right: 8px; }
+  aside.toc h3 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-mute); margin: 18px 0 8px; }
+  aside.toc h3:first-child { margin-top: 0; }
+  aside.toc a { display: block; padding: 6px 10px; border-radius: 6px; font-size: 13px; color: var(--ink-soft); }
+  aside.toc a:hover { background: rgba(31, 77, 107, 0.07); text-decoration: none; }
+  aside.toc a.active { background: var(--accent-2); color: #fff; font-weight: 500; }
+  aside.toc .pathnote { font-size: 10px; color: var(--ink-mute); padding-left: 10px; margin-bottom: 6px; font-family: 'Menlo', 'Consolas', monospace; }
+
+  article.md {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 36px 44px;
+    box-shadow: var(--shadow);
+    line-height: 1.65;
+  }
+  article.md h1 { font-size: 30px; margin: 0 0 14px; letter-spacing: -0.02em; }
+  article.md h2 { font-size: 22px; margin: 32px 0 10px; letter-spacing: -0.01em; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+  article.md h3 { font-size: 17px; margin: 24px 0 8px; }
+  article.md h4 { font-size: 15px; margin: 20px 0 6px; color: var(--ink-soft); }
+  article.md p, article.md li { font-size: 14.5px; }
+  article.md p { margin: 10px 0; }
+  article.md ul, article.md ol { padding-left: 24px; margin: 10px 0; }
+  article.md li { margin: 4px 0; }
+  article.md li > input[type="checkbox"] { margin-right: 6px; transform: scale(1.05); accent-color: var(--accent); }
+  article.md a { color: var(--accent-2); border-bottom: 1px dotted var(--accent-2); }
+  article.md a:hover { text-decoration: none; border-bottom-style: solid; }
+  article.md code {
+    background: #f3ecdb; border-radius: 4px; padding: 1px 6px;
+    font-family: 'Menlo', 'Consolas', monospace; font-size: 13px;
+  }
+  article.md pre {
+    background: #1c2434; color: #f7f3ec; border-radius: 8px;
+    padding: 14px 18px; overflow-x: auto; margin: 14px 0;
+    font-family: 'Menlo', 'Consolas', monospace; font-size: 12.5px; line-height: 1.5;
+  }
+  article.md pre code { background: transparent; padding: 0; color: inherit; }
+  article.md table { border-collapse: collapse; margin: 14px 0; width: 100%; font-size: 13.5px; }
+  article.md th, article.md td { border: 1px solid var(--line); padding: 8px 12px; text-align: left; vertical-align: top; }
+  article.md th { background: #f3ecdb; font-weight: 600; }
+  article.md blockquote {
+    border-left: 4px solid var(--accent); margin: 14px 0; padding: 6px 16px;
+    background: #fff7e6; color: #5a4818; border-radius: 4px;
+  }
+  article.md hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
+  article.md img { max-width: 100%; border-radius: 6px; }
+
+  .doc-meta {
+    display: flex; gap: 14px; align-items: center; margin-bottom: 18px;
+    color: var(--ink-mute); font-size: 12px; flex-wrap: wrap;
+  }
+  .doc-meta code { background: #f3ecdb; border-radius: 4px; padding: 2px 8px; }
+  .doc-meta a { color: var(--accent-2); }
+
+  .empty { text-align: center; color: var(--ink-mute); padding: 60px 20px; }
+
+  @media (max-width: 800px) {
+    .viewer-shell { grid-template-columns: 1fr; }
+    aside.toc { position: static; max-height: none; }
+    article.md { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <div class="brand">
+      <span class="title">Nepal Workation 2026</span>
+      <span class="sub">Bikaner → Pokhara → Muktinath · 9–23 May</span>
+    </div>
+    <nav>
+      <a href="index.html">Overview</a>
+      <a href="itinerary.html">Itinerary</a>
+      <a href="checklist.html">Checklist</a>
+      <a href="rules.html">Rules</a>
+      <a href="route.html">Route</a>
+      <a href="folders.html">Files</a>
+    </nav>
+  </div>
+</header>
+
+<div class="viewer-shell">
+  <aside class="toc" id="toc"></aside>
+  <article class="md" id="md">
+    <p class="empty">Loading…</p>
+  </article>
+</div>
+
+<footer class="site">
+  Markdown rendered locally with <a href="https://marked.js.org/" target="_blank">marked</a>. Source files in
+  <code>docs/</code>, <code>plans/</code>, and <code>claude-code/</code>.
+</footer>
+
+<script src="js/vendor/marked.umd.js"></script>
+<script src="js/docs.js"></script>
+<script>
+  // Configure marked: enable GitHub-flavoured tables + task lists, breaks off.
+  marked.setOptions({ gfm: true, breaks: false });
+  // Render GFM-style task list checkboxes as actual checkboxes.
+  const renderer = new marked.Renderer();
+  const origListItem = renderer.listitem.bind(renderer);
+  renderer.listitem = function(text, task, checked) {
+    if (task) {
+      return `<li>${checked ? '<input type="checkbox" disabled checked>' : '<input type="checkbox" disabled>'} ${text}</li>`;
+    }
+    return origListItem(text, task, checked);
+  };
+
+  function getQueryFile() {
+    const u = new URL(location.href);
+    return u.searchParams.get("file");
+  }
+
+  function buildToc(activePath) {
+    const target = document.getElementById("toc");
+    if (!window.DOC_INDEX) { target.innerHTML = "<p class='empty'>docs.js missing — run <code>python3 website/build.py</code></p>"; return; }
+    const html = window.DOC_INDEX.map(([label, items]) => {
+      if (!items.length) return "";
+      const links = items.map(it => `
+        <a href="?file=${encodeURIComponent(it.path)}" class="${it.path === activePath ? 'active' : ''}">${it.title}</a>
+        <div class="pathnote">${it.path}</div>
+      `).join("");
+      return `<h3>${label}</h3>${links}`;
+    }).join("");
+    target.innerHTML = html;
+  }
+
+  function renderDoc(path) {
+    const md = document.getElementById("md");
+    if (!path) {
+      md.innerHTML = `
+        <h1>Docs viewer</h1>
+        <p>Pick a file from the left to read it formatted.</p>
+        <p class="muted">All <code>.md</code> files in <code>docs/</code>, <code>plans/</code>, and <code>claude-code/</code> are bundled into this site at build time. Edit the source files in your editor; rerun <code>python3 website/build.py</code> to refresh this viewer.</p>
+      `;
+      return;
+    }
+    const content = (window.DOCS || {})[path];
+    if (content == null) {
+      md.innerHTML = `
+        <h1>Not found</h1>
+        <p>No document at <code>${path}</code> in the bundle.</p>
+        <p class="muted">If you just created or edited a file, run <code>python3 website/build.py</code> to rebuild <code>docs.js</code>.</p>
+      `;
+      return;
+    }
+    md.innerHTML = `
+      <div class="doc-meta">
+        <span>📄 <code>${path}</code></span>
+        <span>·</span>
+        <span>${(content.length/1024).toFixed(1)} KB</span>
+        <span>·</span>
+        <span>${content.split('\n').length} lines</span>
+      </div>
+      ${marked.parse(content, { renderer })}
+    `;
+  }
+
+  const path = getQueryFile();
+  buildToc(path);
+  renderDoc(path);
+</script>
+</body>
+</html>

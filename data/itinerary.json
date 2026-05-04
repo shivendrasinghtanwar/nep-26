@@ -1,0 +1,27 @@
+{
+  "trip": {
+    "name": "Nepal Workation 2026",
+    "depart": "2026-05-09",
+    "return": "2026-05-23",
+    "nights": 14,
+    "travellers": 2,
+    "vehicle": "Mahindra Thar Roxx (Thar Digital Services)"
+  },
+  "days": [
+    { "day": 1, "date": "2026-05-09", "weekday": "Sat", "leg": "Bikaner → Noida",                          "km": 610, "hours": "9–10",  "halt": "Noida",            "type": "drive",      "note": "Early start 5 AM. NH11 + Western Peripheral Expressway." },
+    { "day": 2, "date": "2026-05-10", "weekday": "Sun", "leg": "Noida → Gorakhpur",                        "km": 720, "hours": "10–11", "halt": "Gorakhpur",        "type": "drive",      "note": "Yamuna + Agra-Lucknow + Purvanchal + Gorakhpur Link." },
+    { "day": 3, "date": "2026-05-11", "weekday": "Mon", "leg": "Gorakhpur → Sunauli → Bhairahawa",         "km": 120, "hours": "4–5",   "halt": "Bhairahawa",       "type": "border",     "note": "Bhansar + Yatayat + SIM. Light Lumbini if time. Evening work." },
+    { "day": 4, "date": "2026-05-12", "weekday": "Tue", "leg": "Bhairahawa → Pokhara",                     "km": 190, "hours": "6–7",   "halt": "Pokhara",          "type": "drive",      "note": "Smooth highway. Half work day on arrival." },
+    { "day": 5, "date": "2026-05-13", "weekday": "Wed", "leg": "Pokhara — work day",                       "km": 0,   "hours": "—",     "halt": "Pokhara",          "type": "work",       "note": "Buy ACAP online (epermit.ntnc.org.np) OR at Pokhara counter — at-checkpost surcharge is DOUBLE. Lakeside dinner." },
+    { "day": 6, "date": "2026-05-14", "weekday": "Thu", "leg": "Pokhara → Beni / Tatopani",                "km": 85,  "hours": "4–5",   "halt": "Beni / Tatopani",  "type": "acclimatise","note": "Half work morning. Hot spring evening." },
+    { "day": 7, "date": "2026-05-15", "weekday": "Fri", "leg": "Beni → Jomsom (4×4)",                      "km": 75,  "hours": "5–6",   "halt": "Jomsom",           "type": "offroad",    "note": "The real test. 4WD-Low. Sleep at 2,700 m to acclimatise." },
+    { "day": 8, "date": "2026-05-16", "weekday": "Sat", "leg": "Jomsom → Muktinath darshan → Jomsom",      "km": 40,  "hours": "3–4",   "halt": "Jomsom",           "type": "darshan",    "note": "Pre-dawn start. No work today." },
+    { "day": 9, "date": "2026-05-17", "weekday": "Sun", "leg": "Jomsom → Pokhara",                         "km": 160, "hours": "7–8",   "halt": "Pokhara",          "type": "drive",      "note": "Long descent. Recover." },
+    { "day": 10,"date": "2026-05-18", "weekday": "Mon", "leg": "Pokhara — work day",                       "km": 0,   "hours": "—",     "halt": "Pokhara",          "type": "work",       "note": "Lakeside cafe with fibre." },
+    { "day": 11,"date": "2026-05-19", "weekday": "Tue", "leg": "Pokhara — work + leisure",                 "km": 0,   "hours": "—",     "halt": "Pokhara",          "type": "leisure",    "note": "Sarangkot sunrise / Davis Falls / boating." },
+    { "day": 12,"date": "2026-05-20", "weekday": "Wed", "leg": "Pokhara — work day",                       "km": 0,   "hours": "—",     "halt": "Pokhara",          "type": "work",       "note": "Pre-departure laundry, doc review." },
+    { "day": 13,"date": "2026-05-21", "weekday": "Thu", "leg": "Pokhara → Bhairahawa",                     "km": 190, "hours": "6–7",   "halt": "Bhairahawa",       "type": "drive",      "note": "Surrender ACAP. Final Lumbini visit." },
+    { "day": 14,"date": "2026-05-22", "weekday": "Fri", "leg": "Bhairahawa → Sunauli exit → Lucknow",      "km": 470, "hours": "9–10",  "halt": "Lucknow",          "type": "border",     "note": "Surrender Bhansar + Yatayat. Get exit stamp." },
+    { "day": 15,"date": "2026-05-23", "weekday": "Sat", "leg": "Lucknow → Bikaner",                        "km": 830, "hours": "11–12", "halt": "Home",             "type": "drive",      "note": "Long final day. Optional split via Agra." }
+  ]
+}

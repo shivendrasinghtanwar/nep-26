@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Trail Comms · Field Dispatch · Nepal 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="css/rugged.css">
+
+  <!-- Page-local "field-radio dispatch" overrides.
+       rugged.css is read-only this turn; everything below either layers on
+       top of an existing class or introduces a new one (rack-*, kp-*, etc.). -->
+  <style>
+    /* phosphor-amber accent reused locally */
+    :root {
+      --phosphor: #e8b13a;
+      --phosphor-dim: #8a6420;
+      --phosphor-glow: rgba(232,177,58,0.55);
+      --metal-1: #2a323f;
+      --metal-2: #1a2030;
+      --metal-3: #3a4458;
+      --led-on: #6dccaa;
+      --led-warn: #e8b13a;
+    }
+
+    /* ---------- Rack-mount unit (wraps the existing .panel) ---------- */
+    .rack {
+      position: relative;
+      border-radius: 12px;
+      padding: 0;
+      margin-bottom: 18px;
+      background:
+        linear-gradient(180deg, #2d3545 0%, #1c2334 6%, #1c2334 94%, #0f1623 100%);
+      border: 1px solid #0a0f1a;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.04) inset,
+        0 18px 38px rgba(0,0,0,0.55),
+        0 1px 0 rgba(255,255,255,0.06) inset;
+    }
+    /* corner rivets */
+    .rack::before, .rack::after,
+    .rack > .rivet-bl, .rack > .rivet-br {
+      content: '';
+      position: absolute;
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #6a7588 0%, #2a313e 60%, #0a0f1a 100%);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 1px rgba(0,0,0,0.6);
+      z-index: 4;
+    }
+    .rack::before { top: 8px;  left: 10px; }
+    .rack::after  { top: 8px;  right: 10px; }
+    .rack > .rivet-bl { bottom: 8px; left: 10px; }
+    .rack > .rivet-br { bottom: 8px; right: 10px; }
+
+    /* brushed-metal header strip */
+    .rack-strip {
+      display: grid;
+      grid-template-columns: auto 1fr auto auto;
+      align-items: center;
+      gap: 14px;
+      padding: 10px 36px;
+      background:
+        repeating-linear-gradient(90deg,
+          rgba(255,255,255,0.045) 0 1px,
+          transparent 1px 3px),
+        linear-gradient(180deg, #3a4458 0%, #2a323f 50%, #1d2433 100%);
+      border-bottom: 1px solid #0a0f1a;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset;
+      font-family: var(--font-mono);
+      color: var(--cream);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-size: 10.5px;
+    }
+    .rack-strip .led {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--led-on);
+      box-shadow: 0 0 8px var(--led-on), 0 0 14px rgba(109,204,170,0.5), inset 0 -1px 1px rgba(0,0,0,0.4);
+      animation: kp-blink 1.6s steps(2,end) infinite;
+    }
+    @keyframes kp-blink {
+      0%, 70%   { opacity: 1; }
+      75%, 100% { opacity: 0.35; }
+    }
+    .rack-strip .ch {
+      color: var(--phosphor);
+      text-shadow: 0 0 8px var(--phosphor-glow);
+    }
+    .rack-strip .freq, .rack-strip .uptime {
+      font-weight: 600;
+      color: var(--cream);
+      letter-spacing: 0.16em;
+      font-size: 10.5px;
+      padding: 3px 8px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 3px;
+      background: linear-gradient(180deg, #0e1726 0%, #0a1322 100%);
+      box-shadow: inset 0 0 6px rgba(232,177,58,0.18);
+      color: var(--phosphor);
+      text-shadow: 0 0 6px var(--phosphor-glow);
+    }
+    .rack-strip .icon {
+      width: 14px; height: 14px;
+      color: var(--phosphor);
+      filter: drop-shadow(0 0 4px var(--phosphor-glow));
+    }
+    @media (max-width: 720px) {
+      .rack-strip {
+        grid-template-columns: auto 1fr auto;
+        gap: 8px;
+        padding: 9px 24px;
+        font-size: 9.5px;
+      }
+      .rack-strip .freq { display: none; }
+    }
+
+    /* the existing .panel sits inside .rack */
+    .rack .panel {
+      border-radius: 0 0 11px 11px;
+      border-color: transparent;
+      box-shadow: none;
+      background: linear-gradient(180deg, #0d1726 0%, #0a1322 100%);
+    }
+    .rack .panel::before, .rack .panel::after { display: none; }
+
+    /* ---------- Voice-radio chat bubbles ---------- */
+    /* each bubble gets a callsign prefix block + faint scan-lines */
+    .bubble {
+      position: relative;
+      overflow: hidden;
+    }
+    .bubble::after {
+      /* scan-lines */
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        repeating-linear-gradient(0deg,
+          rgba(255,255,255,0.022) 0 1px,
+          transparent 1px 3px);
+      mix-blend-mode: screen;
+      opacity: 0.5;
+    }
+    .kp-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+      border: 1px solid currentColor;
+      background: rgba(0,0,0,0.25);
+    }
+    .bubble-system    .kp-tag { color: var(--phosphor); }
+    .bubble-assistant .kp-tag { color: var(--phosphor); text-shadow: 0 0 6px var(--phosphor-glow); }
+    .bubble-user      .kp-tag { color: var(--rust); }
+
+    /* stamp mini-callsign in the small left margin too */
+    .kp-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .kp-meta .kp-time {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      color: var(--cream-dim);
+      letter-spacing: 0.14em;
+    }
+
+    /* assistant body uses mono "typewriter" face for the live-typed text */
+    .kp-stream {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--cream);
+      letter-spacing: 0.01em;
+      white-space: pre-wrap;
+      min-height: 1.2em;
+    }
+    .kp-stream::after {
+      content: '▍';
+      color: var(--phosphor);
+      animation: kp-caret 1s steps(2,end) infinite;
+      margin-left: 1px;
+    }
+    .kp-stream.kp-done::after { content: ''; }
+    @keyframes kp-caret { 50% { opacity: 0; } }
+
+    /* ---------- Stencil rocker-switch chips (override base .chip look) ---------- */
+    #chips { gap: 8px; }
+    .chip {
+      border-style: dashed !important;
+      border-color: rgba(232,177,58,0.45) !important;
+      color: var(--phosphor) !important;
+      background:
+        linear-gradient(180deg, rgba(232,177,58,0.05), rgba(232,177,58,0.0)) !important;
+      box-shadow:
+        0 2px 0 rgba(0,0,0,0.55),
+        inset 0 1px 0 rgba(255,255,255,0.04) !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.14em !important;
+      font-size: 10px !important;
+      padding: 7px 11px !important;
+      transition: transform 140ms ease-out, box-shadow 160ms, border-color 160ms, color 160ms !important;
+    }
+    .chip::before {
+      content: '◉';
+      margin-right: 6px;
+      color: var(--phosphor);
+      opacity: 0.55;
+      font-size: 9px;
+    }
+    .chip:hover {
+      transform: translateY(-2px) !important;
+      color: var(--cream) !important;
+      border-color: var(--phosphor) !important;
+      background:
+        linear-gradient(180deg, rgba(232,177,58,0.14), rgba(232,177,58,0.04)) !important;
+      box-shadow:
+        0 4px 0 rgba(0,0,0,0.6),
+        0 0 12px rgba(232,177,58,0.25),
+        inset 0 1px 0 rgba(255,255,255,0.06) !important;
+    }
+    .chip:active {
+      transform: translateY(0) !important;
+      box-shadow:
+        0 1px 0 rgba(0,0,0,0.6),
+        inset 0 1px 2px rgba(0,0,0,0.5) !important;
+    }
+
+    /* ---------- Sticky composer w/ top fade ---------- */
+    .kp-composer-wrap {
+      position: sticky;
+      bottom: 0;
+      padding: 18px 14px 14px;
+      background: linear-gradient(180deg,
+        rgba(13,23,38,0) 0%,
+        rgba(13,23,38,0.85) 30%,
+        rgba(10,19,34,1) 70%);
+      border-top: 1px dashed rgba(232,177,58,0.18);
+      z-index: 2;
+    }
+    .kp-composer-wrap::before {
+      /* extra 16px soft fade above the pad */
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      top: -22px; height: 22px;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(13,23,38,0), rgba(13,23,38,0.95));
+    }
+
+    #send {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    #send .icon { width: 14px; height: 14px; }
+
+    /* ---------- Footer STATUS BAND ---------- */
+    .status-band {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      margin-top: 18px;
+      background: var(--line-soft);
+      border: 1px solid var(--line);
+      border-radius: var(--r-sm);
+      overflow: hidden;
+      font-family: var(--font-mono);
+    }
+    .status-band .tile {
+      background: linear-gradient(180deg, #0e1726 0%, #0a1322 100%);
+      padding: 10px 12px;
+      position: relative;
+    }
+    .status-band .tile .tk {
+      font-size: 9px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      margin-bottom: 4px;
+    }
+    .status-band .tile .tv {
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      color: var(--phosphor);
+      text-shadow: 0 0 6px var(--phosphor-glow);
+      font-weight: 600;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .status-band .tile .tv .sep { color: var(--cream-dim); opacity: 0.4; }
+    .status-band .tile .tv .ofc { color: var(--aurora); }
+    .status-band .tile .tv .cor { color: var(--flag-yellow); }
+    .status-band .tile .tv .inf { color: var(--flag-red); }
+    .status-band .tile .tv kbd {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      padding: 1px 5px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      border-radius: 2px;
+      color: var(--cream);
+    }
+    @media (max-width: 720px) {
+      .status-band { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ---------- Make user bubbles align right and stay readable ---------- */
+    .bubble-user .kp-tag { background: rgba(200,85,42,0.12); }
+
+    /* nudge transcript so the rack-strip + sticky composer feel right */
+    #transcript {
+      padding-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <!-- 1. Hero band — kept verbatim from the previous version -->
+    <svg class="hero-mtn" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="sky-fade" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#0a1424" stop-opacity="0"/>
+          <stop offset="100%" stop-color="#0a1424" stop-opacity="0.9"/>
+        </linearGradient>
+      </defs>
+      <path d="M0,220 L0,140 L100,90 L200,110 L300,60 L400,90 L500,40 L600,70 L700,30 L800,80 L900,50 L1000,90 L1100,60 L1200,80 L1200,220 Z" fill="#162338" opacity="0.85"/>
+      <path d="M0,220 L0,160 L80,130 L180,150 L260,110 L360,135 L460,100 L540,130 L640,95 L740,135 L840,110 L920,140 L1020,115 L1120,150 L1200,130 L1200,220 Z" fill="#1b2a44" opacity="0.95"/>
+      <path d="M0,220 L0,180 L60,160 L160,180 L240,150 L340,180 L440,160 L540,185 L640,165 L740,190 L840,170 L940,195 L1040,180 L1140,200 L1200,185 L1200,220 Z" fill="#243044"/>
+      <path d="M500,40 L494,52 L506,52 Z M700,30 L692,44 L708,44 Z" fill="#ece5d3" opacity="0.55"/>
+      <rect x="0" y="0" width="1200" height="220" fill="url(#sky-fade)"/>
+    </svg>
+
+    <!-- 2. Stencil header — kept eyebrow / accented h1 / sep-pill sub-line -->
+    <header class="trail-header">
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 64 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3,26 L3,18 L9,18 L13,10 L25,10 L27,15 L46,15 L49,10 L57,10 L60,18 L61,18 L61,26 Z"/>
+          <circle cx="14" cy="26" r="4" fill="currentColor" fill-opacity="0.15"/>
+          <circle cx="50" cy="26" r="4" fill="currentColor" fill-opacity="0.15"/>
+          <circle cx="14" cy="26" r="2"/>
+          <circle cx="50" cy="26" r="2"/>
+          <path d="M27,15 L27,10" stroke-opacity="0.5"/>
+          <path d="M46,15 L46,10" stroke-opacity="0.5"/>
+        </svg>
+      </div>
+      <div class="wordmark">
+        <span class="eyebrow"><i data-lucide="radio" class="icon icon-sm" style="display:inline-block;vertical-align:-2px;margin-right:6px"></i>Field channel · Dispatch console · 24×7</span>
+        <h1>Trail&nbsp;<span class="accent">Comms</span></h1>
+        <div class="sub">
+          <span><b>Nepal</b> 2026</span><span class="sep">//</span>
+          <span><b>14</b> nights</span><span class="sep">//</span>
+          <span><b>4,410</b> km RT</span><span class="sep">//</span>
+          <span>Bikaner ↔ Muktinath</span>
+        </div>
+      </div>
+      <a class="back" href="index.html"><i data-lucide="chevron-left" class="icon"></i><span>Base</span></a>
+    </header>
+
+    <section class="stat-strip" aria-label="Trip vitals" data-aos="fade-up">
+      <div class="stat accent"><div class="k">T-minus</div><div class="v"><span data-countdown>—</span><span class="u">d</span></div></div>
+      <div class="stat"><div class="k">Depart</div><div class="v">May&nbsp;09</div></div>
+      <div class="stat"><div class="k">Return</div><div class="v">May&nbsp;23</div></div>
+      <div class="stat"><div class="k">Rig</div><div class="v">Thar Roxx</div></div>
+      <div class="stat"><div class="k">Permit days</div><div class="v">18<span class="u">/30</span></div></div>
+      <div class="stat"><div class="k">Peak</div><div class="v">3,800<span class="u">m</span></div></div>
+    </section>
+
+    <!-- 3. Rack-mount unit — brushed-metal strip wraps the .panel -->
+    <section class="rack" aria-label="Travel manager · radio dispatch" data-aos="fade-up" data-aos-delay="100">
+      <span class="rivet-bl"></span><span class="rivet-br"></span>
+
+      <div class="rack-strip">
+        <span class="led" aria-hidden="true"></span>
+        <span><i data-lucide="radio-tower" class="icon" style="vertical-align:-2px;margin-right:6px"></i><span class="ch">Channel 1 · Open · Offline-safe</span></span>
+        <span class="freq" id="kp-freq">2026.05.04 · 145.500 MHz</span>
+        <span class="uptime" id="kp-uptime" title="Session uptime">T+00:00:00</span>
+      </div>
+
+      <div class="panel" role="group">
+        <header class="panel-h">
+          <i data-lucide="signal" class="icon"></i>
+          <span class="dot"></span>
+          <span>Trail manager · Kathmandu Post relay</span>
+        </header>
+
+        <div id="transcript" role="log" aria-live="polite"></div>
+
+        <!-- 6. Sticky composer with top-fade -->
+        <div class="kp-composer-wrap">
+          <div class="composer">
+            <input id="input" type="text" placeholder='Press / · ask anything — "How much cash?" "Embassy phone?" "Day 8 plan?"' autocomplete="off">
+            <button id="send" type="button">
+              <i data-lucide="send-horizontal" class="icon"></i>
+              <span>Send</span>
+            </button>
+          </div>
+          <div id="chips" aria-label="Suggested questions"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Footer STATUS BAND -->
+    <section class="status-band" id="kp-status" aria-label="Source confidence">
+      <div class="tile">
+        <div class="tk">Confidence</div>
+        <div class="tv">
+          <span class="ofc" id="kp-ofc">— ofc</span><span class="sep">/</span>
+          <span class="cor" id="kp-cor">— cor</span><span class="sep">/</span>
+          <span class="inf" id="kp-inf">— inf</span>
+        </div>
+      </div>
+      <div class="tile">
+        <div class="tk">Last update</div>
+        <div class="tv" id="kp-last">—</div>
+      </div>
+      <div class="tile">
+        <div class="tk">Sources</div>
+        <div class="tv" id="kp-srcs">—</div>
+      </div>
+      <div class="tile">
+        <div class="tk">Shortcut</div>
+        <div class="tv">Press <kbd>/</kbd> to focus</div>
+      </div>
+    </section>
+
+    <p class="footnote">
+      Answers come from <code>/data/rules.json</code>, <code>/data/route.json</code>, <code>/data/itinerary.json</code>, <code>/data/checklist.json</code>.
+      All sourced; confidence per fact (<span style="color:var(--aurora)">official</span> ·
+      <span style="color:var(--flag-yellow)">corroborated</span> ·
+      <span style="color:var(--flag-red)">inferred</span>).
+      No network call from this page. Re-verify on <strong style="color:var(--cream)">2026-05-08</strong>.
+      <a href="../docs/RULES_CHANGE_REPORT.md">Change report</a> · <a href="map.html">Map</a> · <a href="gallery.html">Gallery</a>.
+    </p>
+  </main>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/data.js"></script>
+  <script src="js/route-data.js"></script>
+  <script src="js/enhance.js"></script>
+  <script src="js/agent.js"></script>
+</body>
+</html>

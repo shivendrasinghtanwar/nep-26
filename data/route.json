@@ -1,0 +1,48 @@
+{
+  "lastUpdated": "2026-05-04",
+  "beniJomsom": {
+    "recommendation": "DRIVE",
+    "asOf": "2026-05-04",
+    "headline": "Open with one-way regulation at the Jalathale (Myagdi) pinch-point. April–May–June is the cited best window.",
+    "concerns": [
+      {
+        "title": "Pre-monsoon landslides on a hair-trigger",
+        "detail": "Multiple Nepal highways currently fully blocked from rain-triggered slips; Beni–Jomsom one-way at Jalathale and could degrade with little notice.",
+        "source": "Himalaya Times, 2026-05-03"
+      },
+      {
+        "title": "Sirubari chronic landslide zone",
+        "detail": "Raghugunga Mun.-2, Myagdi — three straight monsoons of near-daily blockage; mitigation (benching) in progress but unfinished. Expect rolling holds even on a 'good' day.",
+        "source": "Himal Press, 2026-03-25"
+      },
+      {
+        "title": "Residual snowmelt / rockfall on Muktinath approach",
+        "detail": "Sixth snowfall of an unusually wet season hit Muktinath on 2026-04-05; matters for Day 8 Jomsom→Muktinath switchbacks.",
+        "source": "Khabarhub, 2026-04-05"
+      }
+    ],
+    "verifyOn": "2026-05-13 in Pokhara",
+    "verifyChecks": [
+      "Walk into NTB Pokhara",
+      "Phone Ghasa Police Post",
+      "Check Tara/Summit Pokhara–Jomsom flight status as backup"
+    ]
+  },
+  "waypoints": [
+    { "id": "bikaner",     "name": "Bikaner",                      "lat": 28.0229, "lng": 73.3119, "kind": "origin",   "day": 1,  "type": "drive" },
+    { "id": "noida",       "name": "Noida (overnight)",            "lat": 28.5355, "lng": 77.3910, "kind": "halt",     "day": 1,  "type": "drive" },
+    { "id": "gorakhpur",   "name": "Gorakhpur (overnight)",        "lat": 26.7606, "lng": 83.3732, "kind": "halt",     "day": 2,  "type": "drive" },
+    { "id": "sunauli",     "name": "Sunauli — border crossing",    "lat": 27.5021, "lng": 83.4505, "kind": "border",   "day": 3,  "type": "border" },
+    { "id": "bhairahawa",  "name": "Bhairahawa / Lumbini",          "lat": 27.5105, "lng": 83.4520, "kind": "halt",     "day": 3,  "type": "border" },
+    { "id": "pokhara",     "name": "Pokhara (workation base)",     "lat": 28.2096, "lng": 83.9856, "kind": "base",     "day": 4,  "type": "work" },
+    { "id": "beni",        "name": "Beni — fuel up",               "lat": 28.3499, "lng": 83.5683, "kind": "fuel",     "day": 7,  "type": "drive" },
+    { "id": "tatopani",    "name": "Tatopani",                     "lat": 28.4926, "lng": 83.6438, "kind": "passthru", "day": 7,  "type": "drive" },
+    { "id": "ghasa",       "name": "Ghasa — ACAP check-post",       "lat": 28.6427, "lng": 83.6502, "kind": "permit",   "day": 7,  "type": "drive" },
+    { "id": "jomsom",      "name": "Jomsom (acclimatise + fuel)",  "lat": 28.7818, "lng": 83.7240, "kind": "fuel",     "day": 7,  "type": "acclimatise" },
+    { "id": "kagbeni",     "name": "Kagbeni (Lower Mustang gate)", "lat": 28.8378, "lng": 83.7748, "kind": "passthru", "day": 8,  "type": "darshan" },
+    { "id": "muktinath",   "name": "Muktinath darshan (3,800 m)",  "lat": 28.8167, "lng": 83.8736, "kind": "darshan",  "day": 8,  "type": "darshan" },
+    { "id": "ktm-embassy", "name": "Indian Embassy Kathmandu",     "lat": 27.7099, "lng": 85.3171, "kind": "embassy",  "type": "reference" },
+    { "id": "manipal",     "name": "Manipal Teaching Hospital",    "lat": 28.2225, "lng": 83.9892, "kind": "hospital", "type": "reference" },
+    { "id": "ciwec",       "name": "CIWEC Pokhara",                "lat": 28.2096, "lng": 83.9772, "kind": "hospital", "type": "reference" }
+  ]
+}
