@@ -229,18 +229,23 @@ const PRESETS = {
   'Stays':               ['halt', 'base'],
 }
 
-// ── Elevation profile (SVG; same maths as map.js) ─────────────────────────
+// ── Elevation profile (SVG, redesigned with bands + waypoints + reveal) ───
+const KEY_WAYPOINTS = new Set(['Bikaner', 'Sunauli', 'Pokhara', 'Beni', 'Jomsom', 'Kagbeni', 'Muktinath', 'Lucknow'])
+
 function ElevationProfile() {
   const [readout, setReadout] = useState(null)
   const [hover, setHover] = useState(null)
+  const [revealed, setRevealed] = useState(false)
   const svgRef = useRef(null)
+  const pathRef = useRef(null)
 
-  const W = 220, H = 220
-  const PAD_L = 28, PAD_R = 8, PAD_T = 14, PAD_B = 22
+  // Wide viewBox for proper proportions; SVG auto-scales width via CSS
+  const W = 1400, H = 320
+  const PAD_L = 64, PAD_R = 28, PAD_T = 36, PAD_B = 56
   const innerW = W - PAD_L - PAD_R
   const innerH = H - PAD_T - PAD_B
   const maxKm = ELEV_NODES[ELEV_NODES.length - 1].km
-  const maxM = 4000
+  const maxM = 4200
   const minM = 0
   const xFor = (km) => PAD_L + (km / maxKm) * innerW
   const yFor = (m)  => PAD_T + innerH - ((m - minM) / (maxM - minM)) * innerH
@@ -250,7 +255,19 @@ function ElevationProfile() {
   const fillPath = `${linePath} L${pts[pts.length-1][0].toFixed(2)},${(PAD_T + innerH).toFixed(2)} L${pts[0][0].toFixed(2)},${(PAD_T + innerH).toFixed(2)} Z`
 
   const yTicks = [0, 1000, 2000, 3000, 4000]
-  const xTickKm = [0, 1000, 2000, 3000].filter((k) => k <= maxKm)
+  const xTickKm = [0, 500, 1000, 1500, 2000, 2500, 3000, 3500].filter((k) => k <= maxKm)
+
+  // Altitude bands — shaded by terrain category
+  const bands = [
+    { from: 0,    to: 1000, color: PAL.glacier, label: 'LOWLAND',  opacity: 0.06 },
+    { from: 1000, to: 2500, color: PAL.dust,    label: 'HILL',     opacity: 0.08 },
+    { from: 2500, to: 3500, color: PAL.rust,    label: 'MOUNTAIN', opacity: 0.10 },
+    { from: 3500, to: maxM, color: PAL.flagRed, label: 'EXTREME',  opacity: 0.12 },
+  ]
+
+  // Named waypoints along the curve (de-duplicated outbound positions)
+  const named = ELEV_NODES.filter((n, i) => KEY_WAYPOINTS.has(n.name) &&
+    ELEV_NODES.findIndex((m) => m.name === n.name) === i)
 
   const peak = ELEV_NODES.find((n) => n.name === 'Muktinath')
   const px = xFor(peak.km), py = yFor(peak.m)
@@ -293,11 +310,26 @@ function ElevationProfile() {
     setReadout(null)
   }
 
+  // Animated reveal on mount — stroke draw + section fade
+  useEffect(() => {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduced) { setRevealed(true); return }
+    const id = requestAnimationFrame(() => setRevealed(true))
+    return () => cancelAnimationFrame(id)
+  }, [])
+
   return (
     <aside className="elev-panel" aria-label="Elevation profile">
       <div className="elev-head">
-        <span className="title">Elevation</span>
-        <span>m / km</span>
+        <span className="title">Elevation profile · Bikaner ↔ Muktinath</span>
+        <span style={{ display: 'flex', gap: 14, alignItems: 'center', flexWrap: 'wrap' }}>
+          {bands.map((b) => (
+            <span key={b.label} style={{ display: 'inline-flex', alignItems: 'center', gap: 5, fontSize: 9 }}>
+              <span style={{ width: 10, height: 10, borderRadius: 2, background: b.color, opacity: 0.7 }} />
+              {b.label}
+            </span>
+          ))}
+        </span>
       </div>
       <svg
         ref={svgRef}
@@ -312,49 +344,124 @@ function ElevationProfile() {
       >
         <defs>
           <linearGradient id="elev-fill" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0%" stopColor={PAL.dust} stopOpacity="0.45"/>
+            <stop offset="0%" stopColor={PAL.dust} stopOpacity="0.55"/>
+            <stop offset="60%" stopColor={PAL.dust} stopOpacity="0.18"/>
             <stop offset="100%" stopColor={PAL.dust} stopOpacity="0.02"/>
           </linearGradient>
-          <filter id="elev-glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="1.4" result="b"/>
+          <filter id="elev-glow" x="-10%" y="-10%" width="120%" height="120%">
+            <feGaussianBlur stdDeviation="2.2" result="b"/>
             <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
           </filter>
+          <clipPath id="elev-clip">
+            <rect x={PAD_L} y={PAD_T} width={innerW} height={innerH} />
+          </clipPath>
         </defs>
+
+        {/* altitude band shading */}
+        <g clipPath="url(#elev-clip)">
+          {bands.map((b) => (
+            <rect key={b.label}
+              x={PAD_L} y={yFor(b.to)} width={innerW}
+              height={Math.max(0, yFor(b.from) - yFor(b.to))}
+              fill={b.color} opacity={b.opacity} />
+          ))}
+        </g>
+
+        {/* horizontal grid + altitude labels */}
         {yTicks.map((m) => {
           const y = yFor(m)
           return (
             <g key={`y${m}`}>
               <line x1={PAD_L} y1={y.toFixed(1)} x2={(W - PAD_R).toFixed(1)} y2={y.toFixed(1)}
-                stroke={PAL.line} strokeOpacity="0.35" strokeDasharray="2 3"/>
-              <text x={PAD_L - 4} y={(y + 3).toFixed(1)} textAnchor="end"
-                fill={PAL.creamDim} fontFamily="JetBrains Mono, monospace" fontSize="8">{m}</text>
+                stroke={PAL.line} strokeOpacity="0.35" strokeDasharray="3 4"/>
+              <text x={PAD_L - 8} y={(y + 4).toFixed(1)} textAnchor="end"
+                fill={PAL.creamDim} fontFamily="JetBrains Mono, monospace" fontSize="11"
+                letterSpacing="0.04em">{m.toLocaleString()}</text>
             </g>
           )
         })}
+        <text x={PAD_L - 8} y={PAD_T - 14} textAnchor="end"
+          fill={PAL.dust} fontFamily="JetBrains Mono, monospace" fontSize="10"
+          letterSpacing="0.18em" textTransform="uppercase">METRES</text>
+
+        {/* x-axis km ticks */}
         {xTickKm.map((k) => {
           const x = xFor(k)
           return (
             <g key={`x${k}`}>
-              <line x1={x.toFixed(1)} y1={(PAD_T + innerH).toFixed(1)} x2={x.toFixed(1)} y2={(PAD_T + innerH + 3).toFixed(1)}
+              <line x1={x.toFixed(1)} y1={(PAD_T + innerH).toFixed(1)} x2={x.toFixed(1)} y2={(PAD_T + innerH + 4).toFixed(1)}
                 stroke={PAL.creamDim} strokeOpacity="0.45"/>
-              <text x={x.toFixed(1)} y={(PAD_T + innerH + 12).toFixed(1)} textAnchor="middle"
-                fill={PAL.creamDim} fontFamily="JetBrains Mono, monospace" fontSize="8">{k} km</text>
+              <text x={x.toFixed(1)} y={(PAD_T + innerH + 18).toFixed(1)} textAnchor="middle"
+                fill={PAL.creamDim} fontFamily="JetBrains Mono, monospace" fontSize="11"
+                letterSpacing="0.04em">{k.toLocaleString()}</text>
             </g>
           )
         })}
-        <path d={fillPath} fill="url(#elev-fill)"/>
-        <path d={linePath} fill="none" stroke={PAL.dust} strokeWidth="1.4"
-          filter="url(#elev-glow)" strokeLinejoin="round" strokeLinecap="round"/>
-        <g transform={`translate(${px.toFixed(2)} ${py.toFixed(2)})`}>
-          <circle className="elev-peak-pulse" r="5" fill="none" stroke={PAL.dust} strokeWidth="1" opacity="0.7"/>
-          <circle r="2.4" fill={PAL.dust} stroke={PAL.cream} strokeWidth="1"/>
-          <text x="0" y="-8" textAnchor="middle" fill={PAL.cream}
-            fontFamily="JetBrains Mono, monospace" fontSize="8">3800m</text>
+        <text x={W / 2} y={(PAD_T + innerH + 38).toFixed(1)} textAnchor="middle"
+          fill={PAL.dust} fontFamily="JetBrains Mono, monospace" fontSize="10"
+          letterSpacing="0.22em">CUMULATIVE KM</text>
+
+        {/* the curve — fill + stroke with dasharray reveal */}
+        <path d={fillPath} fill="url(#elev-fill)"
+          style={{ opacity: revealed ? 1 : 0, transition: 'opacity 600ms ease-out 600ms' }}/>
+        <path
+          ref={pathRef}
+          d={linePath}
+          fill="none"
+          stroke={PAL.dust}
+          strokeWidth="2"
+          filter="url(#elev-glow)"
+          strokeLinejoin="round"
+          strokeLinecap="round"
+          pathLength={1000}
+          strokeDasharray={1000}
+          strokeDashoffset={revealed ? 0 : 1000}
+          style={{ transition: 'stroke-dashoffset 1500ms cubic-bezier(0.22, 0.61, 0.36, 1)' }}
+        />
+
+        {/* named waypoint markers — rendered after the line draws */}
+        <g style={{ opacity: revealed ? 1 : 0, transition: 'opacity 500ms ease-out 1300ms' }}>
+          {named.map((n) => {
+            const x = xFor(n.km)
+            const y = yFor(n.m)
+            const isPeak = n.name === 'Muktinath'
+            return (
+              <g key={n.name + n.km}>
+                <line x1={x.toFixed(1)} y1={y.toFixed(1)} x2={x.toFixed(1)} y2={(PAD_T + innerH).toFixed(1)}
+                  stroke={isPeak ? PAL.rust : PAL.creamDim}
+                  strokeOpacity={isPeak ? 0.7 : 0.25} strokeDasharray="2 2"/>
+                <circle cx={x.toFixed(1)} cy={y.toFixed(1)} r={isPeak ? 5 : 3.5}
+                  fill={PAL.night}
+                  stroke={isPeak ? PAL.rust : PAL.dust}
+                  strokeWidth={isPeak ? 2 : 1.5}/>
+                {isPeak && (
+                  <circle className="elev-peak-pulse" cx={x.toFixed(1)} cy={y.toFixed(1)}
+                    r="9" fill="none" stroke={PAL.rust} strokeWidth="1" opacity="0.55"/>
+                )}
+                <text x={x.toFixed(1)} y={(y - 12).toFixed(1)} textAnchor="middle"
+                  fill={isPeak ? PAL.cream : PAL.cream}
+                  fontFamily="Bebas Neue, sans-serif"
+                  fontSize={isPeak ? 16 : 13}
+                  letterSpacing="0.08em">{n.name.toUpperCase()}</text>
+                <text x={x.toFixed(1)} y={(y - 28).toFixed(1)} textAnchor="middle"
+                  fill={isPeak ? PAL.rust : PAL.dust}
+                  fontFamily="JetBrains Mono, monospace"
+                  fontSize="10"
+                  fontWeight={isPeak ? 700 : 400}
+                  letterSpacing="0.04em">{n.m.toLocaleString()}m</text>
+              </g>
+            )
+          })}
         </g>
+
+        {/* hover line + dot */}
         {hover && (
           <>
-            <line className="elev-hover-line" x1={hover.x.toFixed(2)} y1={PAD_T} x2={hover.x.toFixed(2)} y2={PAD_T + innerH}/>
-            <circle className="elev-hover-dot" cx={hover.x.toFixed(2)} cy={hover.y.toFixed(2)} r="3"/>
+            <line className="elev-hover-line"
+              x1={hover.x.toFixed(2)} y1={PAD_T}
+              x2={hover.x.toFixed(2)} y2={PAD_T + innerH}/>
+            <circle className="elev-hover-dot"
+              cx={hover.x.toFixed(2)} cy={hover.y.toFixed(2)} r="4"/>
           </>
         )}
       </svg>
@@ -705,8 +812,8 @@ export default function MapPage() {
         .elev-svg {
           width: 100%;
           flex: 1 1 auto;
-          height: 160px;
-          min-height: 140px;
+          height: 320px;
+          min-height: 260px;
           display: block;
           position: relative; z-index: 1;
         }
@@ -783,7 +890,7 @@ export default function MapPage() {
         }
         @media (max-width: 720px) {
           .plate #map { height: 420px; }
-          .elev-svg { height: 130px; }
+          .elev-svg { height: 220px; min-height: 200px; }
           .day-cell { min-height: 60px; padding: 8px 10px 8px 12px; }
         }
 
