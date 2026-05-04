@@ -564,3 +564,133 @@ Things Cowork-side can do (no need to ask Claude Code):
   data-countdown, .stat-strip, .trail-header, .back.
 - No changes to rugged.css, data.js, route-data.js, enhance.js.
 ```
+
+```
+[2026-05-04 17:17 IST] CC milestone — React port: Checklist + Rules + Folders
+- Three vanilla pages ported to React on react-migration branch:
+  src/pages/Checklist.jsx, Rules.jsx, Folders.jsx (stubs replaced).
+- Checklist: full renderChecklist parity. localStorage key preserved
+  (nepal2026:checklist:v1). Per-category + global progress bars driven
+  by useState/useMemo. Click-anywhere-on-li toggles via single onClick;
+  controlled checkbox prevents double-toggle. Reset button confirms +
+  clears LS + resets state without page reload.
+- Rules: 19 rules + 8 emergencies in two .grid.cols-3 blocks (#rules,
+  #emerg ids preserved so legacy-rendered.css selectors still apply).
+  Phone emergencies wrapped in tel: links, email in mailto:. Sources
+  callout with all six gov.np / embassy domains. StatStrip with T-minus,
+  Bhansar SUV 600 NPR/d, Cap 30 d/yr, ACAP 1,000 NPR, Embassy 24×7.
+- Folders: file-index Card grid in four sections (docs/ x6, data/ x5,
+  plans/ x2, claude-code/ x3). Relative ../docs/ ../data/ paths so they
+  resolve against the deployed build's parent dir, same as legacy.
+- Re-uses HeroMtn, TrailHeader, StatStrip, Card components — no new
+  shared components needed. data-aos="fade-up" added throughout.
+- Class names match legacy-rendered.css (.cat, .cat-head, .cat-note,
+  .bar, .rule, .cat-tag, .global-progress, .callout, .section-title,
+  .grid.cols-3, .grid.cols-2, .pill). Visually indistinguishable from
+  vanilla pages assuming the legacy CSS is loaded.
+- Verified: babel parser clean on all three .jsx; vite build transforms
+  1531 modules without page-level errors (the top-level-await error in
+  src/lib/data.js is pre-existing and out of scope per file-ownership
+  rules).
+- Did not touch: main.jsx, App.jsx, Layout.jsx, components/*, styles/*,
+  lib/*, /website/*, /data/*.json, rugged.css.
+```
+
+```
+[2026-05-04 17:30 IST] CC — React port: Home, Itinerary, RoutePage shipped
+- Home.jsx: full-bleed Muktinath hero (Wikimedia URL preserved) with
+  rAF-throttled parallax, onLoad → .loaded fade-in, broken-fallback,
+  reduced-motion guard. Hero-tminus + stat-band both render useTMinus()
+  directly. Three CTAs (Trail Comms / Route Atlas / Waypoints) using
+  Lucide RadioTower / Map / Image. Dossier strip (3 cards), reference
+  strip (6 cards: itinerary / checklist / rules / route / viewer /
+  folders), 15-day timeline (left/right alternation, type-* badges +
+  markers, fade-right/left + staggered delay, fmtDate via en-GB
+  locale), rules snapshot (filter official|corroborated → sort →
+  top 6 → top-up if short), emergency strip with tel:+9779851316807,
+  landing footer with all gov.np / embassy sources + verify date
+  2026-05-08. fetchpriority → fetchPriority for React. All Link uses
+  react-router-dom (not <a>) for in-app nav.
+- Itinerary.jsx: HeroMtn + inline trail-header (kept '//' separators
+  exactly as vanilla — TrailHeader's auto-alternating sep didn't fit,
+  so I used the raw markup directly; ChevronLeft Lucide back-link to
+  /). StatStrip (T-minus + Full work 5d / Async 5d / Hard offline 3d
+  / Drives ~4,410km). Buffer-rule callout. Day-by-day map of ITINERARY
+  array using exact .day .when .leg .note .stats-mini DOM shape per
+  spec. Workation calendar (3 cards) + Bookings to confirm (2 cards)
+  via Card component.
+- RoutePage.jsx: HeroMtn + inline trail-header (kept '→' separators
+  as vanilla). Phase-banner CSS injected as <style> tag inside the
+  page (cleaner than useEffect injection — 14 lines of CSS only used
+  here). StatStrip (T-minus, Total 4,410km, 4×4 75km, Recommendation
+  DRIVE in flag-green, Live atlas → /map dashed-underline). Three
+  PhaseBanner sections with 2-col Card grids. Fuel strategy 3-col
+  raw .card markup (per spec — h3 headings). Where-to-slow-down 4
+  cards (h3, no pill — matches vanilla).
+- Constraint conflict resolved: TrailHeader's `i % 2 === 0 ? '·' :
+  '//'` separator pattern doesn't match either page (Itinerary uses
+  pure '//' between all four; Route uses pure '→'). Inlined the
+  trail-header markup instead of touching TrailHeader.jsx (read-only).
+  HeroMtn still re-used; StatStrip still re-used; Card still re-used.
+- New shared components added: NONE. Did not need any.
+- Verified: babel-parser clean on all three .jsx (Home OK, Itinerary
+  OK, RoutePage OK).
+- Did not touch: main.jsx, App.jsx, Layout.jsx, components/*,
+  styles/*, lib/*, /website/*, /data/*.json. Did not add deps.
+```
+
+```
+[2026-05-04 18:35 IST] CC — React port: Agent (Trail Comms) shipped
+- src/pages/Agent.jsx rewritten as a single-file port of
+  /website/agent.html + /website/js/agent.js. One file (no sub-files);
+  page-scoped CSS injected via inline <style>{AGENT_CSS}</style>.
+  Selectors are bespoke (.rack, .rack-strip, .kp-*, .bubble, .chip
+  scoped under #chips, .status-band) so they don't bleed elsewhere.
+- Behaviours preserved verbatim:
+  · 19 intents (bhansar, yatayat, cap, acap, mustang, tims, embassy,
+    emergency, cash, fuel, altitude, restricted, sim, insurance,
+    visa, driving, road, itinerary, checklist, firm) — copied 1:1.
+  · 10 suggested-question chips — copied 1:1, ordered by trip-day
+    relevance.
+  · classify() / answer() / answerForRules / emergencyAnswer /
+    routeAnswer / itineraryAnswer / checklistAnswer / ruleHtml /
+    htmlToPlain — all ported, same HTML output (legacy .rule /
+    .conf-* / .rec-* / .day-h / .type-* / .emerg classes emitted
+    so rugged.css continues to style them).
+  · Bubbles tagged [SYS] / [YOU→TM] / [KP→TM] with HH:MM:SS stamp.
+  · Initial system bubble: trip vitals + greeting (TRIP fields).
+  · "/" key focuses the input when not already focused.
+  · Enter sends; Send button + chip clicks call send().
+- Typewriter: implemented as a useTypewriter(plainText) hook backed
+  by requestAnimationFrame (cancelled on unmount). Same 35-60ms/char
+  jitter as vanilla; 3-char bursts when plainText > 240. Plain text
+  reveals first inside <pre class="kp-stream">; rich HTML swaps in
+  via dangerouslySetInnerHTML once typing finishes — matches vanilla
+  exactly. prefers-reduced-motion → instant render of rich HTML
+  (no <pre> ever mounted, no rAF scheduled).
+- RackHeader is its own subcomponent — LED + Channel label + freq +
+  uptime ticker (setInterval 1s, cleared on unmount). Freq locked to
+  RULES.lastUpdated.replace(/-/g,'.') · 145.500 MHz (whimsy, NOT
+  live clock — matches spec).
+- StatusBand reads RULES.rules → counts ofc/cor/inf, RULES.lastUpdated,
+  and (RULES.officialSources?.length || rules.filter(source).length)
+  for the cited count. 4 tiles: Confidence / Last update / Sources /
+  Shortcut.
+- Page chrome: HeroMtn + TrailHeader (eyebrow "Field channel · Dispatch
+  console · 24×7" with inline Radio Lucide icon, title 'Trail Comms'
+  with .accent on Comms, 4-part sub) + StatStrip (T-minus, Depart
+  May 09, Return May 23, Rig "Thar Roxx" accent, Permit 18/30,
+  Peak 3,800m). Footnote with /data/*.json sources + tel-link to
+  embassy 24×7 (+977-9851316807) + verifyBefore date from RULES.
+- Constraint resolved: vanilla used "/" key globally; React port
+  guards the listener so it doesn't intercept when an INPUT/TEXTAREA/
+  contentEditable is already focused (preserves typing of "/" inside
+  the composer).
+- Constraint resolved: vanilla used document.body click delegation
+  for chip clicks inside assistant fallback HTML (the unmatched-intent
+  body has chips). React port wires onClick on .kp-rich and dispatches
+  to send(chip.dataset.q) when the click target matches .chip[data-q].
+- Verified: `vite build` runs clean (1572 modules, 1.39s). No new
+  deps. Did not touch: main.jsx, App.jsx, Layout.jsx, components/*,
+  styles/*, lib/*, /website/*, /data/*.json.
+```
