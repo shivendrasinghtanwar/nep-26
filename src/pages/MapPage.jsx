@@ -413,11 +413,13 @@ function ElevationProfile() {
           return (
             <text key={`xkmlabel${n.idx}`} x={x.toFixed(1)} y={(PAD_T + innerH + 20).toFixed(1)}
               textAnchor="middle"
+              className="elev-axis-km"
               fill={PAL.creamDim} fontFamily="JetBrains Mono, monospace" fontSize="10"
               letterSpacing="0.04em">{n.km.toLocaleString()} km</text>
           )
         })}
         <text x={W / 2} y={(PAD_T + innerH + 40).toFixed(1)} textAnchor="middle"
+          className="elev-axis-foot"
           fill={PAL.dust} fontFamily="JetBrains Mono, monospace" fontSize="10"
           letterSpacing="0.22em">WAYPOINTS · NOT TO SCALE</text>
 
@@ -912,6 +914,69 @@ export default function MapPage() {
           .plate #map { height: 420px; }
           .elev-svg { height: 220px; min-height: 200px; }
           .day-cell { min-height: 60px; padding: 8px 10px 8px 12px; }
+        }
+        @media (max-width: 640px) {
+          /* day-strip: 15 columns at 375px is unreadable. Convert to a
+             horizontally-scrollable strip so each cell stays ≥84px wide and
+             the labels (D-num, date, leg-type) remain legible. */
+          .day-strip {
+            display: flex !important;
+            grid-template-columns: none !important;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 4px;
+            margin-left: -2px;
+            margin-right: -2px;
+            padding-left: 2px;
+            padding-right: 2px;
+          }
+          .day-strip::-webkit-scrollbar { display: none; }
+          .day-cell {
+            flex: 0 0 96px;
+            scroll-snap-align: start;
+            min-height: 64px;
+          }
+          .day-cell .d-num { font-size: 16px; }
+          /* elevation profile is shorter — preserveAspectRatio="none" still
+             squashes labels horizontally; smaller axis labels help. */
+          .elev-svg { height: 200px; min-height: 180px; }
+          .elev-head { flex-direction: column; align-items: flex-start; gap: 6px; }
+          .elev-head .title { font-size: 13px; letter-spacing: 0.16em; }
+          /* readout always visible below */
+          .elev-readout { font-size: 10.5px; padding: 8px 10px; }
+          .elev-readout .pri { font-size: 12px; }
+
+          /* layer-controls heading: stack labels & tile-select to its own row */
+          .lyr-row.heading { flex-direction: column; align-items: flex-start; gap: 6px; }
+          .lyr-row.heading .rhs { margin-left: 0; }
+          /* enlarge tile-select tap target */
+          .tile-select { padding: 8px 10px; font-size: 11px; min-height: 36px; }
+          /* preset buttons: bump tap area */
+          .preset-btn { padding: 8px 10px; min-height: 32px; }
+
+          /* rec-banner gets a single column; line-2 wraps under line-1 cleanly */
+          #rec-banner.atlas {
+            grid-template-columns: 6px 1fr;
+            gap: 6px 10px;
+            padding: 10px 12px;
+          }
+          #rec-banner.atlas .ico { display: none; }
+          #rec-banner.atlas .line-1 { font-size: 11.5px; }
+          #rec-banner.atlas .line-2 { grid-column: 2 !important; font-size: 9.5px; }
+        }
+        /* Narrow elevation labels: with preserveAspectRatio="none" the SVG
+           text gets horizontally squashed at <640px. Hide the redundant
+           per-waypoint km row and the bottom legend so the readable named
+           waypoints carry the meaning; shrink the y-axis labels. */
+        @media (max-width: 640px) {
+          .elev-svg .elev-axis-km,
+          .elev-svg .elev-axis-foot { display: none; }
+        }
+        @media (max-width: 420px) {
+          /* Drop the legend chips below 420px — band shading speaks for itself */
+          .elev-head > span:nth-child(2) { display: none; }
         }
 
         #layer-controls {

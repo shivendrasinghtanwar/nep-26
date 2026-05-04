@@ -748,3 +748,81 @@ Things Cowork-side can do (no need to ask Claude Code):
   TrailHeader,StatStrip,Card}.jsx, /website/*, /data/*, /docs/*,
   /public/*, /.github/*.
 ```
+
+```
+[2026-05-04 22:55 IST] CC — Mobile responsive audit + patches across 10 routes
+- mission: targeted mobile-responsive QA pass on the React app at three
+  reference widths (375, 414, 768). No refactor, no new deps, no palette
+  changes, no rugged.css edits.
+- highest-impact fixes shipped:
+  1. Home hero — clamped .hero-headline lower bound from 56px → 32px so
+     "Bikaner to Muktinath" no longer over-fills a 375 phone. Lifted
+     .hero-top out of position:absolute (was overlapping the headline at
+     narrow widths) and stacked the CTAs full-width as ≥48-px tap targets.
+  2. Map atlas — converted .day-strip from a 15-column grid (each cell
+     ~25 px wide on a phone, unreadable) to a horizontally scrollable
+     flex strip with 96-px snap-aligned cells. Added rec-banner mobile
+     layout (drops the icon column, line-2 wraps under line-1).
+  3. Map elevation profile — labels were horizontally squashed by
+     preserveAspectRatio="none" + 1400-unit-wide viewBox at 375 px.
+     Tagged the per-waypoint "km" labels and the bottom legend with
+     classes; hide them ≤640 px so the readable named-waypoint labels
+     (Pokhara/Jomsom/Muktinath/Lucknow) carry the meaning. Pulse-ring on
+     Muktinath preserved.
+  4. Gallery lightbox — close + nav buttons bumped to 44×44 px (from 40),
+     padding tightened to 12 px on phone so the frame uses the full
+     viewport, hero-plate metadata padding/letter-spacing dialled down.
+     Two-column figure already collapses at 760 px (existing rule).
+  5. Viewer — sidebar TOC at ≤980 px is now an explicit collapsible
+     drawer (default collapsed on mobile, expanded on desktop). Tapping
+     a link auto-collapses so the article is reachable without scrolling
+     past 200 px of links. Re-uses ChevronDown from lucide-react; no
+     new dep.
+- secondary patches: Agent rack-strip drops .uptime at ≤480 px (just
+  ch + LED) on top of the existing .freq drop at ≤720; bubbles cap at
+  100% width on phone; status-band tile font dialled down. Stat-band /
+  emerg-list / dossier cards / footer all collapse to 1 col under
+  640. Chips bumped to 8 px vertical padding (≥40 px tap height).
+  Checklist li gains 10 px padding + 18×18 px checkbox at ≤640. Tile
+  selector + preset buttons in #layer-controls bumped to 36 px min
+  height. Layer-controls heading row stacks vertically so the tile
+  dropdown doesn't overflow.
+- per-route status:
+  · /          🔧 hero clamp + CTAs + stat-band + emerg-list collapse
+  · /itinerary 🔧 day cards already 2-col at 720; tightened typography
+  · /checklist 🔧 li hit-area + reset button + global-progress stacking
+  · /rules     ✅ already covered by global.css cols-3 → 1fr
+  · /route     🔧 phase-banner letter-spacing + cards collapsed
+  · /agent     🔧 rack-strip uptime drop + bubbles + composer + status
+  · /map       🔧 day-strip flex-scroll + elevation labels + rec-banner
+  · /gallery   🔧 lightbox close +44 px + hero-plate metadata
+  · /folders   ✅ already covered by global.css cols-2 → 1fr
+  · /viewer    🔧 collapsible sidebar at ≤980 px
+- files touched (all on the OWN list per task brief):
+  · src/styles/global.css — broad mobile rules @ 640/380 px
+  · src/pages/Home.jsx — no JSX change (CSS-only hero)
+  · src/pages/Agent.jsx — added @media 480 px to AGENT_CSS, plus 640 px
+    composer/bubble tweaks
+  · src/pages/MapPage.jsx — added .elev-axis-km/-foot classes, mobile
+    @media for day-strip + rec-banner + layer-controls
+  · src/pages/Gallery.jsx — added @media 640 px lightbox tightening
+  · src/pages/Viewer.jsx — added ChevronDown import, tocOpen state +
+    .vw-toggle button, collapsible sidebar styles
+- did NOT touch: rugged.css, src/main.jsx, App.jsx, Layout.jsx, lib/*,
+  data/*, website/*, public/*, .github/*. Konami / 5×brand-tap easter
+  eggs untouched (no listener changes). Pulse-ring animation on
+  Muktinath preserved (CSS class .elev-peak-pulse unchanged). Typewriter
+  in Agent (useTypewriter) untouched. Masonry grid in Gallery unchanged.
+  Leaflet map height (540/420) untouched.
+- verification: `npx vite build` clean — 1611 modules, 1.54 s, 0 errors.
+  Bundle: 90 KB CSS gzip 18.5 KB; 753 KB JS gzip 244 KB.
+- remaining items that need a human eye / device test:
+  · iOS Safari URL bar shrink-grow with .hero min-height: 92svh —
+    `svh` is the safest unit but worth a real-device pass.
+  · The map's day-strip horizontal scroll has no visible affordance
+    beyond the cards; consider a subtle right-edge fade if testing
+    shows users miss it.
+  · Viewer TOC default-collapsed assumes matchMedia at first paint;
+    SSR-safe path returns true (open) so the very first render on a
+    hydrating mobile may show the open TOC for one frame.
+```
