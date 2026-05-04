@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { marked } from 'marked'
-import { BookOpen } from 'lucide-react'
+import { BookOpen, ChevronDown } from 'lucide-react'
 import HeroMtn from '../components/HeroMtn.jsx'
 import StatStrip from '../components/StatStrip.jsx'
 import TrailHeader from '../components/TrailHeader.jsx'
@@ -50,10 +50,10 @@ const VIEWER_CSS = `
   .vw-sidebar a:hover { background: rgba(212,165,116,0.06); color: var(--cream); }
   .vw-sidebar a.is-current { color: var(--dust); background: rgba(212,165,116,0.08);
     border-left: 2px solid var(--dust); padding-left: 6px; }
-  .vw-meta { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  .vw-meta { display: flex; align-items: baseline; justify-content: space-between; gap: 8px 12px; flex-wrap: wrap;
     padding: 10px 14px; background: rgba(255,255,255,0.02); border: 1px solid var(--line);
     border-radius: var(--r-sm); margin-bottom: 14px; font-family: var(--font-mono); font-size: 11px;
-    letter-spacing: 0.06em; color: var(--cream-dim); }
+    letter-spacing: 0.06em; color: var(--cream-dim); word-break: break-word; }
   .vw-meta .pri { color: var(--dust); }
   .vw-meta a { color: var(--glacier); }
   .md-rendered { background: linear-gradient(180deg, var(--shadow), var(--ridge));
@@ -86,9 +86,39 @@ const VIEWER_CSS = `
   .md-rendered hr { border: 0; height: 1px; background: var(--line); margin: 2em 0; }
   .md-rendered strong { color: var(--cream); }
   @media (max-width: 980px) {
-    .vw-shell { grid-template-columns: 1fr; }
-    .vw-sidebar { position: static; max-height: 240px; }
+    .vw-shell { grid-template-columns: 1fr; gap: 12px; }
+    .vw-sidebar {
+      position: static;
+      max-height: 220px;
+      padding: 12px 12px 10px;
+      /* Make the TOC a true scroll container so the article below stays reachable. */
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .vw-sidebar.is-collapsed { max-height: 52px; overflow: hidden; }
+    .vw-sidebar .vw-toggle {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 10px 12px;
+      cursor: pointer;
+      margin: -2px 0 8px;
+    }
+    .vw-sidebar .vw-toggle:hover { color: var(--cream); border-color: var(--dust); }
+    .vw-sidebar .vw-toggle .chev { color: var(--dust); transition: transform 180ms ease; }
+    .vw-sidebar.is-collapsed .vw-toggle .chev { transform: rotate(-90deg); }
     .md-rendered { padding: 22px 20px; }
+  }
+  /* the toggle is hidden on desktop where the sidebar is a sticky column */
+  @media (min-width: 981px) {
+    .vw-sidebar .vw-toggle { display: none; }
   }
 `
 
@@ -105,6 +135,12 @@ export default function Viewer() {
     || flat.find(e => e.rel === 'docs/MASTER_CHECKLIST.md')
     || flat[0]
   const [current, setCurrent] = useState(initial)
+  // Sidebar collapse state — defaults to collapsed on mobile so the article
+  // below the TOC is reachable without scrolling past 200px of links.
+  const [tocOpen, setTocOpen] = useState(() => {
+    if (typeof window === 'undefined') return true
+    return window.matchMedia('(min-width: 981px)').matches
+  })
 
   useEffect(() => {
     if (current && wantedFile !== current.rel) {
@@ -154,7 +190,16 @@ export default function Viewer() {
       </div>
 
       <div className="vw-shell" data-aos="fade-up" data-aos-delay="80">
-        <aside className="vw-sidebar" aria-label="Table of contents">
+        <aside className={`vw-sidebar${tocOpen ? '' : ' is-collapsed'}`} aria-label="Table of contents">
+          <button
+            type="button"
+            className="vw-toggle"
+            aria-expanded={tocOpen ? 'true' : 'false'}
+            onClick={() => setTocOpen(o => !o)}
+          >
+            <span>Index · {flat.length} docs</span>
+            <ChevronDown size={14} strokeWidth={1.6} className="chev" />
+          </button>
           {sections.map(s => (
             <div key={s.label}>
               <h3>{s.label}</h3>
@@ -163,7 +208,7 @@ export default function Viewer() {
                   key={e.rel}
                   href="#"
                   className={current?.rel === e.rel ? 'is-current' : undefined}
-                  onClick={(ev) => { ev.preventDefault(); setCurrent(e) }}
+                  onClick={(ev) => { ev.preventDefault(); setCurrent(e); setTocOpen(false) }}
                 >
                   {e.title}
                 </a>
