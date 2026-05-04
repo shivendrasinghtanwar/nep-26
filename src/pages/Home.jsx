@@ -8,7 +8,7 @@ import {
 import { useTMinus } from '../lib/useTMinus.js'
 import { ITINERARY, RULES } from '../lib/data.js'
 
-const HERO_IMG = `${import.meta.env.BASE_URL}pics/hero-kaligandaki.jpg`
+const HERO_IMG = `${import.meta.env.BASE_URL}pics/hero-muktinath.jpg`
 
 function fmtDate(iso) {
   if (!iso) return ''
