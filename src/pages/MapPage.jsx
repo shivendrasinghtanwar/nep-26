@@ -627,10 +627,9 @@ export default function MapPage() {
 
       <style>{`
         .plate {
-          display: grid;
-          grid-template-columns: 1fr 220px;
+          display: flex;
+          flex-direction: column;
           gap: 12px;
-          align-items: stretch;
         }
         .plate #map { width: 100%; height: 540px; }
         .plate .leaflet-container { width: 100%; height: 100%; min-height: 480px; border-radius: var(--r); }
@@ -676,7 +675,8 @@ export default function MapPage() {
         .elev-svg {
           width: 100%;
           flex: 1 1 auto;
-          min-height: 220px;
+          height: 160px;
+          min-height: 140px;
           display: block;
           position: relative; z-index: 1;
         }
@@ -697,21 +697,21 @@ export default function MapPage() {
 
         .day-strip {
           display: grid;
-          grid-template-columns: repeat(15, minmax(0, 1fr));
-          gap: 6px;
-          margin-top: 12px;
+          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+          gap: 10px;
+          margin-top: 14px;
         }
         .day-cell {
           position: relative;
           border: 1px solid var(--line);
           border-radius: var(--r-sm);
           background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.18));
-          padding: 8px 6px 7px;
+          padding: 10px 12px 10px 14px;
           cursor: pointer;
           transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
           overflow: hidden;
-          min-height: 56px;
-          display: flex; flex-direction: column; gap: 2px;
+          min-height: 70px;
+          display: flex; flex-direction: column; gap: 4px;
         }
         .day-cell::before {
           content: '';
@@ -751,13 +751,10 @@ export default function MapPage() {
           color: var(--leg, var(--cream-dim));
           margin-top: auto;
         }
-        @media (max-width: 880px) {
-          .plate { grid-template-columns: 1fr; }
-          .elev-panel { order: 2; }
-          .day-strip { grid-template-columns: repeat(8, minmax(0, 1fr)); }
-        }
-        @media (max-width: 520px) {
-          .day-strip { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+        @media (max-width: 720px) {
+          .plate #map { height: 420px; }
+          .elev-svg { height: 130px; }
+          .day-cell { min-height: 60px; padding: 8px 10px 8px 12px; }
         }
 
         #layer-controls {

@@ -3,6 +3,10 @@
    Loaded after rugged.css / landing.css / legacy-rendered.css.
    ────────────────────────────────────────────────────────────────────────── */
 
+/* prevent any page from causing a horizontal scrollbar */
+html, body { overflow-x: hidden; }
+html { -webkit-text-size-adjust: 100%; }
+
 /* sticky dossier top-nav (shared across every page) */
 .topnav {
   position: sticky;
@@ -28,6 +32,8 @@
   color: var(--cream);
   letter-spacing: 0.22em;
   font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .topnav .brand-tag .dot {
   width: 7px; height: 7px;
@@ -48,6 +54,7 @@
   padding: 6px 4px;
   transition: color 160ms ease-out;
   position: relative;
+  white-space: nowrap;
 }
 .topnav nav a:hover { color: var(--cream); }
 .topnav nav a.is-current { color: var(--dust); }
@@ -65,6 +72,8 @@
   opacity: 0.6;
   margin: 4px 4px;
 }
+
+/* Tablet: tighten nav */
 @media (max-width: 880px) {
   .topnav {
     padding: 10px 14px;
@@ -75,10 +84,102 @@
   .topnav nav .group-sep { display: none; }
 }
 
-/* Lucide icons in React inherit the parent text colour by default; tighten size */
+/* Phone: become a horizontally-scrollable strip so all 10 links stay reachable */
+@media (max-width: 600px) {
+  .topnav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 8px 12px;
+  }
+  .topnav .brand-tag {
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+  }
+  .topnav nav {
+    margin-left: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 14px;
+    padding-bottom: 4px;
+  }
+  .topnav nav::-webkit-scrollbar { display: none; }
+  .topnav nav a {
+    flex-shrink: 0;
+    padding: 4px 0;
+    font-size: 10px;
+  }
+}
+
+/* Lucide icons in React inherit the parent text colour by default */
 .lucide { vertical-align: -2px; }
 
 /* small spacing utilities used by ported pages */
 .spacer-sm { height: 12px; }
 .spacer-md { height: 24px; }
 .spacer-lg { height: 40px; }
+
+/* ── Generic mobile hardening for any page that uses .shell / cards / grids ── */
+@media (max-width: 640px) {
+  .shell { padding: 18px 14px 40px; }
+  .grid.cols-2, .grid.cols-3 { grid-template-columns: 1fr; gap: 12px; }
+  /* cards: reduce padding so content breathes on narrow screens */
+  .card { padding: 14px 16px; }
+  .card h2, .card h3 { font-size: 17px; }
+  .card p { font-size: 13.5px; }
+  /* checklist categories full-width, less padding */
+  #checklist { grid-template-columns: 1fr; gap: 12px; }
+  #checklist .cat { padding: 14px 16px; }
+  /* rules / emerg cards full-width */
+  #rules, #emerg { grid-template-columns: 1fr !important; }
+  /* day cards stack to 2-column then full-width */
+  .day { grid-template-columns: 80px 1fr; gap: 10px; padding: 10px 14px; }
+  .day .stats-mini { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; gap: 6px; align-items: center; justify-content: flex-start; }
+  /* trail-header collapses */
+  .trail-header { grid-template-columns: 1fr auto; gap: 10px; }
+  .trail-header .mark { display: none; }
+  .wordmark .sub { font-size: 10px; gap: 6px; letter-spacing: 0.12em; }
+  .wordmark h1 { font-size: clamp(24px, 8vw, 32px) !important; }
+  /* stat strip — 2 columns on phone */
+  .stat-strip { grid-template-columns: repeat(2, 1fr); }
+  .stat .v { font-size: 18px; }
+  /* hero — keep text readable */
+  .hero-mtn { height: 130px; margin: -18px -14px 12px; }
+  /* section titles */
+  .section-title { font-size: 20px; margin-top: 22px; }
+  /* callouts */
+  .callout { padding: 10px 14px; font-size: 13px; }
+  /* footnote */
+  .footnote { font-size: 10.5px; }
+  /* phase banner (route page) */
+  .phase-banner { font-size: 10px; letter-spacing: 0.16em; }
+  /* checklist global progress: stack */
+  .global-progress { flex-wrap: wrap; gap: 12px; padding: 10px 12px; }
+  .global-progress .bar { width: 100%; }
+  /* composer (agent page) */
+  .composer { flex-direction: column; gap: 8px; }
+  #send { width: 100%; padding: 12px; }
+  /* gallery hero plate shorter on phone */
+  .hero-plate { height: clamp(220px, 60vw, 320px) !important; }
+  /* viewer sidebar becomes a top scrollable bar */
+  .vw-shell { grid-template-columns: 1fr !important; gap: 12px; }
+  .vw-sidebar {
+    position: static !important;
+    max-height: 200px !important;
+    flex-direction: row;
+  }
+  .md-rendered { padding: 18px 16px !important; font-size: 14px !important; }
+  .md-rendered h1 { font-size: 26px !important; }
+  .md-rendered h2 { font-size: 20px !important; }
+  .md-rendered h3 { font-size: 17px !important; }
+}
+
+/* Ultra-narrow (≤380px) — keep things from spilling out */
+@media (max-width: 380px) {
+  .topnav nav a { font-size: 9.5px; }
+  .stat-strip { grid-template-columns: 1fr 1fr; }
+  .stat .k { font-size: 8.5px; }
+  .stat .v { font-size: 16px; }
+}
