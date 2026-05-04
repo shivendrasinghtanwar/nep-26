@@ -48,22 +48,46 @@ const LEG_COLOR = {
   reference:   PAL.creamDim,
 }
 
-// ── Tile layers (same URLs as map.js) ─────────────────────────────────────
+// ── Tile layers — all free, no API key required ──────────────────────────
 const TILES = {
-  OpenTopoMap: {
+  Satellite: {
+    url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+    attribution: 'Tiles © Esri — Maxar, Earthstar Geographics, USDA FSA, USGS, AeroGRID, IGN, GIS User Community',
+    maxZoom: 19,
+    label: 'Satellite',
+  },
+  'Hybrid': {
+    url: 'https://{s}.google.com/vt/lyrs=y&x={x}&y={y}&z={z}',
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+    attribution: 'Tiles © Google',
+    maxZoom: 20,
+    label: 'Hybrid (sat + labels)',
+  },
+  Topo: {
     url: 'https://tile.opentopomap.org/{z}/{x}/{y}.png',
     attribution: '© OpenStreetMap, SRTM | © OpenTopoMap (CC-BY-SA)',
     maxZoom: 17,
+    label: 'Topographic',
+  },
+  'Carto Dark': {
+    url: 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+    subdomains: 'abcd',
+    attribution: '© OpenStreetMap contributors © CARTO',
+    maxZoom: 19,
+    label: 'Carto Dark Matter',
+  },
+  'Carto Voyager': {
+    url: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+    subdomains: 'abcd',
+    attribution: '© OpenStreetMap contributors © CARTO',
+    maxZoom: 19,
+    label: 'Carto Voyager',
   },
   OpenStreetMap: {
     url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     attribution: '© OpenStreetMap contributors',
     maxZoom: 19,
-  },
-  'OSM HOT': {
-    url: 'https://tile-a.openstreetmap.fr/hot/{z}/{x}/{y}.png',
-    attribution: '© OSM France · Humanitarian style',
-    maxZoom: 19,
+    label: 'OpenStreetMap',
   },
 }
 
@@ -391,7 +415,7 @@ export default function MapPage() {
   const waypoints = ROUTE.waypoints || []
   const itinerary = ITINERARY
 
-  const [tile, setTile] = useState('OpenTopoMap')
+  const [tile, setTile] = useState('Satellite')
   const [preset, setPreset] = useState('All')
   const [enabled, setEnabled] = useState(() => {
     const set = {}
@@ -513,7 +537,13 @@ export default function MapPage() {
             zoom={7}
           >
             <MapBridge bounds={bounds} onReady={(m) => { mapRef.current = m }} />
-            <TileLayer key={tile} url={tileCfg.url} attribution={tileCfg.attribution} maxZoom={tileCfg.maxZoom}/>
+            <TileLayer
+              key={tile}
+              url={tileCfg.url}
+              attribution={tileCfg.attribution}
+              maxZoom={tileCfg.maxZoom}
+              subdomains={tileCfg.subdomains}
+            />
             {tripPath.length > 1 && (
               <Polyline
                 positions={tripPath}
@@ -575,7 +605,7 @@ export default function MapPage() {
               value={tile}
               onChange={(e) => setTile(e.target.value)}
             >
-              {Object.keys(TILES).map((n) => <option key={n} value={n}>{n}</option>)}
+              {Object.entries(TILES).map(([n, cfg]) => <option key={n} value={n}>{cfg.label || n}</option>)}
             </select>
           </span>
         </div>
