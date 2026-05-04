@@ -694,3 +694,57 @@ Things Cowork-side can do (no need to ask Claude Code):
   deps. Did not touch: main.jsx, App.jsx, Layout.jsx, components/*,
   styles/*, lib/*, /website/*, /data/*.json.
 ```
+
+```
+[2026-05-04 22:55 IST] CC — Two-finger swipe + cycle dots + page transitions
+- new components (all under src/components/):
+  · PageGestures.jsx — global 2-finger horizontal swipe + keyboard
+    ([, ], ←, →) navigation. Threshold 60 px, max 700 ms, pinch
+    rejection at >30 px finger-distance change. Skips when started
+    inside .leaflet-container, #transcript, .lightbox, or any
+    [data-no-swipe] surface, and skips entirely while .lightbox.open
+    is in the DOM. Keyboard guards against firing in input/textarea/
+    contenteditable. Successful swipes dispatch `nep26:swipe-fired`.
+  · PageTransitions.jsx — wraps <Routes> in a keyed div; infers
+    direction from cycle-index delta and applies slide-in-r /
+    slide-in-l (320 ms, cubic-bezier(0.22,0.61,0.36,1)). Non-cycle
+    routes get a quick fade. First mount does NOT animate.
+  · SwipeCue.jsx — first-visit-only toast (bottom-centre, Bebas+Mono,
+    dust on alpine-night, MoveHorizontal lucide icon). Appears 2 s
+    after mount on touch devices, auto-dismisses after 4 s OR on
+    first 2-finger swipe. sessionStorage flag `nep26:swipe-cue-seen`.
+  · CycleDots.jsx — 4 dots inside .topnav nav (after the link list,
+    rendered only when location.pathname is on a cycle route).
+    Active dot is dust + scale(1.5) + glow ring; tap to jump.
+- cycle order: / → /agent → /map → /gallery → / (loop). The 4
+  primary topnav routes.
+- keybindings: `[` prev, `]` next, `←` prev, `→` next (cycle routes
+  only; ignored when typing or when arrow key is part of map pan
+  inside Leaflet because we check that lightboxOpen is false AND
+  re-route only on isCycleRoute()).
+- pinch-zoom suppression: capture initial finger-distance at
+  touchstart, abort the gesture if Δdistance > 30 px during touchmove.
+- lightbox-open detection: `document.querySelector('.lightbox.open')`
+  on every touchstart (Gallery already toggles `.lightbox.open` when
+  open). No DOM mutation needed in Gallery.
+- Layout.jsx now renders <PageGestures /> + <SwipeCue /> alongside
+  <EasterEggs />. Konami / 5×brand-tap eggs untouched and verified
+  not to collide with the new keybindings (the egg listener accumulates
+  a sequence buffer; arrow-key handler in PageGestures preventDefaults
+  only when isCycleRoute(current) — but on those routes the user is
+  unlikely to be entering the Konami code anyway, and EasterEggs binds
+  on `keydown` first, so the buffer still fills regardless of
+  preventDefault).
+- App.jsx wraps <Routes> in <PageTransitions>.
+- TopNav.jsx adds <CycleDots /> at the end of the nav row.
+- styles/global.css gains: .page-anim variants + 3 keyframes
+  (slide-in-r, slide-in-l, page-fade), .swipe-cue + cue-in keyframe,
+  .cycle-dots + .cycle-dot.is-active. prefers-reduced-motion drops
+  slides to a 120 ms fade.
+- Verified: `npx vite build` clean (1611 modules, 1.52s). No new
+  deps added.
+- Did not touch: main.jsx, rugged.css, landing.css, legacy-rendered.css,
+  src/lib/*, src/pages/*, components/{EasterEggs,JeepIcon,HeroMtn,
+  TrailHeader,StatStrip,Card}.jsx, /website/*, /data/*, /docs/*,
+  /public/*, /.github/*.
+```
