@@ -542,7 +542,7 @@ export default function MapPage() {
               url={tileCfg.url}
               attribution={tileCfg.attribution}
               maxZoom={tileCfg.maxZoom}
-              subdomains={tileCfg.subdomains}
+              {...(tileCfg.subdomains ? { subdomains: tileCfg.subdomains } : {})}
             />
             {tripPath.length > 1 && (
               <Polyline
