@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const LINKS = [
   { to: '/',          label: 'Overview' },
@@ -18,10 +18,10 @@ const LINKS = [
 export default function TopNav() {
   return (
     <header className="topnav" role="banner">
-      <span className="brand-tag">
+      <Link to="/" className="brand-tag" aria-label="Back to dossier home">
         <span className="dot" />
         <span>NEP-26 · Dossier</span>
-      </span>
+      </Link>
       <nav aria-label="Site sections">
         {LINKS.map((l, i) => (
           l.sep

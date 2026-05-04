@@ -34,7 +34,10 @@ html { -webkit-text-size-adjust: 100%; }
   font-weight: 600;
   white-space: nowrap;
   flex-shrink: 0;
+  text-decoration: none;
+  transition: opacity 160ms ease-out;
 }
+.topnav .brand-tag:hover { opacity: 0.85; color: var(--cream); }
 .topnav .brand-tag .dot {
   width: 7px; height: 7px;
   background: var(--rust);
