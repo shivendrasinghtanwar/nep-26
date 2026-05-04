@@ -106,6 +106,24 @@
 .day.darshan     { border-left-color: #e3a4c8; }
 .day.offroad     { border-left-color: var(--rust); }
 .day.leisure     { border-left-color: var(--aurora); }
+
+/* Easter egg — small jeep silhouette on drive / offroad day cards */
+.day.drive::after, .day.offroad::after {
+  content: '';
+  position: absolute;
+  top: 10px; right: 12px;
+  width: 24px; height: 14px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 36' fill='none' stroke='%23d4a574' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M3,26 L3,18 L9,18 L13,10 L25,10 L27,15 L46,15 L49,10 L57,10 L60,18 L61,18 L61,26 Z'/><circle cx='14' cy='26' r='2.5' fill='%23d4a574'/><circle cx='50' cy='26' r='2.5' fill='%23d4a574'/></svg>");
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  opacity: 0.45;
+  transition: opacity 220ms ease-out, transform 220ms ease-out;
+}
+.day.drive:hover::after, .day.offroad:hover::after {
+  opacity: 1;
+  transform: translateX(2px);
+}
 .day .when {
   font-family: var(--font-mono);
   font-size: 10.5px;
