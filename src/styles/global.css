@@ -76,7 +76,38 @@ html { -webkit-text-size-adjust: 100%; }
   margin: 4px 4px;
 }
 
-/* Tablet: tighten nav */
+/* Hamburger button — hidden on desktop, shown ≤880px (tablet + phone) */
+.topnav-burger {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--cream);
+  width: 40px; height: 40px;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 160ms ease-out, background 160ms ease-out;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.topnav-burger:hover { border-color: var(--dust); background: rgba(212,165,116,0.06); }
+.topnav-burger:focus-visible { outline: 2px solid var(--rust); outline-offset: 2px; }
+
+/* Scrim that closes the drawer when tapped */
+.topnav-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 49;
+  background: rgba(10,20,36,0.55);
+  backdrop-filter: blur(2px);
+  border: 0;
+  cursor: pointer;
+  animation: topnav-scrim-in 200ms ease-out;
+}
+@keyframes topnav-scrim-in { from { opacity: 0 } to { opacity: 1 } }
+
+/* Tablet: tighten nav slightly but keep it inline */
 @media (max-width: 880px) {
   .topnav {
     padding: 10px 14px;
@@ -87,33 +118,97 @@ html { -webkit-text-size-adjust: 100%; }
   .topnav nav .group-sep { display: none; }
 }
 
-/* Phone: become a horizontally-scrollable strip so all 10 links stay reachable */
-@media (max-width: 600px) {
+/* Phone (≤640): swap inline nav for a hamburger-driven drop-down drawer */
+@media (max-width: 640px) {
   .topnav {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
+    /* keep header as a single horizontal row: brand · cycle-dots · burger */
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
     padding: 8px 12px;
   }
   .topnav .brand-tag {
     font-size: 10.5px;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.16em;
+    flex: 0 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
+  /* Show the hamburger */
+  .topnav-burger { display: inline-flex; }
+
+  /* Hide the inline nav until the drawer opens */
   .topnav nav {
+    position: fixed;
+    top: 56px;            /* below the topnav bar */
+    right: 8px;
+    left: 8px;
+    z-index: 60;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 6px;
     margin-left: 0;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    gap: 14px;
-    padding-bottom: 4px;
+    background: linear-gradient(180deg, var(--shadow), var(--ridge));
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    box-shadow: 0 24px 48px rgba(0,0,0,0.55), 0 0 0 1px rgba(212,165,116,0.16);
+    max-height: calc(100vh - 76px);
+    overflow-y: auto;
+    transform: translateY(-8px) scale(0.98);
+    transform-origin: top right;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: transform 200ms cubic-bezier(0.22, 0.61, 0.36, 1),
+                opacity 200ms ease-out,
+                visibility 0s linear 200ms;
   }
-  .topnav nav::-webkit-scrollbar { display: none; }
+  .topnav nav.is-open {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transition: transform 240ms cubic-bezier(0.22, 0.61, 0.36, 1),
+                opacity 200ms ease-out,
+                visibility 0s linear 0s;
+  }
+  /* Drawer item layout — full-width tappable rows */
   .topnav nav a {
-    flex-shrink: 0;
-    padding: 4px 0;
-    font-size: 10px;
+    display: block;
+    padding: 12px 14px;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    border-radius: var(--r-sm);
+    transition: background 140ms ease-out, color 140ms ease-out;
+    border-bottom: 1px dashed rgba(212,165,116,0.10);
   }
+  .topnav nav a:last-child { border-bottom: 0; }
+  .topnav nav a:hover {
+    background: rgba(212,165,116,0.06);
+    color: var(--cream);
+  }
+  .topnav nav a.is-current {
+    background: rgba(200,85,42,0.10);
+    color: var(--dust);
+  }
+  .topnav nav a.is-current::after { display: none; }
+  /* Group separators in the drawer become a dashed divider with a label */
+  .topnav nav .group-sep {
+    display: block;
+    width: auto;
+    height: 0;
+    margin: 6px 6px;
+    border-top: 1px dashed rgba(212,165,116,0.22);
+    background: transparent;
+  }
+}
+
+/* keep the cycle dots reasonable on the mobile bar */
+@media (max-width: 640px) {
+  .topnav .cycle-dots { margin-left: auto; margin-right: 0; }
 }
 
 /* Lucide icons in React inherit the parent text colour by default */

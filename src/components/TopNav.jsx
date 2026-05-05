@@ -1,4 +1,6 @@
-import { Link, NavLink } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Menu, X } from 'lucide-react'
 import CycleDots from './CycleDots.jsx'
 
 const LINKS = [
@@ -18,8 +20,27 @@ const LINKS = [
 ]
 
 export default function TopNav() {
+  const [open, setOpen] = useState(false)
+  const loc = useLocation()
+
+  // Close drawer when route changes (so navigation feels right on mobile)
+  useEffect(() => { setOpen(false) }, [loc.pathname])
+
+  // Esc to close + lock body scroll while open
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e) => { if (e.key === 'Escape') setOpen(false) }
+    window.addEventListener('keydown', onKey)
+    const prev = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      document.body.style.overflow = prev
+    }
+  }, [open])
+
   return (
-    <header className="topnav" role="banner">
+    <header className={`topnav${open ? ' is-open' : ''}`} role="banner">
       <Link
         to="/"
         className="brand-tag"
@@ -29,7 +50,21 @@ export default function TopNav() {
         <span className="dot" />
         <span>NEP-26 · Dossier</span>
       </Link>
-      <nav aria-label="Site sections">
+
+      <CycleDots />
+
+      <button
+        type="button"
+        className="topnav-burger"
+        aria-label={open ? 'Close menu' : 'Open menu'}
+        aria-expanded={open}
+        aria-controls="topnav-nav"
+        onClick={() => setOpen((o) => !o)}
+      >
+        {open ? <X size={20} strokeWidth={1.8} /> : <Menu size={20} strokeWidth={1.8} />}
+      </button>
+
+      <nav id="topnav-nav" aria-label="Site sections" className={open ? 'is-open' : undefined}>
         {LINKS.map((l, i) => (
           l.sep
             ? <span key={`s${i}`} className="group-sep" aria-hidden />
@@ -44,8 +79,17 @@ export default function TopNav() {
               </NavLink>
             )
         ))}
-        <CycleDots />
       </nav>
+
+      {open && (
+        <button
+          type="button"
+          className="topnav-scrim"
+          aria-label="Close menu"
+          onClick={() => setOpen(false)}
+          tabIndex={-1}
+        />
+      )}
     </header>
   )
 }
