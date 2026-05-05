@@ -14,6 +14,7 @@ import MapPage from './pages/MapPage.jsx'
 import Gallery from './pages/Gallery.jsx'
 import Folders from './pages/Folders.jsx'
 import Viewer from './pages/Viewer.jsx'
+import Stays from './pages/Stays.jsx'
 
 function ScrollAndRefresh() {
   const loc = useLocation()
@@ -40,6 +41,7 @@ export default function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/folders" element={<Folders />} />
           <Route path="/viewer" element={<Viewer />} />
+          <Route path="/stays" element={<Stays />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </PageTransitions>
