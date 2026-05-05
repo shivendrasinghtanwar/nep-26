@@ -87,6 +87,7 @@
   margin-top: 14px;
 }
 .day {
+  position: relative;
   display: grid;
   grid-template-columns: 110px 1fr auto;
   gap: 18px;

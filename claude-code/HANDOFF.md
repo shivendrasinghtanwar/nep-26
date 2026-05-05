@@ -885,3 +885,10 @@ Things Cowork-side can do (no need to ask Claude Code):
 ```
 
 [2026-05-04 IST] CC — Day-1 halt swapped Noida → Agra in data/hotels.json (5 candidates: 3 hotels + 2 airbnbs). Top hotel pick: Crystal Sarovar Premiere Agra (Tajganj, Booking 8.6, free valet, INR 5.5–6.5k); top airbnb: Taj Luxuria by Red Olive 3BHK in Parsvnath Panchvati gated community.
+
+[2026-05-04 IST] CC — Easter-egg audit pass after subsequent agent work (mobile audit, swipe gestures, Stays page, page transitions). All three eggs verified intact:
+- Konami code (↑↑↓↓←→←→BA) → Thar drives across screen w/ "KONAMI CODE · THAR DEPLOYED" badge. EasterEggs.jsx keydown listener registers on window before PageGestures'; both coexist (PageGestures arrow handler is gated to cycle routes only). Konami detection unaffected.
+- Brand-tag 5× tap → "BRAND TAP · MOM SIGNED THE AUTH LETTER" drive-by. TopNav.jsx Link onClick still dispatches `nep26:brand-click` reliably alongside router navigation; counter w/ 1.8s window + 3rd/4th-tap hints intact.
+- Day-card jeep watermark → 🔧 PATCHED. The `.day.drive::after`/`.day.offroad::after` rule was intact w/ inline data-URL Thar SVG, but `.day` was missing `position: relative` (latent bug from original commit 91479e3 — `::after` was anchoring to body, not card). Added `position: relative` to `.day` in legacy-rendered.css. Now properly pinned 10px top / 12px right of each drive/offroad day card. Live deployed bundle has the same bug; this commit fixes it on next deploy.
+- Build: `npx vite build` ✓ (1614 modules, 1.63s, dist/index-*.css now contains `.day{position:relative;…}`).
+- Live bundle audit (pre-fix): JS bundle index-0cc496a3.js contains 'KONAMI' ×4, 'BRAND TAP' ×1, 'MOM SIGNED' ×2, 'nep26-drive' keyframe ×3 — Konami + brand-tap eggs already shipping. Live CSS index-dd4ece78.css contains the watermark rule + Thar SVG path 'M3,26 L3,18' but lacks `position: relative` on `.day` — confirmed the latent anchor bug existed in production until this fix.
