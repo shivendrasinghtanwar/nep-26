@@ -8,8 +8,8 @@
     "vehicle": "Mahindra Thar Roxx (Thar Digital Services)"
   },
   "days": [
-    { "day": 1, "date": "2026-05-09", "weekday": "Sat", "leg": "Bikaner → Noida",                          "km": 610, "hours": "9–10",  "halt": "Noida",            "type": "drive",      "note": "Early start 5 AM. NH11 + Western Peripheral Expressway." },
-    { "day": 2, "date": "2026-05-10", "weekday": "Sun", "leg": "Noida → Gorakhpur",                        "km": 720, "hours": "10–11", "halt": "Gorakhpur",        "type": "drive",      "note": "Yamuna + Agra-Lucknow + Purvanchal + Gorakhpur Link." },
+    { "day": 1, "date": "2026-05-09", "weekday": "Sat", "leg": "Bikaner → Agra",                            "km": 565, "hours": "8–9",   "halt": "Agra",             "type": "drive",      "note": "Early start 5 AM. NH11 via Jaipur." },
+    { "day": 2, "date": "2026-05-10", "weekday": "Sun", "leg": "Agra → Gorakhpur",                         "km": 406, "hours": "6–7",  "halt": "Gorakhpur",        "type": "drive",      "note": "Agra-Lucknow Expressway → Purvanchal → Gorakhpur Link. All expressways." },
     { "day": 3, "date": "2026-05-11", "weekday": "Mon", "leg": "Gorakhpur → Sunauli → Bhairahawa",         "km": 120, "hours": "4–5",   "halt": "Bhairahawa",       "type": "border",     "note": "Bhansar + Yatayat + SIM. Light Lumbini if time. Evening work." },
     { "day": 4, "date": "2026-05-12", "weekday": "Tue", "leg": "Bhairahawa → Pokhara",                     "km": 190, "hours": "6–7",   "halt": "Pokhara",          "type": "drive",      "note": "Smooth highway. Half work day on arrival." },
     { "day": 5, "date": "2026-05-13", "weekday": "Wed", "leg": "Pokhara — work day",                       "km": 0,   "hours": "—",     "halt": "Pokhara",          "type": "work",       "note": "Buy ACAP online (epermit.ntnc.org.np) OR at Pokhara counter — at-checkpost surcharge is DOUBLE. Lakeside dinner." },
