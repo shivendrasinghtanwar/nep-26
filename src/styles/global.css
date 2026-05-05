@@ -206,10 +206,6 @@ html { -webkit-text-size-adjust: 100%; }
   }
 }
 
-/* keep the cycle dots reasonable on the mobile bar */
-@media (max-width: 640px) {
-  .topnav .cycle-dots { margin-left: auto; margin-right: 0; }
-}
 
 /* Lucide icons in React inherit the parent text colour by default */
 .lucide { vertical-align: -2px; }
