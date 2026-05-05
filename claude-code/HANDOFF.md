@@ -750,6 +750,63 @@ Things Cowork-side can do (no need to ask Claude Code):
 ```
 
 ```
+[2026-05-05 23:25 IST] CC — Day-3 border decision validated (STOP at Bhairahawa)
+- mission: validate vs invalidate the Day-3 Gorakhpur→Sunauli→Bhairahawa stop
+  (~120 km) vs pushing through to Pokhara (~310 km + border) on 2026-05-11.
+- verdict: **STOP at Bhairahawa.** Three independent constraints kill the push:
+  1. Sunauli has a hard **9:45 PM vehicle cutoff** (24/7 only for pedestrians);
+     typical Bhansar+Yatayat clearance 25–60 min in best case but counters
+     run office hours 10:00–17:00, and the firm-registered Thar (proprietor
+     ≠ driver, no 2026 circular addresses this) realistically chews 2–4+
+     hours. Source: Triploko 2026 + Third Eye Traveller + Motologs.
+  2. **2026-02-23 Trishuli-river bus crash, 18 dead, 25 injured** at
+     Charaundi (Bhaisegauda, Dhading) on the Pokhara-Kathmandu Prithvi-
+     Highway curve cluster at ~01:15 AM. Bhairahawa→Pokhara uses the same
+     Mugling-Pokhara corridor; arriving on it after 22:00 means hitting
+     the very curves that produced this crash. Source: Kathmandu Post
+     2026-02-23 + Nepal Gateway Trekking 2026-03-08 follow-up.
+  3. Pokhara-Mugling 4-laning is only ~43% physical / 29.47 km blacktopped;
+     unmarked construction zones + slow truck convoys + single-lane
+     diversions make night driving on this stretch the highest-risk segment
+     of the entire trip.
+- decision matrix written into the doc with 4 scenarios (border clear by
+  13:00 / 13–15 / 15–17 / after 17). All four scenarios route to STOP at
+  Bhairahawa. A theoretical conditional PUSH exists only if border is
+  cleared before noon AND Lumbini is skipped AND Pokhara is reached by
+  19:00 — too many variables, default to STOP.
+- Lumbini side-trip math: Mayadevi opens 06:00–18:00, useful 45–75 min
+  visit, full circuit 2–3 hours. Day-3 inbound visit only realistic if
+  border clears by 13:00; better to do the proper visit on Day 13
+  outbound (already planned).
+- Bhairahawa hotel pick: **Tiger Palace by Soaltee** if budget approved
+  (8 km north of Sunauli, free private valet parking, on-site casino +
+  24h F&B handles late-arrival dinner risk). In-budget primary: **Buddha
+  Maya Garden by KGH Group** (5-min walk to Mayadevi gate, free private
+  parking). Bhairahawa Garden Resort right pick for the 2026-05-21
+  outbound night per existing hotels.json notes.
+- Pokhara check-in flexibility: Atithi / Waterfront / Temple Tree all
+  have 24h reception; none documents a hard cutoff for arrival. Phone-
+  confirm ETA before the trip if push were attempted.
+- artefacts written:
+  · /Users/sunny/mine/trips/NEPAL-2026/docs/DAY_3_BORDER_DECISION.md
+    (single-page recommendation with decision matrix, ends in STOP)
+  · /Users/sunny/mine/trips/NEPAL-2026/data/border_intel/ — 8 timestamped
+    HTML snapshots + extracted .txt for each (Kathmandu Post bus crash,
+    Triploko Sunauli wait-time monitor, Third Eye Traveller survival
+    guide, Nepal Gateway Trekking post-accident safety guide, Motologs
+    Bhansar guide, Musafir 2026 trip guide, CGI Birgunj vehicle permit
+    page, ExploreAllAboutNepal road guide). All ≥1 kB; multiple are
+    explicitly dated post-2026-01-01.
+- did NOT touch: docs/ITINERARY.md, docs/NEPAL_RULES_2026.md,
+  data/itinerary.json, data/rules.json, data/hotels.json, AUTHORIZATION_
+  LETTER_TEMPLATE.md, docs/ROUTE_CONDITIONS.md, any website/* file,
+  /plans/*. Read-only on existing trip files as constrained.
+- blockers: none. Recommendation is unambiguous (STOP). The existing
+  Day-3 plan is correct and should remain locked. The Tiger-Palace-vs-
+  Buddha-Maya budget call is the only follow-up requiring user input.
+```
+
+```
 [2026-05-04 22:55 IST] CC — Mobile responsive audit + patches across 10 routes
 - mission: targeted mobile-responsive QA pass on the React app at three
   reference widths (375, 414, 768). No refactor, no new deps, no palette
