@@ -210,6 +210,28 @@ function StaysIcon() {
   )
 }
 
+// Parse an INR price band like "INR 5,500–6,500 / night" or
+// "INR 70,000+ / night" into [min, max] numbers (or null if unparseable).
+function parsePriceBand(s) {
+  if (!s) return null
+  const nums = String(s).match(/\d{1,3}(?:,\d{3})*|\d+/g)
+  if (!nums || nums.length === 0) return null
+  const vals = nums.map((n) => parseInt(n.replace(/,/g, ''), 10)).filter((v) => !isNaN(v) && v > 100)
+  if (!vals.length) return null
+  return [Math.min(...vals), Math.max(...vals)]
+}
+
+function cityPriceRange(city) {
+  const ranges = (city.candidates || [])
+    .map((h) => parsePriceBand(h.priceBand))
+    .filter(Boolean)
+  if (!ranges.length) return null
+  const lo = Math.min(...ranges.map((r) => r[0]))
+  const hi = Math.max(...ranges.map((r) => r[1]))
+  if (lo === hi) return `₹${lo.toLocaleString('en-IN')}`
+  return `₹${lo.toLocaleString('en-IN')}–${hi.toLocaleString('en-IN')}`
+}
+
 function flagsFor(hotel) {
   const f = []
   if (hotel.fibre === true)  f.push({ k: 'wifi-ok', label: 'Fibre',         icon: Wifi,    cls: 'ok' })
@@ -347,6 +369,13 @@ export default function Stays() {
                   <b>{c.checkIn}</b>{c.checkOut !== c.checkIn ? ` → ${c.checkOut}` : ''}
                   <span className="sep" style={{ margin: '0 8px', opacity: .35 }}>·</span>
                   <b>{c.candidates?.length || 0}</b> options
+                  {cityPriceRange(c) && (
+                    <>
+                      <span className="sep" style={{ margin: '0 8px', opacity: .35 }}>·</span>
+                      <b style={{ color: 'var(--rust)' }}>{cityPriceRange(c)}</b>
+                      <span style={{ marginLeft: 4, opacity: .65 }}>/ night</span>
+                    </>
+                  )}
                 </div>
               </header>
               <div className="candidates">
