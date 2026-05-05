@@ -450,6 +450,7 @@
   max-width: 1080px;
   margin: 0 auto;
   padding: 20px 0;
+  list-style: none;
 }
 .timeline::before {
   content: '';
@@ -457,6 +458,7 @@
   top: 0; bottom: 0;
   left: 50%;
   width: 1px;
+  transform: translateX(-50%);
   background: linear-gradient(180deg, transparent, var(--dust) 6%, var(--dust) 94%, transparent);
   opacity: .35;
 }
@@ -468,12 +470,15 @@
   margin-bottom: 22px;
 }
 .tl-row .marker {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: center;
   width: 14px; height: 14px;
   border-radius: 50%;
   background: var(--dust);
   border: 2px solid var(--night);
   box-shadow: 0 0 0 3px rgba(212,165,116,.18), 0 0 12px rgba(212,165,116,.4);
-  margin: 14px auto 0;
+  margin: 14px 0 0;
   position: relative;
   z-index: 2;
 }
@@ -559,9 +564,9 @@
 .badge.type-offroad     { color: var(--rust); }
 
 @media (max-width: 720px) {
-  .timeline::before { left: 18px; }
+  .timeline::before { left: 18px; transform: none; }
   .tl-row { grid-template-columns: 36px 1fr; }
-  .tl-row .marker { grid-column: 1; margin: 14px 0 0 11px; }
+  .tl-row .marker { grid-column: 1; justify-self: start; margin: 14px 0 0 11px; }
   .tl-row.left  .tl-card,
   .tl-row.right .tl-card { grid-column: 2; text-align: left; }
   .tl-row.left .tl-meta,
