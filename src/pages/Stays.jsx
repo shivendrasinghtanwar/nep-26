@@ -45,6 +45,9 @@ const STAYS_CSS = `
     letter-spacing: 0.04em;
     color: var(--cream);
     margin: 0;
+    min-width: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
   .city-head .name .accent { color: var(--rust); }
   .city-head .meta {
@@ -53,8 +56,24 @@ const STAYS_CSS = `
     letter-spacing: 0.14em;
     color: var(--cream-dim);
     text-transform: uppercase;
+    /* allow the meta line (dates · options · price-range · /night) to break
+       at the · separators rather than overflow when it doesn't fit one row */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 0;
+    row-gap: 4px;
+    min-width: 0;
+    max-width: 100%;
   }
+  .city-head .meta > * { white-space: nowrap; }
   .city-head .meta b { color: var(--dust); font-weight: 600; }
+  .city-head .meta .meta-cell {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+  .city-head .meta .sep { margin: 0 8px; opacity: 0.35; }
 
   .candidates {
     display: grid;
@@ -191,10 +210,38 @@ const STAYS_CSS = `
 
   @media (max-width: 640px) {
     .candidates { grid-template-columns: 1fr; }
-    .city-head { padding: 14px 16px 10px; }
+    .city-head {
+      padding: 14px 16px 10px;
+      /* stack the name above the meta so the meta has the full row width
+         to wrap into when the price range pushes the content past 1 line */
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
     .city-head .name { font-size: 22px; }
+    .city-head .meta { font-size: 10.5px; letter-spacing: 0.10em; }
+    .city-head .meta .sep { margin: 0 6px; }
     .hotel-card { padding: 14px 16px; }
-    .hotel-name { font-size: 17px; margin-right: 64px; }
+    .hotel-name { font-size: 17px; margin-right: 64px; word-break: break-word; }
+    .hotel-notes { font-size: 13px; }
+    .price-row { flex-wrap: wrap; row-gap: 4px; }
+    .price-row .rating { margin-left: auto; }
+    /* bump action-link tap targets to ≥36px and gap so a thumb can land */
+    .hotel-actions { gap: 8px 14px; }
+    .hotel-actions a {
+      padding: 10px 0;
+      font-size: 12px;
+      min-height: 36px;
+      letter-spacing: 0.12em;
+    }
+    .city-flags { padding: 10px 16px; font-size: 11px; }
+    .city-flags ul { margin: 4px 0 0 14px; }
+  }
+  @media (max-width: 380px) {
+    .city-head .name { font-size: 20px; }
+    .city-head .meta { font-size: 10px; letter-spacing: 0.08em; }
+    .hotel-name { font-size: 16px; margin-right: 60px; }
+    .hotel-card .top-pill { font-size: 8.5px; padding: 2px 5px; }
   }
 `
 
@@ -366,14 +413,20 @@ export default function Stays() {
                   {c.city}
                 </h2>
                 <div className="meta">
-                  <b>{c.checkIn}</b>{c.checkOut !== c.checkIn ? ` → ${c.checkOut}` : ''}
-                  <span className="sep" style={{ margin: '0 8px', opacity: .35 }}>·</span>
-                  <b>{c.candidates?.length || 0}</b> options
+                  <span className="meta-cell">
+                    <b>{c.checkIn}</b>{c.checkOut !== c.checkIn ? ` → ${c.checkOut}` : ''}
+                  </span>
+                  <span className="sep" aria-hidden="true">·</span>
+                  <span className="meta-cell">
+                    <b>{c.candidates?.length || 0}</b> options
+                  </span>
                   {cityPriceRange(c) && (
                     <>
-                      <span className="sep" style={{ margin: '0 8px', opacity: .35 }}>·</span>
-                      <b style={{ color: 'var(--rust)' }}>{cityPriceRange(c)}</b>
-                      <span style={{ marginLeft: 4, opacity: .65 }}>/ night</span>
+                      <span className="sep" aria-hidden="true">·</span>
+                      <span className="meta-cell meta-price">
+                        <b style={{ color: 'var(--rust)' }}>{cityPriceRange(c)}</b>
+                        <span style={{ marginLeft: 4, opacity: .65 }}>/ night</span>
+                      </span>
                     </>
                   )}
                 </div>

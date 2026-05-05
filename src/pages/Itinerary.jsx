@@ -48,7 +48,7 @@ const ITIN_CSS = `
   }
   @keyframes nep26-detail-in {
     0%   { opacity: 0; transform: translateY(-4px); max-height: 0; }
-    100% { opacity: 1; transform: translateY(0);    max-height: 800px; }
+    100% { opacity: 1; transform: translateY(0);    max-height: 1600px; }
   }
   .day-detail .why {
     font-size: 14px;
@@ -118,6 +118,45 @@ const ITIN_CSS = `
     transition: all 160ms;
   }
   .day-detail .src-row a:hover { color: var(--cream); border-color: var(--cream); background: rgba(91,159,204,0.08); }
+
+  @media (max-width: 640px) {
+    /* tap target ≥36px high without losing the dossier-mono look */
+    .day .show-detail-btn {
+      padding: 9px 12px;
+      font-size: 10.5px;
+      min-height: 36px;
+    }
+    .day-detail {
+      /* the day card itself already has reduced padding at <=640px;
+         tighten the inner panel so it fits inside the 375px viewport */
+      padding: 12px 12px 12px 14px;
+      margin-top: 8px;
+    }
+    .day-detail .why { font-size: 13.5px; line-height: 1.6; }
+    .day-detail .bullets li {
+      font-size: 12.5px;
+      line-height: 1.55;
+      padding: 5px 0 5px 16px;
+    }
+    .day-detail .hotel-line {
+      font-size: 11.5px;
+      padding: 8px 10px;
+      letter-spacing: 0.02em;
+      /* long hotel strings (e.g. "Buddha Maya Garden by KGH (Lumbini)")
+         must break rather than overflow */
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+    .day-detail .hotel-line .lbl { display: inline-block; margin-bottom: 2px; }
+    .day-detail .src-row { gap: 8px; }
+    .day-detail .src-row a {
+      padding: 9px 12px;
+      font-size: 10.5px;
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+    }
+  }
 `
 
 function renderWhy(text) {
