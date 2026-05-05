@@ -883,3 +883,5 @@ Things Cowork-side can do (no need to ask Claude Code):
     SSR-safe path returns true (open) so the very first render on a
     hydrating mobile may show the open TOC for one frame.
 ```
+
+[2026-05-04 IST] CC — Day-1 halt swapped Noida → Agra in data/hotels.json (5 candidates: 3 hotels + 2 airbnbs). Top hotel pick: Crystal Sarovar Premiere Agra (Tajganj, Booking 8.6, free valet, INR 5.5–6.5k); top airbnb: Taj Luxuria by Red Olive 3BHK in Parsvnath Panchvati gated community.

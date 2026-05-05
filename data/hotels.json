@@ -11,39 +11,70 @@
   ],
   "shortlist": [
     {
-      "city": "Noida",
+      "city": "Agra",
       "checkIn": "2026-05-09",
       "checkOut": "2026-05-10",
+      "rationale": "Day-1 halt swapped from Noida → Agra to cut Bikaner-leg fatigue (~565 km vs ~720 km to Noida) and put the user on the Agra-Lucknow Expressway head-on the morning of 10 May. Optimise for: (a) secure on-premises parking for the firm-registered Thar Roxx (no street park risk), (b) easy outbound to Yamuna/Agra-Lucknow Expressway on-ramp, (c) buffet breakfast for an early restart.",
       "candidates": [
         {
-          "name": "Radisson Blu MBD Hotel, Noida",
-          "rating": 4.3,
+          "name": "Crystal Sarovar Premiere Agra (Grand Mercure Agra — An Accor Brand)",
+          "type": "hotel",
+          "rating": 4.4,
           "bookingScore": 8.6,
           "priceBand": "INR 5,500–6,500 / night",
           "fibre": true,
-          "url": "https://www.booking.com/hotel/in/radisson-mbd.html",
-          "websiteUrl": "https://www.radissonhotels.com/en-us/hotels/radisson-blu-noida",
-          "notes": "Sector 18, valet+free parking (height limit — confirm Roxx fits), strong WPE access via Noida Expressway. 24h F&B, secure for SUV. Good evening-arrival check-in track record."
+          "parking": true,
+          "url": "https://www.booking.com/hotel/in/crystal-sarovar-premiere-agra.html",
+          "websiteUrl": "https://www.sarovarhotels.com/crystal-sarovar-premiere-agra/",
+          "notes": "TOP PICK. 5-star in Tajganj, 1.2 mi from Taj. Booking couples-trip score 8.9 for location. Free self + valet parking on a large premises (Roxx-friendly, no height issues). High-speed wifi advertised. Now Accor-rebranded as Grand Mercure Agra — same property, post-rebrand reviews still strong. Easy 8 km exit to Inner Ring Rd → Yamuna Expressway / Agra-Lucknow Expressway on-ramp."
         },
         {
-          "name": "Crowne Plaza New Delhi Mayur Vihar Noida (IHG)",
+          "name": "Jaypee Palace Hotel & Convention Centre, Agra",
+          "type": "hotel",
           "rating": 4.4,
-          "bookingScore": 8.7,
-          "priceBand": "INR 4,500–6,000 / night",
+          "bookingScore": 8.6,
+          "priceBand": "INR 5,500–6,000 / night",
           "fibre": true,
-          "url": "https://www.booking.com/hotel/in/crowne-plaza-new-delhi-mayur-vihar.html",
-          "websiteUrl": "https://www.ihg.com/crowneplaza/hotels/us/en/new-delhi/deldd/hoteldetail",
-          "notes": "Direct WPE/DND on-ramp at Mayur Vihar. Complimentary valet parking, IHG-grade security. Best for an early-morning 10 May restart toward Gorakhpur."
+          "parking": true,
+          "url": "https://www.booking.com/hotel/in/jaypee-palace.html",
+          "websiteUrl": "https://www.jaypeehotels.com/jaypee-palace-agra/",
+          "notes": "5-star resort on Fatehabad Rd, 25-acre grounds = abundant outdoor parking (best SUV fit — no clearance/height risk). Free valet parking + free self-park. Strong F&B for early breakfast. ~2 km from Inner Ring Rd, then a clean run to Agra-Lucknow Expressway entry. Backup A."
         },
         {
-          "name": "Radisson Blu Hotel Greater Noida",
-          "rating": 4.3,
-          "bookingScore": 8.5,
-          "priceBand": "INR 4,800–6,000 / night",
+          "name": "Courtyard by Marriott Agra",
+          "type": "hotel",
+          "rating": 4.5,
+          "bookingScore": 8.7,
+          "priceBand": "INR 6,000–7,000 / night",
           "fibre": true,
-          "url": "https://www.booking.com/hotel/in/radisson-blu-greater-noida.html",
-          "websiteUrl": "https://www.radissonhotels.com/en-us/hotels/radisson-blu-greater-noida",
-          "notes": "Free parking + valet, full-service spa, breakfast praised. Slightly south — adds ~20 min to Yamuna Expressway entry vs Sector 18."
+          "parking": true,
+          "url": "https://www.booking.com/hotel/in/courtyard-by-marriott-agra.html",
+          "websiteUrl": "https://www.marriott.com/en-us/hotels/agrcy-courtyard-agra/overview/",
+          "notes": "Taj Nagri Phase II / Fatehabad Rd. Marriott-grade security + complimentary on-site parking, executive-floor reliability. Slight price overage flag (top of band may push INR 6,500–7,000 on a Saturday). Backup B — pick if Crystal Sarovar / Jaypee are full. Ground-level open parking lot accommodates SUVs."
+        },
+        {
+          "name": "Taj Luxuria by Red Olive (3BHK, Parsvnath Panchvati gated community)",
+          "type": "airbnb",
+          "rating": 4.8,
+          "bookingScore": null,
+          "priceBand": "INR 3,500–4,500 / night",
+          "fibre": true,
+          "parking": true,
+          "url": "https://www.airbnb.com/agra-india/stays/apartments",
+          "websiteUrl": "https://www.airbnb.com/agra-india/stays/apartments",
+          "notes": "Airbnb top pick. Entire 3BHK in gated society Parsvnath Panchvati, ~4 km from Taj. Free private parking inside the gated complex (24×7 guard) — ideal for a firm-registered Thar Roxx left overnight. High-speed WiFi + dedicated workspace per listing. Long-stay friendly and quiet; co-traveller-comfortable. Search 'Taj Luxuria Red Olive' on Airbnb for live availability + exact 9 May rate."
+        },
+        {
+          "name": "Dayal Bagh Gated Apartment (Northwest Agra, 2BR private)",
+          "type": "airbnb",
+          "rating": 4.5,
+          "bookingScore": null,
+          "priceBand": "INR 2,500–3,800 / night",
+          "fibre": true,
+          "parking": true,
+          "url": "https://www.airbnb.co.in/agra-india/stays",
+          "websiteUrl": "https://www.airbnb.co.in/agra-india/stays",
+          "notes": "Airbnb backup. Private gated residential society in Dayal Bagh (NW Agra, closer to Sikandra side). Exterior security cameras, fully AC, equipped kitchen, secure private parking. Closer to Inner Ring Rd north exit — saves 15–20 min on the Day-2 morning push north + east toward Etmadpur and the Agra-Lucknow Expressway entry. Less Taj-centric vibe but better for the next-day route. Search Airbnb Agra 'Dayal Bagh gated apartment' for live listings."
         }
       ]
     },
@@ -303,7 +334,7 @@
     "iOverlander / blog cross-check for Jomsom inventory was attempted; no post-2026-03-01 traveller posts surfaced new properties. Hotel Om's Home and Jomsom Mountain Retreat remain the consensus top picks."
   ],
   "candidateCounts": {
-    "Noida": 3,
+    "Agra": 5,
     "Gorakhpur": 3,
     "Bhairahawa / Lumbini": 3,
     "Pokhara": 4,
