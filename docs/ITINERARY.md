@@ -2,8 +2,8 @@
 
 | Day | Date | Leg | Distance | Drive Time | Night Halt | Notes |
 |-----|------|-----|----------|------------|------------|-------|
-| 1 | Sat 9 May | **Bikaner → Noida** (NH11 + WPE) | ~610 km | 9–10 h | Noida (hotel) | Early start 5:00 AM. Aim Noida by 4 PM. |
-| 2 | Sun 10 May | **Noida → Gorakhpur** (Yamuna + Agra–Lucknow + Purvanchal + Gorakhpur Link) | ~720 km | 10–11 h | Gorakhpur | Pre-book hotel near Gorakhpur bypass. |
+| 1 | Sat 9 May | **Bikaner → Agra** (NH11 via Jaipur) | ~565 km | 8–9 h | Agra (hotel) | Early start 5:00 AM. Aim Agra by 2–3 PM. |
+| 2 | Sun 10 May | **Agra → Gorakhpur** (Agra–Lucknow + Purvanchal + Gorakhpur Link) | ~406 km | 6–7 h | Gorakhpur | All expressways. Arrive Gorakhpur by early afternoon. |
 | 3 | Mon 11 May | **Gorakhpur → Sunauli border → Lumbini → Bhairahawa** | ~120 km | 4–5 h (incl. border) | Bhairahawa / Lumbini | **Border-day**: complete Bhansar + Yatayat + Nepal SIM + ACAP plan. Light tourism in Lumbini if time. **Workday in evening.** |
 | 4 | Tue 12 May | **Bhairahawa → Pokhara** | ~190 km | 6–7 h | Pokhara — Tiger Palace area or Lakeside resort | Smooth highway. Reach by afternoon. **Half workday on arrival.** |
 | 5 | Wed 13 May | **Pokhara — work day** | 0 | — | Pokhara | Full workday. **Buy ACAP online (epermit.ntnc.org.np) OR at Pokhara counter — at-checkpost surcharge is DOUBLE.** Lakeside dinner. |
@@ -32,7 +32,7 @@
 
 ## Bookings to Confirm (before 9 May)
 
-- [ ] Noida hotel — 9 May
+- [ ] Agra hotel — 9 May
 - [ ] Gorakhpur hotel — 10 May
 - [ ] Bhairahawa / Lumbini hotel — 11 May, 21 May
 - [ ] Pokhara resort — 12, 13, 17, 18, 19, 20 May (6 nights)
