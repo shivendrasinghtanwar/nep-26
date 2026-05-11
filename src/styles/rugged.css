@@ -1090,6 +1090,10 @@ figcaption .tag {
 .rail-row.done .row-val { color: var(--cream); }
 .rail-row.done .row-bar { background: var(--rust); }
 
+/* Hide future days until they're logged — bar widths still scale against
+   the full-trip max so completed days read as a fraction of the total. */
+.rail-row.upcoming { display: none; }
+
 .rail-row.current { padding: 5px 0; }
 .rail-row.current .row-day { color: var(--rust); }
 .rail-row.current .row-val { color: var(--rust); }
