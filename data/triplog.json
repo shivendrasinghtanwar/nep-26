@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "title": "NEP-26 Field Log",
+    "subtitle": "What actually happened",
+    "vehicle": "Mahindra Thar Roxx · Thar Digital Services",
+    "lastUpdated": "2026-05-11"
+  },
+  "entries": [
+    {
+      "day": 1,
+      "date": "2026-05-09",
+      "weekday": "Sat",
+      "leg": "Bikaner → Lucknow",
+      "km": 954,
+      "hours": "14 h 36 min",
+      "route": "NH11 · Agra-Lucknow Exp",
+      "status": "done",
+      "notes": "Pushed past Agra — Agra-Lucknow Expressway was too good to stop on. Roxx on cruise with ADAS, just zoomed. Reached Gomti Nagar by 9:30 PM. Ate dinner, slept well.",
+      "hotel": {
+        "name": "The Grand JBR",
+        "location": "CF-129 Viraj Khand, Gomti Nagar, Lucknow",
+        "map": "https://maps.app.goo.gl/?q=26.8467,80.9462"
+      },
+      "delta": "↑ Pushed 389 km past planned Agra halt — Agra-Lucknow Expressway is cruise-control fast",
+      "events": []
+    },
+    {
+      "day": 2,
+      "date": "2026-05-10",
+      "weekday": "Sun",
+      "leg": "Lucknow → Sunauli border → Butwal 🇳🇵",
+      "km": 390,
+      "hours": "~12 h",
+      "route": "Purvanchal · Gorakhpur Link · NH27 · Sunauli border",
+      "status": "done",
+      "notes": "Left Lucknow 8 AM after breakfast. Purvanchal + Gorakhpur Link expressways smooth — easy morning run. Last ~95 km on NH27 was regular road. Got to Sunauli by 2 PM but then 1.5 hours crawling through trucks before the border, then 44 minutes doing the Bhansar paperwork. Crossed into Nepal, continued ~25 km to Butwal.",
+      "hotel": {
+        "name": "Dreamland Gold Resort & Hotel",
+        "location": "Butwal, Nepal",
+        "map": "https://maps.app.goo.gl/?q=27.6210549,83.4710435"
+      },
+      "delta": null,
+      "events": [
+        {
+          "icon": "⚠",
+          "tone": "warn",
+          "text": "Nepal TIV online portal (nnsw.gov.np/tiv/gen) — failed at last step, no QR generated. Indian domestic cards / UPI not supported. Did physical Bhansar instead — 44 minutes."
+        },
+        {
+          "icon": "🚛",
+          "tone": "warn",
+          "text": "~1.5 h truck-traffic crawl approaching Sunauli border. Plan earlier next time."
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "date": "2026-05-11",
+      "weekday": "Mon",
+      "leg": "Butwal → Pokhara",
+      "km": 185,
+      "hours": "~6 h",
+      "route": "Siddhartha Highway",
+      "status": "done",
+      "notes": "Breakfast at the Dreamland café. Started 9:30 AM. Drive up the Siddhartha Highway to Pokhara — winding mountain road, the Roxx handled it well. Reached Pokhara afternoon.",
+      "hotel": {
+        "name": "Waterfront Resort by KGH Group",
+        "location": "Lakeside, Pokhara",
+        "map": "https://maps.app.goo.gl/?q=28.2217546,83.9516047"
+      },
+      "delta": "↑ Arrived Pokhara 1 day ahead of original plan (was Day 4 / 12 May)",
+      "events": []
+    }
+  ]
+}
