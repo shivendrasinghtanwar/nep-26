@@ -1,9 +1,74 @@
 import { Link } from 'react-router-dom'
-import { ChevronLeft, MapPin, ExternalLink } from 'lucide-react'
+import { ChevronLeft, MapPin, ExternalLink, Mountain, Route as RouteIcon } from 'lucide-react'
 import HeroMtn from '../components/HeroMtn.jsx'
 import StatStrip from '../components/StatStrip.jsx'
-import { TRIPLOG } from '../lib/data.js'
+import { TRIPLOG, ITINERARY } from '../lib/data.js'
 
+// ── Altitude lookup (metres above sea level) ─────────────────────────────
+const ALT_LOOKUP = {
+  bikaner: 224, lucknow: 123, agra: 171, gorakhpur: 84, noida: 200,
+  sunauli: 90, bhairahawa: 109, butwal: 205, lumbini: 150,
+  pokhara: 827, beni: 835, tatopani: 1190, jomsom: 2720,
+  muktinath: 3760, home: 224,
+}
+
+// ── Helpers ──────────────────────────────────────────────────────────────
+function fmtDate(iso) {
+  try {
+    const d = new Date(iso + 'T00:00:00+05:30')
+    return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase()
+  } catch { return iso }
+}
+
+function locAlt(text) {
+  if (!text) return null
+  const lower = text.toLowerCase()
+  // Order matters: peaks first so multi-word strings resolve correctly.
+  const keys = [
+    'muktinath', 'jomsom', 'tatopani', 'beni', 'pokhara',
+    'butwal', 'bhairahawa', 'lumbini', 'sunauli', 'gorakhpur',
+    'lucknow', 'agra', 'noida', 'bikaner', 'home',
+  ]
+  for (const k of keys) {
+    if (lower.includes(k)) {
+      const name = k === 'home' ? 'Bikaner' : k.charAt(0).toUpperCase() + k.slice(1)
+      return { name, alt: ALT_LOOKUP[k] }
+    }
+  }
+  return null
+}
+
+function buildProfile(entries, itinerary) {
+  let cum = 0
+  return itinerary.map((d, i) => {
+    const done = i < entries.length
+    const log = done ? entries[i] : null
+    const km = done ? (log.km || 0) : (d.km || 0)
+    cum += km
+
+    // Use peak altitude if the day includes a Muktinath darshan
+    let info
+    if (d.leg && d.leg.toLowerCase().includes('muktinath')) {
+      info = { name: 'Muktinath', alt: 3760, isPeak: true }
+    } else {
+      const halt = done ? (log.hotel?.location || log.leg) : d.halt
+      info = locAlt(halt)
+    }
+
+    return {
+      day: d.day,
+      date: d.date,
+      done,
+      km,
+      cumKm: cum,
+      halt: info?.name || (d.halt || '—'),
+      alt: info?.alt ?? 0,
+      isPeak: info?.isPeak || false,
+    }
+  })
+}
+
+// ── SVG mark ─────────────────────────────────────────────────────────────
 function LogMark() {
   return (
     <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -15,18 +80,106 @@ function LogMark() {
   )
 }
 
-function fmtDate(iso) {
-  try {
-    const d = new Date(iso + 'T00:00:00+05:30')
-    return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase()
-  } catch { return iso }
+// ── Side rail: altitude profile (left) ───────────────────────────────────
+function AltRail({ profile, currentDay }) {
+  const maxAlt = Math.max(...profile.map(d => d.alt), 1)
+  const current = profile.find(p => p.day === currentDay) || profile[0]
+  const peak = profile.reduce((p, c) => (c.alt > p.alt ? c : p), profile[0])
+
+  return (
+    <aside className="log-rail log-rail-left" aria-label="Altitude profile by day">
+      <div className="rail-header">
+        <div className="rail-label">
+          <Mountain size={11} strokeWidth={1.8} /> Altitude
+        </div>
+        <div className="rail-value">
+          <span className="big">{current.alt.toLocaleString()}</span>
+          <span className="unit">m</span>
+        </div>
+        <div className="rail-sub">{current.halt}</div>
+      </div>
+
+      <div className="rail-bars">
+        {profile.map(d => {
+          const w = Math.max((d.alt / maxAlt) * 100, 3)
+          const cls = [
+            'rail-row',
+            d.done ? 'done' : 'upcoming',
+            d.day === currentDay ? 'current' : '',
+            d.isPeak ? 'peak' : '',
+          ].filter(Boolean).join(' ')
+          return (
+            <div key={d.day} className={cls}>
+              <span className="row-day">D{String(d.day).padStart(2, '0')}</span>
+              <span className="row-track"><span className="row-bar" style={{ width: `${w}%` }} /></span>
+              <span className="row-val">{d.alt}<span className="row-u">m</span></span>
+            </div>
+          )
+        })}
+      </div>
+
+      <div className="rail-footer">
+        <span className="rail-foot-label">Peak</span>
+        <strong>{peak.alt.toLocaleString()} m</strong>
+        <span className="rail-foot-sub">{peak.halt} · D{String(peak.day).padStart(2, '0')}</span>
+      </div>
+    </aside>
+  )
 }
 
+// ── Side rail: cumulative km (right) ─────────────────────────────────────
+function KmRail({ profile, currentDay }) {
+  const total = profile[profile.length - 1].cumKm
+  const current = profile.find(p => p.day === currentDay) || profile[0]
+
+  return (
+    <aside className="log-rail log-rail-right" aria-label="Cumulative distance by day">
+      <div className="rail-header">
+        <div className="rail-label">
+          <RouteIcon size={11} strokeWidth={1.8} /> Distance
+        </div>
+        <div className="rail-value">
+          <span className="big">{current.cumKm.toLocaleString()}</span>
+          <span className="unit">km</span>
+        </div>
+        <div className="rail-sub">of {total.toLocaleString()} km</div>
+      </div>
+
+      <div className="rail-bars">
+        {profile.map(d => {
+          const w = Math.max((d.cumKm / total) * 100, 3)
+          const cls = [
+            'rail-row',
+            d.done ? 'done' : 'upcoming',
+            d.day === currentDay ? 'current' : '',
+          ].filter(Boolean).join(' ')
+          return (
+            <div key={d.day} className={cls}>
+              <span className="row-day">D{String(d.day).padStart(2, '0')}</span>
+              <span className="row-track"><span className="row-bar" style={{ width: `${w}%` }} /></span>
+              <span className="row-val">{d.cumKm.toLocaleString()}</span>
+            </div>
+          )
+        })}
+      </div>
+
+      <div className="rail-footer">
+        <span className="rail-foot-label">Total</span>
+        <strong>{total.toLocaleString()} km</strong>
+        <span className="rail-foot-sub">round-trip</span>
+      </div>
+    </aside>
+  )
+}
+
+// ── Main page ────────────────────────────────────────────────────────────
 export default function Log() {
   const entries = TRIPLOG?.entries || []
   const totalKm = entries.reduce((s, e) => s + (e.km || 0), 0)
   const lastEntry = entries[entries.length - 1]
   const currentLoc = lastEntry?.hotel?.location?.split(',')[0] || '—'
+  const profile = buildProfile(entries, ITINERARY?.length ? ITINERARY : [])
+  const currentDay = lastEntry?.day || 1
 
   const stats = [
     { k: 'Days logged', v: String(entries.length),     u: '' },
@@ -36,111 +189,116 @@ export default function Log() {
   ]
 
   return (
-    <main className="shell">
-      <HeroMtn />
+    <>
+      {profile.length > 0 && <AltRail profile={profile} currentDay={currentDay} />}
+      {profile.length > 0 && <KmRail profile={profile} currentDay={currentDay} />}
 
-      <header className="trail-header">
-        <div className="mark" aria-hidden="true"><LogMark /></div>
-        <div className="wordmark">
-          <span className="eyebrow">Section 09 · NEP-26 · On the ground</span>
-          <h1>Field <span className="accent">Log</span></h1>
-          <div className="sub">
-            <span>What actually happened</span><span className="sep">//</span>
-            <span><b>{entries.length}</b> days logged</span><span className="sep">//</span>
-            <span><b>{totalKm.toLocaleString()}</b> km covered</span><span className="sep">//</span>
-            <span>Trip ongoing</span>
+      <main className="shell">
+        <HeroMtn />
+
+        <header className="trail-header">
+          <div className="mark" aria-hidden="true"><LogMark /></div>
+          <div className="wordmark">
+            <span className="eyebrow">Section 09 · NEP-26 · On the ground</span>
+            <h1>Field <span className="accent">Log</span></h1>
+            <div className="sub">
+              <span>What actually happened</span><span className="sep">//</span>
+              <span><b>{entries.length}</b> days logged</span><span className="sep">//</span>
+              <span><b>{totalKm.toLocaleString()}</b> km covered</span><span className="sep">//</span>
+              <span>Trip ongoing</span>
+            </div>
           </div>
+          <Link className="back" to="/">
+            <ChevronLeft size={13} strokeWidth={1.6} />
+            <span>Base</span>
+          </Link>
+        </header>
+
+        <StatStrip stats={stats} />
+
+        <div className="lb-masthead">
+          <span>NEP-26 · {TRIPLOG?.meta?.vehicle || 'Thar Roxx'}</span>
+          <span>Bikaner → Nepal → Bikaner</span>
         </div>
-        <Link className="back" to="/">
-          <ChevronLeft size={13} strokeWidth={1.6} />
-          <span>Base</span>
-        </Link>
-      </header>
 
-      <StatStrip stats={stats} />
+        <div className="lb-feed" data-aos="fade-up">
+          {entries.map((e) => (
+            <article key={e.day} className={`lb-entry status-${e.status || 'done'}`}>
+              <div className="lb-dateline">
+                <span className="lb-day-num">DAY {String(e.day).padStart(2, '0')}</span>
+                <span className="lb-date">{e.weekday} · {fmtDate(e.date)}</span>
+                <span className={`lb-status ${e.status || 'done'}`}>
+                  {e.status === 'active' ? '● in progress' : '✓ done'}
+                </span>
+              </div>
 
-      <div className="lb-masthead">
-        <span>NEP-26 · {TRIPLOG?.meta?.vehicle || 'Thar Roxx'}</span>
-        <span>Bikaner → Nepal → Bikaner</span>
-      </div>
+              <div className="lb-leg">{e.leg}</div>
 
-      <div className="lb-feed" data-aos="fade-up">
-        {entries.map((e) => (
-          <article key={e.day} className={`lb-entry status-${e.status || 'done'}`}>
-            <div className="lb-dateline">
-              <span className="lb-day-num">DAY {String(e.day).padStart(2, '0')}</span>
-              <span className="lb-date">{e.weekday} · {fmtDate(e.date)}</span>
-              <span className={`lb-status ${e.status || 'done'}`}>
-                {e.status === 'active' ? '● in progress' : '✓ done'}
-              </span>
-            </div>
+              <div className="lb-km-row">
+                {e.km != null && <span className="lb-pill km">{e.km.toLocaleString()} km</span>}
+                {e.hours && <span className="lb-pill">{e.hours}</span>}
+                {e.route && <span className="lb-pill">{e.route}</span>}
+              </div>
 
-            <div className="lb-leg">{e.leg}</div>
+              <div className="lb-divider" />
 
-            <div className="lb-km-row">
-              {e.km != null && <span className="lb-pill km">{e.km.toLocaleString()} km</span>}
-              {e.hours && <span className="lb-pill">{e.hours}</span>}
-              {e.route && <span className="lb-pill">{e.route}</span>}
-            </div>
+              {e.notes && (
+                <section className="lb-section">
+                  <div className="lb-section-label">Notes</div>
+                  <div className="lb-section-body">{e.notes}</div>
+                </section>
+              )}
 
-            <div className="lb-divider" />
+              {e.events && e.events.length > 0 && (
+                <section className="lb-section">
+                  <div className="lb-section-label">Events</div>
+                  {e.events.map((ev, i) => (
+                    <div key={i} className={`lb-event ${ev.tone || ''}`}>
+                      <span className="lb-event-icon">{ev.icon || '●'}</span>
+                      <span>{ev.text}</span>
+                    </div>
+                  ))}
+                </section>
+              )}
 
-            {e.notes && (
-              <section className="lb-section">
-                <div className="lb-section-label">Notes</div>
-                <div className="lb-section-body">{e.notes}</div>
-              </section>
-            )}
-
-            {e.events && e.events.length > 0 && (
-              <section className="lb-section">
-                <div className="lb-section-label">Events</div>
-                {e.events.map((ev, i) => (
-                  <div key={i} className={`lb-event ${ev.tone || ''}`}>
-                    <span className="lb-event-icon">{ev.icon || '●'}</span>
-                    <span>{ev.text}</span>
-                  </div>
-                ))}
-              </section>
-            )}
-
-            {e.hotel && e.hotel.name && (
-              <section className="lb-section">
-                <div className="lb-section-label">Slept at</div>
-                <div className="lb-hotel">
-                  <MapPin size={16} aria-hidden />
-                  <div className="lb-hotel-body">
-                    <div className="lb-hotel-name">{e.hotel.name}</div>
-                    <div className="lb-hotel-loc">
-                      {e.hotel.location}
-                      {e.hotel.map && (
-                        <>
-                          {' · '}
-                          <a href={e.hotel.map} target="_blank" rel="noopener noreferrer">
-                            map <ExternalLink size={10} />
-                          </a>
-                        </>
-                      )}
+              {e.hotel && e.hotel.name && (
+                <section className="lb-section">
+                  <div className="lb-section-label">Slept at</div>
+                  <div className="lb-hotel">
+                    <MapPin size={16} aria-hidden />
+                    <div className="lb-hotel-body">
+                      <div className="lb-hotel-name">{e.hotel.name}</div>
+                      <div className="lb-hotel-loc">
+                        {e.hotel.location}
+                        {e.hotel.map && (
+                          <>
+                            {' · '}
+                            <a href={e.hotel.map} target="_blank" rel="noopener noreferrer">
+                              map <ExternalLink size={10} />
+                            </a>
+                          </>
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </section>
-            )}
+                </section>
+              )}
 
-            {e.delta && (
-              <section className="lb-section">
-                <div className="lb-section-label">Vs plan</div>
-                <div className="lb-delta">{e.delta}</div>
-              </section>
-            )}
-          </article>
-        ))}
-      </div>
+              {e.delta && (
+                <section className="lb-section">
+                  <div className="lb-section-label">Vs plan</div>
+                  <div className="lb-delta">{e.delta}</div>
+                </section>
+              )}
+            </article>
+          ))}
+        </div>
 
-      <p className="footnote">
-        Source: <code>data/triplog.json</code> · rendered by <code>src/pages/Log.jsx</code> · last updated{' '}
-        <strong style={{ color: 'var(--cream)' }}>{TRIPLOG?.meta?.lastUpdated || ''}</strong>.
-      </p>
-    </main>
+        <p className="footnote">
+          Source: <code>data/triplog.json</code> · rendered by <code>src/pages/Log.jsx</code> · last updated{' '}
+          <strong style={{ color: 'var(--cream)' }}>{TRIPLOG?.meta?.lastUpdated || ''}</strong>.
+        </p>
+      </main>
+    </>
   )
 }
