@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 import {
   RadioTower, Map, Image, ArrowRight, ChevronDown,
   CalendarDays, ListChecks, ScrollText, Route as RouteIcon,
-  BookOpen, FolderTree, Phone, Cross, Stethoscope,
+  BookOpen, FolderTree, Phone, Cross, Stethoscope, Notebook,
 } from 'lucide-react'
 import { useTMinus } from '../lib/useTMinus.js'
-import { ITINERARY, RULES } from '../lib/data.js'
+import { ITINERARY, RULES, TRIPLOG } from '../lib/data.js'
 
 const HERO_IMG = `${import.meta.env.BASE_URL}pics/hero-muktinath.jpg`
 
@@ -55,6 +55,12 @@ export default function Home() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Trip-live state pulled from the field log
+  const logEntries = TRIPLOG?.entries || []
+  const lastEntry = logEntries[logEntries.length - 1]
+  const isLive = logEntries.length > 0
+  const lastLoc = lastEntry?.hotel?.location?.split(',')[0]?.trim() || ''
+
   // Top-6 load-bearing rules: official > corroborated, fallback to top-up.
   const topRules = useMemo(() => {
     const all = (RULES?.rules || []).slice()
@@ -95,6 +101,19 @@ export default function Home() {
           <span className="hero-bezel">DOSSIER · <b>NEP-26</b> · REV-04</span>
         </div>
 
+        {isLive && (
+          <Link to="/log" className="hero-live" aria-label={`Live — day ${lastEntry.day}, ${lastLoc}. Open Field Log`}>
+            <span className="hero-live-dot" aria-hidden="true" />
+            <span className="hero-live-label">LIVE</span>
+            <span className="hero-live-meta">
+              DAY {String(lastEntry.day).padStart(2, '0')} · {lastLoc || 'On the trail'}
+            </span>
+            <span className="hero-live-cta">
+              Field Log <ArrowRight size={12} strokeWidth={1.8} />
+            </span>
+          </Link>
+        )}
+
         <div className="hero-body">
           <h1 id="hero-title" className="hero-headline">
             Bikaner to <span className="accent">Muktinath</span>
@@ -118,7 +137,12 @@ export default function Home() {
           </div>
 
           <nav className="ctas" aria-label="Primary navigation">
-            <Link className="cta primary" to="/agent">
+            <Link className="cta primary" to="/log">
+              <Notebook size={18} strokeWidth={1.6} className="icon" />
+              <span>Field Log</span>
+              <ArrowRight size={14} strokeWidth={1.6} className="arrow" />
+            </Link>
+            <Link className="cta" to="/agent">
               <RadioTower size={18} strokeWidth={1.6} className="icon" />
               <span>Trail Comms</span>
               <ArrowRight size={14} strokeWidth={1.6} className="arrow" />

@@ -131,6 +131,87 @@
 }
 .hero-bezel b { color: var(--dust); font-weight: 600; }
 
+/* ─── LIVE banner (trip in progress) ───────────────────────────────────── */
+.hero-live {
+  position: relative;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 16px 9px 14px;
+  margin: 14px 0 6px;
+  background: linear-gradient(
+    180deg,
+    rgba(200,85,42,0.18) 0%,
+    rgba(200,85,42,0.08) 100%
+  );
+  border: 1px solid rgba(200,85,42,0.42);
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--cream);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(6px);
+  box-shadow:
+    0 0 0 1px rgba(200,85,42,0.15) inset,
+    0 8px 22px rgba(0,0,0,0.35);
+}
+.hero-live:hover {
+  border-color: rgba(200,85,42,0.7);
+  background: linear-gradient(180deg, rgba(200,85,42,0.28) 0%, rgba(200,85,42,0.14) 100%);
+  transform: translateY(-1px);
+  color: var(--cream);
+}
+.hero-live-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--rust);
+  box-shadow: 0 0 0 0 rgba(200,85,42,0.7);
+  animation: hero-live-pulse 1.8s ease-out infinite;
+  flex-shrink: 0;
+}
+@keyframes hero-live-pulse {
+  0%   { box-shadow: 0 0 0 0   rgba(200,85,42,0.75); }
+  70%  { box-shadow: 0 0 0 11px rgba(200,85,42,0);   }
+  100% { box-shadow: 0 0 0 0   rgba(200,85,42,0);   }
+}
+.hero-live-label {
+  color: var(--rust);
+  letter-spacing: 0.16em;
+  font-weight: 800;
+}
+.hero-live-meta {
+  color: var(--cream-dim);
+  letter-spacing: 0.12em;
+  border-left: 1px solid rgba(236,229,211,0.18);
+  padding-left: 12px;
+}
+.hero-live-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--dust);
+  letter-spacing: 0.1em;
+  border-left: 1px solid rgba(236,229,211,0.18);
+  padding-left: 12px;
+}
+.hero-live-cta svg { transition: transform 0.2s ease; }
+.hero-live:hover .hero-live-cta svg { transform: translateX(3px); }
+
+@media (max-width: 640px) {
+  .hero-live {
+    font-size: 10px;
+    padding: 7px 12px 7px 11px;
+    gap: 9px;
+  }
+  .hero-live-meta, .hero-live-cta { padding-left: 9px; }
+}
+
 .hero-body {
   position: relative;
   max-width: 1080px;
