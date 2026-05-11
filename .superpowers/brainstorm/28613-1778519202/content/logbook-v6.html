@@ -1,0 +1,201 @@
+<style>
+  :root {
+    --night:#0a1424;--shadow:#131e33;--ridge:#1b2a44;--slate:#243044;
+    --slate-2:#2c3a55;--line:#3a4a68;--line-soft:#2a3650;
+    --cream:#ece5d3;--cream-dim:#b5ad99;--dust:#d4a574;--dust-soft:#b08a5d;
+    --rust:#c8552a;--rust-deep:#8a3d20;--flag-yellow:#e8b13a;
+    --flag-green:#3d8a5a;--glacier:#5b9fcc;--aurora:#6dccaa;
+    --font-display:'Bebas Neue','Oswald',ui-sans-serif,sans-serif;
+    --font-body:'Inter',ui-sans-serif,sans-serif;
+    --font-mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  .log-shell { max-width: 720px; margin: 0 auto; padding: 0 0 60px; font-family: var(--font-body); }
+  .log-header { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 28px; }
+  .log-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--dust); margin-bottom: 6px; }
+  .log-title { font-family: var(--font-display); font-size: 42px; color: var(--cream); letter-spacing: .04em; line-height: 1; margin: 0 0 8px; }
+  .log-title .accent { color: var(--rust); }
+  .log-sub { font-size: 12px; color: var(--cream-dim); display: flex; gap: 10px; flex-wrap: wrap; }
+  .log-sub .sep { color: var(--line); }
+  .stat-strip { display: flex; gap: 12px; margin-bottom: 28px; flex-wrap: wrap; }
+  .stat-chip { background: var(--shadow); border: 1px solid var(--line); border-radius: 8px; padding: 8px 14px; text-align: center; flex: 1; min-width: 80px; }
+  .stat-chip .sv { font-family: var(--font-display); font-size: 24px; color: var(--cream); letter-spacing: .04em; }
+  .stat-chip .sk { font-size: 10px; color: var(--cream-dim); text-transform: uppercase; letter-spacing: .08em; }
+  .lb-masthead { font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--flag-yellow); border-bottom: 1px solid var(--line); padding-bottom: 6px; margin-bottom: 20px; display: flex; justify-content: space-between; }
+  .lb-entry { border-left: 3px solid var(--rust); padding: 14px 0 14px 18px; margin-bottom: 0; position: relative; }
+  .lb-entry + .lb-entry { border-top: 1px solid var(--line-soft); }
+  .lb-entry::before { content: ''; position: absolute; left: -7px; top: 18px; width: 11px; height: 11px; border-radius: 50%; background: var(--rust); border: 2px solid var(--shadow); }
+  .lb-dateline { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
+  .lb-day-num { font-family: var(--font-display); font-size: 13px; color: var(--rust); letter-spacing: .08em; }
+  .lb-date { font-size: 10px; font-weight: 700; color: var(--dust); text-transform: uppercase; letter-spacing: .1em; }
+  .lb-status { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; padding: 2px 7px; border-radius: 3px; margin-left: auto; }
+  .lb-status.done { background: rgba(61,138,90,.2); color: var(--aurora); }
+  .lb-leg { font-size: 17px; font-weight: 700; color: var(--cream); margin-bottom: 4px; line-height: 1.2; }
+  .lb-km-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+  .lb-pill { font-size: 10px; font-family: var(--font-mono); background: var(--ridge); border: 1px solid var(--line); border-radius: 4px; padding: 2px 8px; color: var(--cream-dim); }
+  .lb-pill.km { color: var(--dust); border-color: var(--dust-soft); }
+  .lb-section { margin-bottom: 10px; }
+  .lb-section-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--cream-dim); margin-bottom: 4px; }
+  .lb-section-body { font-size: 13px; color: var(--cream); line-height: 1.6; }
+  .lb-hotel { display: flex; align-items: center; gap: 8px; background: var(--shadow); border: 1px solid var(--line); border-radius: 6px; padding: 8px 12px; font-size: 12px; }
+  .lb-hotel-name { color: var(--cream); font-weight: 600; }
+  .lb-hotel-loc { color: var(--cream-dim); font-size: 11px; }
+  .lb-hotel a { color: var(--dust); text-decoration: none; font-size: 11px; }
+  .lb-hotel a:hover { color: var(--cream); }
+  .lb-delta { display: inline-flex; align-items: center; gap: 6px; background: rgba(232,177,58,.1); border: 1px solid rgba(232,177,58,.25); border-radius: 5px; padding: 5px 10px; font-size: 11.5px; color: var(--flag-yellow); }
+  .lb-event { display: flex; gap: 8px; align-items: flex-start; background: rgba(91,159,204,.08); border: 1px solid rgba(91,159,204,.18); border-radius: 6px; padding: 7px 10px; font-size: 12px; color: var(--cream); margin-top: 6px; }
+  .lb-event-icon { color: var(--glacier); font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+  .lb-event.warn { background: rgba(232,177,58,.08); border-color: rgba(232,177,58,.2); }
+  .lb-event.warn .lb-event-icon { color: var(--flag-yellow); }
+  .lb-divider { height: 1px; background: var(--line-soft); margin: 8px 0; }
+</style>
+
+<div class="log-shell">
+
+  <div class="log-header">
+    <div class="log-eyebrow">Section 09 · NEP-26 · On the ground</div>
+    <div class="log-title">Field <span class="accent">Log</span></div>
+    <div class="log-sub">
+      <span>What actually happened</span>
+      <span class="sep">//</span>
+      <span><b>4</b> days logged</span>
+      <span class="sep">//</span>
+      <span><b>1,529</b> km covered</span>
+      <span class="sep">//</span>
+      <span>In Pokhara 🇳🇵</span>
+    </div>
+  </div>
+
+  <div class="stat-strip">
+    <div class="stat-chip"><div class="sv">4</div><div class="sk">Days logged</div></div>
+    <div class="stat-chip"><div class="sv">1,529</div><div class="sk">km covered</div></div>
+    <div class="stat-chip"><div class="sv">11</div><div class="sk">Days remaining</div></div>
+    <div class="stat-chip"><div class="sv">🏔</div><div class="sk">In Pokhara</div></div>
+  </div>
+
+  <div class="lb-masthead">
+    <span>NEP-26 · Thar Digital Services · Mahindra Thar Roxx</span>
+    <span>Bikaner → Nepal → Bikaner</span>
+  </div>
+
+  <!-- Day 1 -->
+  <div class="lb-entry">
+    <div class="lb-dateline">
+      <span class="lb-day-num">DAY 01</span>
+      <span class="lb-date">Sat · 09 May 2026</span>
+      <span class="lb-status done">✓ done</span>
+    </div>
+    <div class="lb-leg">Bikaner → Lucknow</div>
+    <div class="lb-km-row">
+      <span class="lb-pill km">954 km</span>
+      <span class="lb-pill">14 h 36 min</span>
+      <span class="lb-pill">NH11 · Agra-Lucknow Exp</span>
+    </div>
+    <div class="lb-divider"></div>
+    <div class="lb-section">
+      <div class="lb-section-label">Notes</div>
+      <div class="lb-section-body">Pushed past Agra — Agra-Lucknow Expressway was too good to stop on. Roxx on cruise with ADAS, just zoomed. Reached Gomti Nagar by 9:30 PM. Ate dinner, slept well.</div>
+    </div>
+    <div class="lb-section">
+      <div class="lb-section-label">Slept at</div>
+      <div class="lb-hotel">
+        <span>🏨</span>
+        <div>
+          <div class="lb-hotel-name">The Grand JBR</div>
+          <div class="lb-hotel-loc">CF-129 Viraj Khand, Gomti Nagar, Lucknow</div>
+        </div>
+      </div>
+    </div>
+    <div class="lb-section">
+      <div class="lb-section-label">Vs plan</div>
+      <div class="lb-delta">↑ Pushed 389 km past planned Agra halt — Agra-Lucknow Expressway is cruise-control fast</div>
+    </div>
+  </div>
+
+  <!-- Day 2 -->
+  <div class="lb-entry">
+    <div class="lb-dateline">
+      <span class="lb-day-num">DAY 02</span>
+      <span class="lb-date">Sun · 10 May 2026</span>
+      <span class="lb-status done">✓ done</span>
+    </div>
+    <div class="lb-leg">Lucknow → Sunauli border area</div>
+    <div class="lb-km-row">
+      <span class="lb-pill km">365 km</span>
+      <span class="lb-pill">~5.5 h</span>
+      <span class="lb-pill">Purvanchal Exp · Gorakhpur Link · NH27</span>
+    </div>
+    <div class="lb-divider"></div>
+    <div class="lb-section">
+      <div class="lb-section-label">Notes</div>
+      <div class="lb-section-body">Left 8 AM after breakfast. Purvanchal and Gorakhpur Link expressways smooth — easy morning run. Last ~95 km on NH27 was regular road.</div>
+    </div>
+    <div class="lb-section">
+      <div class="lb-section-label">Events</div>
+      <div class="lb-event warn">
+        <span class="lb-event-icon">⚠</span>
+        <span>Tried Nepal TIV online portal (nnsw.gov.np/tiv/gen) — fails at last step, no QR generated. Indian domestic cards / UPI not supported. Doing physical Bhansar tomorrow.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 3 -->
+  <div class="lb-entry">
+    <div class="lb-dateline">
+      <span class="lb-day-num">DAY 03</span>
+      <span class="lb-date">Mon · 11 May 2026</span>
+      <span class="lb-status done">✓ done</span>
+    </div>
+    <div class="lb-leg">Sunauli border → Butwal</div>
+    <div class="lb-km-row">
+      <span class="lb-pill km">~25 km</span>
+      <span class="lb-pill">7.5 h recording</span>
+      <span class="lb-pill">Bhansar · Yatayat</span>
+    </div>
+    <div class="lb-divider"></div>
+    <div class="lb-section">
+      <div class="lb-section-label">Notes</div>
+      <div class="lb-section-body">1.5 hours crawling through trucks before the border, then 44 minutes doing the Bhansar paperwork. Total border day: 7.5 hours of recording.</div>
+    </div>
+    <div class="lb-section">
+      <div class="lb-section-label">Slept at</div>
+      <div class="lb-hotel">
+        <span>🏨</span>
+        <div>
+          <div class="lb-hotel-name">Dreamland Gold Resort &amp; Hotel</div>
+          <div class="lb-hotel-loc">Butwal, Nepal · <a href="https://maps.app.goo.gl/?q=27.6210549,83.4710435" target="_blank">map ↗</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 4 -->
+  <div class="lb-entry">
+    <div class="lb-dateline">
+      <span class="lb-day-num">DAY 04</span>
+      <span class="lb-date">Tue · 12 May 2026</span>
+      <span class="lb-status done">✓ done</span>
+    </div>
+    <div class="lb-leg">Butwal → Pokhara</div>
+    <div class="lb-km-row">
+      <span class="lb-pill km">~185 km</span>
+      <span class="lb-pill">~6 h</span>
+      <span class="lb-pill">Siddhartha Highway</span>
+    </div>
+    <div class="lb-divider"></div>
+    <div class="lb-section">
+      <div class="lb-section-label">Notes</div>
+      <div class="lb-section-body">Breakfast at the Dreamland hotel café. Started 9:30 AM. Drive up the Siddhartha Highway to Pokhara — winding mountain road, the Roxx handled it well. Reached Pokhara afternoon.</div>
+    </div>
+    <div class="lb-section">
+      <div class="lb-section-label">Slept at</div>
+      <div class="lb-hotel">
+        <span>🏨</span>
+        <div>
+          <div class="lb-hotel-name">Waterfront Resort by KGH Group</div>
+          <div class="lb-hotel-loc">Lakeside, Pokhara · <a href="https://maps.app.goo.gl/?q=28.2217546,83.9516047" target="_blank">map ↗</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

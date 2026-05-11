@@ -57,7 +57,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* topographic contour pattern overlay */
+/* topographic contour pattern overlay
+   Strengthened for the dispatch-console look: contour stroke-opacity bumped
+   0.07 → 0.12 so the ridgelines actually read, and a SECOND layer of
+   MGRS-style horizontal rule lines (1px every 80px in trail-dust at 0.06α)
+   is stacked underneath as a faint dispatch grid behind every page.
+   Layered into the same ::before so we don't collide with atmosphere.css's
+   ::after scanline overlay. */
 body::before {
   content: '';
   position: fixed;
@@ -65,7 +71,11 @@ body::before {
   pointer-events: none;
   z-index: 0;
   opacity: .35;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'><g fill='none' stroke='%23ece5d3' stroke-width='0.6' stroke-opacity='0.07'><path d='M-40,140 Q40,100 120,150 T280,140 T440,160'/><path d='M-40,170 Q40,130 120,180 T280,170 T440,190'/><path d='M-40,200 Q40,160 120,210 T280,200 T440,220'/><path d='M-40,230 Q40,190 120,240 T280,230 T440,250'/><path d='M-40,260 Q40,220 120,270 T280,260 T440,280'/></g></svg>");
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'><g fill='none' stroke='%23ece5d3' stroke-width='0.6' stroke-opacity='0.12'><path d='M-40,140 Q40,100 120,150 T280,140 T440,160'/><path d='M-40,170 Q40,130 120,180 T280,170 T440,190'/><path d='M-40,200 Q40,160 120,210 T280,200 T440,220'/><path d='M-40,230 Q40,190 120,240 T280,230 T440,250'/><path d='M-40,260 Q40,220 120,270 T280,260 T440,280'/></g></svg>"),
+    repeating-linear-gradient(0deg,
+      transparent 0 79px,
+      rgba(212, 165, 116, 0.18) 79px 80px);
 }
 
 a { color: var(--dust); text-decoration: none; }

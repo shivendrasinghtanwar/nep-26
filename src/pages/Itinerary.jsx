@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronDown } from 'lucide-react'
 import HeroMtn from '../components/HeroMtn.jsx'
 import StatStrip from '../components/StatStrip.jsx'
 import Card from '../components/Card.jsx'
+import StencilStamp from '../components/StencilStamp.jsx'
 import { ITINERARY } from '../lib/data.js'
 import { DAY_DETAILS } from '../lib/dayDetails.js'
 
@@ -196,6 +197,11 @@ function DayCard({ d, expanded, onToggle }) {
         )}
       </div>
       <div className="stats-mini">
+        <StencilStamp
+          kind={`leg${String(d.day).padStart(2, '0')}`}
+          size="sm"
+          title={`Leg ${String(d.day).padStart(2, '0')} stamp`}
+        />
         <span className="tag">{d.type}</span>
         <span>{d.km ? d.km + ' km' : 'no drive'}</span>
         <span>{d.hours} h</span>

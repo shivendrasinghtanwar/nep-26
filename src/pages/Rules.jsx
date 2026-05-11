@@ -1,6 +1,7 @@
 import HeroMtn from '../components/HeroMtn.jsx'
 import TrailHeader from '../components/TrailHeader.jsx'
 import StatStrip from '../components/StatStrip.jsx'
+import StencilStamp from '../components/StencilStamp.jsx'
 import { RULES } from '../lib/data.js'
 
 const EMBASSY_24x7 = '+977-9851316807'
@@ -65,6 +66,9 @@ export default function Rules() {
       <div className="grid cols-3" id="rules" data-aos="fade-up">
         {rules.map((r, i) => (
           <div key={i} className="rule">
+            {r.confidence && (
+              <StencilStamp kind={r.confidence} size="sm" />
+            )}
             <span className="cat-tag">{r.category}</span>
             <h3>{r.title}</h3>
             <p>{r.detail}</p>

@@ -1,0 +1,213 @@
+/* ──────────────────────────────────────────────────────────────────────────
+   Stencil · military-stencil / dispatch-console aesthetic
+   Loaded after rugged.css. Provides:
+     - <StencilStamp/> visuals (.stencil-stamp variants)
+     - .mgrs-cell utility for inline MGRS-style coordinate decoration
+   Reduced-motion respected globally in rugged.css.
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* ── base stamp ─────────────────────────────────────────────────────────── */
+.stencil-stamp {
+  --stamp-bg: var(--night);
+  --stamp-ink: var(--rust);
+  --stamp-tilt: 0deg;
+
+  display: inline-block;
+  position: relative;
+  flex-shrink: 0;
+  color: var(--stamp-ink);
+  line-height: 0;
+  /* slight off-axis tilt baked in via prop; jiggle keyframes layer on top */
+  transform: rotate(var(--stamp-tilt));
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.35));
+  animation: stencil-stamp-in 420ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  /* prevent the stamp text from being copy-selected with body copy */
+  user-select: none;
+}
+
+.stencil-stamp svg {
+  display: block;
+  overflow: visible;
+}
+
+/* shared ring/text strokes — every variant overrides --stamp-ink */
+.stencil-stamp .stencil-outer,
+.stencil-stamp .stencil-ring,
+.stencil-stamp .stencil-ring-inner {
+  stroke: currentColor;
+}
+.stencil-stamp .stencil-ticks line {
+  stroke: currentColor;
+  stroke-width: 1.2;
+  opacity: 0.7;
+}
+
+/* outer dashed orbit text — MGRS coordinate decoration on the rim */
+.stencil-stamp .stencil-coord {
+  fill: currentColor;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  opacity: 0.78;
+  text-transform: uppercase;
+}
+
+/* punchy stencil-cut centre label */
+.stencil-stamp .stencil-label {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  fill: currentColor;
+  /* stencil-cut trick: paint stroke first in the page bg, then fill ink.
+     This carves a fake gap inside heavy letterforms so they read as a
+     real rubber-stamp/stencil rather than printed text. */
+  paint-order: stroke;
+  stroke: var(--stamp-bg);
+  -webkit-text-stroke: 1.5px var(--stamp-bg);
+}
+
+/* secondary three-letter section code under the main label */
+.stencil-stamp .stencil-sub {
+  fill: currentColor;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  opacity: 0.85;
+  text-transform: uppercase;
+  paint-order: stroke;
+  stroke: var(--stamp-bg);
+  -webkit-text-stroke: 0.6px var(--stamp-bg);
+}
+
+/* ── kind variants ──────────────────────────────────────────────────────── */
+/* OFFICIAL / VERIFIED — rust earth, the dossier's primary "approved" mark */
+.stencil-stamp.is-official {
+  --stamp-ink: var(--rust);
+}
+.stencil-stamp.is-official .stencil-outer { opacity: 0.85; }
+.stencil-stamp.is-official .stencil-ring  { opacity: 1; }
+
+/* CORROBORATED — prayer-flag yellow, "second source pending" */
+.stencil-stamp.is-corroborated {
+  --stamp-ink: var(--flag-yellow);
+}
+.stencil-stamp.is-corroborated .stencil-outer { opacity: 0.8; }
+
+/* INFERRED / CLASSIFIED — prayer-flag red, "use with care" */
+.stencil-stamp.is-inferred {
+  --stamp-ink: var(--flag-red);
+}
+.stencil-stamp.is-inferred .stencil-outer { opacity: 0.75; }
+
+/* LEG numbers — trail dust, neutral mark for itinerary days */
+.stencil-stamp.is-leg {
+  --stamp-ink: var(--dust);
+}
+.stencil-stamp.is-leg .stencil-outer { opacity: 0.7; }
+.stencil-stamp.is-leg .stencil-label {
+  /* leg stencil reads as mono dispatch tag, not Bebas */
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.10em;
+}
+
+/* ── stamping animation ─────────────────────────────────────────────────── */
+@keyframes stencil-stamp-in {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg) scale(1.35);
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5)) blur(0.6px);
+  }
+  55% {
+    opacity: 1;
+    transform: rotate(calc(var(--stamp-tilt) * 1.4)) scale(0.92);
+    filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.35)) blur(0);
+  }
+  78% {
+    transform: rotate(calc(var(--stamp-tilt) * 0.85)) scale(1.04);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(var(--stamp-tilt)) scale(1);
+    filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.35));
+  }
+}
+
+/* ── in-card placement helpers ──────────────────────────────────────────── */
+/* Rules cards: pin the confidence stamp to the top-right corner so it sits
+   over the existing dust corner bracket without disturbing the grid flow. */
+#rules .rule,
+#emerg .rule {
+  /* parent already has position: relative via legacy-rendered.css */
+  padding-right: 92px;
+}
+#rules .rule > .stencil-stamp {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+}
+
+/* Itinerary day cards: the leg stamp rides at the top of the existing
+   right-rail stats-mini block. We slot it into the flex column there so
+   the day card's 3-col grid (when / body / stats) is left untouched. */
+.day .stats-mini > .stencil-stamp {
+  align-self: flex-end;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 720px) {
+  #rules .rule,
+  #emerg .rule {
+    padding-right: 72px;
+  }
+  #rules .rule > .stencil-stamp {
+    top: 8px;
+    right: 8px;
+  }
+  .day .stats-mini > .stencil-stamp {
+    /* on small screens stats-mini flips to a horizontal row; let the stamp
+       sit at the start of the row so the existing tags line up after it */
+    align-self: center;
+    margin: 0 6px 0 0;
+    order: -1;
+  }
+}
+
+/* ── MGRS-style coordinate decoration utility ───────────────────────────── */
+/* Drop-in dispatch coordinate tag for use anywhere outside the stamp itself.
+   e.g. <span class="mgrs-cell">28°N · 83°E · M-NEP-26 · DISPATCH</span> */
+.mgrs-cell {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  padding: 2px 8px;
+  border: 1px solid rgba(212, 165, 116, 0.32);
+  border-radius: 2px;
+  background:
+    linear-gradient(90deg,
+      rgba(212, 165, 116, 0.04) 0%,
+      rgba(212, 165, 116, 0.10) 50%,
+      rgba(212, 165, 116, 0.04) 100%);
+  /* faint horizontal MGRS rule across the cell to echo the body grid */
+  background-image:
+    repeating-linear-gradient(0deg,
+      transparent 0 5px,
+      rgba(212, 165, 116, 0.06) 5px 6px);
+}
+.mgrs-cell.is-rust   { color: var(--rust);        border-color: rgba(200, 85, 42, 0.42); }
+.mgrs-cell.is-yellow { color: var(--flag-yellow); border-color: rgba(232, 177, 58, 0.42); }
+.mgrs-cell.is-dust   { color: var(--dust);        border-color: rgba(212, 165, 116, 0.42); }
+
+/* ── reduced-motion overrides for the stamp-in animation ────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .stencil-stamp {
+    animation: none !important;
+    transform: rotate(var(--stamp-tilt));
+  }
+}
