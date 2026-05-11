@@ -30,7 +30,8 @@
   },
   "waypoints": [
     { "id": "bikaner",     "name": "Bikaner",                      "lat": 28.0229, "lng": 73.3119, "kind": "origin",   "day": 1,  "type": "drive" },
-    { "id": "agra",        "name": "Agra (overnight)",             "lat": 27.1767, "lng": 78.0081, "kind": "halt",     "day": 1,  "type": "drive" },
+    { "id": "agra",        "name": "Agra (fuel + food break)",     "lat": 27.1767, "lng": 78.0081, "kind": "passthru", "day": 1,  "type": "drive" },
+    { "id": "lucknow",    "name": "Lucknow — The Grand JBR",     "lat": 26.8467, "lng": 80.9462, "kind": "halt",     "day": 1,  "type": "drive" },
     { "id": "gorakhpur",   "name": "Gorakhpur (overnight)",        "lat": 26.7606, "lng": 83.3732, "kind": "halt",     "day": 2,  "type": "drive" },
     { "id": "sunauli",     "name": "Sunauli — border crossing",    "lat": 27.5021, "lng": 83.4505, "kind": "border",   "day": 3,  "type": "border" },
     { "id": "bhairahawa",  "name": "Bhairahawa / Lumbini",          "lat": 27.5105, "lng": 83.4520, "kind": "halt",     "day": 3,  "type": "border" },
