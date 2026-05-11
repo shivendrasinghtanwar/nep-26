@@ -25,6 +25,9 @@ repos/*
 __pycache__/
 *.pyc
 
+# python venv for contour map generation (one-off bg image build)
+.venv-contour/
+
 # claude-code outputs (scratchpad, not part of dossier)
 claude-code/outputs/*
 !claude-code/outputs/.gitkeep
