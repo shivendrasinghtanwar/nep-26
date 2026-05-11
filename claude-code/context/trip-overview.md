@@ -15,7 +15,7 @@
 
 ## Route in one paragraph
 
-Bikaner → Agra (NH11 via Jaipur, ~565 km) → Gorakhpur (Agra–Lucknow + Purvanchal + Gorakhpur Link, ~406 km) → Sunauli border → Bhairahawa / Lumbini → Pokhara via Mahendra Highway → Beni / Tatopani → **Jomsom (4×4 begins)** → Muktinath darshan (3,800 m) → reverse to Pokhara as workation base → Bhairahawa → Sunauli exit → Lucknow → Bikaner.
+Bikaner → Agra (NH11 via Jaipur, ~565 km, fuel break) → Lucknow (Agra-Lucknow Expressway, ~336 km, cruise-control fast — The Grand JBR Gomti Nagar) → Sunauli border (Purvanchal + Gorakhpur Link + NH27, ~365 km) → Bhairahawa / Lumbini → Pokhara via Mahendra Highway → Beni / Tatopani → **Jomsom (4×4 begins)** → Muktinath darshan (3,800 m) → reverse to Pokhara as workation base → Bhairahawa → Sunauli exit → Lucknow → Bikaner.
 
 ## Why this trip is unusual
 

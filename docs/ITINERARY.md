@@ -2,9 +2,9 @@
 
 | Day | Date | Leg | Distance | Drive Time | Night Halt | Notes |
 |-----|------|-----|----------|------------|------------|-------|
-| 1 | Sat 9 May | **Bikaner → Agra** (NH11 via Jaipur) | ~565 km | 8–9 h | Agra (hotel) | Early start 5:00 AM. Aim Agra by 2–3 PM. |
-| 2 | Sun 10 May | **Agra → Gorakhpur** (Agra–Lucknow + Purvanchal + Gorakhpur Link) | ~406 km | 6–7 h | Gorakhpur | All expressways. Arrive Gorakhpur by early afternoon. |
-| 3 | Mon 11 May | **Gorakhpur → Sunauli border → Lumbini → Bhairahawa** | ~120 km | 4–5 h (incl. border) | Bhairahawa / Lumbini | **Border-day**: complete Bhansar + Yatayat + Nepal SIM + ACAP plan. Light tourism in Lumbini if time. **Workday in evening.** |
+| 1 | Sat 9 May | **Bikaner → Lucknow** (NH11 → Agra → Agra-Lucknow Expressway) | ~901 km | 12–13 h | **Lucknow — The Grand JBR, Gomti Nagar** | Agra (~565 km, 8-9h) is the natural break for fuel + food. **If in Agra before 2 PM, push through** — Agra-Lucknow Expressway is 336 km of cruise-control / ADAS territory, 3.5h, arrive Lucknow ~9-10 PM. *(Alternate: halt at Agra if arriving late.)* |
+| 2 | Sun 10 May | **Lucknow → Sunauli** (Purvanchal Exp → Gorakhpur Link → NH27) | ~365 km | 5–6 h | Sunauli / Gorakhpur area | Left 8 AM. All expressway except last ~95 km. Very easy day. |
+| 3 | Mon 11 May | **Sunauli border → Bhairahawa** | ~5 km | 4–5 h (border) | Bhairahawa / Lumbini | **Border-day**: Bhansar counter opens 10 AM — arrive 9:30 AM. **TIV online portal broken for Indian cards — do physical process.** Bhansar + Yatayat + Nepal SIM. Light Lumbini if time. **Workday in evening.** |
 | 4 | Tue 12 May | **Bhairahawa → Pokhara** | ~190 km | 6–7 h | Pokhara — Tiger Palace area or Lakeside resort | Smooth highway. Reach by afternoon. **Half workday on arrival.** |
 | 5 | Wed 13 May | **Pokhara — work day** | 0 | — | Pokhara | Full workday. **Buy ACAP online (epermit.ntnc.org.np) OR at Pokhara counter — at-checkpost surcharge is DOUBLE.** Lakeside dinner. |
 | 6 | Thu 14 May | **Pokhara → Tatopani / Beni** | ~85 km | 4–5 h | Beni or Tatopani | Acclimatisation halt. Half workday morning. Hot spring evening at Tatopani. |
@@ -32,8 +32,8 @@
 
 ## Bookings to Confirm (before 9 May)
 
-- [ ] Agra hotel — 9 May
-- [ ] Gorakhpur hotel — 10 May
+- [x] Lucknow hotel — 9 May (The Grand JBR, Gomti Nagar ✅)
+- [x] Sunauli / Gorakhpur area — 10 May ✅
 - [ ] Bhairahawa / Lumbini hotel — 11 May, 21 May
 - [ ] Pokhara resort — 12, 13, 17, 18, 19, 20 May (6 nights)
 - [ ] Tatopani / Beni guesthouse — 14 May
