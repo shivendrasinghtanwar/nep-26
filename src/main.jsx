@@ -1,3 +1,4 @@
+import './styles/stencil.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { HashRouter } from 'react-router-dom'
@@ -8,6 +9,8 @@ import './styles/rugged.css'
 import './styles/landing.css'
 import './styles/legacy-rendered.css'
 import './styles/global.css'
+import './styles/atmosphere.css'
+import './styles/mountaineering.css'
 import 'leaflet/dist/leaflet.css'
 import 'aos/dist/aos.css'
 

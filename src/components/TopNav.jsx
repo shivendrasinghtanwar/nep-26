@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
+import FieldStatus from './FieldStatus.jsx'
 
 const LINKS = [
   { to: '/',          label: 'Overview' },
@@ -50,6 +51,8 @@ export default function TopNav() {
         <span className="dot" />
         <span>NEP-26 · Dossier</span>
       </Link>
+
+      <FieldStatus />
 
       <button
         type="button"

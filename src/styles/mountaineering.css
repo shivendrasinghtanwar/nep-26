@@ -1,0 +1,168 @@
+/* ============================================================
+   mountaineering.css — purely additive decorative trim
+   ------------------------------------------------------------
+   Adds 4x4 + mountaineering motifs that live ALONGSIDE the
+   existing easter eggs. None of these rules override anything
+   in rugged.css / legacy-rendered.css / global.css / landing.css.
+
+   Co-existence contract:
+     - .day.drive::after  (existing) — Thar SVG watermark, top-right
+     - .day.drive::before (here)     — dotted tire-tracks, bottom-edge
+     - .day.offroad::after (existing) — same Thar SVG (shared rule)
+     - .day.offroad::before (here)   — thicker tire-tracks, bottom-edge
+   ============================================================ */
+
+/* The :before pseudo needs .day to be a positioning context. The
+   existing legacy-rendered.css already sets `position: relative`
+   on .day for the ::after watermark, so we don't redeclare it. */
+
+.day.drive::before,
+.day.offroad::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 6px;
+  height: 9px; /* enough for 2 dotted lines, 4px apart */
+  pointer-events: none;
+  opacity: 0.4;
+  /* Two stacked dotted lines, 36px run, 4px vertical gap.
+     We render as repeating linear gradients on two layers so the
+     dots stay crisp and don't need extra DOM. */
+  background-image:
+    radial-gradient(circle, #d4a574 1px, transparent 1.4px),
+    radial-gradient(circle, #d4a574 1px, transparent 1.4px);
+  background-size: 6px 2px, 6px 2px; /* dot spacing 6px → ~6 dots per 36px */
+  background-position: 0 2px, 0 7px; /* two lines, 5px apart visually */
+  background-repeat: repeat-x, repeat-x;
+  /* clip the bg to a 36px-wide window that slides slightly on hover */
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 8px,
+    #000 calc(8px + 36px),
+    transparent calc(8px + 36px + 8px),
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 8px,
+    #000 calc(8px + 36px),
+    transparent calc(8px + 36px + 8px),
+    transparent 100%
+  );
+  transition: opacity 220ms ease-out, transform 220ms ease-out;
+}
+
+.day.offroad::before {
+  /* slightly thicker tracks: bigger dots, tighter spacing */
+  background-image:
+    radial-gradient(circle, var(--rust, #c8552a) 1.4px, transparent 1.8px),
+    radial-gradient(circle, var(--rust, #c8552a) 1.4px, transparent 1.8px);
+  background-size: 5px 2.6px, 5px 2.6px;
+  opacity: 0.5;
+}
+
+.day.drive:hover::before,
+.day.offroad:hover::before {
+  opacity: 0.7;
+  transform: translateX(2px);
+}
+
+/* ------------------------------------------------------------
+   peak-marker — small triangle pip for mountains.
+   Defined only; not applied anywhere yet.
+   Usage: <span class="peak-marker">Annapurna I</span>
+   ------------------------------------------------------------ */
+.peak-marker {
+  position: relative;
+  padding-right: 14px;
+}
+.peak-marker::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-55%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 8px solid var(--rust, #c8552a);
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.35));
+}
+
+/* ------------------------------------------------------------
+   bearing-strip — dotted contour-line divider for sections.
+   Renders as a thin row of dust-coloured dots with a centred
+   compass-bearing tick on each end. Use as a section separator.
+   Usage:
+     <div class="bearing-strip" aria-hidden="true"></div>
+   ------------------------------------------------------------ */
+.bearing-strip {
+  position: relative;
+  height: 14px;
+  margin: 18px 0;
+  background-image:
+    radial-gradient(circle, var(--dust, #d4a574) 1px, transparent 1.4px);
+  background-size: 8px 2px;
+  background-position: center;
+  background-repeat: repeat-x;
+  opacity: 0.5;
+}
+.bearing-strip::before,
+.bearing-strip::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 6px;
+  height: 1px;
+  background: var(--dust, #d4a574);
+  transform: translateY(-50%);
+}
+.bearing-strip::before { left: 0; }
+.bearing-strip::after  { right: 0; }
+
+/* ------------------------------------------------------------
+   mountain-divider — icon-style divider with a tiny SVG range.
+   Sits between major content blocks. Purely decorative.
+   Usage: <hr class="mountain-divider" /> or <div class="mountain-divider" />
+   ------------------------------------------------------------ */
+.mountain-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  height: 20px;
+  margin: 24px 0;
+  background: none;
+  opacity: 0.55;
+}
+.mountain-divider::before,
+.mountain-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--dust, #d4a574) 35%,
+    var(--dust, #d4a574) 65%,
+    transparent
+  );
+}
+.mountain-divider > .glyph,
+.mountain-divider::marker {
+  /* allow callers to drop their own icon if they want one; we
+     don't inject content into ::after so we don't override
+     anything someone else might add. */
+}
+
+/* Reduced-motion: keep tire-track positions static (no hover slide). */
+@media (prefers-reduced-motion: reduce) {
+  .day.drive:hover::before,
+  .day.offroad:hover::before {
+    transform: none;
+  }
+}
