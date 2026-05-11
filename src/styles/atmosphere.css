@@ -196,3 +196,28 @@ body::after {
 @media (max-width: 480px) {
   .field-status { display: none; }
 }
+
+/* ── Pokhara terrain map · fixed background layer ───────────────────────────
+   A processed contour-line tile mosaic centred on Pokhara at zoom 10
+   (Mustang to Lumbini). Tinted dust-on-night, ~6% opacity so it sits
+   under the topographic contour pattern but above the body gradient.
+   Sits between body::before (contour SVG) and body::after (scan lines).
+   ─────────────────────────────────────────────────────────────────────── */
+.topo-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 1;                            /* under contour SVG, under content */
+  pointer-events: none;
+  background-image: url('/pics/bg-pokhara-lines.jpg');
+  background-size: cover;
+  background-position: 50% 30%;          /* keep Pokhara just below centre */
+  opacity: 0.08;
+  mix-blend-mode: screen;                /* lines glow on alpine-night */
+  filter: contrast(1.05);
+}
+@media (max-width: 640px) {
+  .topo-bg { background-size: 220% auto; opacity: 0.07; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .topo-bg { opacity: 0.06; }
+}

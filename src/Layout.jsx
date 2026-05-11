@@ -11,6 +11,7 @@ import RouteAsciiEgg from './components/RouteAsciiEgg.jsx'
 export default function Layout({ children }) {
   return (
     <>
+      <div className="topo-bg" aria-hidden="true" />
       <TopNav />
       {children}
       <EasterEggs />
