@@ -32,6 +32,9 @@ claude-code/outputs/*
 # Claude Code session-local state (user-specific, not part of project)
 .claude/
 
+# superpowers brainstorm caches (scratch, not part of project)
+.superpowers/
+
 
 # Node / Vite
 node_modules/
