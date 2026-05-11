@@ -9,6 +9,7 @@ import routeData from '../../data/route.json'
 import itineraryData from '../../data/itinerary.json'
 import checklistData from '../../data/checklist.json'
 import hotelsData from '../../data/hotels.json'
+import triplogData from '../../data/triplog.json'
 
 export const TRIP = {
   name: 'Nepal Workation 2026',
@@ -28,3 +29,4 @@ export const ROUTE = routeData
 export const ITINERARY = itineraryData?.days || []
 export const CHECKLIST = checklistData
 export const HOTELS = hotelsData
+export const TRIPLOG = triplogData

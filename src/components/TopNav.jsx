@@ -8,6 +8,7 @@ const LINKS = [
   { to: '/gallery',   label: 'Plates' },
   { sep: true },
   { to: '/itinerary', label: 'Itinerary' },
+  { to: '/log',       label: 'Log' },
   { to: '/checklist', label: 'Checklist' },
   { to: '/rules',     label: 'Rules' },
   { to: '/route',     label: 'Route' },
