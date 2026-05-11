@@ -20,7 +20,7 @@ export const TRIP = {
   vehicle: 'Mahindra Thar Roxx (Thar Digital Services)',
   capDays: 30,
   permitDaysUsed: 18,
-  totalKm: 4050,
+  totalKm: 4350,
 }
 
 export const RULES = rulesData
