@@ -219,11 +219,14 @@ main, header.topnav, .landing, .shell {
   inset: 0;
   z-index: 0;                            /* below all content + overlays */
   pointer-events: none;
-  background-image: url('/pics/bg-pokhara-lines.jpg');
+  background-image: url('/nep-26/pics/bg-pokhara-contour.jpg');
   background-size: cover;
-  background-position: 50% 30%;          /* keep Pokhara just below centre */
-  opacity: 0.05;                         /* lowered from 0.08 — no blend mode now */
-  filter: contrast(1.05);
+  background-position: 50% 35%;          /* keep Pokhara just below centre, Annapurna at top */
+  opacity: 0.18;                         /* clean parchment contour reads well at this level */
+  /* Invert the cream parchment so it becomes alpine-night underneath; brown
+     contour lines become dust-warm against it. Saturate down so it stays
+     subdued, not punchy. */
+  filter: invert(0.94) hue-rotate(170deg) saturate(0.4) brightness(1.05);
 }
 /* Darkening veil sits BETWEEN the terrain texture and page content so the
    contour lines never bleed through cards with rgba/transparent surfaces. */
@@ -236,8 +239,8 @@ main, header.topnav, .landing, .shell {
   background: linear-gradient(180deg, rgba(10,20,36,0.6), rgba(10,20,36,0.85));
 }
 @media (max-width: 640px) {
-  .topo-bg { background-size: 220% auto; opacity: 0.04; }
+  .topo-bg { background-size: 200% auto; opacity: 0.14; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .topo-bg { opacity: 0.04; }
+  .topo-bg { opacity: 0.14; }
 }
