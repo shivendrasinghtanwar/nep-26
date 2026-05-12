@@ -39,10 +39,15 @@ function weatherFromTriplog() {
   } catch (_) { return null }
 }
 
+// Streaks render for genuinely-wet conditions only. Drizzle (Open-Meteo
+// WMO 51/53/55) typically means precip < 0.5 mm/h — visually it's barely
+// anything, and a 60-streak parallax overlay overstates it. The FieldStatus
+// pill in the topnav still picks up "drizzle" as the ☔ umbrella glyph, so
+// the page still reads "wet" without the heavy weather effect.
 function isRainingFromTriplog() {
   const w = weatherFromTriplog()
   if (!w) return false
-  return /rain|storm|shower|drizzle/.test(w)
+  return /rain|storm|shower|thunderstorm/.test(w)
 }
 
 /**
@@ -75,7 +80,7 @@ export default function RainOverlay() {
     if (window.TRIPLOG_RAIN === false) return false
     if (window.TRIPLOG_RAIN === true) return true
     const w = weatherFromTriplog()
-    if (w !== null) return /rain|storm|shower|drizzle/.test(w)
+    if (w !== null) return /rain|storm|shower|thunderstorm/.test(w)
     return defaultRaining()
   })
   const [dismissed, setDismissed] = useState(() => {
@@ -98,7 +103,7 @@ export default function RainOverlay() {
           const overrideOff = typeof window !== 'undefined' && window.TRIPLOG_RAIN === false
           const w = weatherFromTriplog()
           const triplogRain = w !== null
-            ? /rain|storm|shower|drizzle/.test(w)
+            ? /rain|storm|shower|thunderstorm/.test(w)
             : defaultRaining()
           const base = overrideOn || (!overrideOff && triplogRain)
           setActive(base)
