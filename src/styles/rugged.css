@@ -902,7 +902,14 @@ figcaption .tag {
   padding: 3px 9px;
   color: var(--cream-dim);
 }
-.lb-pill.km { color: var(--dust); border-color: var(--dust-soft); }
+.lb-pill.km {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--dust);
+  border-color: var(--dust-soft);
+}
+.lb-pill.km svg { opacity: 0.9; }
 
 /* Walking-only pill — small subtle easter-egg pill next to the route pill on
    rest days. Lucide Footprints icon; sits in the same row as the main km but

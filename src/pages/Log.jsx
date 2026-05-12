@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ChevronLeft, MapPin, ExternalLink, Mountain, Route as RouteIcon, Footprints } from 'lucide-react'
+import { ChevronLeft, MapPin, ExternalLink, Mountain, Route as RouteIcon, Footprints, Car } from 'lucide-react'
 import { marked } from 'marked'
 import HeroMtn from '../components/HeroMtn.jsx'
 import StatStrip from '../components/StatStrip.jsx'
@@ -246,7 +246,17 @@ export default function Log() {
               <div className="lb-leg">{e.leg}</div>
 
               <div className="lb-km-row">
-                {e.km != null && <span className="lb-pill km">{e.km.toLocaleString()} km</span>}
+                {(e.km > 0 || e.hours) && (
+                  <span className="lb-pill km" title="Thar Roxx · drive">
+                    <Car size={12} strokeWidth={1.8} />
+                    {[
+                      e.km > 0 ? `${e.km.toLocaleString()} km` : null,
+                      e.hours || null,
+                    ]
+                      .filter(Boolean)
+                      .join(' · ')}
+                  </span>
+                )}
                 {e.walkKm > 0 && (
                   <span
                     className="lb-pill lb-pill-walk"
@@ -256,7 +266,6 @@ export default function Log() {
                     {e.walkKm} km
                   </span>
                 )}
-                {e.hours && <span className="lb-pill">{e.hours}</span>}
                 {e.route && <span className="lb-pill">{e.route}</span>}
               </div>
 
