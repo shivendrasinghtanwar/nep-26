@@ -279,6 +279,11 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 12px;
   max-width: 880px;
+  /* Breathing room between the waypoint .hero-toc strip above and the
+     primary CTAs. Previously contributed by the .hero-tminus block that
+     was removed; restoring as a proper margin so the CTAs read as a
+     distinct section, not a continuation of the toc line. */
+  margin-top: clamp(28px, 5vh, 48px);
 }
 .cta {
   display: flex;
