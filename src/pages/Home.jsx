@@ -131,11 +131,6 @@ export default function Home() {
             Sunauli &nbsp;|&nbsp; Beni–Jomsom &nbsp;|&nbsp; Muktinath &nbsp;|&nbsp; Kagbeni &nbsp;|&nbsp; Pokhara
           </p>
 
-          <div className="hero-tminus" aria-label="Days until departure">
-            <span className="num">{tminus}</span>
-            <span className="lbl">days to depart<br /><span style={{ color: 'var(--cream)' }}>2026-05-09</span></span>
-          </div>
-
           <nav className="ctas" aria-label="Primary navigation">
             <Link className="cta primary" to="/log">
               <Notebook size={18} strokeWidth={1.6} className="icon" />

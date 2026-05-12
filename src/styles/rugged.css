@@ -30,10 +30,10 @@
   --font-body:    'Inter', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', 'Monaco', 'Cascadia Code', monospace;
 
-  /* sizing */
-  --r-sm: 6px;
-  --r:    10px;
-  --r-lg: 16px;
+  /* sizing — sharp 90° corners site-wide to match gold corner-tick aesthetic */
+  --r-sm: 0;
+  --r:    0;
+  --r-lg: 0;
   --shadow-card: 0 1px 0 rgba(255,255,255,.04) inset, 0 8px 22px rgba(0,0,0,.45);
   --shadow-press: 0 1px 0 rgba(255,255,255,.04) inset, 0 2px 6px rgba(0,0,0,.5);
 }
@@ -91,6 +91,42 @@ code { font-family: var(--font-mono); font-size: 92%; background: rgba(255,255,2
   max-width: 1200px;
   margin: 0 auto;
   padding: 28px 20px 60px;
+}
+
+/* Content-scrim: a dark gradient that sits between the topo background
+   (body-level, z-index 0) and the page content.
+
+   Applied to two targets:
+     .shell    — used on every non-landing page; already constrained to
+                 max-width 1200 px so the scrim only covers the content
+                 column. Topo stays visible in the side gutters when the
+                 viewport is wider than 1200 px.
+     .section  — used inside .landing (the Home page). Same 1200 px
+                 column. We deliberately don't put the scrim on .landing
+                 itself because .landing is full-width and would block
+                 the topo in the side gutters that .section leaves clear.
+
+   The .hero and .stat-band sections on Home already paint their own
+   opaque backgrounds, so they don't need (or want) this scrim either —
+   targeting .section means the dossier strip, day-by-day, and the rest
+   of the home column get darkened without affecting the hero band.
+
+   The gradient is vertical so the very top/bottom of each container
+   feathers out, avoiding a hard horizontal cut against the page
+   background. */
+.shell::before,
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(180deg,
+    rgba(10, 20, 36, 0.55) 0%,
+    rgba(10, 20, 36, 0.88) 6%,
+    rgba(10, 20, 36, 0.92) 50%,
+    rgba(10, 20, 36, 0.88) 94%,
+    rgba(10, 20, 36, 0.55) 100%);
 }
 
 /* ── hero mountain silhouette ───────────────────────────────────────────── */
@@ -897,7 +933,7 @@ figcaption .tag {
   gap: 10px;
   background: var(--shadow);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 0;
   padding: 10px 14px;
 }
 .lb-hotel svg { color: var(--dust); flex-shrink: 0; }
@@ -929,7 +965,7 @@ figcaption .tag {
   gap: 6px;
   background: rgba(232,177,58,.1);
   border: 1px solid rgba(232,177,58,.28);
-  border-radius: 6px;
+  border-radius: 0;
   padding: 6px 12px;
   font-size: 12.5px;
   color: var(--flag-yellow);
@@ -942,7 +978,7 @@ figcaption .tag {
   align-items: flex-start;
   background: rgba(91,159,204,.08);
   border: 1px solid rgba(91,159,204,.2);
-  border-radius: 6px;
+  border-radius: 0;
   padding: 8px 12px;
   font-size: 12.5px;
   color: var(--cream);
@@ -973,7 +1009,7 @@ figcaption .tag {
   flex-direction: column;
   background: linear-gradient(180deg, rgba(19,30,51,0.82) 0%, rgba(10,20,36,0.72) 100%);
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: 0;
   padding: 16px 14px;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);

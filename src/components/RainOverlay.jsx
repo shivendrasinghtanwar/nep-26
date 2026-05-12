@@ -65,12 +65,17 @@ function defaultRaining() {
 }
 
 export default function RainOverlay() {
-  // Initial state from data + global flag
+  // Initial state from data + global flag.
+  // Order: explicit override → explicit triplog `weather` → location fallback.
+  // The explicit `weather` field — when present — wins over the Pokhara
+  // location heuristic, so a "partly cloudy" Day 3 doesn't trigger rain
+  // just because the location string contains "Pokhara".
   const [active, setActive] = useState(() => {
     if (typeof window === 'undefined') return false
     if (window.TRIPLOG_RAIN === false) return false
     if (window.TRIPLOG_RAIN === true) return true
-    if (isRainingFromTriplog()) return true
+    const w = weatherFromTriplog()
+    if (w !== null) return /rain|storm|shower|drizzle/.test(w)
     return defaultRaining()
   })
   const [dismissed, setDismissed] = useState(() => {
@@ -91,7 +96,11 @@ export default function RainOverlay() {
           // restore base state from triplog/global flag once burst ends
           const overrideOn  = typeof window !== 'undefined' && window.TRIPLOG_RAIN === true
           const overrideOff = typeof window !== 'undefined' && window.TRIPLOG_RAIN === false
-          const base = overrideOn || (!overrideOff && (isRainingFromTriplog() || defaultRaining()))
+          const w = weatherFromTriplog()
+          const triplogRain = w !== null
+            ? /rain|storm|shower|drizzle/.test(w)
+            : defaultRaining()
+          const base = overrideOn || (!overrideOff && triplogRain)
           setActive(base)
         }, dur)
       }

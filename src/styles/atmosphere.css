@@ -204,30 +204,33 @@ main, header.topnav, .landing, .shell {
   .field-status { display: none; }
 }
 
-/* ── Pokhara terrain map · fixed background layer ───────────────────────────
-   A processed contour-line tile mosaic centred on Pokhara at zoom 10
-   (Mustang to Lumbini). Tinted dust-on-night, ~5% opacity so it sits
-   strictly behind all content. Previously used mix-blend-mode: screen,
-   which caused contour lines to bleed THROUGH semi-transparent cards on
-   the Field Log timeline — that is removed now. A darkening overlay
-   (.topo-bg::after) sits just above the terrain and guarantees the lines
-   stay subtle regardless of how transparent any card layer becomes.
-   z-index: 0 keeps the layer underneath all .shell content (z-index: 1).
+/* ── Pokhara terrain map · scrolls with content, tiled seamlessly ────────
+   2560×1440 seamless 2×2-mirrored contour tile (bg-pokhara-tile.jpg) sits
+   inside body as a position:absolute layer that spans the FULL document
+   height — scrolls with content instead of staying pinned to the viewport.
+   Tile repeats so very tall pages stay covered without stretching.
+   Alpine-night base preserved underneath; lines glow as dust-warm
+   highlights via screen blend.
    ─────────────────────────────────────────────────────────────────────── */
+/* Pokhara contour tile, pre-inverted offline (bg-pokhara-tile-dark.jpg)
+   so the parchment is already alpine-dark and the contour lines are
+   already cool-light. NO CSS filter — straight opacity overlay, scrolls
+   with body, repeats seamlessly. */
 .topo-bg {
-  position: fixed;
-  inset: 0;
-  z-index: 0;                            /* below all content + overlays */
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  bottom: 0;
+  min-height: 100%;
+  z-index: 0;
   pointer-events: none;
-  background-image: url('/nep-26/pics/bg-pokhara-contour.jpg');
-  background-size: cover;
-  background-position: 50% 35%;          /* keep Pokhara just below centre, Annapurna at top */
-  opacity: 0.18;                         /* clean parchment contour reads well at this level */
-  /* Invert the cream parchment so it becomes alpine-night underneath; brown
-     contour lines become dust-warm against it. Saturate down so it stays
-     subdued, not punchy. */
-  filter: invert(0.94) hue-rotate(170deg) saturate(0.4) brightness(1.05);
+  background-color: var(--night);
+  background-image: url('/nep-26/pics/bg-pokhara-tile-dark.jpg');
+  background-repeat: repeat;
+  background-size: 1920px auto;          /* one image = one viewport wide */
+  background-attachment: scroll;
+  opacity: 0.4;                          /* lines dimmed so dust-coloured page text doesn't compete with them */
 }
+html, body { position: relative; }
 /* Darkening veil sits BETWEEN the terrain texture and page content so the
    contour lines never bleed through cards with rgba/transparent surfaces. */
 .topo-bg::after {
@@ -239,8 +242,8 @@ main, header.topnav, .landing, .shell {
   background: linear-gradient(180deg, rgba(10,20,36,0.6), rgba(10,20,36,0.85));
 }
 @media (max-width: 640px) {
-  .topo-bg { background-size: 200% auto; opacity: 0.14; }
+  .topo-bg { background-size: 100vw auto; opacity: 0.38; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .topo-bg { opacity: 0.14; }
+  .topo-bg { opacity: 0.38; }
 }

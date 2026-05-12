@@ -591,7 +591,7 @@ const AGENT_CSS = `
   /* ---------- Rack-mount unit (wraps the existing .panel) ---------- */
   .rack {
     position: relative;
-    border-radius: 12px;
+    border-radius: 0;
     padding: 0;
     margin-bottom: 18px;
     background:
@@ -690,7 +690,7 @@ const AGENT_CSS = `
   }
 
   .rack .panel {
-    border-radius: 0 0 11px 11px;
+    border-radius: 0;
     border-color: transparent;
     box-shadow: none;
     background: linear-gradient(180deg, #0d1726 0%, #0a1322 100%);
