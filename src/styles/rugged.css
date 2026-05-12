@@ -904,6 +904,20 @@ figcaption .tag {
 }
 .lb-pill.km { color: var(--dust); border-color: var(--dust-soft); }
 
+/* Walking-only pill — small subtle easter-egg pill next to the route pill on
+   rest days. Lucide Footprints icon; sits in the same row as the main km but
+   visually softer so it reads as a footnote, not as another stat. */
+.lb-pill-walk {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--dust);
+  border-color: rgba(212, 165, 116, 0.35);
+  background: rgba(212, 165, 116, 0.06);
+  font-style: italic;
+}
+.lb-pill-walk svg { opacity: 0.85; }
+
 .lb-divider {
   height: 1px;
   background: var(--line-soft);
