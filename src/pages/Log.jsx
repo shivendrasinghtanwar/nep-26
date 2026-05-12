@@ -1,8 +1,19 @@
 import { Link } from 'react-router-dom'
 import { ChevronLeft, MapPin, ExternalLink, Mountain, Route as RouteIcon } from 'lucide-react'
+import { marked } from 'marked'
 import HeroMtn from '../components/HeroMtn.jsx'
 import StatStrip from '../components/StatStrip.jsx'
 import { TRIPLOG, ITINERARY } from '../lib/data.js'
+
+// Configure marked: open links in new tab, no auto-heading-ids, GFM
+marked.setOptions({ gfm: true, breaks: true })
+
+function renderNotes(md) {
+  if (!md) return ''
+  // Force every <a> to target="_blank" rel="noopener" so map links don't
+  // navigate away from the dossier.
+  return marked.parse(md).replace(/<a /g, '<a target="_blank" rel="noopener noreferrer" ')
+}
 
 // ── Altitude lookup (metres above sea level) ─────────────────────────────
 const ALT_LOOKUP = {
@@ -245,7 +256,10 @@ export default function Log() {
               {e.notes && (
                 <section className="lb-section">
                   <div className="lb-section-label">Notes</div>
-                  <div className="lb-section-body">{e.notes}</div>
+                  <div
+                    className="lb-section-body lb-notes-md"
+                    dangerouslySetInnerHTML={{ __html: renderNotes(e.notes) }}
+                  />
                 </section>
               )}
 
