@@ -247,17 +247,17 @@ export default function Log() {
 
               <div className="lb-km-row">
                 {e.km != null && <span className="lb-pill km">{e.km.toLocaleString()} km</span>}
-                {e.hours && <span className="lb-pill">{e.hours}</span>}
-                {e.route && <span className="lb-pill">{e.route}</span>}
                 {e.walkKm > 0 && (
                   <span
                     className="lb-pill lb-pill-walk"
                     title={`${e.walkKm} km on foot — not counted in trip total`}
                   >
                     <Footprints size={11} strokeWidth={1.8} />
-                    {e.walkKm} km on foot
+                    {e.walkKm} km
                   </span>
                 )}
+                {e.hours && <span className="lb-pill">{e.hours}</span>}
+                {e.route && <span className="lb-pill">{e.route}</span>}
               </div>
 
               <div className="lb-divider" />
