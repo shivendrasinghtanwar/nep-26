@@ -35,11 +35,19 @@ if [[ $DRY_RUN -eq 0 ]]; then
   }
 fi
 
-# ── Step 2: locate target entry (today's, else last)
+# ── Step 2: locate today's entry. If no entry has today's date, EXIT cleanly
+# without modifying anything — we don't want today's live weather to land on
+# yesterday's entry (or on a far-off legacy entry). The user is expected to
+# add today's row via pending-log.md or directly; once it exists, this
+# script will start updating it.
 TARGET_IDX=$(jq --arg t "$TODAY" '
-  ([.entries[] | .date] | index($t)) // ((.entries | length) - 1)
+  ([.entries[] | .date] | index($t))
 ' "$TRIPLOG")
-[[ "$TARGET_IDX" == "null" || -z "$TARGET_IDX" ]] && { log "no entries[] in triplog — abort"; exit 1; }
+if [[ "$TARGET_IDX" == "null" || -z "$TARGET_IDX" ]]; then
+  log "no entry matches $TODAY — no-op. (Add today's row to data/triplog.json or via pending-log.md, then run me again.)"
+  log "—— run end ——"
+  exit 0
+fi
 log "target entry index: $TARGET_IDX"
 
 # ── Step 3: derive location
