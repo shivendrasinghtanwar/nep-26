@@ -3,7 +3,7 @@
     "title": "NEP-26 Field Log",
     "subtitle": "What actually happened",
     "vehicle": "Mahindra Thar Roxx · Thar Digital Services",
-    "lastUpdated": "2026-05-11"
+    "lastUpdated": "2026-05-12"
   },
   "entries": [
     {
@@ -62,7 +62,7 @@
       "hours": "~6 h",
       "route": "Siddhartha Highway",
       "status": "done",
-      "weather": "rain",
+      "weather": "partly cloudy",
       "notes": "Breakfast at the Dreamland café. Started 9:30 AM. Drive up the Siddhartha Highway to Pokhara — winding mountain road, the Roxx handled it well. Reached Pokhara afternoon.",
       "hotel": {
         "name": "Waterfront Resort by KGH Group",
@@ -71,6 +71,41 @@
       },
       "delta": "↑ Arrived Pokhara 1 day ahead of original plan (was Day 4 / 12 May)",
       "events": []
+    },
+    {
+      "day": 4,
+      "date": "2026-05-12",
+      "weekday": "Tue",
+      "leg": "Pokhara · work + explore",
+      "km": 0,
+      "hours": "",
+      "route": "Lakeside → Pokhara Bazaar (on foot)",
+      "status": "done",
+      "weather": "drizzle",
+      "notes": "Slept in — up by 9. Breakfast at the Waterfront, took my morning stand-up from the room. Walked into Lakeside aiming for [White Rabbit](https://maps.app.goo.gl/?q=28.2096886,83.9568973) or [Cafe Camellia](https://www.google.com/maps/search/?api=1&query=Cafe+Camellia+Street+16+Lakeside+Pokhara), but stopped earlier at [The Grounds By Majestic Lakefront](https://www.google.com/maps/search/?api=1&query=The+Grounds+By+Majestic+Lakefront+Pokhara) — coffee + garlic bread, both Dinki and I on calls/laptops till ~2 PM. Walked east through the Pokhara bazaar, finally settled at White Rabbit and worked till 4:45 PM. Closed laptops and wandered the market — picked up fridge magnets and small souvenirs. Tried to catch [Movie Garden](https://www.google.com/maps/search/?api=1&query=Movie+Garden+Pokhara) but Google Maps wouldn't point at the right approach; finally found it via Street 21 near Tipsy Town Restaurant (note for future). Queued 30 min — tickets sold out at the counter. Walked back to Lakeside, dinner at [Open House Restro and Lounge Bar](https://www.google.com/maps/search/?api=1&query=Open+House+Restro+And+Lounge+Bar+Pokhara) by the lake. Back to the hotel ~10 PM.",
+      "hotel": {
+        "name": "Waterfront Resort by KGH Group",
+        "location": "Lakeside, Pokhara",
+        "map": "https://maps.app.goo.gl/?q=28.2217546,83.9516047"
+      },
+      "delta": "Rest day — no driving. Worked remote from two Lakeside cafés.",
+      "events": [
+        {
+          "icon": "☕",
+          "tone": "info",
+          "text": "Worked from The Grounds By Majestic Lakefront (morning) and White Rabbit Coffee (afternoon). Both have fast wifi + outlets, lakeside-walkable from Waterfront."
+        },
+        {
+          "icon": "🎬",
+          "tone": "warn",
+          "text": "Movie Garden — Google Maps doesn't pin the approach correctly. Walk in via Street 21 (near Tipsy Town Restaurant). Tickets sell out fast — got to the counter after 30 min queue and they were gone."
+        },
+        {
+          "icon": "🛍",
+          "tone": "info",
+          "text": "Pokhara bazaar (east of Lakeside) — picked up fridge magnets + small souvenirs. Walkable from White Rabbit."
+        }
+      ]
     }
   ]
 }
