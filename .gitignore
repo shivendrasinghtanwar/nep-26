@@ -38,6 +38,11 @@ claude-code/outputs/*
 # superpowers brainstorm caches (scratch, not part of project)
 .superpowers/
 
+# local-cron daily-update logs (machine-specific, not project state)
+.local-cron.log
+.local-cron.stdout.log
+.local-cron.stderr.log
+
 
 # Node / Vite
 node_modules/
