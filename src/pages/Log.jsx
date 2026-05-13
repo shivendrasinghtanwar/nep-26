@@ -19,7 +19,7 @@ function renderNotes(md) {
 const ALT_LOOKUP = {
   bikaner: 224, lucknow: 123, agra: 171, gorakhpur: 84, noida: 200,
   sunauli: 90, bhairahawa: 109, butwal: 205, lumbini: 150,
-  pokhara: 827, beni: 835, tatopani: 1190, jomsom: 2720,
+  pokhara: 827, sarangkot: 1592, beni: 835, tatopani: 1190, jomsom: 2720,
   muktinath: 3760, home: 224,
 }
 

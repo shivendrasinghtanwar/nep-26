@@ -3,7 +3,7 @@
     "title": "NEP-26 Field Log",
     "subtitle": "What actually happened",
     "vehicle": "Mahindra Thar Roxx · Thar Digital Services",
-    "lastUpdated": "2026-05-12"
+    "lastUpdated": "2026-05-13"
   },
   "entries": [
     {
@@ -105,6 +105,36 @@
           "icon": "🛍",
           "tone": "info",
           "text": "Pokhara bazaar (east of Lakeside) — picked up fridge magnets + small souvenirs. Walkable from White Rabbit."
+        }
+      ]
+    },
+    {
+      "day": 5,
+      "date": "2026-05-13",
+      "weekday": "Wed",
+      "leg": "Pokhara · Sarangkot sunrise run",
+      "km": 22,
+      "hours": "~1 h drive (round trip)",
+      "route": "Lakeside → Sarangkot road (pre-dawn)",
+      "status": "active",
+      "walkKm": 1,
+      "notes": "- Up at 3 AM. Left the Waterfront by 4 AM — early-start strategy to dodge the daybreak tourist-taxi convoy and grab parking right below the **[Sarangkot View Tower](https://www.google.com/maps/search/?api=1&query=Sarangkot+View+Tower+Pokhara)** entrance.\n- Plan worked: reached the entrance gate by 4:40 AM. Just one other car there, ample parking.\n- Walked up, bought tickets, climbed the tower deck. Sunrise was billed for 5:20 AM.\n- Cloud cover held the sun behind a wall — no clean reveal at 5:20. Stayed gauzy; didn't punch through till much later. The mountain panorama itself was still up there, just softer than the brochure version.",
+      "hotel": {
+        "name": "Waterfront Resort by KGH Group",
+        "location": "Lakeside, Pokhara",
+        "map": "https://maps.app.goo.gl/?q=28.2217546,83.9516047"
+      },
+      "delta": "Pre-dawn departure paid off — solo parking right at the tower gate.",
+      "events": [
+        {
+          "icon": "🌅",
+          "tone": "warn",
+          "text": "Sarangkot sunrise · clouded over. Scheduled 5:20 AM, sun didn't break through cleanly. Mountain silhouette visible, but no postcard reveal."
+        },
+        {
+          "icon": "🚙",
+          "tone": "info",
+          "text": "Sarangkot parking · leaving Lakeside by 4 AM beats the tourist-taxi rush. By 5 AM the lot fills, by 5:15 AM cars park down-slope. Pre-dawn run = front-row spot at the gate."
         }
       ]
     }
