@@ -325,9 +325,12 @@ export default function Log() {
                     {copiedDay === e.day ? 'Copied' : 'Link'}
                   </span>
                 </button>
-                <span className={`lb-status ${e.status || 'done'}`}>
-                  {e.status === 'active' ? '● in progress' : '✓ done'}
-                </span>
+                {/* Only render the status pill when the day is still active.
+                    "done" is the implicit default and gets no pill — keeps
+                    the dateline lean on long completed entries. */}
+                {e.status === 'active' && (
+                  <span className="lb-status active">● in progress</span>
+                )}
               </div>
 
               <div className="lb-leg">{e.leg}</div>

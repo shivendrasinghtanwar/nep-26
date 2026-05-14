@@ -22,7 +22,13 @@
         "map": "https://maps.app.goo.gl/?q=26.8467,80.9462"
       },
       "delta": "↑ Pushed 389 km past planned Agra halt — Agra-Lucknow Expressway is cruise-control fast",
-      "events": []
+      "events": [
+        {
+          "icon": "🛣️",
+          "tone": "info",
+          "text": "Agra-Lucknow Expressway · ADAS + cruise did most of the work. Quality so high we ate the planned Agra halt and pushed 389 km past plan in one shot."
+        }
+      ]
     },
     {
       "day": 2,
