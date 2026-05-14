@@ -63,14 +63,30 @@
       "route": "Siddhartha Highway",
       "status": "done",
       "weather": "partly cloudy",
-      "notes": "Breakfast at the Dreamland café. Started 9:30 AM. Drive up the Siddhartha Highway to Pokhara — winding mountain road, the Roxx handled it well. Reached Pokhara afternoon.",
+      "notes": "Breakfast at the Dreamland café in Butwal. Rolled out at 9:30 AM. Siddhartha Highway up to Pokhara — winding mountain road, the Roxx ate the corners.\n\n### Road stops · Butwal → Pokhara\n- **Coffee break** — pulled over for a cup to keep the wheel hand awake on the climb.\n- **Momo halt** — roadside dhaba stop, hot momos, solid trail fuel.\n- **Footbridge over a valley** — couldn't drive past it. A suspension footbridge strung across a deep valley, swaying in the breeze. Parked the Thar, walked across, clicked pictures, walked back.\n\nReached Pokhara in the afternoon, checked into the **[Waterfront Resort](https://maps.app.goo.gl/?q=28.2217546,83.9516047)**.\n\n### Evening · first Lakeside walk\n- Strolled along Lakeside, dropped in at **[The Juicery Cafe](https://www.google.com/maps/search/?api=1&query=The+Juicery+Cafe+Pokhara+Lakeside)** right on the water — late, proper, no-rush lunch with the lake right there.\n- Wandered up to the **[Pokhara Disneyland](https://www.google.com/maps/search/?api=1&query=Pokhara+Disneyland+Lakeside+Khara+Pokhara)** side, sat on the grass by the lake, just sat. No agenda.\n- That hour or two by the water was the trip's first proper *we made it* moment. Wind, water, no honking, no driving brief. The whole stretch is quietly serene in a way you don't really plan for.",
       "hotel": {
         "name": "Waterfront Resort by KGH Group",
         "location": "Lakeside, Pokhara",
         "map": "https://maps.app.goo.gl/?q=28.2217546,83.9516047"
       },
       "delta": "↑ Arrived Pokhara 1 day ahead of original plan (was Day 4 / 12 May)",
-      "events": []
+      "events": [
+        {
+          "icon": "🌉",
+          "tone": "info",
+          "text": "Footbridge stop on the Siddhartha Highway · suspension bridge over a deep valley, worth pulling over for. Note location next time — no signage, easy to miss."
+        },
+        {
+          "icon": "🥤",
+          "tone": "info",
+          "text": "The Juicery Cafe (North Lakeside) — first sit-down meal in Pokhara. Lake view, healthy plates, juices. Easy choice for a long arrival lunch."
+        },
+        {
+          "icon": "🌅",
+          "tone": "info",
+          "text": "Pokhara Disneyland lakeshore · the grassy strip just north of Tal Barahi. Sit-on-the-grass kind of place, lake right there, evening light is everything."
+        }
+      ]
     },
     {
       "day": 4,
