@@ -827,6 +827,11 @@ figcaption .tag {
    Each .lb-entry becomes a snap target so each scroll gesture lands at the
    start of the next day, making the field log feel like flipping bound
    dossier pages rather than scrolling one long document.
+
+   IMPORTANT: applied to BOTH html and body because global.css has
+   `html, body { overflow-x: hidden }`, which promotes body to the actual
+   scroll container — html-only rules silently no-op in that case.
+
      scroll-snap-type: y mandatory   → snap settles at a snap point at rest
      scroll-snap-stop: always         → one gesture advances exactly one entry,
                                         prevents wheel-fling skipping past
@@ -834,7 +839,8 @@ figcaption .tag {
                                         the dateline isn't hidden under it
    Long entries: user can still scroll up/down within the entry — snap only
    applies at the boundary points. Reduced-motion users get plain scroll. */
-html.snap-log {
+html.snap-log,
+html.snap-log body {
   scroll-snap-type: y mandatory;
 }
 html.snap-log .lb-entry {
@@ -843,7 +849,8 @@ html.snap-log .lb-entry {
   scroll-margin-top: 56px;
 }
 @media (prefers-reduced-motion: reduce) {
-  html.snap-log { scroll-snap-type: none; }
+  html.snap-log,
+  html.snap-log body { scroll-snap-type: none; }
 }
 .lb-entry::before {
   content: '';
