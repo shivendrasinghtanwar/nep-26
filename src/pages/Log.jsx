@@ -347,7 +347,7 @@ export default function Log() {
               <div className="lb-divider" />
 
               {e.notes && (
-                <section className="lb-section">
+                <section className="lb-section lb-section-notes">
                   <div className="lb-section-label">Notes</div>
                   <div
                     className="lb-section-body lb-notes-md"

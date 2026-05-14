@@ -996,6 +996,13 @@ html.snap-log .lb-entry {
 
 .lb-section { margin-bottom: 12px; }
 .lb-section:last-child { margin-bottom: 0; }
+
+/* Mobile: hide the narrative Notes section per-entry. The Events list
+   plus the dateline/leg/route pills give enough at-a-glance summary on
+   a small screen, and the full notes are still readable on tablet/desktop. */
+@media (max-width: 640px) {
+  .lb-section-notes { display: none; }
+}
 .lb-section-label {
   font-family: var(--font-mono);
   font-size: 9.5px;
