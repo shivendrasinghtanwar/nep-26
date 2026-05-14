@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { ChevronLeft, MapPin, ExternalLink, Mountain, Route as RouteIcon, Footprints, Car, Link2, Check } from 'lucide-react'
+import { ChevronLeft, ChevronDown, MapPin, ExternalLink, Mountain, Route as RouteIcon, Footprints, Car, Link2, Check } from 'lucide-react'
 import { marked } from 'marked'
 import HeroMtn from '../components/HeroMtn.jsx'
 import StatStrip from '../components/StatStrip.jsx'
@@ -223,6 +223,18 @@ export default function Log() {
     })
   }, [location.hash])
 
+  // Per-day notes expand/collapse state (mobile only; on desktop the
+   // notes are always visible regardless of this set).
+  const [openNotes, setOpenNotes] = useState(() => new Set())
+  function toggleNotes(day) {
+    setOpenNotes((prev) => {
+      const next = new Set(prev)
+      if (next.has(day)) next.delete(day)
+      else next.add(day)
+      return next
+    })
+  }
+
   function copyDeepLink(day) {
     const padded = String(day).padStart(2, '0')
     // Native anchor form — clean and shareable. BrowserRouter ignores the
@@ -347,7 +359,19 @@ export default function Log() {
               <div className="lb-divider" />
 
               {e.notes && (
-                <section className="lb-section lb-section-notes">
+                <section
+                  className={`lb-section lb-section-notes${openNotes.has(e.day) ? ' is-open' : ''}`}
+                >
+                  <button
+                    type="button"
+                    className="lb-notes-toggle"
+                    onClick={() => toggleNotes(e.day)}
+                    aria-expanded={openNotes.has(e.day)}
+                    aria-label={openNotes.has(e.day) ? 'Hide notes' : 'Show notes'}
+                  >
+                    <ChevronDown size={12} strokeWidth={2} className="chev" />
+                    <span>Notes</span>
+                  </button>
                   <div className="lb-section-label">Notes</div>
                   <div
                     className="lb-section-body lb-notes-md"

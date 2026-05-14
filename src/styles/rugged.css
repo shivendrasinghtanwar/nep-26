@@ -997,11 +997,50 @@ html.snap-log .lb-entry {
 .lb-section { margin-bottom: 12px; }
 .lb-section:last-child { margin-bottom: 0; }
 
-/* Mobile: hide the narrative Notes section per-entry. The Events list
-   plus the dateline/leg/route pills give enough at-a-glance summary on
-   a small screen, and the full notes are still readable on tablet/desktop. */
+/* Collapsible Notes section · toggle button is mobile-only. On desktop the
+   button is hidden and the label + body are always visible (no class needed).
+   On mobile the label + body collapse by default; tapping the chevron-button
+   adds .is-open which reveals them and rotates the chevron 180°. */
+.lb-notes-toggle {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  background: transparent;
+  border: 1px solid rgba(212, 165, 116, 0.22);
+  border-radius: 0;
+  color: var(--dust);
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 140ms ease-out, background 140ms ease-out, border-color 140ms ease-out;
+}
+.lb-notes-toggle:hover {
+  color: var(--cream);
+  background: rgba(212, 165, 116, 0.08);
+  border-color: rgba(212, 165, 116, 0.45);
+}
+.lb-notes-toggle:focus-visible {
+  outline: 2px solid var(--rust);
+  outline-offset: 2px;
+}
+.lb-notes-toggle .chev {
+  transition: transform 180ms ease-out;
+}
+
 @media (max-width: 640px) {
-  .lb-section-notes { display: none; }
+  /* Show the toggle button. */
+  .lb-section-notes .lb-notes-toggle { display: inline-flex; }
+  /* Collapse the redundant label (button already says "Notes") and body
+     until the section is opened. */
+  .lb-section-notes .lb-section-label { display: none; }
+  .lb-section-notes:not(.is-open) .lb-section-body { display: none; }
+  .lb-section-notes.is-open .lb-notes-toggle .chev { transform: rotate(180deg); }
 }
 .lb-section-label {
   font-family: var(--font-mono);
