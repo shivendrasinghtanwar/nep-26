@@ -1,6 +1,6 @@
-import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { ChevronLeft, MapPin, ExternalLink, Mountain, Route as RouteIcon, Footprints, Car } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import { ChevronLeft, MapPin, ExternalLink, Mountain, Route as RouteIcon, Footprints, Car, Link2, Check } from 'lucide-react'
 import { marked } from 'marked'
 import HeroMtn from '../components/HeroMtn.jsx'
 import StatStrip from '../components/StatStrip.jsx'
@@ -203,6 +203,51 @@ export default function Log() {
     return () => document.documentElement.classList.remove('snap-log')
   }, [])
 
+  // Deep-link to a specific day: /#/log?day=N scrolls to id="day-NN" on
+  // mount. HashRouter eats the native URL hash for routing, so we can't
+  // use traditional #anchor — query param is the safe path. Each article
+  // still carries id="day-NN" so DOM-level scrollIntoView works.
+  const location = useLocation()
+  const [copiedDay, setCopiedDay] = useState(null)
+  useEffect(() => {
+    const params = new URLSearchParams(location.search)
+    const day = params.get('day')
+    if (!day) return
+    const id = `day-${String(day).padStart(2, '0')}`
+    // Two RAFs so the layout + AOS reveal are done before we scroll.
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const el = document.getElementById(id)
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      })
+    })
+  }, [location.search])
+
+  function copyDeepLink(day) {
+    const padded = String(day).padStart(2, '0')
+    // Construct the canonical share URL. HashRouter format keeps the route
+    // before the query so /#/log?day=4 round-trips through React Router.
+    const base = `${window.location.origin}${window.location.pathname}`
+    const url = `${base}#/log?day=${day}#day-${padded}`
+    const fallback = () => {
+      const ta = document.createElement('textarea')
+      ta.value = url
+      ta.style.position = 'fixed'
+      ta.style.opacity = '0'
+      document.body.appendChild(ta)
+      ta.select()
+      try { document.execCommand('copy') } catch (_) {}
+      document.body.removeChild(ta)
+    }
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(url).catch(fallback)
+    } else {
+      fallback()
+    }
+    setCopiedDay(day)
+    setTimeout(() => setCopiedDay(null), 1500)
+  }
+
   const stats = [
     { k: 'Days logged', v: String(entries.length),     u: '' },
     { k: 'km covered',  v: totalKm.toLocaleString(),    u: '' },
@@ -245,10 +290,29 @@ export default function Log() {
 
         <div className="lb-feed" data-aos="fade-up">
           {entries.map((e) => (
-            <article key={e.day} className={`lb-entry status-${e.status || 'done'}`}>
+            <article
+              key={e.day}
+              id={`day-${String(e.day).padStart(2, '0')}`}
+              className={`lb-entry status-${e.status || 'done'}`}
+            >
               <div className="lb-dateline">
                 <span className="lb-day-num">DAY {String(e.day).padStart(2, '0')}</span>
                 <span className="lb-date">{e.weekday} · {fmtDate(e.date)}</span>
+                <button
+                  type="button"
+                  className="lb-share"
+                  onClick={() => copyDeepLink(e.day)}
+                  title={`Copy share link · Day ${e.day}`}
+                  aria-label={`Copy share link for day ${e.day}`}
+                >
+                  {copiedDay === e.day
+                    ? <Check size={11} strokeWidth={2} />
+                    : <Link2 size={11} strokeWidth={1.8} />
+                  }
+                  <span className="lb-share-label">
+                    {copiedDay === e.day ? 'Copied' : 'Link'}
+                  </span>
+                </button>
                 <span className={`lb-status ${e.status || 'done'}`}>
                   {e.status === 'active' ? '● in progress' : '✓ done'}
                 </span>

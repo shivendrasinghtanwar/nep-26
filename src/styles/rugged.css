@@ -823,6 +823,39 @@ figcaption .tag {
 }
 .lb-entry + .lb-entry { border-top: 1px solid var(--line-soft); }
 
+/* Per-day deep-link button on the dateline. Subtle dust-toned chip that
+   lights up rust on hover; flips to ✓ Copied for 1.5s after a click. */
+.lb-share {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 6px;
+  padding: 3px 8px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 0;
+  color: var(--cream-dim);
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: color 140ms ease-out, background 140ms ease-out, border-color 140ms ease-out;
+  line-height: 1;
+}
+.lb-share:hover {
+  color: var(--dust);
+  background: rgba(212, 165, 116, 0.06);
+  border-color: rgba(212, 165, 116, 0.2);
+}
+.lb-share:focus-visible {
+  outline: 2px solid var(--rust);
+  outline-offset: 2px;
+}
+.lb-share svg { opacity: 0.85; }
+.lb-share-label { letter-spacing: 0.08em; }
+
 /* Scroll-snap "page-flip" mode — toggled by Log.jsx via <html class="snap-log">.
    Each .lb-entry becomes a snap target so each scroll gesture lands at the
    start of the next day, making the field log feel like flipping bound
