@@ -180,6 +180,61 @@
         }
       ],
       "weather": "clear"
+    },
+    {
+      "day": 6,
+      "date": "2026-05-14",
+      "weekday": "Thu",
+      "leg": "Pokhara · rest day + chores + last-night spin",
+      "km": 35,
+      "hours": "",
+      "route": "Chhorepatan · Lakeside · Pumdikot",
+      "status": "done",
+      "walkKm": 2,
+      "notes": "Decided to absorb today as an extra rest day in Pokhara instead of heading for Beni — sleep debt from yesterday's 3 AM start, Mustang chores still pending. Plan: leave for Muktinath at first light on **2026-05-15**.\n\n### Morning · slow + office\n- Up around 9. Lazy breakfast at the Waterfront. Office work from the room till lunchtime.\n\n### Afternoon · cave temple + the underground waterfall\n- Drove south to **[Gupteshwar Mahadev Cave Temple](https://www.google.com/maps/search/?api=1&query=Gupteshwor+Mahadev+Cave+Pokhara+Chhorepatan)** (Pokhara-17, Chhorepatan, near the airport). A long spiral staircase drops you into the cave — Shiva shrine at the top, a *lying Vishnu* statue at a lower level, and at the deepest point a window onto the **waterfall inside the cave itself**. The same water you see crashing into Devi's Fall above goes underground here. Genuinely serene — not like any cave-temple I've seen in India.\n- Crossed the road to **[Devi's Fall · Patale Chhango](https://www.google.com/maps/search/?api=1&query=Devi%27s+Fall+Patale+Chhango+Pokhara)** — same water, viewed from the top. *Half the site was closed off for construction*, so the full circuit wasn't open. Pictures from what was open, then moved on.\n\n### Late lunch · Cafe Camellia\n- Back to Lakeside for lunch at **[Cafe Camellia](https://www.google.com/maps/search/?api=1&query=Cafe+Camellia+Street+16+Lakeside+Pokhara)** (Street 16). *Parking was rough — note for next time, plan to walk in.* The cafe itself is gorgeous — well-designed interior, garden vibe, **two resident dogs** that came to say hi while we ate (~4 PM). Slow lunch, took a short office call from the table.\n\n### Evening · Pumdikot Shiva, despite the clouds\n- ~6 PM the drizzle started picking up. We went anyway — even knowing the Annapurna view was off the table, the **drive itself** was worth it. Tight twisties up to **[Pumdikot Shiva Statue](https://www.google.com/maps/search/?api=1&query=Pumdikot+Shiva+Statue+Pokhara)** — almost 45° gradients, hairpin U-turns, exactly the kind of road the Roxx is built for.\n- Made it to the statue by 6:45 (it closes at 7). Quick walk around the platform, a few pictures, and out.\n- **The descent stole the day**: post-sunset, the whole Pokhara basin was lit up — lake, highway, Lakeside cafes, all glittering. Stopped at a cliff pullout for ~10 minutes to just watch it.\n\n### Mustang prep · supplies + fuel + cash\n- Lakeside mart for **snacks and supplies** for the Muktinath run.\n- Filled the Roxx to the brim — *next reliable diesel is Beni, and that's the last pump before Mustang.* Crucial.\n- Topped up the **INR → NPR cash** buffer one more time, just to be safe past Beni.\n\n### Dinner\n- Walked over to **[The Grounds By Majestic Lakefront](https://www.google.com/maps/search/?api=1&query=The+Grounds+By+Majestic+Lakefront+Pokhara)** for dinner — closed for the night. Left the Thar in their lot and walked to **[Annapurna Garden Cafe & Lounge](https://www.google.com/maps/search/?api=1&query=Annapurna+Garden+Cafe+Lounge+Pokhara+Lakeside)** — simple, no-fuss dinner.\n- Back to the Waterfront, organising + packing for tomorrow. Sleep.",
+      "hotel": {
+        "name": "Waterfront Resort by KGH Group",
+        "location": "Lakeside, Pokhara",
+        "map": "https://maps.app.goo.gl/?q=28.2217546,83.9516047"
+      },
+      "delta": "Held one day longer in Pokhara to bank sleep + finish Mustang prep — depart for Muktinath at first light tomorrow.",
+      "events": [
+        {
+          "icon": "🕉️",
+          "tone": "info",
+          "text": "Gupteshwar Mahadev Cave Temple (Chhorepatan, opposite Devi's Fall) · spiral staircase down to a Shiva shrine + lying-Vishnu murti + the same waterfall that disappears at Devi's Fall above. Quietest cave-temple either of us has been in."
+        },
+        {
+          "icon": "💧",
+          "tone": "warn",
+          "text": "Devi's Fall · Patale Chhango — partially closed for construction. Go for the cave-side view (Gupteshwar) if the falls side is fenced off."
+        },
+        {
+          "icon": "🐕",
+          "tone": "info",
+          "text": "Cafe Camellia (Street 16 Lakeside) · gorgeous interior, two resident dogs, great late-lunch spot. *Parking is rough — try walking in from a side street.*"
+        },
+        {
+          "icon": "🛕",
+          "tone": "info",
+          "text": "Pumdikot Shiva Statue · closes 7 PM sharp. Even on a clouded-out day the *drive itself* is worth it — steep twisty road, hairpin U-turns. The night-descent view of lit-up Pokhara is the real reward."
+        },
+        {
+          "icon": "⛽",
+          "tone": "warn",
+          "text": "Mustang fuel · tanked the Roxx to the brim at Lakeside. The last reliable diesel before Muktinath is at **Beni** — fuel up there too. No bowsers in Mustang you'd want to rely on."
+        },
+        {
+          "icon": "🛒",
+          "tone": "info",
+          "text": "Mustang supplies · snacks + bottled water + INR-to-NPR top-up done at Lakeside before departure. Internet thins past Beni, cash is king from there."
+        },
+        {
+          "icon": "🍽",
+          "tone": "info",
+          "text": "Dinner plan went sideways · The Grounds By Majestic was closed at our hour. Walked over to Annapurna Garden Cafe & Lounge for a simple dinner — open till 2 AM, easy fallback."
+        }
+      ]
     }
   ]
 }
