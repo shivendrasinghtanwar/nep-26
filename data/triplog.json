@@ -110,21 +110,21 @@
     },
     {
       "day": 5,
-      "date": "2026-05-13",
-      "weekday": "Wed",
-      "leg": "Pokhara · Sarangkot sunrise run",
-      "km": 22,
-      "hours": "~1 h drive (round trip)",
-      "route": "Lakeside → Sarangkot road (pre-dawn)",
+      "date": "2026-05-14",
+      "weekday": "Thu",
+      "leg": "Pokhara · Sarangkot sunrise + Mustang prep + lake-north drive",
+      "km": 52,
+      "hours": "",
+      "route": "Sarangkot · Damside · Lakeside · Pame · Khapaudi",
       "status": "done",
-      "walkKm": 1,
-      "notes": "- Up at 3 AM. Left the Waterfront by 4 AM — early-start strategy to dodge the daybreak tourist-taxi convoy and grab parking right below the **[Sarangkot View Tower](https://www.google.com/maps/search/?api=1&query=Sarangkot+View+Tower+Pokhara)** entrance.\n- Plan worked: reached the entrance gate by 4:40 AM. Just one other car there, ample parking.\n- Walked up, bought tickets, climbed the tower deck. Sunrise was billed for 5:20 AM.\n- Cloud cover held the sun behind a wall — no clean reveal at 5:20. Stayed gauzy; didn't punch through till much later. The mountain panorama itself was still up there, just softer than the brochure version.",
+      "walkKm": 3,
+      "notes": "Long day split into two halves — pre-dawn Sarangkot sortie, then back to base for work and a full afternoon of Mustang-prep errands that drifted into a lake-north drive.\n\n### Pre-dawn · Sarangkot sunrise run\n- Up at 3 AM. Left the Waterfront by 4 AM — early-start strategy to dodge the daybreak tourist-taxi convoy and grab parking right below the **[Sarangkot View Tower](https://www.google.com/maps/search/?api=1&query=Sarangkot+View+Tower+Pokhara)** entrance.\n- Plan worked: reached the entrance gate by 4:40 AM. Just one other car there, ample parking.\n- Walked up, bought tickets, climbed the tower deck. Sunrise was billed for 5:20 AM.\n- Cloud cover held the sun behind a wall — no clean reveal at 5:20. Stayed gauzy; didn't punch through till much later. The mountain panorama itself was still up there, just softer than the brochure version.\n\n### Afternoon · Mustang prep + lake-north drive\n- Back at the Waterfront — breakfast then work from the room till afternoon. Took the Thar out for the Mustang-prep errands.\n- **Permits at [Nepal Tourism Board · Damside](https://www.google.com/maps/search/?api=1&query=Nepal+Tourism+Board+Damside+Pokhara+ACAP+office)** — picked up the **ACAP** (Annapurna Conservation Area Permit) for both of us. Muktinath sits inside the Annapurna conservation zone, so this is the one you need; no Restricted Area Permit since we're staying in Lower Mustang. 1000 NPR/SAARC head, 2K total, in-and-out in 20 minutes.\n- Lunch + work at **[Fresh Elements Restaurant & Bar](https://www.google.com/maps/search/?api=1&query=Fresh+Elements+Restaurant+Pokhara)** (Middle Path · Street 16). Carried laptops, ate slow, kept working after the plates went away.\n- Parked on Lakeside Road, walked the market and **exchanged INR → NPR** — stocking cash for Mustang where the internet thins out past Beni and most counters take cash, usually NPR.\n- Drizzle escalated to a proper pour late afternoon; rushed back to the Thar.\n- Drove home past the hotel and **kept going north toward [Pame](https://www.google.com/maps/search/?api=1&query=Pame+Pokhara)**. Pulled over on the green patch by the lake right in front of **[The Beach Bar and Lodge](https://www.google.com/maps/search/?api=1&query=The+Beach+Bar+and+Lodge+Pokhara+Khapaudi)** (Khapaudi) — a waitress politely asked to move the car, it was blocking the lake view from the resort tables. While I was repositioning, a guest came out specifically to photograph the Thar Roxx — Ukrainian, big jeep fan, knew Mahindra made an \"Indian Wrangler\" but had never seen one in the wild. Good chat. Photo of the car now lives in a stranger's phone in Kyiv, which is a quietly weird thing to think about.\n- Pushed further north till the entrance of a small village (name starting with **B** — escaped us in the moment, *note to grab off offline maps later*). Turned around as it got dark.\n- **Skipped [Pumdikot Shiva Statue](https://www.google.com/maps/search/?api=1&query=Pumdikot+Shiva+Statue+Pokhara)** — could see the hilltop from the lake-north stop, completely socked in by cloud. No view today.\n- Back to the Waterfront, dinner, slept.",
       "hotel": {
         "name": "Waterfront Resort by KGH Group",
         "location": "Lakeside, Pokhara",
         "map": "https://maps.app.goo.gl/?q=28.2217546,83.9516047"
       },
-      "delta": "Pre-dawn departure paid off — solo parking right at the tower gate.",
+      "delta": "Pre-dawn Sarangkot run + half-day office work + Mustang prep + an unplanned lake-north loop.",
       "events": [
         {
           "icon": "🌅",
@@ -135,28 +135,7 @@
           "icon": "🚙",
           "tone": "info",
           "text": "Sarangkot parking · leaving Lakeside by 4 AM beats the tourist-taxi rush. By 5 AM the lot fills, by 5:15 AM cars park down-slope. Pre-dawn run = front-row spot at the gate."
-        }
-      ],
-      "weather": "partly cloudy"
-    },
-    {
-      "day": 6,
-      "date": "2026-05-14",
-      "weekday": "Thu",
-      "leg": "Pokhara · permits, prep, lake-north drive",
-      "km": 30,
-      "hours": "",
-      "route": "Damside · Lakeside · Pame · Khapaudi (lake-north)",
-      "status": "done",
-      "walkKm": 2,
-      "notes": "Morning at the Waterfront — breakfast then work from the room till afternoon. Took the Thar out for the Mustang-prep errands and a lake-north drive that turned into the day's actual story.\n\n- **Permits at [Nepal Tourism Board · Damside](https://www.google.com/maps/search/?api=1&query=Nepal+Tourism+Board+Damside+Pokhara+ACAP+office)** — picked up the **ACAP** (Annapurna Conservation Area Permit) for both of us. Muktinath sits inside the Annapurna conservation zone, so this is the one you need; no Restricted Area Permit since we're staying in Lower Mustang. 1000 NPR/SAARC head, 2K total, in-and-out in 20 minutes.\n- Lunch + work at **[Fresh Elements Restaurant & Bar](https://www.google.com/maps/search/?api=1&query=Fresh+Elements+Restaurant+Pokhara)** (Middle Path · Street 16). Carried laptops, ate slow, kept working after the plates went away.\n- Parked on Lakeside Road, walked the market and **exchanged INR → NPR** — stocking cash for Mustang where the internet thins out past Beni and most counters take cash, usually NPR.\n- Drizzle escalated to a proper pour late afternoon; rushed back to the Thar.\n- Drove home past the hotel and **kept going north toward [Pame](https://www.google.com/maps/search/?api=1&query=Pame+Pokhara)**. Pulled over on the green patch by the lake right in front of **[The Beach Bar and Lodge](https://www.google.com/maps/search/?api=1&query=The+Beach+Bar+and+Lodge+Pokhara+Khapaudi)** (Khapaudi) — a waitress politely asked to move the car, it was blocking the lake view from the resort tables. While I was repositioning, a guest came out specifically to photograph the Thar Roxx — Ukrainian, big jeep fan, knew Mahindra made an \"Indian Wrangler\" but had never seen one in the wild. Good chat. Photo of the car now lives in a stranger's phone in Kyiv, which is a quietly weird thing to think about.\n- Pushed further north till the entrance of a small village (name starting with **B** — escaped us in the moment, *note to grab off offline maps later*). Turned around as it got dark.\n- **Skipped [Pumdikot Shiva Statue](https://www.google.com/maps/search/?api=1&query=Pumdikot+Shiva+Statue+Pokhara)** — could see the hilltop from the lake-north stop, completely socked in by cloud. No view today.\n- Back to the Waterfront, dinner, slept.",
-      "hotel": {
-        "name": "Waterfront Resort by KGH Group",
-        "location": "Lakeside, Pokhara",
-        "map": "https://maps.app.goo.gl/?q=28.2217546,83.9516047"
-      },
-      "delta": "Half-day office work, half-day Mustang prep + an unplanned lake-north loop.",
-      "events": [
+        },
         {
           "icon": "🪪",
           "tone": "info",
