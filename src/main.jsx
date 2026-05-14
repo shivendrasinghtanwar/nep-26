@@ -1,7 +1,7 @@
 import './styles/stencil.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { HashRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import AOS from 'aos'
 import App from './App.jsx'
 
@@ -24,8 +24,16 @@ AOS.init({
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <HashRouter>
+    {/*
+      BrowserRouter with basename="/nep-26" — clean URLs on GH Pages.
+      Direct-load of a known route (e.g. /nep-26/log) works because the
+      Vite build mirrors index.html into each route's directory (see
+      mirrorRoutesToIndex plugin in vite.config.js). Unknown paths fall
+      back through public/404.html → the restore script in index.html
+      (head) → BrowserRouter → App's <Navigate to="/" /> catchall.
+    */}
+    <BrowserRouter basename="/nep-26">
       <App />
-    </HashRouter>
+    </BrowserRouter>
   </React.StrictMode>
 )

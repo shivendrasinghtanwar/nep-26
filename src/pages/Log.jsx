@@ -203,32 +203,32 @@ export default function Log() {
     return () => document.documentElement.classList.remove('snap-log')
   }, [])
 
-  // Deep-link to a specific day: /#/log?day=N scrolls to id="day-NN" on
-  // mount. HashRouter eats the native URL hash for routing, so we can't
-  // use traditional #anchor — query param is the safe path. Each article
-  // still carries id="day-NN" so DOM-level scrollIntoView works.
+  // Deep-link to a specific day: /log#day-NN scrolls to that article on
+  // mount. With BrowserRouter the URL hash is FREE — it's a real anchor,
+  // not router internal state — so we can use the native id-anchor form.
+  // Browser will try to auto-scroll on direct load too, but our manual
+  // scrollIntoView gives the scroll-margin-top behaviour for the sticky
+  // topnav (and waits for AOS reveal first).
   const location = useLocation()
   const [copiedDay, setCopiedDay] = useState(null)
   useEffect(() => {
-    const params = new URLSearchParams(location.search)
-    const day = params.get('day')
-    if (!day) return
-    const id = `day-${String(day).padStart(2, '0')}`
-    // Two RAFs so the layout + AOS reveal are done before we scroll.
+    if (!location.hash) return
+    const id = location.hash.slice(1) // strip leading "#"
+    if (!/^day-\d+$/.test(id)) return
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         const el = document.getElementById(id)
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
       })
     })
-  }, [location.search])
+  }, [location.hash])
 
   function copyDeepLink(day) {
     const padded = String(day).padStart(2, '0')
-    // Construct the canonical share URL. HashRouter format keeps the route
-    // before the query so /#/log?day=4 round-trips through React Router.
+    // Native anchor form — clean and shareable. BrowserRouter ignores the
+    // hash for routing so it round-trips through the URL without surgery.
     const base = `${window.location.origin}${window.location.pathname}`
-    const url = `${base}#/log?day=${day}#day-${padded}`
+    const url = `${base}#day-${padded}`
     const fallback = () => {
       const ta = document.createElement('textarea')
       ta.value = url

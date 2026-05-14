@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>NEP-26 · routing…</title>
+  <meta name="robots" content="noindex">
+  <script>
+    // SPA-on-GitHub-Pages 404 redirect (rafgraph/spa-github-pages, MIT).
+    // GH Pages serves this file for any path it can't find — we re-encode
+    // the original path as a query string and bounce to /nep-26/, where
+    // a matching restore-script in index.html rewrites the URL back so
+    // BrowserRouter sees the real /nep-26/log path (or whatever) on boot.
+    //
+    // pathSegmentsToKeep = 1 → keep the /nep-26/ project-page prefix.
+    var pathSegmentsToKeep = 1;
+    var l = window.location;
+    l.replace(
+      l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+      l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+      l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+      (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+      l.hash
+    );
+  </script>
+</head>
+<body></body>
+</html>
