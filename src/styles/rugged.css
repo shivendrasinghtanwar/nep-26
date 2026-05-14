@@ -997,12 +997,12 @@ html.snap-log .lb-entry {
 .lb-section { margin-bottom: 12px; }
 .lb-section:last-child { margin-bottom: 0; }
 
-/* Collapsible Notes section · toggle button is mobile-only. On desktop the
-   button is hidden and the label + body are always visible (no class needed).
-   On mobile the label + body collapse by default; tapping the chevron-button
-   adds .is-open which reveals them and rotates the chevron 180°. */
+/* Collapsible Notes section · same UX on mobile + desktop. The Events list
+   gives enough at-a-glance summary on its own; full narrative notes sit
+   behind a chevron-tagged "Notes" button that the reader pops open per-day
+   if they want the long version. */
 .lb-notes-toggle {
-  display: none;
+  display: inline-flex;
   align-items: center;
   gap: 6px;
   margin-bottom: 8px;
@@ -1033,15 +1033,11 @@ html.snap-log .lb-entry {
   transition: transform 180ms ease-out;
 }
 
-@media (max-width: 640px) {
-  /* Show the toggle button. */
-  .lb-section-notes .lb-notes-toggle { display: inline-flex; }
-  /* Collapse the redundant label (button already says "Notes") and body
-     until the section is opened. */
-  .lb-section-notes .lb-section-label { display: none; }
-  .lb-section-notes:not(.is-open) .lb-section-body { display: none; }
-  .lb-section-notes.is-open .lb-notes-toggle .chev { transform: rotate(180deg); }
-}
+/* The button already reads "Notes" — the section-label below it is redundant.
+   The narrative body stays hidden until .is-open is added by the toggle. */
+.lb-section-notes .lb-section-label { display: none; }
+.lb-section-notes:not(.is-open) .lb-section-body { display: none; }
+.lb-section-notes.is-open .lb-notes-toggle .chev { transform: rotate(180deg); }
 .lb-section-label {
   font-family: var(--font-mono);
   font-size: 9.5px;
