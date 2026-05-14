@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { ChevronLeft, MapPin, ExternalLink, Mountain, Route as RouteIcon, Footprints, Car } from 'lucide-react'
 import { marked } from 'marked'
@@ -191,6 +192,16 @@ export default function Log() {
   const currentLoc = lastEntry?.hotel?.location?.split(',')[0] || '—'
   const profile = buildProfile(entries, ITINERARY?.length ? ITINERARY : [])
   const currentDay = lastEntry?.day || 1
+
+  // Page-flip scroll-snap: the field log reads as one long page, but each
+  // .lb-entry should land at the top of the viewport so the dossier feels
+  // like flipping through bound pages instead of doomscrolling. Toggle a
+  // class on <html> only while this page is mounted; other routes get
+  // their regular free scroll back.
+  useEffect(() => {
+    document.documentElement.classList.add('snap-log')
+    return () => document.documentElement.classList.remove('snap-log')
+  }, [])
 
   const stats = [
     { k: 'Days logged', v: String(entries.length),     u: '' },

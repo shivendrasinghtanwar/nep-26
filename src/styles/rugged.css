@@ -822,6 +822,29 @@ figcaption .tag {
   margin-left: 6px;
 }
 .lb-entry + .lb-entry { border-top: 1px solid var(--line-soft); }
+
+/* Scroll-snap "page-flip" mode — toggled by Log.jsx via <html class="snap-log">.
+   Each .lb-entry becomes a snap target so each scroll gesture lands at the
+   start of the next day, making the field log feel like flipping bound
+   dossier pages rather than scrolling one long document.
+     scroll-snap-type: y mandatory   → snap settles at a snap point at rest
+     scroll-snap-stop: always         → one gesture advances exactly one entry,
+                                        prevents wheel-fling skipping past
+     scroll-margin-top: 56px          → push snap below the sticky topnav so
+                                        the dateline isn't hidden under it
+   Long entries: user can still scroll up/down within the entry — snap only
+   applies at the boundary points. Reduced-motion users get plain scroll. */
+html.snap-log {
+  scroll-snap-type: y mandatory;
+}
+html.snap-log .lb-entry {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  scroll-margin-top: 56px;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.snap-log { scroll-snap-type: none; }
+}
 .lb-entry::before {
   content: '';
   position: absolute;
