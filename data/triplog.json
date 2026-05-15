@@ -3,7 +3,7 @@
     "title": "NEP-26 Field Log",
     "subtitle": "What actually happened",
     "vehicle": "Mahindra Thar Roxx · Thar Digital Services",
-    "lastUpdated": "2026-05-14"
+    "lastUpdated": "2026-05-15"
   },
   "entries": [
     {
@@ -236,6 +236,76 @@
         }
       ],
       "weather": "partly cloudy"
+    },
+    {
+      "day": 7,
+      "date": "2026-05-15",
+      "weekday": "Thu",
+      "leg": "Pokhara → Beni → Jomsom → Muktinath 🛕",
+      "km": 195,
+      "hours": "~7 h",
+      "route": "Baglung Hwy · Beni-Jomsom Rd · Kali Gandaki valley",
+      "status": "done",
+      "walkKm": 3,
+      "notes": "The day every AI tool, every blog, every itinerary builder — including my own — said would need *three days minimum* (Pokhara → Tatopani → Jomsom → Muktinath, with overnight halts to acclimatise). We did it in **half a day**, then walked into the temple the same afternoon.\n\n### Pokhara → Muktinath, in one push\n- Out of the **Waterfront** at **6:30 AM**, fearing the unknown.\n- Quick chai at a roadside stall on the Baglung Highway — first snow-capped peaks of the trip in the windscreen view.\n- Road quality fell off in stages, almost like a difficulty ladder:\n  - **3-lane highway** out of Pokhara →\n  - **2-lane highway** Pokhara → Beni →\n  - **Single lane** after Beni →\n  - **Gravel + broken tarmac** past Tatopani →\n  - **Actual river bed** in places, where you just drive the dry rocks →\n  - One stretch where **three workers were live-drilling a hillside with a jackhammer** to widen the cut enough for two vehicles to pass each other. Watched them work, then squeezed through.\n- Afternoon **rain showers without clouds** — sun and water at the same time, falling through the Kali Gandaki valley. Massive river below, scenery the brochures don't earn.\n- Jomsom at **12:30 PM**. Stopped at **[Xanadu Homes](https://www.google.com/maps/search/?api=1&query=Xanadu+Homes+Jomsom+Mustang)** (near Jomsom airport — the Lavazza branding on the board is what caught the eye) for coffee + a *home-made apple pie*. Looked at each other and went \"…we have the whole day. Should we just push?\"\n- **Muktinath at 1:45 PM**. ~7 h door-to-door.\n\n### Parking + room scramble\n- Private cars aren't allowed inside the temple campus before 6 PM. Parked at **[Lo Mustang Himalayan Resort](https://www.google.com/maps/search/?api=1&query=Lo+Mustang+Himalayan+Resort+Ranipauwa+Muktinath)** (Ranipauwa) to ask about a room.\n- Their 2-pax rooms were sold out, but the manager *made calls on our behalf* and got us a deluxe room at **[Hotel de Purang](https://www.google.com/maps/search/?api=1&query=Hotel+de+Purang+Ranipauwa+Muktinath)** — tea on the house at Lo Mustang while we waited for the confirmation. Genuinely above-and-beyond service.\n- Walked over to Purang (car stays at Lo Mustang till 6 PM gate-open). Checked in by 3:30 PM.\n\n### Temple — done the same day\n- Got told the temple was open till **7 PM** — meaning we could do darshan today and use tomorrow for the return drive. Net: **trip compressed by one full day vs every planning source we read.**\n- The walk to the temple from Ranipauwa is the part nobody talks about: **~300 stairs at 3,810 m**. The altitude makes ordinary stairs into an actual workout. *Worth flagging for anyone reading this who's preparing — the hike-in is not a footnote.*\n- **Mukti Dhara · the 108 sacred water spouts** in a semicircle behind the main shrine — stone bull-face spouts. Took the running ice-water bath under all 108 (the *moksha* tradition). Did the darshan inside.\n- **Jwala Mai gompa** — the eternal flame fed by natural gas seeping through the rock, beside a small spring. Quiet, dim, unforgettable.\n- **Buddha statue + the surrounding gompas** — clicked around the campus, kept walking.\n\n### Roxx earns its flags\n- Street shopping on the way back — picked up gifts for home, and a string of **Himalayan prayer flags for the Roxx**. The car has now been on legitimately treacherous-to-non-existent roads and topped out at **~12,500 ft / 3,810 m** — it has earned the flags.\n\n### The cafe encounter that shouldn't have happened\n- Late lunch at **[Hotel Bob Marley](https://www.google.com/maps/search/?api=1&query=Hotel+Bob+Marley+Muktinath)** cafe. While ordering, recognised a familiar face — [**Mr Siva**](https://www.instagram.com/sivafromsun/), who I'd only seen in **[Sriman Kotaru](https://www.youtube.com/@SrimanKotaru)**'s videos. Sriman lives near my home in **Kondapur, Hyderabad** — and so does Siva. We've never met in Hyderabad. We met *here.*\n- Siva rode in on his **BMW R1250 GS** from Hyderabad. With him: **Amit**, on a **Triumph Tiger** from Pune. They met in Jabalpur, rode to Gorakhpur, did **Upper Mustang for the Tibet festival**, and were rolling back down through Muktinath.\n- Two solo bikes, two cities, one cafe at 3,800 m. The probabilities don't math.\n\n### Wrap\n- Back to **Hotel de Purang** to rest, freshen up, hot shower.\n- 6:50 PM — got the Thar inside the village (campus gate now open). Tucked into the hotel lot.\n- Dinner: a proper Nepali **daal bhaat**. Slept.",
+      "hotel": {
+        "name": "Hotel de Purang",
+        "location": "Ranipauwa, Muktinath, Mustang",
+        "map": "https://www.google.com/maps/search/?api=1&query=Hotel+de+Purang+Ranipauwa+Muktinath"
+      },
+      "delta": "↑↑ Pokhara → Muktinath in half a day. Every AI / blog / itinerary said this needs 3+ days. Darshan done the same afternoon — entire Mustang loop now compressed by 1+ days.",
+      "events": [
+        {
+          "icon": "🏔",
+          "tone": "info",
+          "text": "Pokhara → Muktinath in ~7 hours flat · 6:30 AM start, Jomsom 12:30 PM, Muktinath 1:45 PM. Every planning source (Gemini, blogs, my own pre-trip itinerary) called for 3 days minimum with overnight halts at Tatopani + Jomsom. Reality: one push works if you start early and the road gods are kind."
+        },
+        {
+          "icon": "🛞",
+          "tone": "warn",
+          "text": "Road conditions step down in stages past Pokhara · 3-lane → 2-lane → single → gravel → literal river bed. One stretch had three workers actively jackhammering a hillside to make passing-room for two cars. Beyond Beni you are in 4WD territory — the Roxx was the right vehicle for this."
+        },
+        {
+          "icon": "☕",
+          "tone": "info",
+          "text": "Coffee + home-made apple pie pit stop at Xanadu Homes (Jomsom, near the airport). Lavazza branding on the board got our attention from the road — turned out to be the perfect 'do we keep going?' decision point."
+        },
+        {
+          "icon": "🪪",
+          "tone": "info",
+          "text": "Muktinath temple campus closed to private cars before 6 PM. Park at Ranipauwa village (Lo Mustang Himalayan Resort lot works) and walk in. Gate opens for vehicles after 6 PM."
+        },
+        {
+          "icon": "🤝",
+          "tone": "info",
+          "text": "Lo Mustang Himalayan Resort manager · rooms sold out but made calls and arranged a deluxe at Hotel de Purang for us, comp'd a tea while we waited. The kind of hospitality that justifies recommending a hotel even when you don't end up staying there."
+        },
+        {
+          "icon": "🪜",
+          "tone": "warn",
+          "text": "The 300 stairs to the temple at 3,810 m are the unsung effort of this trip · planning sources fixate on the drive and skip the climb. At altitude, ordinary stairs become a workout — pace yourself, drink water, don't sprint."
+        },
+        {
+          "icon": "💧",
+          "tone": "info",
+          "text": "Mukti Dhara · the 108 sacred water spouts (stone bull-face dharas in a semicircle behind the main shrine) + the running ice-water bath = the moksha tradition. Did it. The water is glacier-cold, the path is short, the experience is worth it."
+        },
+        {
+          "icon": "🔥",
+          "tone": "info",
+          "text": "Jwala Mai gompa · the eternal flame fed by natural gas seeping through the rock, burning beside a small spring. Quiet shrine, easy to miss in the rush to the main temple — don't."
+        },
+        {
+          "icon": "🎏",
+          "tone": "info",
+          "text": "Himalayan prayer flags · tied to the Roxx at 12,500 ft (3,810 m). The car has now done legitimately broken roads to a treacherous altitude and earned the flag-string. Symbolic, sure. Felt right."
+        },
+        {
+          "icon": "🤝",
+          "tone": "info",
+          "text": "Met Mr Siva (@sivafromsun) at Hotel Bob Marley · friend of Hyderabadi YouTuber Sriman Kotaru, lives in Kondapur — same neighbourhood as my home. Rode solo from Hyderabad to Upper Mustang on his BMW R1250 GS, met Amit (Triumph Tiger, Pune) en route in Jabalpur. They went to Upper Mustang for the Tibet festival and were stopping at Muktinath on the way back. Two cities, one cafe at 3,800 m — pure improbability."
+        }
+      ]
     }
   ]
 }
