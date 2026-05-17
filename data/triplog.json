@@ -3,7 +3,7 @@
     "title": "NEP-26 Field Log",
     "subtitle": "What actually happened",
     "vehicle": "Mahindra Thar Roxx · Thar Digital Services",
-    "lastUpdated": "2026-05-16"
+    "lastUpdated": "2026-05-17"
   },
   "entries": [
     {
@@ -350,6 +350,56 @@
           "icon": "☕",
           "tone": "info",
           "text": "Himalayan Java Lakeside · picked up ground coffee for home. 100% Nepali arabica, easy travel-back gift. They have multiple Pokhara branches — Lakeside is the one with the upstairs view over Phewa."
+        }
+      ]
+    },
+    {
+      "day": 9,
+      "date": "2026-05-17",
+      "weekday": "Sun",
+      "leg": "Pokhara → Kathmandu 🇳🇵",
+      "km": 204,
+      "hours": "~6.5 h",
+      "route": "Prithvi Highway · via Bandipur · Mugling · Thamel",
+      "status": "done",
+      "walkKm": 2,
+      "notes": "Lazy start to a long drive. Clear weather meant the snow-capped peaks were actually visible from Lakeside streets this morning — a goodbye view Pokhara hadn't shown us before.\n\n### Morning · slow Pokhara goodbye\n- Slept in. Breakfast at the resort.\n- Walked the lake, clicked a few last pictures — clearest sky of the whole stay, snow-cap silhouettes from the street itself.\n- Back to the hotel, packed for Kathmandu.\n- **At checkout**: saw **Siva and Amit** in the parking lot trying to repair a puncture on Amit's Triumph Tiger — *their inflator battery was dead.* Pulled the Thar's inflator out of the trunk and handed it over. Job done, swapped a company card, said goodbye. **Third encounter with the Siva-Amit duo across three locations.** Pattern fully confirmed.\n\n### Prithvi Highway · Pokhara → Kathmandu\n- **204 km, ~6.5 h door-to-door.** First 90 km is genuinely smooth highway — covered it in **~1 h 20 m**. Average pace gives a false read of the rest of the day.\n- After ~90 km Google Maps was still showing 4 h to Kathmandu with only 110 km left. That ratio tells you everything: **the back half of Prithvi Highway is a fight.** Comparable to the Muktinath approach road, no joke. Single carriageway, traffic, broken sections, slow-trucks.\n- Stopped at **[Himalayan Java](https://www.google.com/maps/search/?api=1&query=Himalayan+Java+Coffee+Bandipur+Prithvi+Highway)** near **Bandipur** — coincidentally located *above a Mahindra showroom.* Felt symmetrical, given the car. Solid break.\n- **Kathmandu border hit by 4:30 PM.** The sensory step-change is dramatic — Pokhara's calm to Kathmandu's chaos in one ring-road crossing. Urbanisation, traffic, crowd density, noise. Took a beat to adjust.\n\n### Thamel · first impressions\n- Checked into **[Hotel Thrive · A Tropical Courtyard](https://www.google.com/maps/search/?api=1&query=Hotel+Thrive+Tropical+Courtyard+Thamel+Kathmandu)** — Thamel, secure parking (the deciding factor), walkable to everything we wanted to see.\n- In by 6 PM, freshened up, back on the street by 7. Starving by then.\n- **Dinner at [Roadhouse Cafe · Thamel](https://www.google.com/maps/search/?api=1&query=Roadhouse+Cafe+Thamel+Kathmandu)** — heard the wood-fired pizza reputation, went for it.\n- Walked Thamel afterwards. Different beast from anywhere we've been on this trip — heavily commercialised, busy, chaotic, no proper footpaths, shops piled on shops. Honestly **reminded me of the old quarters of Jaipur / Jodhpur** — same narrow-lane character, same density.\n- After the serenity of Pokhara and the Mustang week, Thamel felt like sensory overload. Got bored faster than expected.\n- Back to the hotel, slept. Tired from the drive.",
+      "hotel": {
+        "name": "Hotel Thrive, A Tropical Courtyard",
+        "location": "Thamel, Kathmandu",
+        "map": "https://www.google.com/maps/search/?api=1&query=Hotel+Thrive+Tropical+Courtyard+Thamel+Kathmandu"
+      },
+      "delta": "→ Spontaneous Kathmandu addition. Mustang ran 1.5 days ahead of plan; reinvesting that surplus into KTM + Chitwan instead of more Pokhara work days.",
+      "events": [
+        {
+          "icon": "🤝",
+          "tone": "info",
+          "text": "The Siva coincidence, part 3 · ran into Siva + Amit again in the Lake View Resort parking lot at checkout — they were fighting a puncture on Amit's Tiger with a dead inflator. Loaned them the Roxx's spare inflator, problem solved. Three encounters across three locations now — Muktinath cafe → Pokhara hotel parking → Pokhara hotel checkout."
+        },
+        {
+          "icon": "🛣",
+          "tone": "warn",
+          "text": "Prithvi Highway is two roads in one · the first 90 km out of Pokhara is smooth fast highway (we did it in 1h20). The last ~110 km into Kathmandu is closer to the Muktinath approach — single lane, broken patches, slow truck convoys. Plan ~6.5 h door-to-door, not the 4 h Google promises."
+        },
+        {
+          "icon": "☕",
+          "tone": "info",
+          "text": "Himalayan Java pit-stop near Bandipur · sits above a Mahindra showroom on the Prithvi Highway. Useful break point about halfway between Pokhara and Kathmandu, especially if you're driving a Mahindra."
+        },
+        {
+          "icon": "🏙",
+          "tone": "warn",
+          "text": "Pokhara → Kathmandu sensory step-change · the ring-road crossing flips you from mountain-lake calm to dense urban chaos in one transition. Mentally prep for it — first impressions of Thamel hit harder if you've come straight from Lakeside."
+        },
+        {
+          "icon": "🍕",
+          "tone": "info",
+          "text": "Roadhouse Cafe Thamel · wood-fired pizza, original Thamel branch. Solid early-dinner choice — walking distance from Hotel Thrive."
+        },
+        {
+          "icon": "🛒",
+          "tone": "info",
+          "text": "Thamel · heavily commercialised, narrow lanes, no real footpaths, shops stacked on shops. Felt very similar to old Jaipur / Jodhpur city cores. Bring patience and don't expect Pokhara-style breathing room."
         }
       ]
     }

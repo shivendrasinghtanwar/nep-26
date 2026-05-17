@@ -69,7 +69,7 @@ log "derived location: '$LOC'"
 # ships /bin/bash 3.2, which predates declare -A.
 COORDS=""
 COORD_KEY=""
-for key in pokhara jomsom muktinath kagbeni tatopani marpha beni ghasa kalopani butwal lucknow bikaner; do
+for key in pokhara jomsom muktinath kagbeni tatopani marpha beni ghasa kalopani butwal lucknow bikaner kathmandu thamel chitwan sauraha bharatpur; do
   if [[ "$LOC" == *"$key"* ]]; then
     COORD_KEY="$key"
     break
@@ -88,6 +88,11 @@ case "$COORD_KEY" in
   butwal)    COORDS="27.7006,83.4484" ;;
   lucknow)   COORDS="26.8467,80.9462" ;;
   bikaner)   COORDS="28.0229,73.3119" ;;
+  kathmandu) COORDS="27.7172,85.3240" ;;
+  thamel)    COORDS="27.7152,85.3119" ;;
+  chitwan)   COORDS="27.5291,84.3542" ;;
+  sauraha)   COORDS="27.5793,84.4960" ;;
+  bharatpur) COORDS="27.6766,84.4346" ;;
 esac
 [[ -n "$COORDS" ]] && log "matched '$COORD_KEY' → $COORDS"
 
