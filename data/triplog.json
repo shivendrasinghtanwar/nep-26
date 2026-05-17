@@ -3,7 +3,7 @@
     "title": "NEP-26 Field Log",
     "subtitle": "What actually happened",
     "vehicle": "Mahindra Thar Roxx · Thar Digital Services",
-    "lastUpdated": "2026-05-15"
+    "lastUpdated": "2026-05-16"
   },
   "entries": [
     {
@@ -307,6 +307,51 @@
         }
       ],
       "weather": "clear"
+    },
+    {
+      "day": 8,
+      "date": "2026-05-16",
+      "weekday": "Fri",
+      "leg": "Muktinath → Jomsom → Tatopani → Beni → Pokhara",
+      "km": 195,
+      "hours": "~8 h",
+      "route": "Kali Gandaki valley descent · Beni-Jomsom Rd · Baglung Hwy",
+      "status": "done",
+      "walkKm": 1,
+      "notes": "Plan was a 5:20 AM wake-up for sunrise. Reality: woke up to a headache, looked out the window — cloud-wall, no sunrise. Phone said it had been **-2 °C overnight**. Tried to sleep, headache kept building. By 6:45 AM we'd named it: **possible AMS, time to lose altitude.**\n\n### Descent · Muktinath → Pokhara\n- Packed, breakfast at Purang, on the road by **8 AM**.\n- **Jomsom by 9 AM**. Second stop at **[Xanadu Homes](https://www.google.com/maps/search/?api=1&query=Xanadu+Homes+Jomsom+Mustang)** — 40 minute break, hot coffee, headache started lifting noticeably with the altitude loss.\n- Just past Jomsom airport, a no-road patch with **two European backpackers thumbing a lift** — full trekking kit, French accents. Dinki said *we should help.* I stopped.\n\n### Hitchhikers · Valentina + Gabe → Tatopani\n- **Valentina** — architecture student from France. **Gabe** — also French, builds websites, previously lived out of a **Toyota Prado with a roof-tent in Australia**, camping wherever the day ended. Wild backstory.\n- Heading to Tatopani. Loaded their packs into the boot.\n- The drive disappeared into conversation: cars, **French vs Indian weddings**, **Hinduism's overlap with Jainism**, Valentina's Golden Triangle trip (Agra-Delhi-Jaipur) and her notes on Indian cities, Gabe's road-trip philosophy. They liked the Roxx — Valentina actually said *\"you have a nice car.\"*\n- Dropped them at Tatopani. Swapped a company card. Two strangers, a sliver of two countries, gone. The rough road that gutted us on the way up didn't even register on the way down.\n\n### Tatopani → Pokhara\n- Lunch-break at **Beni** — proper plate of chowmein, the kind that hits exactly right after a mountain morning.\n- Hit **Pokhara just as the rain went heavy**. Decided not to drive into Lakeside in a downpour — checked into **[Lake View Resort](https://www.google.com/maps/search/?api=1&query=Lake+View+Resort+Pokhara+Lakeside)** (Lakeside, the one with Fishtail visible from the property).\n\n### The Siva coincidence, part 2\n- Pulled into the resort's parking and clocked a **BMW R1250 GS with a Telangana plate** sitting there. Instantly recognised it — that's **Siva's bike**, the same Siva we'd met at Hotel Bob Marley in Muktinath yesterday. Two cities, two hotels, *one parking lot*. The probabilities just won't stop.\n- Rain eased. We ran into Siva and Amit on their way out for lunch — quick hi, then we crashed in the rooms because the AMS headache was still there. Real sleep, finally.\n\n### Evening · slow recovery\n- Up around 7:30 PM, freshened up.\n- **Light rain still on** — bought umbrellas on the way out.\n- Dinner at **[Cafe Camellia](https://www.google.com/maps/search/?api=1&query=Cafe+Camellia+Street+16+Lakeside+Pokhara)** (Street 16) — calm, gorgeous interior we already love.\n- Slow walk down Lakeside in the drizzle.\n- Picked up **ground coffee** for home from **[Himalayan Java Coffee · Lakeside](https://www.google.com/maps/search/?api=1&query=Himalayan+Java+Coffee+Lakeside+Pokhara)** — proper Nepali arabica, easy travel-home gift.\n- Back to the hotel, sleep.",
+      "hotel": {
+        "name": "Lake View Resort",
+        "location": "Lakeside, Pokhara",
+        "map": "https://www.google.com/maps/search/?api=1&query=Lake+View+Resort+Pokhara+Lakeside"
+      },
+      "delta": "↓ Descended to recover from suspected AMS. Headache lifted with altitude loss — sea-level math is real.",
+      "events": [
+        {
+          "icon": "🤕",
+          "tone": "warn",
+          "text": "AMS at Muktinath · woke up with a building headache after overnight temp hit -2°C at 3,810 m. Lesson: when in doubt at altitude, descend. Headache started lifting noticeably by Jomsom (2,720 m), gone by Pokhara (827 m)."
+        },
+        {
+          "icon": "🥾",
+          "tone": "info",
+          "text": "Hitchhikers picked up just past Jomsom airport · Valentina (French architecture student) + Gabe (French, ex-Australia overlander in a roof-tent Prado). Trekkers heading to Tatopani. The 4-hour drive evaporated in the conversation — cars, weddings, Hinduism/Jainism, Australian campervan life. Probably the best random encounter of the trip so far."
+        },
+        {
+          "icon": "🤝",
+          "tone": "info",
+          "text": "The Siva coincidence, part 2 · pulled into Lake View Resort's parking in Pokhara and saw the same BMW R1250 GS with the Telangana plate we'd parked next to at Hotel Bob Marley in Muktinath yesterday. Different city, different hotel, same parking lot. At some point a coincidence becomes a pattern."
+        },
+        {
+          "icon": "🍜",
+          "tone": "info",
+          "text": "Beni chowmein break · roadside plate, exactly the right thing after a mountain descent."
+        },
+        {
+          "icon": "☕",
+          "tone": "info",
+          "text": "Himalayan Java Lakeside · picked up ground coffee for home. 100% Nepali arabica, easy travel-back gift. They have multiple Pokhara branches — Lakeside is the one with the upstairs view over Phewa."
+        }
+      ]
     }
   ]
 }
