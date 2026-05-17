@@ -21,7 +21,8 @@ const ALT_LOOKUP = {
   bikaner: 224, lucknow: 123, agra: 171, gorakhpur: 84, noida: 200,
   sunauli: 90, bhairahawa: 109, butwal: 205, lumbini: 150,
   pokhara: 827, sarangkot: 1592, beni: 835, tatopani: 1190, jomsom: 2720,
-  muktinath: 3760, home: 224,
+  muktinath: 3760, thamel: 1400, kathmandu: 1400,
+  bharatpur: 200, sauraha: 200, chitwan: 200, home: 224,
 }
 
 // ── Helpers ──────────────────────────────────────────────────────────────
@@ -36,9 +37,12 @@ function locAlt(text) {
   if (!text) return null
   const lower = text.toLowerCase()
   // Order matters: peaks first so multi-word strings resolve correctly.
+  // Thamel comes before Kathmandu so "Thamel, Kathmandu" resolves to Thamel.
   const keys = [
-    'muktinath', 'jomsom', 'tatopani', 'beni', 'pokhara',
-    'butwal', 'bhairahawa', 'lumbini', 'sunauli', 'gorakhpur',
+    'muktinath', 'jomsom', 'sarangkot', 'tatopani', 'beni',
+    'thamel', 'kathmandu',
+    'pokhara', 'butwal', 'bhairahawa', 'lumbini', 'sunauli', 'gorakhpur',
+    'sauraha', 'chitwan', 'bharatpur',
     'lucknow', 'agra', 'noida', 'bikaner', 'home',
   ]
   for (const k of keys) {
@@ -52,30 +56,46 @@ function locAlt(text) {
 
 function buildProfile(entries, itinerary) {
   let cum = 0
-  return itinerary.map((d, i) => {
-    const done = i < entries.length
-    const log = done ? entries[i] : null
-    const km = done ? (log.km || 0) : (d.km || 0)
+  // Walk the longer of (logged days, planned days) so the profile shows
+  // every actual day even when the trip overshoots the plan, AND keeps
+  // showing not-yet-done future days from the itinerary.
+  const len = Math.max(entries.length, itinerary.length)
+  return Array.from({ length: len }, (_, i) => {
+    const log = entries[i]
+    const plan = itinerary[i]
+    const done = !!log
+    const dayNum = log?.day ?? plan?.day ?? (i + 1)
+    const date = log?.date ?? plan?.date ?? ''
+    const km = done ? (log.km || 0) : (plan?.km || 0)
     cum += km
 
-    // Use peak altitude if the day includes a Muktinath darshan
-    let info
-    if (d.leg && d.leg.toLowerCase().includes('muktinath')) {
-      info = { name: 'Muktinath', alt: 3760, isPeak: true }
+    // Altitude resolution: for logged days, derive from the entry's
+    // *end-of-day location* (hotel first, else last segment of the leg
+    // after the final arrow). For future days, fall back to itinerary.halt.
+    // This fixes the prior bug where Day 8's descent FROM Muktinath was
+    // tagged 3,760 m because the leg string still mentioned "Muktinath".
+    let halt = null
+    if (done) {
+      halt = log.hotel?.location
+      if (!halt && log.leg) {
+        // take the segment after the last "→" if present, else whole leg
+        halt = log.leg.includes('→') ? log.leg.split('→').pop() : log.leg
+      }
     } else {
-      const halt = done ? (log.hotel?.location || log.leg) : d.halt
-      info = locAlt(halt)
+      halt = plan?.halt || plan?.leg
     }
+    const info = locAlt(halt)
+    const isPeak = info?.name === 'Muktinath'
 
     return {
-      day: d.day,
-      date: d.date,
+      day: dayNum,
+      date,
       done,
       km,
       cumKm: cum,
-      halt: info?.name || (d.halt || '—'),
+      halt: info?.name || (plan?.halt || '—'),
       alt: info?.alt ?? 0,
-      isPeak: info?.isPeak || false,
+      isPeak,
     }
   })
 }
