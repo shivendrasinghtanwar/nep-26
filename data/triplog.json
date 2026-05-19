@@ -3,7 +3,7 @@
     "title": "NEP-26 Field Log",
     "subtitle": "What actually happened",
     "vehicle": "Mahindra Thar Roxx · Thar Digital Services",
-    "lastUpdated": "2026-05-17"
+    "lastUpdated": "2026-05-18"
   },
   "entries": [
     {
@@ -403,6 +403,61 @@
         }
       ],
       "weather": "clear"
+    },
+    {
+      "day": 10,
+      "date": "2026-05-18",
+      "weekday": "Mon",
+      "leg": "Kathmandu · Kopan + Boudha + Pashupatinath + Thamel night",
+      "km": 28,
+      "hours": "",
+      "route": "Thamel · Kopan · Boudhanath · Pashupatinath · Sinamangal · Thamel",
+      "status": "done",
+      "walkKm": 4,
+      "notes": "Monday — office work in the morning, full Kathmandu day-out from lunch onwards.\n\n### Morning · work + sleep debt\n- Slept in (Pokhara → Kathmandu drive carried over). Late breakfast at Hotel Thrive.\n- Attended a meeting, worked through till lunchtime.\n\n### Kopan Monastery · twisty climb to silence\n- Packed laptops, picked up the Thar, set out for **[Kopan Monastery](https://www.google.com/maps/search/?api=1&query=Kopan+Monastery+Kathmandu)**.\n- Approach starts on the **Kathmandu Ring Road**, then narrows into tiny winding streets. The final ascent is *single-vehicle-wide* with a gradient that felt like ~30°+ — properly thrilling drive.\n- No on-premise parking. The guard pointed us to the road shoulder. Parked there, walked in.\n- Inside: pure quiet. Walked the temples, gardens, stupas. Clicked sparingly — the place asks you to be still.\n\n### Boudhanath route · lunch + the great stupa\n- Drove down to the **Boudhanath sadak**. Stopped at **Coffee Himalayan & Himalaya Jewellery** for lunch + coffee + another office meeting.\n- Then on to **[Boudhanath Stupa](https://www.google.com/maps/search/?api=1&query=Boudhanath+Stupa+Kathmandu)** — my main worry was parking, but a **paid lot 400 m away** sorted it. Easy walk in.\n- The stupa itself is a different scale of devotion — thousands of people circling, organised flow, full-hearted. Removed shoes, climbed the permitted inner levels, clicked a few pictures.\n\n### Pashupatinath — and the Gate 3 scam to avoid\n- Called my friend **Ayush** from outside Boudha — we worked together at the same Gurgaon company in 2018, my first job out of college, and I left in Dec 2018. He's Nepali, did B.Tech at MNIT Jaipur, now works at e-Sewa Kathmandu. *Hadn't seen him in ~8 years.* Asked him to meet us at Pashupatinath.\n- Drove to **[Pashupatinath Temple · Gate 3](https://www.google.com/maps/search/?api=1&query=Pashupatinath+Temple+Kathmandu)**. As we approached the gate, a young woman flagged us down and told us parking was 200 m further. Moved the car, parked. The *same woman* then showed up at the parking saying she runs a flower shop *\"if we want\"* to buy from. We followed her — *another man inside the shop, claiming Rajasthan origin*, explained Pashupatinath's offering customs (mainly rudraksha) and convinced us to pick up a small *tokri* of offerings. As we exited, the lady added that *we'd also need a different basket inside*, which we paid for too.\n- **The lesson:** that whole sequence at **Gate 3 is a coordinated upsell scam**. Polite, friendly, well-rehearsed. They flag the parking, then route you into the shop, then layer the offerings. **Skip Gate 3 next time — go straight to Gate 1, which has free + large parking.** Don't buy anything from those shops. Nothing was needed inside.\n- Inside the temple, called Ayush — he was at Gate 1. Coordinated, met up after eight years. Walked the full temple together with him as the unofficial guide. Sat inside for a while, caught up on the missing eight years.\n\n### Dinner · Bajeko Sekuwa with Ayush\n- Ayush picked the place: **[Bajeko Sekuwa · Sinamangal](https://www.google.com/maps/search/?api=1&query=Bajeko+Sekuwa+Sinamangal+Kathmandu)** (the original outlet, near Tribhuvan airport). Mutton sekuwa with rice flakes — properly Nepali, *very* good.\n- Drove there leaving his bike at the Gate 1 free parking. Late-lunch/early-dinner kind of meal.\n- Dropped him back at Pashupatinath afterwards, said bye, headed back to Hotel Thrive.\n\n### Thamel · second pass + the LOD experiment\n- Parked at the hotel. Walked into Thamel on foot to give it another shot.\n- Dinner #2 at **[Yala Cafe & Coffee Shop](https://www.google.com/maps/search/?api=1&query=Yala+Cafe+Coffee+Shop+Thamel+Kathmandu)** — small, cute, lovely vibe. *Their momos are the reason to go* and they delivered.\n- Decided to try Thamel's nightlife — walked into **[LOD · Lord of the Drinks](https://www.google.com/maps/search/?api=1&query=LOD+Lord+of+the+Drinks+Thamel+Kathmandu)** at 10:30 PM. Almost completely empty. Waiter said *crowd shows up later* — they did, slowly, but even by midnight it was thinly populated for a venue that big.\n- Danced till 12:45 AM. DJ swapped sets, vibe dropped, took the cue and left. Tuk-tuk parked outside took us back to Hotel Thrive. Sleep.",
+      "hotel": {
+        "name": "Hotel Thrive, A Tropical Courtyard",
+        "location": "Thamel, Kathmandu",
+        "map": "https://www.google.com/maps/search/?api=1&query=Hotel+Thrive+Tropical+Courtyard+Thamel+Kathmandu"
+      },
+      "delta": "Three of Kathmandu's headline sites done in an afternoon · plus an 8-year-late friend reunion at Pashupatinath.",
+      "events": [
+        {
+          "icon": "🛕",
+          "tone": "info",
+          "text": "Kopan Monastery · the road in is half the experience — narrows from ring road to single-vehicle alleys, last stretch is a ~30° climb. No on-site parking but the guard waves you to the road shoulder. Inside is total silence. Worth the drive."
+        },
+        {
+          "icon": "🪙",
+          "tone": "info",
+          "text": "Boudhanath Stupa · paid parking 400 m walk away solved the access problem. Removed shoes for the inner climb. Scale of devotion + organised flow = the closest thing to crowded-but-calm in Kathmandu."
+        },
+        {
+          "icon": "⚠",
+          "tone": "warn",
+          "text": "Pashupatinath Gate 3 SCAM · a 'helpful' lady flags your car at the gate, redirects you 200 m to parking, then routes you to her flower shop where a man (claiming Rajasthan origin) sells offerings + a 'required' inner tokri. None of it is needed. SKIP GATE 3 entirely — use Gate 1 instead (free + large parking, no scam funnel)."
+        },
+        {
+          "icon": "🤝",
+          "tone": "info",
+          "text": "Reunion at Pashupatinath · met Ayush after 8 years — we worked together in Gurgaon in 2018, my first job out of college. He's Nepali, MNIT Jaipur grad, now at e-Sewa in Kathmandu. Did the full temple tour together, sat and caught up. The kind of reconnection you don't plan and can't replace."
+        },
+        {
+          "icon": "🍖",
+          "tone": "info",
+          "text": "Bajeko Sekuwa · Sinamangal (the original outlet, near Tribhuvan airport). Mutton sekuwa with chiura (rice flakes) — properly Nepali, exactly the meal a local friend would pick. Worth the cross-town drive."
+        },
+        {
+          "icon": "🥟",
+          "tone": "info",
+          "text": "Yala Cafe & Coffee Shop · Thamel · the momos earn the reputation. Small, soft-lit, soothing vibe in a part of Thamel that's gentler than the main strip."
+        },
+        {
+          "icon": "🌙",
+          "tone": "warn",
+          "text": "LOD · Lord of the Drinks (Thamel) — looked like Thamel's biggest nightlife venue on paper, half-empty in practice. Walked in at 10:30 PM near-deserted, crowd built slowly, still thin by midnight. DJ change at ~1 AM dropped the vibe. Not bad, just underwhelming for the size. Worth a stop if you're already passing, not worth a special trip."
+        }
+      ]
     }
   ]
 }
