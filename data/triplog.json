@@ -3,7 +3,7 @@
     "title": "NEP-26 Field Log",
     "subtitle": "What actually happened",
     "vehicle": "Mahindra Thar Roxx · Thar Digital Services",
-    "lastUpdated": "2026-05-18"
+    "lastUpdated": "2026-05-19"
   },
   "entries": [
     {
@@ -456,6 +456,51 @@
           "icon": "🌙",
           "tone": "warn",
           "text": "LOD · Lord of the Drinks (Thamel) — looked like Thamel's biggest nightlife venue on paper, half-empty in practice. Walked in at 10:30 PM near-deserted, crowd built slowly, still thin by midnight. DJ change at ~1 AM dropped the vibe. Not bad, just underwhelming for the size. Worth a stop if you're already passing, not worth a special trip."
+        }
+      ]
+    },
+    {
+      "day": 11,
+      "date": "2026-05-19",
+      "weekday": "Tue",
+      "leg": "Kathmandu · two Durbar Squares + deep work day",
+      "km": 12,
+      "hours": "",
+      "route": "Thamel → KTM Durbar Sq · Thamel work · Patan Durbar Sq",
+      "status": "done",
+      "walkKm": 5,
+      "notes": "Heavy office workload + tired legs from yesterday — designed today as **two short bursts of culture bracketing a long deep-work block**. Two of Nepal's three royal squares in the same day.\n\n### Pre-breakfast · Kathmandu Durbar Square\n- Up at **6 AM**, on the road to **[Kathmandu Durbar Square](https://www.google.com/maps/search/?api=1&query=Kathmandu+Durbar+Square)** before the tour buses + tourist crowd showed up.\n- Cloudy sky — no sun on the woodwork — but the atmosphere was *better* for being quieter. Wandered the courtyards mostly alone.\n- The pieces that hit hardest:\n  - The **Kaal Bhairav** statue — fierce, raw, you don't quite look away.\n  - The **kneeling Hanuman** at the palace gate.\n  - The old layered temple-architecture of the palace complex.\n- Felt the *old culture and history of Kathmandu* in a way the modern Thamel chaos doesn't let through.\n\n### Mid-day · the long work block\n- Back to Hotel Thrive by **9:30 AM** for breakfast.\n- Then **hard work and back-to-back office calls in the room till ~2:30 PM**.\n- Lunch at **[Gokarna House Restaurant](https://www.google.com/maps/search/?api=1&query=Gokarna+House+Restaurant+Thamel+Kathmandu)** (Paknajol, Thamel) — researched the **Thakali thali** reputation, ordered 1 veg + 1 mutton. Spices, aroma, presentation all on point. *Fell hard for Thakali food today.*\n- Back to the hotel, more work through to **~7 PM**.\n\n### Evening · Patan Durbar Square\n- Crossed the Bagmati down to **[Patan Durbar Square](https://www.google.com/maps/search/?api=1&query=Patan+Durbar+Square+Lalitpur)**.\n- Two Durbar Squares in one day is its own kind of education. You start noticing the **layering** — Hindu + Buddhist iconography next to each other on the same wall, the same temple sometimes housing both traditions. The Newari architecture, the metal-work, the wood carving. Things that wouldn't exist this way side-by-side anywhere I've seen in India.\n- Walked out properly curious about the **Hinduism / Buddhism relationship** — how the two co-evolved here in a way India's narrative usually keeps separate. Filing this for later reading.\n\n### Dinner · OR2K\n- Walked into **[OR2K](https://www.google.com/maps/search/?api=1&query=OR2K+Thamel+Kathmandu)** in Thamel — vegetarian, Middle Eastern lean, cushion-floor seating (*shoes off at the door*). Highly rated, earned the rating. Hummus + falafel + Thali-Middle-Eastern hybrid plates.\n- Back to Hotel Thrive. Sleep.",
+      "hotel": {
+        "name": "Hotel Thrive, A Tropical Courtyard",
+        "location": "Thamel, Kathmandu",
+        "map": "https://www.google.com/maps/search/?api=1&query=Hotel+Thrive+Tropical+Courtyard+Thamel+Kathmandu"
+      },
+      "delta": "Two Durbar Squares + a full work day = the most productive day of the trip so far.",
+      "events": [
+        {
+          "icon": "🛕",
+          "tone": "info",
+          "text": "Kathmandu Durbar Square · go before 8 AM. Cloud cover beat sunshine for atmosphere — the courtyards are quieter, the carvings read better without the tour-bus crowd. Kaal Bhairav and the kneeling Hanuman are the must-sees."
+        },
+        {
+          "icon": "🍛",
+          "tone": "info",
+          "text": "Gokarna House (Paknajol, Thamel) · the Thakali thali set lives up to the research. Veg + mutton both excellent — proper Nepali plate, spice work that earns its reputation. New favourite cuisine."
+        },
+        {
+          "icon": "🏛",
+          "tone": "info",
+          "text": "Patan Durbar Square (Lalitpur) · the Newari architecture + the Hindu-Buddhist layering is the real lesson. Doing both Durbar Squares in one day makes the contrast (and the shared lineage) leap out — KTM = palace + worship, Patan = craft + co-existence."
+        },
+        {
+          "icon": "🤔",
+          "tone": "info",
+          "text": "Travel-induced curiosity logged · Hinduism / Buddhism co-evolution in Nepal is genuinely different from how India presents the two. The Newari temples carry both traditions visibly on the same structure. To research later — this is what travel is supposed to do."
+        },
+        {
+          "icon": "🥙",
+          "tone": "info",
+          "text": "OR2K · Thamel (Mandala Street) · vegetarian, Middle-Eastern lean, cushion-floor seating, shoes off at the door. Lives up to its 25-year rep. Easy dinner pick when you don't want another heavy meat plate."
         }
       ]
     }
