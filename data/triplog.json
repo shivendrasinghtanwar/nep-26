@@ -3,7 +3,7 @@
     "title": "NEP-26 Field Log",
     "subtitle": "What actually happened",
     "vehicle": "Mahindra Thar Roxx · Thar Digital Services",
-    "lastUpdated": "2026-05-19"
+    "lastUpdated": "2026-05-20"
   },
   "entries": [
     {
@@ -506,6 +506,51 @@
           "icon": "🥙",
           "tone": "info",
           "text": "OR2K · Thamel (Mandala Street) · vegetarian, Middle-Eastern lean, cushion-floor seating, shoes off at the door. Lives up to its 25-year rep. Easy dinner pick when you don't want another heavy meat plate."
+        }
+      ]
+    },
+    {
+      "day": 12,
+      "date": "2026-05-20",
+      "weekday": "Wed",
+      "leg": "Kathmandu · slow work day + Swayambhunath sunset",
+      "km": 6,
+      "hours": "",
+      "route": "Thamel work · Swayambhunath hill · Thamel",
+      "status": "done",
+      "walkKm": 2,
+      "notes": "Trip fatigue showing up — 11 days in, the kilometres + the altitude swing + the constant input were stacking up. Today was deliberately under-scheduled.\n\n### Morning + afternoon · work block\n- Breakfast at Hotel Thrive, back upstairs, **straight into office work from the room.** Originally thought we'd squeeze a museum visit in the morning — didn't happen, work won.\n- Lunch break at **[Jasper Restaurant](https://www.google.com/maps/search/?api=1&query=Jasper+Restaurant+Thamel+Kathmandu+Tridevi+Marga)** (Tridevi Marga, Thamel) — multi-cuisine, cosy. Good reviews delivered.\n- Back at the laptop till **~5:30 PM**. Most museums were already closed by the time we were free; museums went on the *skipped this time* pile.\n\n### Sunset · Swayambhunath\n- Took the Thar to **[Swayambhunath](https://www.google.com/maps/search/?api=1&query=Swayambhunath+Monkey+Temple+Kathmandu)** — the eye-stupa on its own hill west of the city. A *chilled* trip on purpose, no checklist energy.\n- Climbed the long stair set up the hill. Slow pace, no pressure.\n- Up top: the painted eyes, the **Shantipur peace statue**, monks moving through, the Boudha-meets-Hindu mix of shrines and prayer wheels, **monkeys everywhere** living up to the temple's other name.\n- Sat for a while just looking at Kathmandu spread out below. Took me back to **January when this whole \"drive to Nepal\" idea first showed up in my head** — and here we were, half a year later, on a hill above the city, having come overland from Bikaner via Muktinath. Quietly unreal moment.\n\n### Dinner · Forest & Plate\n- Drove back, parked the Thar at the hotel, walked into Thamel on foot.\n- Early dinner at **[Forest & Plate](https://www.google.com/maps/search/?api=1&query=Forest+and+Plate+Mandala+Street+Thamel)** (3rd floor, Sagarmatha Complex, Mandala Street) — rooftop, fresh + organic lean, stupa-view garden vibe.\n- Back to the hotel. **In bed by 10:30** — early by trip standards, exactly right.",
+      "hotel": {
+        "name": "Hotel Thrive, A Tropical Courtyard",
+        "location": "Thamel, Kathmandu",
+        "map": "https://www.google.com/maps/search/?api=1&query=Hotel+Thrive+Tropical+Courtyard+Thamel+Kathmandu"
+      },
+      "delta": "Pulled the throttle back on purpose · trip fatigue real, recovery day banked before the Chitwan run.",
+      "events": [
+        {
+          "icon": "💻",
+          "tone": "info",
+          "text": "Work-day discipline · skipped the morning museum plan because work asked for the hours. The right call — trip fatigue was real and forcing a tourist agenda would've burned the evening Swayambhunath energy too."
+        },
+        {
+          "icon": "🍽",
+          "tone": "info",
+          "text": "Jasper Restaurant (Tridevi Marga, Thamel) · cosy multi-cuisine lunch spot, lives up to its review reputation. Their goat shank gets specific praise online; we kept it lighter for the workday."
+        },
+        {
+          "icon": "🐒",
+          "tone": "info",
+          "text": "Swayambhunath at sunset · the eye-stupa earns the hype. The stair climb is the warm-up; the view of Kathmandu from the top is the payoff. Plenty of monkeys (live up to the 'Monkey Temple' name), the Shantipur peace statue, prayer wheels, the Hindu-Buddhist mix in one campus."
+        },
+        {
+          "icon": "🌅",
+          "tone": "info",
+          "text": "Trip-arc moment · sitting on the Swayambhunath hill thinking back to January when 'drive to Nepal' first surfaced as an idea. Bikaner → Muktinath → Kathmandu, overland, in our own car. The map closed on itself."
+        },
+        {
+          "icon": "🌿",
+          "tone": "info",
+          "text": "Forest & Plate (Sagarmatha Complex, Mandala St, Thamel — 3rd floor rooftop) · organic-lean menu, garden vibe, view over the lit-up Thamel rooftops. Lighter-than-Thakali dinner choice when you've had enough heavy plates."
         }
       ]
     }
