@@ -3,7 +3,7 @@
     "title": "NEP-26 Field Log",
     "subtitle": "What actually happened",
     "vehicle": "Mahindra Thar Roxx · Thar Digital Services",
-    "lastUpdated": "2026-05-20"
+    "lastUpdated": "2026-05-21"
   },
   "entries": [
     {
@@ -551,6 +551,51 @@
           "icon": "🌿",
           "tone": "info",
           "text": "Forest & Plate (Sagarmatha Complex, Mandala St, Thamel — 3rd floor rooftop) · organic-lean menu, garden vibe, view over the lit-up Thamel rooftops. Lighter-than-Thakali dinner choice when you've had enough heavy plates."
+        }
+      ]
+    },
+    {
+      "day": 13,
+      "date": "2026-05-21",
+      "weekday": "Thu",
+      "leg": "Kathmandu → Bharatpur → Sauraha 🐅",
+      "km": 155,
+      "hours": "~7 h",
+      "route": "Prithvi Highway (descending) · Mugling · Narayangarh · Sauraha",
+      "status": "done",
+      "walkKm": 1,
+      "notes": "First day of the homeward arc — Kathmandu in the rearview, Chitwan ahead. Half a goodbye to Nepal; from Sauraha the plan is Sunday-out via Sunauli back to Bikaner.\n\n### Departure · Prithvi Highway, wet edition\n- Breakfast at Hotel Thrive, **on the road by 7 AM**. Saying bye to Kathmandu and (in the longer sense) Pokhara at the same time — second-half-of-trip mentality.\n- Same **Prithvi Highway** we used coming in from Pokhara, now heading the other direction. Started raining as we cleared Kathmandu, which turned the broken stretches into **puddle-and-spray country**.\n- Every passing vehicle threw mud at us. *Learned exactly how dirty a white-ish Thar can get* — clocked the full transformation when we finally pulled in for the lunch stop.\n\n### Lunch + long work block · the familiar Java\n- Stopped at **[Himalayan Java above the Mahindra showroom](https://maps.app.goo.gl/Rd2zrYeoHDQRGDyt6)** near Bandipur — *yes, the same one we used on the way in.*\n- Took a long break here: lunch, back-to-back office calls, work block. Comfortable now in a way the first time wasn't — *picking the stop from experience instead of from Google.* Realised in passing that Nepal had quietly stopped feeling foreign somewhere across the past week.\n\n### Arrival · Sauraha\n- Pulled into **[Hotel Jungle Crown](https://www.google.com/maps/search/?api=1&query=Hotel+Jungle+Crown+Sauraha+Chitwan)** (Tigerpoint, Baghmara Road, Sauraha) at **2:30 PM** — *right as a serious downpour started.* Timing held.\n- Checked in. Asked reception about the safari while we were at it — *they arrange the whole-day safari in-house*, no need to chase an external agent. **Booked for tomorrow.** That alone was worth not pre-planning.\n- Hotel restaurant for first lunch — *prices were properly steep, portions didn't match the prices.* Note for anyone reading this: eat outside the hotel in Sauraha, the village has better-and-cheaper options literally 5 minutes away.\n- Back to the room, more office work through the afternoon.\n\n### Dinner · Art Cafe (Hatti Chowk)\n- Walked into the village after dark to find dinner. Landed at **[Art Cafe](https://www.google.com/maps/search/?api=1&query=Art+Cafe+Hatti+Chowk+Sauraha)** (Hatti Chowk) — small, warm, all-yellow-light place run by a local family. The walls are covered with **paintings the family painted themselves** (the owner Mann is the artist). Genuinely soulful little spot.\n- Excellent food, fair prices, the vibe alone earned it. ***Super recommended if you're in Sauraha — eat here, not at your hotel.***\n- Back to Hotel Jungle Crown by 11. Set alarms, slept — long jungle day tomorrow.",
+      "hotel": {
+        "name": "Hotel Jungle Crown",
+        "location": "Tigerpoint, Baghmara Road, Sauraha, Chitwan",
+        "map": "https://www.google.com/maps/search/?api=1&query=Hotel+Jungle+Crown+Sauraha+Chitwan"
+      },
+      "delta": "→ Last unplanned destination locked in · Chitwan safari arranged in-house, no agent layer needed.",
+      "events": [
+        {
+          "icon": "🌧",
+          "tone": "warn",
+          "text": "Prithvi Highway in rain · the same single-lane / broken stretches you'd manage dry become puddle-and-spray country in wet. Other vehicles repeatedly mud-bombed the Roxx. Allow extra time + accept the car will be filthy by Bandipur."
+        },
+        {
+          "icon": "🔁",
+          "tone": "info",
+          "text": "Familiarity creep · stopped at the same Himalayan Java above the Mahindra showroom in Bandipur (we used it Pokhara→KTM too). Picking it from memory instead of Google was the moment Nepal stopped feeling foreign — quiet but real shift."
+        },
+        {
+          "icon": "🏨",
+          "tone": "warn",
+          "text": "Hotel Jungle Crown food trap · in-house restaurant has Kathmandu-tourist-prices for sub-par portions. Skip — Sauraha village is a 5-minute walk and has better quality at honest prices."
+        },
+        {
+          "icon": "🪪",
+          "tone": "info",
+          "text": "Safari logistics · Hotel Jungle Crown reception books the full-day Chitwan safari in-house. No need to chase external agents on arrival day, saves time + an info-asymmetry tax. Booked for next morning."
+        },
+        {
+          "icon": "🎨",
+          "tone": "info",
+          "text": "Art Cafe · Hatti Chowk, Sauraha · family-run, walls covered with the owner's own paintings (Mann is the artist), warm yellow lighting, soulful atmosphere, fair prices, very good food. Strongest 'go here not the hotel' recommendation of this section of the trip."
         }
       ]
     }
