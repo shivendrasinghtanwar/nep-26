@@ -26,6 +26,7 @@ import L from 'leaflet'
 import {
   ChevronLeft, MapPin, Mountain, Car, Footprints, Hotel,
   Users, AlertTriangle, Cloud, Calendar, ArrowRight, Route as RouteIcon,
+  HeartHandshake, Camera, Backpack, Shield, Sparkles, Palette,
 } from 'lucide-react'
 import HeroMtn from '../components/HeroMtn.jsx'
 import StatStrip from '../components/StatStrip.jsx'
@@ -148,6 +149,30 @@ function isPeopleEvent(ev) {
   return false
 }
 
+// Categorise an encounter so we can render each with its own visual
+// signature instead of repeating the same handshake glyph everywhere.
+// Returns { kind, label, Icon, accent } — `Icon` is a Lucide component.
+function categoriseEncounter(ev) {
+  const txt = (ev?.text || '').toLowerCase()
+  if (/officer|customs|scan/.test(txt)) {
+    return { kind: 'official', label: 'Official', Icon: Shield, accent: 'rgba(91,159,204,0.85)' }
+  }
+  if (/hitchhiker|valentina|gabe/.test(txt)) {
+    return { kind: 'stranger', label: 'Travellers', Icon: Backpack, accent: 'rgba(212,165,116,0.9)' }
+  }
+  if (/photo-op|ukrainian|fan|guest at/.test(txt)) {
+    return { kind: 'stranger', label: 'Stranger', Icon: Camera, accent: 'rgba(212,165,116,0.9)' }
+  }
+  if (/manager|family|mann|artist/.test(txt)) {
+    return { kind: 'host', label: 'Host', Icon: Palette, accent: 'rgba(232,177,58,0.9)' }
+  }
+  if (/coincidence|pattern|three locations|part 2|part 3/.test(txt)) {
+    return { kind: 'coincidence', label: 'Coincidence', Icon: Sparkles, accent: 'rgba(200,85,42,0.95)' }
+  }
+  // Default: a planned reunion or named meet-up
+  return { kind: 'reunion', label: 'Reunion', Icon: HeartHandshake, accent: 'rgba(61,138,90,0.85)' }
+}
+
 // Weather glyph mapping
 const WX_GLYPHS = {
   clear: '☀',
@@ -163,29 +188,83 @@ const WX_GLYPHS = {
 
 // ── Subcomponents ───────────────────────────────────────────────────────
 
-function PhaseCard({ phase, entries }) {
+// Mini altitude sparkline · gives each act its own visual fingerprint.
+// Pulled in as an inline SVG so it inherits the dossier palette.
+function ActSparkline({ days }) {
+  const W = 200, H = 56
+  const PAD = 4
+  if (!days.length) return null
+  const alts = days.map((d) => entryAltitude(d))
+  const maxAlt = Math.max(...alts, 1)
+  const minAlt = 0
+  const x = (i) =>
+    days.length === 1
+      ? W / 2
+      : PAD + (i / (days.length - 1)) * (W - PAD * 2)
+  const y = (a) =>
+    H - PAD - ((a - minAlt) / (maxAlt - minAlt || 1)) * (H - PAD * 2)
+  const linePath = days
+    .map((d, i) => `${i === 0 ? 'M' : 'L'} ${x(i).toFixed(1)} ${y(alts[i]).toFixed(1)}`)
+    .join(' ')
+  const areaPath = `${linePath} L ${x(days.length - 1).toFixed(1)} ${H - PAD} L ${x(0).toFixed(1)} ${H - PAD} Z`
+  const peakIdx = alts.indexOf(Math.max(...alts))
+  return (
+    <svg className="rc-act-spark" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Altitude trace for this act">
+      <path d={areaPath} fill="rgba(212,165,116,0.10)" />
+      <path d={linePath} fill="none" stroke="var(--dust)" strokeWidth="1.4" />
+      {days.map((d, i) => (
+        <circle
+          key={d.day}
+          cx={x(i)} cy={y(alts[i])}
+          r={i === peakIdx ? 2.8 : 1.6}
+          fill={i === peakIdx ? 'var(--rust)' : 'var(--dust)'}
+          stroke="var(--night)" strokeWidth="0.8"
+        />
+      ))}
+    </svg>
+  )
+}
+
+// One chapter in the Story · single act of the five.
+// Vertical chapter card · Roman numeral on the left, content + sparkline
+// on the right, "intel" callout as the pinned moment.
+function ActChapter({ phase, idx, entries }) {
   const inRange = entries.filter(
     (e) => e.day >= phase.dayRange[0] && e.day <= phase.dayRange[1]
   )
   const km = inRange.reduce((s, e) => s + (e.km || 0), 0)
   const walkKm = inRange.reduce((s, e) => s + (e.walkKm || 0), 0)
   const days = inRange.length
+  const roman = ['I', 'II', 'III', 'IV', 'V', 'VI'][idx] || String(idx + 1)
+  const altMin = Math.min(...inRange.map(entryAltitude))
+  const altMax = Math.max(...inRange.map(entryAltitude))
 
   return (
-    <article className="rc-phase" data-aos="fade-up">
-      <div className="rc-phase-head">
-        <span className="rc-phase-day">D{String(phase.dayRange[0]).padStart(2, '0')}–D{String(phase.dayRange[1]).padStart(2, '0')}</span>
-        <h3>{phase.title}</h3>
+    <article className="rc-act" data-aos="fade-up">
+      <div className="rc-act-spine">
+        <span className="rc-act-roman">{roman}</span>
+        <span className="rc-act-rail" aria-hidden="true" />
       </div>
-      <div className="rc-phase-meta">
-        <span><Car size={11} strokeWidth={1.8} /> {km.toLocaleString()} km</span>
-        {walkKm > 0 && <span><Footprints size={11} strokeWidth={1.8} /> {walkKm} km</span>}
-        <span><Calendar size={11} strokeWidth={1.8} /> {days} days</span>
-      </div>
-      <p className="rc-phase-blurb">{phase.blurb}</p>
-      <div className="rc-phase-pin">
-        <span className="rc-phase-pin-label">Pinned</span>
-        <span className="rc-phase-pin-text">{phase.pin}</span>
+      <div className="rc-act-body">
+        <div className="rc-act-callsign">
+          <span className="rc-act-tag">ACT {roman} · OP REPORT</span>
+          <span className="rc-act-days">D{String(phase.dayRange[0]).padStart(2, '0')}–D{String(phase.dayRange[1]).padStart(2, '0')}</span>
+        </div>
+        <h3 className="rc-act-title">{phase.title}</h3>
+        <div className="rc-act-stat-row">
+          <div className="rc-act-stats">
+            <span><Car size={11} strokeWidth={1.8} /> {km.toLocaleString()} <em>km</em></span>
+            {walkKm > 0 && <span><Footprints size={11} strokeWidth={1.8} /> {walkKm} <em>km</em></span>}
+            <span><Calendar size={11} strokeWidth={1.8} /> {days} <em>days</em></span>
+            <span><Mountain size={11} strokeWidth={1.8} /> {altMin}–{altMax} <em>m</em></span>
+          </div>
+          <ActSparkline days={inRange} />
+        </div>
+        <p className="rc-act-blurb">{phase.blurb}</p>
+        <div className="rc-act-intel">
+          <span className="rc-act-intel-marker">▸ INTEL</span>
+          <span className="rc-act-intel-text">{phase.pin}</span>
+        </div>
       </div>
     </article>
   )
@@ -560,7 +639,7 @@ export default function Recap() {
           <RouteIcon size={32} strokeWidth={1.5} />
         </div>
         <div className="wordmark">
-          <span className="eyebrow">Section 11 · NEP-26 · the trip in one page</span>
+          <span className="rc-eyebrow">Section 11 · NEP-26 · the trip in one page</span>
           <h1>Re<span className="accent">cap</span></h1>
           <div className="sub">
             <span>How it actually went</span><span className="sep">//</span>
@@ -585,12 +664,13 @@ export default function Recap() {
       {/* ────────── THE STORY · IN FIVE ACTS ────────── */}
       <section className="recap-section" id="story">
         <div className="recap-section-head">
-          <span className="eyebrow">Story</span>
+          <span className="rc-eyebrow">Story</span>
           <h2>In <span className="accent">five acts</span></h2>
+          <p className="muted">Five chapters · each with its own altitude signature. The Mustang spike on Act III is the trip in one glance.</p>
         </div>
-        <div className="rc-phases">
-          {PHASES.map((p) => (
-            <PhaseCard key={p.id} phase={p} entries={entries} />
+        <div className="rc-acts">
+          {PHASES.map((p, i) => (
+            <ActChapter key={p.id} phase={p} idx={i} entries={entries} />
           ))}
         </div>
       </section>
@@ -598,7 +678,7 @@ export default function Recap() {
       {/* ────────── ROUTE MAP ────────── */}
       <section className="recap-section" id="map">
         <div className="recap-section-head">
-          <span className="eyebrow">Route</span>
+          <span className="rc-eyebrow">Route</span>
           <h2>Where we <span className="accent">went</span></h2>
           <p className="muted">{TRIP_PATH.length - 1} segments · {stats.totalKm.toLocaleString()} km on wheels. Schematic — straight lines between overnights, not literal roads.</p>
         </div>
@@ -608,7 +688,7 @@ export default function Recap() {
       {/* ────────── ALTITUDE PROFILE ────────── */}
       <section className="recap-section" id="altitude">
         <div className="recap-section-head">
-          <span className="eyebrow">Altitude</span>
+          <span className="rc-eyebrow">Altitude</span>
           <h2>From plains to <span className="accent">peak</span></h2>
           <p className="muted">End-of-day altitude per logged day · peak at Muktinath, Day 7.</p>
         </div>
@@ -618,7 +698,7 @@ export default function Recap() {
       {/* ────────── DAILY DISTANCE ────────── */}
       <section className="recap-section" id="distance">
         <div className="recap-section-head">
-          <span className="eyebrow">Distance</span>
+          <span className="rc-eyebrow">Distance</span>
           <h2>Day by <span className="accent">day</span></h2>
           <p className="muted">
             Vehicle km per day · longest was D{String(stats.longestDriveEntry?.day || 0).padStart(2, '0')} ({stats.longestDriveEntry?.km?.toLocaleString()} km · {stats.longestDriveEntry?.leg}).
@@ -631,29 +711,38 @@ export default function Recap() {
       {/* ────────── PEOPLE ────────── */}
       <section className="recap-section" id="people">
         <div className="recap-section-head">
-          <span className="eyebrow">Encounters</span>
+          <span className="rc-eyebrow">Encounters</span>
           <h2>The <span className="accent">people</span></h2>
           <p className="muted">{people.length} memorable encounters across the trip. The story-half of the dossier.</p>
         </div>
         <ul className="rc-encounter-list">
-          {people.map((p, i) => (
-            <li key={i} className="rc-encounter">
-              <span className="rc-encounter-icon">{p.icon}</span>
-              <div className="rc-encounter-body">
-                <div className="rc-encounter-meta">
-                  D{String(p.day).padStart(2, '0')} · {fmtDate(p.date)}
+          {people.map((p, i) => {
+            const cat = categoriseEncounter(p)
+            const Icon = cat.Icon
+            return (
+              <li key={i} className={`rc-encounter rc-encounter-${cat.kind}`}>
+                <div className="rc-encounter-side" style={{ '--cat-accent': cat.accent }}>
+                  <span className="rc-encounter-icon" aria-hidden="true">
+                    <Icon size={16} strokeWidth={1.7} />
+                  </span>
+                  <span className="rc-encounter-cat">{cat.label}</span>
                 </div>
-                <div className="rc-encounter-text">{p.text}</div>
-              </div>
-            </li>
-          ))}
+                <div className="rc-encounter-body">
+                  <div className="rc-encounter-meta">
+                    D{String(p.day).padStart(2, '0')} · {fmtDate(p.date)}
+                  </div>
+                  <div className="rc-encounter-text">{p.text}</div>
+                </div>
+              </li>
+            )
+          })}
         </ul>
       </section>
 
       {/* ────────── LESSONS · HONEST VERDICTS ────────── */}
       <section className="recap-section" id="lessons">
         <div className="recap-section-head">
-          <span className="eyebrow">Verdicts</span>
+          <span className="rc-eyebrow">Verdicts</span>
           <h2>Things to <span className="accent">know</span></h2>
           <p className="muted">{lessons.length} flagged events — scams, road conditions, traps, and ordinary advice from the trip.</p>
         </div>
@@ -675,7 +764,7 @@ export default function Recap() {
       {/* ────────── HOTELS · WHERE WE SLEPT ────────── */}
       <section className="recap-section" id="hotels">
         <div className="recap-section-head">
-          <span className="eyebrow">Stays</span>
+          <span className="rc-eyebrow">Stays</span>
           <h2>Where we <span className="accent">slept</span></h2>
           <p className="muted">{stats.hotels.length} unique stays across {stats.nights} nights.</p>
         </div>
@@ -701,7 +790,7 @@ export default function Recap() {
       {/* ────────── WEATHER DIARY ────────── */}
       <section className="recap-section" id="weather">
         <div className="recap-section-head">
-          <span className="eyebrow">Weather</span>
+          <span className="rc-eyebrow">Weather</span>
           <h2>The <span className="accent">sky</span></h2>
           <p className="muted">Conditions logged across {stats.days} days — driven by the local cron's Open-Meteo lookup.</p>
         </div>
@@ -711,7 +800,7 @@ export default function Recap() {
       {/* ────────── PLAN VS ACTUAL ────────── */}
       <section className="recap-section" id="delta">
         <div className="recap-section-head">
-          <span className="eyebrow">Variance</span>
+          <span className="rc-eyebrow">Variance</span>
           <h2>Plan vs <span className="accent">actual</span></h2>
           <p className="muted">The plan was a vehicle for getting to Muktinath safely. Reality compressed the hard part and reinvested the surplus.</p>
         </div>
