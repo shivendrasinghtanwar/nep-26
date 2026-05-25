@@ -56,13 +56,9 @@
 /* ─── The Story · zigzag chapter layout ─────────────────────────────────
    Five cards alternate left/right in a 2-column grid. Between every
    pair of consecutive acts, a full-width `.rc-act-link` SVG draws a
-   single S-curve that exits one card's edge and enters the next.
-   Together the curves read as one continuous winding road weaving
-   through the five chapters.
-
-   Each card carries a giant Roman-numeral watermark (low-opacity rust)
-   in the background — magazine chapter-opener feel. Content sits on
-   top of the watermark via z-index. */
+   single straight diagonal line that exits one card's edge and enters
+   the next. Together the diagonals read as one continuous angular
+   route weaving through the five chapters. */
 .rc-acts {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -97,27 +93,6 @@
   overflow: hidden;
 }
 
-/* Giant Roman-numeral watermark · sits behind the content via z-index */
-.rc-act-watermark {
-  position: absolute;
-  top: 50%;
-  right: -10px;
-  transform: translateY(-50%);
-  font-family: var(--font-display);
-  font-size: 150px;
-  font-weight: 700;
-  line-height: 0.9;
-  letter-spacing: 0.04em;
-  color: rgba(200, 85, 42, 0.10);
-  pointer-events: none;
-  user-select: none;
-  z-index: 0;
-  white-space: nowrap;
-}
-.rc-act-right .rc-act-watermark {
-  right: auto;
-  left: -10px;
-}
 .rc-act-body::before,
 .rc-act-body::after {
   content: '';
@@ -129,13 +104,6 @@
 }
 .rc-act-body::before { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
 .rc-act-body::after  { bottom: -1px; right: -1px; border-left: 0; border-top: 0; }
-
-/* All real card content lives above the watermark */
-.rc-act-callsign,
-.rc-act-title,
-.rc-act-stat-row,
-.rc-act-blurb,
-.rc-act-intel { position: relative; z-index: 1; }
 
 .rc-act-callsign {
   display: flex;
@@ -252,8 +220,6 @@
   .rc-act-link { height: 56px; }
   .rc-act-body { padding: 14px 16px; }
   .rc-act-title { font-size: 18px; }
-  .rc-act-watermark { font-size: 110px; right: -6px; }
-  .rc-act-right .rc-act-watermark { left: -6px; }
   .rc-act-stat-row { flex-direction: column; align-items: flex-start; gap: 10px; }
   .rc-act-spark { flex-basis: auto; width: 100%; max-width: 280px; height: 48px; }
 }

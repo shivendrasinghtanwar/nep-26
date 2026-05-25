@@ -227,8 +227,9 @@ function ActSparkline({ days }) {
 
 // One chapter in the Story · single act of the five.
 // Lives inside a zigzag layout — each card alternates left/right, with
-// a connecting curve drawn between consecutive acts (see ActLink). The
-// Roman numeral is a giant low-opacity watermark inside the card itself.
+// a connecting straight diagonal line drawn between consecutive acts
+// (see ActLink). Act number lives in the card's "ACT I · OP REPORT"
+// callsign tag.
 function ActChapter({ phase, idx, entries, side }) {
   const inRange = entries.filter(
     (e) => e.day >= phase.dayRange[0] && e.day <= phase.dayRange[1]
@@ -246,7 +247,6 @@ function ActChapter({ phase, idx, entries, side }) {
       data-aos={`fade-${side === 'left' ? 'right' : 'left'}`}
     >
       <div className="rc-act-body">
-        <span className="rc-act-watermark" aria-hidden="true">{roman}</span>
         <div className="rc-act-callsign">
           <span className="rc-act-tag">ACT {roman} · OP REPORT</span>
           <span className="rc-act-days">D{String(phase.dayRange[0]).padStart(2, '0')}–D{String(phase.dayRange[1]).padStart(2, '0')}</span>
@@ -279,9 +279,12 @@ function ActChapter({ phase, idx, entries, side }) {
 // The SVG uses preserveAspectRatio="none" so the curve stretches naturally
 // to fill whatever width the grid hands it.
 function ActLink({ direction }) {
+  // Straight diagonal from one side of the grid to the other.
+  // direction === 'right': previous card was LEFT, next is RIGHT → line goes down-right
+  // direction === 'left':  previous card was RIGHT, next is LEFT → line goes down-left
   const path = direction === 'right'
-    ? 'M 20 0 C 20 55 80 45 80 100'
-    : 'M 80 0 C 80 55 20 45 20 100'
+    ? 'M 20 0 L 80 100'
+    : 'M 80 0 L 20 100'
   return (
     <div className="rc-act-link" aria-hidden="true">
       <svg viewBox="0 0 100 100" preserveAspectRatio="none">
