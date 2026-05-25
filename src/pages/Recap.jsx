@@ -661,6 +661,38 @@ export default function Recap() {
 
       <StatStrip stats={vitalStats} />
 
+      {/* ────────── PLAN VS ACTUAL · the hook ────────── */}
+      <section className="recap-section" id="delta">
+        <div className="recap-section-head">
+          <span className="rc-eyebrow">Variance</span>
+          <h2>Plan vs <span className="accent">actual</span></h2>
+          <p className="muted">The plan was a vehicle for getting to Muktinath safely. Reality compressed the hard part and reinvested the surplus.</p>
+        </div>
+        <div className="rc-delta">
+          <div className="rc-delta-col">
+            <div className="rc-delta-label">Planned</div>
+            <ul>
+              <li>{ITINERARY.length} days · {ITINERARY.reduce((s, d) => s + (d.km || 0), 0).toLocaleString()} km</li>
+              <li>1 country crossed (Nepal)</li>
+              <li>4 Pokhara work days post-Mustang</li>
+              <li>Muktinath = 4 days minimum</li>
+              <li>Bikaner → Pokhara → Mustang → Pokhara → Bikaner</li>
+            </ul>
+          </div>
+          <div className="rc-delta-arrow">→</div>
+          <div className="rc-delta-col rc-delta-actual">
+            <div className="rc-delta-label">Actual</div>
+            <ul>
+              <li>{stats.days} days · {stats.totalKm.toLocaleString()} km + {stats.totalWalkKm} km on foot</li>
+              <li>2 countries (India + Nepal)</li>
+              <li>4 KTM nights + 2 Chitwan nights added</li>
+              <li>Muktinath done in <b>2 days</b></li>
+              <li>Bikaner → Pokhara → Mustang → Pokhara → <b>Kathmandu</b> → <b>Chitwan</b> → Bikaner</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* ────────── THE STORY · IN FIVE ACTS ────────── */}
       <section className="recap-section" id="story">
         <div className="recap-section-head">
@@ -795,38 +827,6 @@ export default function Recap() {
           <p className="muted">Conditions logged across {stats.days} days — driven by the local cron's Open-Meteo lookup.</p>
         </div>
         <WeatherDiary entries={entries} />
-      </section>
-
-      {/* ────────── PLAN VS ACTUAL ────────── */}
-      <section className="recap-section" id="delta">
-        <div className="recap-section-head">
-          <span className="rc-eyebrow">Variance</span>
-          <h2>Plan vs <span className="accent">actual</span></h2>
-          <p className="muted">The plan was a vehicle for getting to Muktinath safely. Reality compressed the hard part and reinvested the surplus.</p>
-        </div>
-        <div className="rc-delta">
-          <div className="rc-delta-col">
-            <div className="rc-delta-label">Planned</div>
-            <ul>
-              <li>{ITINERARY.length} days · {ITINERARY.reduce((s, d) => s + (d.km || 0), 0).toLocaleString()} km</li>
-              <li>1 country crossed (Nepal)</li>
-              <li>4 Pokhara work days post-Mustang</li>
-              <li>Muktinath = 4 days minimum</li>
-              <li>Bikaner → Pokhara → Mustang → Pokhara → Bikaner</li>
-            </ul>
-          </div>
-          <div className="rc-delta-arrow">→</div>
-          <div className="rc-delta-col rc-delta-actual">
-            <div className="rc-delta-label">Actual</div>
-            <ul>
-              <li>{stats.days} days · {stats.totalKm.toLocaleString()} km + {stats.totalWalkKm} km on foot</li>
-              <li>2 countries (India + Nepal)</li>
-              <li>4 KTM nights + 2 Chitwan nights added</li>
-              <li>Muktinath done in <b>2 days</b></li>
-              <li>Bikaner → Pokhara → Mustang → Pokhara → <b>Kathmandu</b> → <b>Chitwan</b> → Bikaner</li>
-            </ul>
-          </div>
-        </div>
       </section>
 
       <footer className="rc-footer">
