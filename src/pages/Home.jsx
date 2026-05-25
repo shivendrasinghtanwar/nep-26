@@ -122,7 +122,7 @@ export default function Home() {
             className="hero-sub"
             style={{ fontFamily: 'var(--font-mono)', fontSize: 13, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--cream-dim)', lineHeight: 1.5 }}
           >
-            4×4 Thar Roxx · 168 mm articulation · 230 N·m · 14 nights · 4,410 km · 3,800 m peak
+            4×4 Thar Roxx · 168 mm articulation · 230 N·m · 15 nights · 3,649 km · 3,810 m peak
           </p>
           <p
             className="hero-toc"
@@ -169,7 +169,7 @@ export default function Home() {
         </div>
         <div>
           <div className="k">Total</div>
-          <div className="v">4,410<span className="u">km</span></div>
+          <div className="v">3,649<span className="u">km</span></div>
         </div>
         <div>
           <div className="k">Permit</div>
@@ -204,7 +204,7 @@ export default function Home() {
           <Link className="dossier-card" to="/map" data-aos="fade-up" data-aos-delay="80">
             <div className="icon-box"><Map size={20} strokeWidth={1.6} className="icon" /></div>
             <h3>Route Atlas</h3>
-            <p>Topographic Leaflet sheet of the 4,410 km loop. Day-by-day waypoints, the 4×4 Beni–Jomsom leg, fuel stops, and the live DRIVE/HOLD/POSTPONE banner.</p>
+            <p>Topographic Leaflet sheet of the 3,649 km route. Day-by-day waypoints, the 4×4 Beni–Jomsom leg, fuel stops, and the live DRIVE/HOLD/POSTPONE banner.</p>
             <span className="open">Open atlas <ArrowRight size={13} strokeWidth={1.6} className="icon icon-sm" /></span>
           </Link>
 

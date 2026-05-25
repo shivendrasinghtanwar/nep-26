@@ -635,11 +635,11 @@ export default function MapPage() {
       <StatStrip
         stats={[
           { tminus: true },
-          { k: 'Total', v: '4,410', u: 'km' },
-          { k: 'Waypoints', v: '15' },
+          { k: 'Total', v: '3,649', u: 'km' },
+          { k: 'Waypoints', v: '16' },
           { k: 'Border', v: 'Sunauli' },
           { k: '4×4 leg', v: 'Beni→Jomsom' },
-          { k: 'Peak', v: '3,800', u: 'm' },
+          { k: 'Peak', v: '3,810', u: 'm' },
         ]}
       />
 

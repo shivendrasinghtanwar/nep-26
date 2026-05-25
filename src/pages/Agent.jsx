@@ -487,8 +487,8 @@ export default function Agent() {
         title={<>Trail&nbsp;<span className="accent">Comms</span></>}
         sub={[
           <><b>Nepal</b> 2026</>,
-          <><b>14</b> nights</>,
-          <><b>4,410</b> km RT</>,
+          <><b>15</b> nights</>,
+          <><b>3,649</b> km</>,
           <>Bikaner ↔ Muktinath</>,
         ]}
         icon={

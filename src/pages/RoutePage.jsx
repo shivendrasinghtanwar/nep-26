@@ -45,7 +45,7 @@ function PhaseBanner({ num, label }) {
 export default function RoutePage() {
   const stats = [
     { tminus: true },
-    { k: 'Total',  v: '4,410', u: 'km' },
+    { k: 'Total',  v: '3,649', u: 'km' },
     { k: '4×4 leg', v: '~75',   u: 'km' },
     {
       k: 'Recommendation',

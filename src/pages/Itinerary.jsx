@@ -255,7 +255,7 @@ export default function Itinerary() {
     { k: 'Full work',    v: '5',     u: 'd' },
     { k: 'Async',        v: '5',     u: 'd' },
     { k: 'Hard offline', v: '3',     u: 'd' },
-    { k: 'Drives',       v: '~4,410', u: 'km' },
+    { k: 'Drives',       v: '3,649', u: 'km' },
   ]
 
   const [expanded, setExpanded] = useState(() => new Set([3])) // Day 3 (border) expanded by default
@@ -280,10 +280,10 @@ export default function Itinerary() {
           <span className="eyebrow">Section 02 · Day-by-day trace</span>
           <h1>Day-by-<span className="accent">day</span></h1>
           <div className="sub">
-            <span><b>15</b> days</span><span className="sep">//</span>
-            <span><b>14</b> nights</span><span className="sep">//</span>
-            <span><b>4,410</b> km</span><span className="sep">//</span>
-            <span>9–23 May 2026</span>
+            <span><b>16</b> days</span><span className="sep">//</span>
+            <span><b>15</b> nights</span><span className="sep">//</span>
+            <span><b>3,649</b> km</span><span className="sep">//</span>
+            <span>9–24 May 2026</span>
           </div>
         </div>
         <Link className="back" to="/">
@@ -295,7 +295,7 @@ export default function Itinerary() {
       <StatStrip stats={stats} />
 
       <p className="muted" style={{ margin: '6px 0 0' }}>
-        15 days · ~4,410 km · 14 nights. Tap <b>Show reasoning</b> on any day for the
+        16 days · 3,649 km · 15 nights. Tap <b>Show reasoning</b> on any day for the
         why-this-not-that — alternatives considered, hotel pick, sources.
       </p>
 
