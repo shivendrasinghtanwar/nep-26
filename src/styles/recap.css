@@ -100,19 +100,32 @@
   line-height: 1;
   z-index: 2;
 }
+/* Connector between Roman numerals = a serpentine S-curve, not a
+   straight rail. Reads as actual movement from one place to another
+   (like a winding mountain road). Direction alternates per act so the
+   timeline weaves down the page instead of running flat.
+
+   The SVG is embedded as a CSS data-URI so the curve scales with
+   whatever rail-container height the layout produces — short rails
+   on mobile, taller on desktop, same shape. */
 .rc-act-rail {
   position: absolute;
   top: 48px;
   bottom: -36px;
   left: 50%;
   transform: translateX(-50%);
-  width: 1px;
-  background: linear-gradient(
-    180deg,
-    rgba(200, 85, 42, 0.6),
-    rgba(200, 85, 42, 0.12) 80%,
-    transparent
-  );
+  width: 64px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 240' preserveAspectRatio='none'><path d='M30 4 C 0 60 60 180 30 236' stroke='%23c8552a' stroke-opacity='0.55' stroke-width='1.4' fill='none' stroke-linecap='round'/></svg>");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  pointer-events: none;
+}
+/* Mirror every other rail so the curve alternates direction —
+   Act I→II swings one way, II→III the other, III→IV mirrors I→II,
+   and so on. The whole spine reads as a single weaving line. */
+.rc-act:nth-of-type(even) .rc-act-rail {
+  transform: translateX(-50%) scaleX(-1);
 }
 .rc-act:last-child .rc-act-rail { display: none; }
 
