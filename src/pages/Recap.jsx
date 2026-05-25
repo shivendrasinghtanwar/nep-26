@@ -278,24 +278,61 @@ function ActChapter({ phase, idx, entries, side }) {
 //                           Mirror.
 // The SVG uses preserveAspectRatio="none" so the curve stretches naturally
 // to fill whatever width the grid hands it.
+// L-shape orthogonal connector with an arrow head.
+//   direction === 'right' : previous card LEFT, next RIGHT.
+//                           Line goes DOWN from left side, then ELBOW,
+//                           then HORIZONTAL right, with → arrow head.
+//   direction === 'left'  : mirrored — DOWN from right side, elbow,
+//                           HORIZONTAL left, with ← arrow head.
 function ActLink({ direction }) {
-  // Straight diagonal from one side of the grid to the other.
-  // direction === 'right': previous card was LEFT, next is RIGHT → line goes down-right
-  // direction === 'left':  previous card was RIGHT, next is LEFT → line goes down-left
-  const path = direction === 'right'
-    ? 'M 20 0 L 80 100'
-    : 'M 80 0 L 20 100'
+  const isRight = direction === 'right'
   return (
     <div className="rc-act-link" aria-hidden="true">
       <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-        <path
-          d={path}
-          stroke="#c8552a"
-          strokeOpacity="0.55"
-          strokeWidth="1.6"
-          fill="none"
-          strokeLinecap="round"
-        />
+        {isRight ? (
+          <>
+            <path
+              d="M 18 0 L 18 60 L 82 60"
+              stroke="#c8552a"
+              strokeOpacity="0.7"
+              strokeWidth="1.6"
+              fill="none"
+              strokeLinecap="square"
+              strokeLinejoin="miter"
+            />
+            {/* arrow head pointing right at the elbow's far end */}
+            <path
+              d="M 76 52 L 84 60 L 76 68"
+              stroke="#c8552a"
+              strokeOpacity="0.7"
+              strokeWidth="1.6"
+              fill="none"
+              strokeLinecap="square"
+              strokeLinejoin="miter"
+            />
+          </>
+        ) : (
+          <>
+            <path
+              d="M 82 0 L 82 60 L 18 60"
+              stroke="#c8552a"
+              strokeOpacity="0.7"
+              strokeWidth="1.6"
+              fill="none"
+              strokeLinecap="square"
+              strokeLinejoin="miter"
+            />
+            <path
+              d="M 24 52 L 16 60 L 24 68"
+              stroke="#c8552a"
+              strokeOpacity="0.7"
+              strokeWidth="1.6"
+              fill="none"
+              strokeLinecap="square"
+              strokeLinejoin="miter"
+            />
+          </>
+        )}
       </svg>
     </div>
   )

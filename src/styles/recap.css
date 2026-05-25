@@ -55,10 +55,10 @@
 
 /* ─── The Story · zigzag chapter layout ─────────────────────────────────
    Five cards alternate left/right in a 2-column grid. Between every
-   pair of consecutive acts, a full-width `.rc-act-link` SVG draws a
-   single straight diagonal line that exits one card's edge and enters
-   the next. Together the diagonals read as one continuous angular
-   route weaving through the five chapters. */
+   pair of consecutive acts, a full-width `.rc-act-link` SVG draws an
+   L-shape (right-angle) connector with an arrow head — line goes down
+   from one card, elbows 90°, and arrows into the next card on the
+   opposite side. Reads as a clean tactical waypoint diagram. */
 .rc-acts {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -75,7 +75,7 @@
 .rc-act-link {
   grid-column: 1 / -1;
   width: 100%;
-  height: 100px;
+  height: 86px;
   display: block;
 }
 .rc-act-link svg {
