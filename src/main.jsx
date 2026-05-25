@@ -11,6 +11,7 @@ import './styles/legacy-rendered.css'
 import './styles/global.css'
 import './styles/atmosphere.css'
 import './styles/mountaineering.css'
+import './styles/recap.css'
 import 'leaflet/dist/leaflet.css'
 import 'aos/dist/aos.css'
 

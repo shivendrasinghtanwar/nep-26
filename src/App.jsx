@@ -7,6 +7,7 @@ import PageTransitions from './components/PageTransitions.jsx'
 import Home from './pages/Home.jsx'
 import Itinerary from './pages/Itinerary.jsx'
 import Log from './pages/Log.jsx'
+import Recap from './pages/Recap.jsx'
 import Checklist from './pages/Checklist.jsx'
 import Rules from './pages/Rules.jsx'
 import RoutePage from './pages/RoutePage.jsx'
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/itinerary" element={<Itinerary />} />
           <Route path="/log" element={<Log />} />
+          <Route path="/recap" element={<Recap />} />
           <Route path="/checklist" element={<Checklist />} />
           <Route path="/rules" element={<Rules />} />
           <Route path="/route" element={<RoutePage />} />

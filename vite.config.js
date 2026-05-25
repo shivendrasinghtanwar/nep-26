@@ -10,6 +10,7 @@ import path from 'node:path'
 const ROUTES = [
   'itinerary',
   'log',
+  'recap',
   'checklist',
   'rules',
   'route',

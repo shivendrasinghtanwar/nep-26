@@ -9,6 +9,7 @@ const LINKS = [
   { to: '/map',       label: 'Atlas' },
   { to: '/gallery',   label: 'Plates' },
   { to: '/log',       label: 'Log' },
+  { to: '/recap',     label: 'Recap' },
   { sep: true },
   { to: '/itinerary', label: 'Itinerary' },
   { to: '/stays',     label: 'Stays' },
