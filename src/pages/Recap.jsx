@@ -230,6 +230,8 @@ function ActSparkline({ days }) {
 // a connecting straight diagonal line drawn between consecutive acts
 // (see ActLink). Act number lives in the card's "ACT I · OP REPORT"
 // callsign tag.
+// Cartographic chapter card. Cartouche treatment: four corner crosshairs,
+// subtle diagonal hatching, rotated FIELD LOG · WP-XX stamp.
 function ActChapter({ phase, idx, entries, side }) {
   const inRange = entries.filter(
     (e) => e.day >= phase.dayRange[0] && e.day <= phase.dayRange[1]
@@ -240,100 +242,208 @@ function ActChapter({ phase, idx, entries, side }) {
   const roman = ['I', 'II', 'III', 'IV', 'V', 'VI'][idx] || String(idx + 1)
   const altMin = Math.min(...inRange.map(entryAltitude))
   const altMax = Math.max(...inRange.map(entryAltitude))
+  const wpCode = `WP-${String(idx + 1).padStart(2, '0')}`
 
   return (
     <article
       className={`rc-act rc-act-${side}`}
       data-aos={`fade-${side === 'left' ? 'right' : 'left'}`}
     >
-      <div className="rc-act-body">
-        <div className="rc-act-callsign">
-          <span className="rc-act-tag">ACT {roman} · OP REPORT</span>
-          <span className="rc-act-days">D{String(phase.dayRange[0]).padStart(2, '0')}–D{String(phase.dayRange[1]).padStart(2, '0')}</span>
-        </div>
-        <h3 className="rc-act-title">{phase.title}</h3>
-        <div className="rc-act-stat-row">
-          <div className="rc-act-stats">
-            <span><Car size={11} strokeWidth={1.8} /> {km.toLocaleString()} <em>km</em></span>
-            {walkKm > 0 && <span><Footprints size={11} strokeWidth={1.8} /> {walkKm} <em>km</em></span>}
-            <span><Calendar size={11} strokeWidth={1.8} /> {days} <em>days</em></span>
-            <span><Mountain size={11} strokeWidth={1.8} /> {altMin}–{altMax} <em>m</em></span>
+      <div className="rc-act-body rc-act-cartouche">
+        {/* Cartographic grid markers in all four corners */}
+        <span className="rc-act-cor rc-act-cor-tl" aria-hidden="true">+</span>
+        <span className="rc-act-cor rc-act-cor-tr" aria-hidden="true">+</span>
+        <span className="rc-act-cor rc-act-cor-bl" aria-hidden="true">+</span>
+        <span className="rc-act-cor rc-act-cor-br" aria-hidden="true">+</span>
+        {/* Subtle diagonal hatching · terrain-shading texture */}
+        <span className="rc-act-hatch" aria-hidden="true" />
+        {/* Rotated FIELD LOG stamp in the bottom corner OPPOSITE the spine */}
+        <span className={`rc-act-stamp rc-act-stamp-${side === 'left' ? 'br' : 'bl'}`} aria-hidden="true">
+          FIELD LOG · {wpCode}
+        </span>
+        <div className="rc-act-inner">
+          <div className="rc-act-callsign">
+            <span className="rc-act-tag">ACT {roman} · OP REPORT</span>
+            <span className="rc-act-days">D{String(phase.dayRange[0]).padStart(2, '0')}–D{String(phase.dayRange[1]).padStart(2, '0')}</span>
           </div>
-          <ActSparkline days={inRange} />
-        </div>
-        <p className="rc-act-blurb">{phase.blurb}</p>
-        <div className="rc-act-intel">
-          <span className="rc-act-intel-marker">▸ INTEL</span>
-          <span className="rc-act-intel-text">{phase.pin}</span>
+          <h3 className="rc-act-title">{phase.title}</h3>
+          <div className="rc-act-stat-row">
+            <div className="rc-act-stats">
+              <span><Car size={11} strokeWidth={1.8} /> {km.toLocaleString()} <em>km</em></span>
+              {walkKm > 0 && <span><Footprints size={11} strokeWidth={1.8} /> {walkKm} <em>km</em></span>}
+              <span><Calendar size={11} strokeWidth={1.8} /> {days} <em>days</em></span>
+              <span><Mountain size={11} strokeWidth={1.8} /> {altMin}–{altMax} <em>m</em></span>
+            </div>
+            <ActSparkline days={inRange} />
+          </div>
+          <p className="rc-act-blurb">{phase.blurb}</p>
+          <div className="rc-act-intel">
+            <span className="rc-act-intel-marker">▸ INTEL</span>
+            <span className="rc-act-intel-text">{phase.pin}</span>
+          </div>
         </div>
       </div>
     </article>
   )
 }
 
-// Curve drawn between two consecutive acts in the zigzag.
-//   direction === 'right' : we just placed a LEFT card, next is RIGHT.
-//                           Curve exits the left half and arrives on right.
-//   direction === 'left'  : we just placed a RIGHT card, next is LEFT.
-//                           Mirror.
-// The SVG uses preserveAspectRatio="none" so the curve stretches naturally
-// to fill whatever width the grid hands it.
-// L-shape orthogonal connector with an arrow head.
-//   direction === 'right' : previous card LEFT, next RIGHT.
-//                           Line goes DOWN from left side, then ELBOW,
-//                           then HORIZONTAL right, with → arrow head.
-//   direction === 'left'  : mirrored — DOWN from right side, elbow,
-//                           HORIZONTAL left, with ← arrow head.
-function ActLink({ direction }) {
-  const isRight = direction === 'right'
+// Waypoint pin badge — circle disc with Roman numeral inside, surrounded
+// by two faint signal rings and four small cardinal tick marks.
+function PinBadge({ roman }) {
   return (
-    <div className="rc-act-link" aria-hidden="true">
-      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-        {isRight ? (
-          <>
-            <path
-              d="M 18 0 L 18 60 L 82 60"
-              stroke="#c8552a"
-              strokeOpacity="0.7"
-              strokeWidth="1.6"
-              fill="none"
-              strokeLinecap="square"
-              strokeLinejoin="miter"
+    <svg viewBox="0 0 48 48" className="rc-pin" aria-hidden="true">
+      <circle cx="24" cy="24" r="21" fill="none" stroke="#d4a574" strokeOpacity="0.35" strokeWidth="0.6" />
+      <circle cx="24" cy="24" r="18" fill="none" stroke="#d4a574" strokeOpacity="0.18" strokeWidth="0.4" strokeDasharray="1 2" />
+      <line x1="24" y1="3"  x2="24" y2="6"  stroke="#d4a574" strokeOpacity="0.6" strokeWidth="0.8" />
+      <line x1="24" y1="42" x2="24" y2="45" stroke="#d4a574" strokeOpacity="0.6" strokeWidth="0.8" />
+      <line x1="3"  y1="24" x2="6"  y2="24" stroke="#d4a574" strokeOpacity="0.6" strokeWidth="0.8" />
+      <line x1="42" y1="24" x2="45" y2="24" stroke="#d4a574" strokeOpacity="0.6" strokeWidth="0.8" />
+      <circle cx="24" cy="24" r="15" fill="#0a1424" stroke="#c8552a" strokeWidth="1.6" />
+      <text
+        x="24" y="29"
+        textAnchor="middle"
+        fill="#c8552a"
+        fontFamily="'Bebas Neue', sans-serif"
+        fontSize="15"
+        fontWeight="700"
+        letterSpacing="0.04em"
+      >
+        {roman}
+      </text>
+    </svg>
+  )
+}
+
+// Compass rose at the top of the Story section — vintage map flourish.
+function CompassRose() {
+  return (
+    <svg viewBox="0 0 80 80" className="rc-compass" aria-hidden="true">
+      <circle cx="40" cy="40" r="34" fill="none" stroke="#d4a574" strokeOpacity="0.6" strokeWidth="0.7" />
+      <circle cx="40" cy="40" r="28" fill="none" stroke="#d4a574" strokeOpacity="0.3" strokeWidth="0.5" strokeDasharray="2 3" />
+      <path d="M 40 6 L 35 36 L 40 30 L 45 36 Z" fill="#c8552a" />
+      <path d="M 40 74 L 35 44 L 40 50 L 45 44 Z" fill="#d4a574" fillOpacity="0.45" />
+      <path d="M 6  40 L 36 35 L 30 40 L 36 45 Z" fill="#d4a574" fillOpacity="0.45" />
+      <path d="M 74 40 L 44 35 L 50 40 L 44 45 Z" fill="#d4a574" fillOpacity="0.45" />
+      <text x="40" y="16" textAnchor="middle" fill="#c8552a" fontFamily="monospace" fontSize="8" fontWeight="700">N</text>
+      <text x="40" y="68" textAnchor="middle" fill="#d4a574" fillOpacity="0.7" fontFamily="monospace" fontSize="7">S</text>
+      <text x="10" y="42" textAnchor="middle" fill="#d4a574" fillOpacity="0.7" fontFamily="monospace" fontSize="7">W</text>
+      <text x="70" y="42" textAnchor="middle" fill="#d4a574" fillOpacity="0.7" fontFamily="monospace" fontSize="7">E</text>
+    </svg>
+  )
+}
+
+// Trip-total scale bar — vintage cartographic legend element at the
+// bottom of the Story section.
+function ScaleBar({ totalKm }) {
+  const ticks = [0, 0.25, 0.5, 0.75, 1].map((t) => Math.round(totalKm * t))
+  return (
+    <div className="rc-scalebar" aria-hidden="true">
+      <span className="rc-scalebar-label">Scale · trip total</span>
+      <svg viewBox="0 0 320 28" className="rc-scalebar-svg" preserveAspectRatio="xMidYMid meet">
+        <line x1="6" y1="14" x2="314" y2="14" stroke="#d4a574" strokeOpacity="0.75" strokeWidth="0.8" />
+        {[0, 1, 2, 3].map((i) => {
+          const x1 = 6 + (i * 77)
+          return (
+            <rect
+              key={i}
+              x={x1} y={11} width={77} height={6}
+              fill={i % 2 === 0 ? '#d4a574' : 'transparent'}
+              fillOpacity={i % 2 === 0 ? 0.18 : 0}
+              stroke="#d4a574"
+              strokeOpacity="0.5"
+              strokeWidth="0.6"
             />
-            {/* arrow head pointing right at the elbow's far end */}
-            <path
-              d="M 76 52 L 84 60 L 76 68"
-              stroke="#c8552a"
-              strokeOpacity="0.7"
-              strokeWidth="1.6"
-              fill="none"
-              strokeLinecap="square"
-              strokeLinejoin="miter"
-            />
-          </>
-        ) : (
-          <>
-            <path
-              d="M 82 0 L 82 60 L 18 60"
-              stroke="#c8552a"
-              strokeOpacity="0.7"
-              strokeWidth="1.6"
-              fill="none"
-              strokeLinecap="square"
-              strokeLinejoin="miter"
-            />
-            <path
-              d="M 24 52 L 16 60 L 24 68"
-              stroke="#c8552a"
-              strokeOpacity="0.7"
-              strokeWidth="1.6"
-              fill="none"
-              strokeLinecap="square"
-              strokeLinejoin="miter"
-            />
-          </>
-        )}
+          )
+        })}
+        {[0, 1, 2, 3, 4].map((i) => {
+          const x = 6 + (i * 77)
+          return <line key={i} x1={x} y1="9" x2={x} y2="19" stroke="#d4a574" strokeOpacity="0.85" strokeWidth="0.8" />
+        })}
+        {ticks.map((km, i) => (
+          <text
+            key={i}
+            x={6 + (i * 77)}
+            y={26}
+            textAnchor="middle"
+            fill="#d4a574" fillOpacity="0.85"
+            fontFamily="monospace"
+            fontSize="7.5"
+            letterSpacing="0.08em"
+          >
+            {km.toLocaleString()}
+          </text>
+        ))}
+        <text x="320" y="9" textAnchor="end" fill="#c8552a" fontFamily="monospace" fontSize="7" letterSpacing="0.1em">KM</text>
       </svg>
+    </div>
+  )
+}
+
+// L-shape connector between two consecutive cards.
+//   direction === 'right' : previous card LEFT, next RIGHT. Horizontal arm
+//                           exits the previous card's RIGHT edge, turns
+//                           90° at the corner (pin sits here), drops down,
+//                           arrow head points into the next card's top.
+//   direction === 'left'  : mirror.
+function ActLink({ direction, wpCode, roman, alt }) {
+  const isRight = direction === 'right'
+  const cornerX = isRight ? 76 : 24
+  // Horizontal arm sits at y=4 (top of the connector, which due to the
+  // -180px margin-top in CSS is at the previous card's vertical middle).
+  // Path: from column boundary (x=50) outward, rounded 90° corner, then
+  // straight down to y=96 where the CSS arrow head sits at the bottom.
+  const cornerArc = isRight
+    ? 'M 70 4 Q 76 4 76 10'
+    : 'M 30 4 Q 24 4 24 10'
+  const horizPath = isRight ? 'M 50 4 L 70 4' : 'M 50 4 L 30 4'
+  const vertPath = `M ${cornerX} 10 L ${cornerX} 96`
+
+  return (
+    <div className={`rc-act-link rc-act-link-${direction}`} aria-hidden="true">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+        {/* HORIZONTAL ARM · dotted + ruler ticks */}
+        <path
+          d={horizPath}
+          stroke="#c8552a" strokeOpacity="0.75" strokeWidth="1.8"
+          strokeDasharray="2 5" fill="none" strokeLinecap="round"
+          vectorEffect="non-scaling-stroke"
+        />
+        {(isRight ? [56, 60, 64, 68] : [32, 36, 40, 44]).map((x) => (
+          <Fragment key={`hx${x}`}>
+            <line x1={x} y1="0"  x2={x} y2="2" stroke="#d4a574" strokeOpacity="0.55" strokeWidth="0.6" vectorEffect="non-scaling-stroke" />
+            <line x1={x} y1="6"  x2={x} y2="8" stroke="#d4a574" strokeOpacity="0.55" strokeWidth="0.6" vectorEffect="non-scaling-stroke" />
+          </Fragment>
+        ))}
+        {/* Rounded 90° corner */}
+        <path
+          d={cornerArc}
+          stroke="#c8552a" strokeOpacity="0.75" strokeWidth="1.8"
+          fill="none" strokeLinecap="round"
+          vectorEffect="non-scaling-stroke"
+        />
+        {/* VERTICAL ARM · dotted + ruler ticks */}
+        <path
+          d={vertPath}
+          stroke="#c8552a" strokeOpacity="0.75" strokeWidth="1.8"
+          strokeDasharray="2 5" fill="none" strokeLinecap="round"
+          vectorEffect="non-scaling-stroke"
+        />
+        {[24, 38, 52, 66, 80].map((y) => (
+          <Fragment key={`vy${y}`}>
+            <line x1={cornerX - 4} y1={y} x2={cornerX - 2} y2={y} stroke="#d4a574" strokeOpacity="0.55" strokeWidth="0.6" vectorEffect="non-scaling-stroke" />
+            <line x1={cornerX + 2} y1={y} x2={cornerX + 4} y2={y} stroke="#d4a574" strokeOpacity="0.55" strokeWidth="0.6" vectorEffect="non-scaling-stroke" />
+          </Fragment>
+        ))}
+      </svg>
+      {/* Pin badge anchored ABOVE the L's corner, with WP-code + altitude
+          stacked below the pin itself. */}
+      <div className="rc-act-link-pin">
+        <PinBadge roman={roman} />
+        <span className="rc-act-link-wp">{wpCode}</span>
+        <span className="rc-act-link-alt">{alt.toLocaleString()}<em>m</em></span>
+      </div>
+      {/* Downward triangle arrow head touching the next card's top */}
+      <span className="rc-act-link-arrow" />
     </div>
   )
 }
@@ -766,21 +876,43 @@ export default function Recap() {
         <div className="recap-section-head">
           <span className="rc-eyebrow">Story</span>
           <h2>In <span className="accent">five acts</span></h2>
-          <p className="muted">Five chapters · each with its own altitude signature. The Mustang spike on Act III is the trip in one glance.</p>
+          <p className="muted">Cards alternate left/right; L-shape route between them carries waypoint pins at each turn. Compass rose above, scale bar below.</p>
         </div>
         <div className="rc-acts">
+          {/* Compass rose at the section's "north" — vintage map flourish */}
+          <div className="rc-compass-wrap">
+            <CompassRose />
+            <span className="rc-compass-cap">NEP-26 · 9–24 MAY 2026</span>
+          </div>
+
           {PHASES.map((p, i) => {
             const side = i % 2 === 0 ? 'left' : 'right'
             const nextSide = (i + 1) % 2 === 0 ? 'left' : 'right'
+            const nextPhase = PHASES[i + 1]
             return (
               <Fragment key={p.id}>
                 <ActChapter phase={p} idx={i} entries={entries} side={side} />
-                {i < PHASES.length - 1 && (
-                  <ActLink direction={nextSide === 'right' ? 'right' : 'left'} />
-                )}
+                {nextPhase && (() => {
+                  const nextInRange = entries.filter(
+                    (e) => e.day >= nextPhase.dayRange[0] && e.day <= nextPhase.dayRange[1]
+                  )
+                  const nextAlt = Math.max(...nextInRange.map(entryAltitude))
+                  const nextRoman = ['I', 'II', 'III', 'IV', 'V', 'VI'][i + 1]
+                  return (
+                    <ActLink
+                      direction={nextSide === 'right' ? 'right' : 'left'}
+                      wpCode={`WP-${String(i + 2).padStart(2, '0')}`}
+                      roman={nextRoman}
+                      alt={nextAlt}
+                    />
+                  )
+                })()}
               </Fragment>
             )
           })}
+
+          {/* Scale bar caps the section · trip total */}
+          <ScaleBar totalKm={stats.totalKm} />
         </div>
       </section>
 
