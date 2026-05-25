@@ -676,7 +676,7 @@ export default function Recap() {
       </section>
 
       {/* ────────── ROUTE MAP ────────── */}
-      <section className="recap-section" id="map">
+      <section className="recap-section" id="route">
         <div className="recap-section-head">
           <span className="rc-eyebrow">Route</span>
           <h2>Where we <span className="accent">went</span></h2>
