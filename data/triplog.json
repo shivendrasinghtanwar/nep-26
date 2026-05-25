@@ -3,7 +3,7 @@
     "title": "NEP-26 Field Log",
     "subtitle": "What actually happened",
     "vehicle": "Mahindra Thar Roxx · Thar Digital Services",
-    "lastUpdated": "2026-05-22"
+    "lastUpdated": "2026-05-23"
   },
   "entries": [
     {
@@ -661,6 +661,56 @@
           "icon": "🍽",
           "tone": "info",
           "text": "KC's Restaurant & Home (Gaida Chowk, Sauraha · on the Rapti bank) · solid Nepali kitchen, fair prices, garden seating. Friday evenings are busy with Indian tourist families (Sauraha is weekend-trip distance from the UP/Bihar border)."
+        }
+      ]
+    },
+    {
+      "day": 15,
+      "date": "2026-05-23",
+      "weekday": "Sat",
+      "leg": "Sauraha → Sunauli border → Gorakhpur → Lucknow → Agra 🇮🇳",
+      "km": 820,
+      "hours": "~15 h",
+      "route": "Sauraha-Bhairahawa hills · Sunauli exit · NH27 · Purvanchal · Agra-Lucknow Expressway",
+      "status": "done",
+      "walkKm": 0,
+      "notes": "Last day in Nepal. Woke up *full* — that specific kind of full a long trip leaves you with — packed the Roxx, and started the long road home. Border crossing, an avoidable accident in Gorakhpur, and a 1 AM Agra arrival. One of the longest driving days of the trip.\n\n### Sauraha → Sunauli · 3 hours\n- Buffet breakfast at Hotel Jungle Crown, packed everything into the Thar, headed out.\n- About **3 hours** to the border — small hilly stretch in the middle. Single fuel top-up just before Bhairahawa (we'd heard rumours of a *fuel crisis on the Indian side* — wanted the Roxx full at the crossing).\n\n### The Sunauli crossing · two sides, two moods\n- **Nepal side**: an official walked over, took the Bhansar paperwork, checked it, *chuckled* — *\"still 2 days left.\"* We said happily *we're done.* He shrugged: *\"Oh phir toh waste ho gya na.\"* Two days of permit unused; small price for the surplus we got in Mustang and Kathmandu.\n- **India side**: the chaos hit us before we crossed the gate. Luggage scan required — parked, unloaded the trolleys, got into line. Crowd, shouting, no real queue logic.\n- **The Nagaur army officer** — checking IDs, saw the address, *chuckled.* He's also from **Nagaur, Rajasthan**. Walked us through the rest of the scan process at his own pace. *The charm of Nepal followed us across the border for ten more minutes.*\n- Packed everything back into the Thar. **India · after 14 nights.** Surreal again — January's idea, now closed at the same gate we'd opened it at on Day 2.\n\n### Gorakhpur · fuel hunt + the Swift incident\n- Headed straight for Gorakhpur. Could have stayed on the bypass; chose the city for lunch + fuel. *Lunch at KFC, fine.* The fuel hunt was a *thing.*\n- **8 or 9 stations** scouted across the city, all dry on diesel. Finally found one with stock — and a massive queue. Knew we had to wait. Got in line behind a **Maruti Swift**, switched the engine off (*dashcam off too — turned out to be a mistake*).\n- The Swift's driver got out to talk to the pump staff, *left his family in the car.* The kid inside *somehow disengaged the handbrake.* The Swift started rolling backwards.\n- Before I could react, it hit the **front-left of the Thar.** Their bumper nearly crumpled — nothing on mine *except* my **fog light got knocked out of its housing.**\n- Driver came running, argument started, I tried to explain. **Wanted the fuel more than the fight** — let it go, got into another line, finally tanked up, and pushed out.\n- *Reader: keep the dashcam on. Always. Even in line. Especially in line.*\n\n### Gorakhpur → Lucknow → Agra · the expressway push\n- Back on the **Purvanchal / Lucknow expressway** — felt like familiar territory after the Mustang roads. Cruise control + ADAS doing the work.\n- **Lucknow by 7 PM.** Sort-of-early dinner there. Original plan said sleep in Lucknow. *We decided to push.*\n- Got back on the **Agra-Lucknow Expressway** — the same expressway that had given us our first taste of Indian highway running on Day 1, fourteen nights ago. Felt almost ceremonial coming back down it the other direction.\n- **Agra by 1 AM.** Pre-booked **[Radisson Hotel Agra](https://www.google.com/maps/search/?api=1&query=Radisson+Hotel+Agra+Fatehabad+Road)** (Fatehabad Road, Taj Nagri). Walked in, dropped onto the bed, asleep.",
+      "hotel": {
+        "name": "Radisson Hotel Agra",
+        "location": "Fatehabad Road, Taj Nagri 1, Agra",
+        "map": "https://www.google.com/maps/search/?api=1&query=Radisson+Hotel+Agra+Fatehabad+Road"
+      },
+      "delta": "↑ Pushed all the way to Agra instead of stopping at Lucknow · saves the last 350 km tomorrow.",
+      "events": [
+        {
+          "icon": "🪪",
+          "tone": "info",
+          "text": "Bhansar exit at Sunauli · *2 days unused.* The Nepali official chuckled — \"waste ho gya na.\" Surplus is fine. Mustang ran ahead-of-plan and we still arrived at the border two days before the deadline. Better than the other way."
+        },
+        {
+          "icon": "🤝",
+          "tone": "info",
+          "text": "The Nagaur army officer at the India-side Sunauli scan · same hometown, smoothed the customs / scan process. The trip's last 'people made it work' encounter — Nepal's hospitality energy followed us across the gate for ten more minutes."
+        },
+        {
+          "icon": "⛽",
+          "tone": "warn",
+          "text": "Gorakhpur diesel crisis · 8-9 stations scouted across the city, all dry. Finally got fuel at one with a 30+ vehicle queue. If you're crossing back through UP and the fuel-crisis rumours are circulating, *tank up on the Nepal side at Bhairahawa* (we did — saved us)."
+        },
+        {
+          "icon": "💥",
+          "tone": "warn",
+          "text": "GORAKHPUR FUEL-LINE INCIDENT · was queued behind a Maruti Swift, engine off (dashcam off too). Swift driver stepped out to talk to pump staff, left his family inside; kid disengaged the handbrake, Swift rolled backwards into the Thar's front-left. Their bumper nearly crumpled, our fog light got knocked out of its housing. Tried to argue, gave up — fuel mattered more than the fight. **LESSON: keep dashcam recording even when stationary in a queue.**"
+        },
+        {
+          "icon": "🛣",
+          "tone": "info",
+          "text": "Agra-Lucknow Expressway closing the loop · the same road that opened the trip on Day 1 (Bikaner → Lucknow push past Agra) closed it on Day 15 (Lucknow → Agra at midnight). 14 nights between the same two expressway entries. Quietly satisfying symmetry."
+        },
+        {
+          "icon": "🛏",
+          "tone": "info",
+          "text": "Radisson Hotel Agra (Fatehabad Road, Taj Nagri) · pre-booked. 1 AM arrival after a 15-hour driving day. Drop-on-the-bed sleep. Tomorrow is the last leg — Agra → Bikaner."
         }
       ]
     }
