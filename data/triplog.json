@@ -3,7 +3,7 @@
     "title": "NEP-26 Field Log",
     "subtitle": "What actually happened",
     "vehicle": "Mahindra Thar Roxx · Thar Digital Services",
-    "lastUpdated": "2026-05-23"
+    "lastUpdated": "2026-05-24"
   },
   "entries": [
     {
@@ -711,6 +711,51 @@
           "icon": "🛏",
           "tone": "info",
           "text": "Radisson Hotel Agra (Fatehabad Road, Taj Nagri) · pre-booked. 1 AM arrival after a 15-hour driving day. Drop-on-the-bed sleep. Tomorrow is the last leg — Agra → Bikaner."
+        }
+      ]
+    },
+    {
+      "day": 16,
+      "date": "2026-05-24",
+      "weekday": "Sun",
+      "leg": "Agra → Jaipur → Bikaner 🏠",
+      "km": 410,
+      "hours": "~13 h",
+      "route": "Agra (internal) · NH21/NH48 to Jaipur · NH11 · Chomu · Sikar bypass · Bikaner",
+      "status": "done",
+      "walkKm": 0,
+      "notes": "The home run. *Began the trip from Bikaner, ended it in Bikaner.* In between: 4,400+ km, two countries, five geographies, twelve named human encounters, one wild rhino on a village street, one Mustang win, one altitude scare averted, and a small dossier full of texture.\n\n### Morning · Taj from the terrace\n- Up at **7:30 AM**. A Radisson breakfast buffet doesn't get skipped — slow plate, no rush.\n- Hotel staff mentioned the **Taj is visible from the terrace**. Went up after breakfast. Clicked the *return-to-India* picture with the Taj in frame behind us. Some bookends just write themselves.\n- **On the road by 9 AM.**\n\n### Agra exit · Google's revenge\n- Google routed us through **busy internal Agra city roads** instead of the ring road. Did not love it. Eventually cleared out.\n- Full fuel top-up at an Agra station before pushing on — diesel here was easy, the Gorakhpur crisis was already behind us.\n\n### Lunch at Jaipur · with Lalit\n- Could have used the **Jaipur bypass**; chose the city instead because we were arriving by 2:30 PM and **[Lalit](https://www.instagram.com/)** — my college junior and friend — was meeting us for lunch.\n- Properly nice slow meal. Long-time friend, four years since we'd seen each other, an hour and a half of catch-up. The last named human encounter of the trip.\n- **Out of Jaipur by 3:30 PM** — the final frontier ahead.\n\n### NH11 · Jaipur → Bikaner · the closing stretch\n- Out-of-Jaipur traffic was *heavy*, average speed dropped to single digits in patches. Slow grind through to Chomu.\n- Past **Chomu**, traffic finally opened up. Climbed across **Sikar bypass**.\n- **Tea break at [Hotel Highway Haveli](https://www.google.com/maps/search/?api=1&query=Hotel+Highway+Haveli+Sikar+bypass)** just past Sikar bypass at **6:40 PM**. Quick — 15 minutes. Google said home by 10:30 PM.\n- The last stretch — **NH11, two-lane undivided, post-sunset Rajasthan** — turned out to be **the hardest driving of the whole trip.** No median to block oncoming lights. Every modified-light truck, every high-beam SUV, every aftermarket LED bar coming the other way was burning straight into our eyes. *Mustang's broken roads in daylight were easier than NH11 after dark.*\n- Endured it. Tucked behind big trucks for retina relief whenever possible. Slow, steady, deliberate.\n- **Home in Bikaner at 10:35 PM.** Engine off. *Trip closed.*",
+      "hotel": {
+        "name": "Home · Bikaner",
+        "location": "Bikaner, Rajasthan",
+        "map": "https://www.google.com/maps/search/?api=1&query=Bikaner+Rajasthan"
+      },
+      "delta": "🏠 The map closed on itself. Bikaner → Muktinath → Bikaner · 16 days · 4,400+ km · everything intact.",
+      "events": [
+        {
+          "icon": "🕌",
+          "tone": "info",
+          "text": "Taj Mahal from Radisson Agra's terrace · the hotel staff tipped us off. Clicked the *return-to-India* picture with the Taj behind us. Trip bookend captured without trying."
+        },
+        {
+          "icon": "🤝",
+          "tone": "info",
+          "text": "Lunch with Lalit (college junior) in Jaipur · last named human encounter of the trip, four years since we'd last met. The trip ran on people from start to end — Ukrainian Thar fan, Siva-and-Amit ×3, French hitchhikers, the Lo Mustang manager, Mr Mann at Art Cafe, Ayush at Pashupatinath, the Nagaur army officer, and Lalit. Nine names in the dossier."
+        },
+        {
+          "icon": "🌙",
+          "tone": "warn",
+          "text": "**NH11 after dark was the hardest driving of the trip.** Two-lane, no median, every oncoming vehicle's modified high-beam burning your retinas. Mustang's broken roads in daylight were genuinely easier. If you can avoid this stretch at night, do — leave Jaipur earlier or break the journey at Sikar."
+        },
+        {
+          "icon": "🚛",
+          "tone": "info",
+          "text": "Truck-tucking technique on NH11 night drive · positioning behind a large truck *cuts oncoming high-beam glare by ~80%* because the truck blocks the headlight line-of-sight. Slow but easier on the eyes. Useful on any undivided night highway."
+        },
+        {
+          "icon": "🏠",
+          "tone": "info",
+          "text": "**HOME · 10:35 PM** · 16 days after we left, the Roxx back in its own parking spot. Bikaner → Lucknow → Sunauli → Butwal → Pokhara → Muktinath → Pokhara → Kathmandu → Chitwan → Sunauli → Agra → Bikaner. The map closed on itself."
         }
       ]
     }
