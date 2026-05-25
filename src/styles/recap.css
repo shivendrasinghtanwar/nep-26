@@ -53,88 +53,70 @@
   max-width: 760px;
 }
 
-/* ─── The Story · vertical chapter timeline ─────────────────────────────
-   Single column. Each "act" is a tactical mission-brief styled card with
-   a Roman numeral on the left spine, an inline altitude sparkline that
-   gives each chapter a unique visual fingerprint, and an INTEL callout
-   for the pinned moment.
+/* ─── The Story · zigzag chapter layout ─────────────────────────────────
+   Five cards alternate left/right in a 2-column grid. Between every
+   pair of consecutive acts, a full-width `.rc-act-link` SVG draws a
+   single S-curve that exits one card's edge and enters the next.
+   Together the curves read as one continuous winding road weaving
+   through the five chapters.
 
-   Acts are connected by a thin rust rail between Roman numerals so the
-   whole section reads as one continuous timeline, not five floating
-   boxes. */
+   Each card carries a giant Roman-numeral watermark (low-opacity rust)
+   in the background — magazine chapter-opener feel. Content sits on
+   top of the watermark via z-index. */
 .rc-acts {
-  position: relative;
-  max-width: 820px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  max-width: 1100px;
   margin: 8px auto 0;
 }
-.rc-act {
-  display: grid;
-  grid-template-columns: 64px 1fr;
-  gap: 22px;
-  position: relative;
-  padding: 4px 0 36px;
-}
-.rc-act:last-child { padding-bottom: 0; }
+.rc-act { position: relative; }
+.rc-act-left  { grid-column: 1 / 2; padding-right: 24px; }
+.rc-act-right { grid-column: 2 / 3; padding-left: 24px; }
 
-/* Roman numeral pillar + connecting rail */
-.rc-act-spine {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* The continuous connector between two consecutive cards.
+   Each link takes the full grid width and draws the curve via SVG. */
+.rc-act-link {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 100px;
+  display: block;
 }
-.rc-act-roman {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 48px;
-  height: 48px;
-  padding: 0 6px;
-  background: var(--night);
-  border: 1px solid rgba(200, 85, 42, 0.4);
-  color: var(--rust);
-  font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  line-height: 1;
-  z-index: 2;
+.rc-act-link svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
-/* Connector between Roman numerals = a serpentine S-curve, not a
-   straight rail. Reads as actual movement from one place to another
-   (like a winding mountain road). Direction alternates per act so the
-   timeline weaves down the page instead of running flat.
-
-   The SVG is embedded as a CSS data-URI so the curve scales with
-   whatever rail-container height the layout produces — short rails
-   on mobile, taller on desktop, same shape. */
-.rc-act-rail {
-  position: absolute;
-  top: 48px;
-  bottom: -36px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 64px;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 240' preserveAspectRatio='none'><path d='M30 4 C 0 60 60 180 30 236' stroke='%23c8552a' stroke-opacity='0.55' stroke-width='1.4' fill='none' stroke-linecap='round'/></svg>");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-position: center;
-  pointer-events: none;
-}
-/* Mirror every other rail so the curve alternates direction —
-   Act I→II swings one way, II→III the other, III→IV mirrors I→II,
-   and so on. The whole spine reads as a single weaving line. */
-.rc-act:nth-of-type(even) .rc-act-rail {
-  transform: translateX(-50%) scaleX(-1);
-}
-.rc-act:last-child .rc-act-rail { display: none; }
 
 /* Chapter body */
 .rc-act-body {
   background: linear-gradient(180deg, var(--shadow), var(--ridge));
   border: 1px solid var(--line);
-  padding: 18px 22px 18px;
+  padding: 18px 22px;
   position: relative;
+  overflow: hidden;
+}
+
+/* Giant Roman-numeral watermark · sits behind the content via z-index */
+.rc-act-watermark {
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: 150px;
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: 0.04em;
+  color: rgba(200, 85, 42, 0.10);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  white-space: nowrap;
+}
+.rc-act-right .rc-act-watermark {
+  right: auto;
+  left: -10px;
 }
 .rc-act-body::before,
 .rc-act-body::after {
@@ -147,6 +129,13 @@
 }
 .rc-act-body::before { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
 .rc-act-body::after  { bottom: -1px; right: -1px; border-left: 0; border-top: 0; }
+
+/* All real card content lives above the watermark */
+.rc-act-callsign,
+.rc-act-title,
+.rc-act-stat-row,
+.rc-act-blurb,
+.rc-act-intel { position: relative; z-index: 1; }
 
 .rc-act-callsign {
   display: flex;
@@ -249,19 +238,22 @@
 }
 .rc-act-intel-text { color: var(--cream); }
 
-@media (max-width: 640px) {
-  .rc-act {
-    grid-template-columns: 48px 1fr;
-    gap: 14px;
-    padding-bottom: 26px;
+/* Mobile: zigzag collapses to a single column. The S-curves become
+   tight vertical waves and the cards sit full-width — no left/right
+   alternation room on a phone. */
+@media (max-width: 720px) {
+  .rc-acts { grid-template-columns: 1fr; }
+  .rc-act-left,
+  .rc-act-right {
+    grid-column: 1 / -1;
+    padding-left: 0;
+    padding-right: 0;
   }
-  .rc-act-roman {
-    min-width: 36px; height: 36px;
-    font-size: 16px;
-  }
-  .rc-act-rail { top: 36px; bottom: -26px; }
+  .rc-act-link { height: 56px; }
   .rc-act-body { padding: 14px 16px; }
   .rc-act-title { font-size: 18px; }
+  .rc-act-watermark { font-size: 110px; right: -6px; }
+  .rc-act-right .rc-act-watermark { left: -6px; }
   .rc-act-stat-row { flex-direction: column; align-items: flex-start; gap: 10px; }
   .rc-act-spark { flex-basis: auto; width: 100%; max-width: 280px; height: 48px; }
 }
