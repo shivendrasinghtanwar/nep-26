@@ -408,6 +408,9 @@
    tight vertical waves and the cards sit full-width — no left/right
    alternation room on a phone. */
 @media (max-width: 720px) {
+  /* Acts collapse to a single full-width column. The L-shape connector
+     can't fit beside a full-width card, so on mobile we degrade gracefully
+     to a centred vertical dotted line with pin + arrow stacked on it. */
   .rc-acts { grid-template-columns: 1fr; }
   .rc-act-left,
   .rc-act-right {
@@ -415,11 +418,48 @@
     padding-left: 0;
     padding-right: 0;
   }
-  .rc-act-link { height: 56px; }
+
+  /* Disable the desktop overlap + hide the L-path SVG */
+  .rc-act-link {
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 130px;
+  }
+  .rc-act-link > svg { display: none; }
+  /* Replace with a simple centred vertical dotted line via pseudo-element */
+  .rc-act-link::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    bottom: 14px;
+    left: 50%;
+    width: 0;
+    border-left: 1.8px dashed rgba(200, 85, 42, 0.75);
+    transform: translateX(-50%);
+  }
+  /* Pin centred horizontally + vertically on the line */
+  .rc-act-link-right .rc-act-link-pin,
+  .rc-act-link-left  .rc-act-link-pin {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  /* Arrow head at the bottom, centred */
+  .rc-act-link-right .rc-act-link-arrow,
+  .rc-act-link-left  .rc-act-link-arrow {
+    left: 50%;
+  }
+
+  /* Card body adjustments */
   .rc-act-body { padding: 14px 16px; }
   .rc-act-title { font-size: 18px; }
   .rc-act-stat-row { flex-direction: column; align-items: flex-start; gap: 10px; }
   .rc-act-spark { flex-basis: auto; width: 100%; max-width: 280px; height: 48px; }
+
+  /* Stamps + corners scale slightly down so they don't dominate small cards */
+  .rc-act-stamp { font-size: 7.5px; padding: 2px 5px; bottom: 10px; }
+  .rc-act-stamp-bl { left: 16px; }
+  .rc-act-stamp-br { right: 16px; }
 }
 
 /* ── Chart container · used by altitude + daily km ──────────────────────── */
@@ -529,7 +569,7 @@
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
   gap: 14px;
 }
 .rc-encounter {
@@ -596,7 +636,7 @@
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: 14px;
 }
 .rc-lesson {
@@ -758,6 +798,16 @@
     grid-template-columns: 24px 100px 1fr 50px;
     gap: 8px;
   }
+  /* Encounter side rail shrinks to fit small screens */
+  .rc-encounter-side { flex: 0 0 56px; padding: 12px 4px; }
+  .rc-encounter-cat { font-size: 8px; }
+  /* Hotel rows can wrap their map link onto a new line if cramped */
+  .rc-hotel { flex-wrap: wrap; }
+  .rc-hotel-map { margin-top: 8px; }
+  /* Scale bar gets compressed but stays readable */
+  .rc-scalebar-svg { width: 280px; }
+  /* Compass + caption sit closer together */
+  .rc-compass-wrap { margin-bottom: 18px; }
 }
 
 /* ── Plan vs Actual ─────────────────────────────────────────────────────── */
